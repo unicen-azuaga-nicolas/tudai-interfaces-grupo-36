@@ -1,0 +1,172 @@
+/* Estilo general de la página */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #121212;
+    
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('assets/background.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Color negro con 50% de opacidad */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    
+}
+/* Contenedor del formulario */
+.form-container {
+    position: relative;
+    width: 240px;
+    padding: 20px;
+    background: #333333;
+    border-radius: 8px;
+}
+
+/* Título del formulario */
+h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 24px;
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.6rem;
+    font-weight: medium;
+}
+
+/* Estilo para los parrafos del formulario */
+form p {
+    margin: 0;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 5px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: #F5F5F5;
+    border: 1px solid #AEAEAE;
+    color: #ffffff;
+    font-size: 0.6rem;
+}
+
+/* Cambiar color del borde al hacer clic (focus) */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #DE05FF;
+    outline: none;
+    box-shadow: 0 0 1px #DE05FF;
+}
+
+/* Placeholder del campo */
+input::placeholder {
+    color: #cccccc;
+}
+
+/* Contenedor del checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+
+/* Espacio entre checkbox y label */
+.checkbox-container input {
+    width: 20px;
+    height: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Botón de registro */
+button[type="submit"] {
+    padding: 5px;
+    background: #DE05FF;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(90deg, #ff007f, #ff00ff);
+}
+
+/* Linea divisora */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    margin: 20px 0;
+}
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #fff;
+}
+.divider::before {
+    margin-right: .5em;
+}
+.divider::after {
+    margin-left: .5em;
+}
+
+/* Estilo de los enlaces de redes sociales */
+.social-login {
+    display: flex;
+    justify-content: center;
+}
+
+/* Iconos de redes sociales */
+.social-login a {
+    color: #ffffff;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+.social-login svg {
+    fill: currentColor;
+  }
+
+.social-login a:hover {
+    background: #444444;
+}
+
