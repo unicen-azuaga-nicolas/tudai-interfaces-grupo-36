@@ -170,3 +170,15 @@ button[type="submit"]:hover {
     background: #444444;
 }
 
+.link {
+    color: #ffffff;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    font-size: 0.6rem;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #DE05FF;
+}

@@ -10,15 +10,25 @@
 <body>
     <div class="container">
         <div class="form-container">
-            <h2>Iniciar sesión</h2>
+            <h2>Regístrate y diviértete</h2>
             <form>
+                <p>Nombre y Apellido:</p>
+                <input type="text" placeholder="Nombre y Apellido" required>
+
                 <p>Email:</p>
-                <input type="text" placeholder="Email" required>
+                <input type="email" placeholder="Email" required>
 
                 <p>Contraseña:</p>
                 <input type="password" placeholder="Contraseña" required>
-                
-                <button type="submit">Login</button>
+
+                <p>Repetir Contraseña:</p>
+                <input type="password" placeholder="Repetir Contraseña" required>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="robot-check">
+                    <label for="robot-check">No soy un robot</label>
+                </div>
+                <button type="submit">Registrarse</button>
             </form>
             <div class="divider">O</div>
             <div class="social-login">
@@ -33,7 +43,7 @@
                     </svg>
                 </a>
             </div>
-            <a class="link" href="register.html">No tienes cuenta? Regístrate</a>
+            <a class="link" href="index.html">Ya tienes cuenta? Logeate</a>
         </div>
     </div>
 </body>
