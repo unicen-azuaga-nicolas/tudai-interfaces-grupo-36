@@ -6,21 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
     <title>Play Zone - Login</title>
 </head>
 
 <body>
-    <main class="container">
+    <nav class="navbar">
+        <div class="navbar__item"></div>
+        <div class="navbar__item navbar__logo">
+            <a href="#" class="navbar__link">
+                <img src="assets/logo.svg" alt="logo">
+            </a>
+        </div>
+        <ul class="navbar__item">
+            <li class="navbar__item"><a class=" navbar__button navbar__button--outline"
+                    href="pages/register.html">Registro</a></li>
+        </ul>
+    </nav>
+    <main class="container container--background">
 
-        <form class="form">
+        <form class="form" onsubmit="return false;">
             <h2 class="form__title">Iniciar sesión</h2>
-            <label class="form__label" for="email">Email:</label>
-            <input id="email" type="text" placeholder="Email" required>
+            <div class="form__inputs">
+                <label class="form__label" for="email">Mail</label>
+                <input class="form__input" id="email" type="text" placeholder="Mail" required>
 
-            <label class="form__label" for="password">Contraseña:</label>
-            <input id="password" type="password" placeholder="Contraseña" required>
+                <label class="form__label" for="password">Contraseña</label>
+                <input class="form__input" id="password" type="password" placeholder="Contraseña" required>
+            </div>
 
-            <button class="btn btn--primary" type="submit">Login</button>
+            <button class="btn btn--primary" type="submit" onclick="location.href='./pages/home.html'">Login</button>
 
             <div class="divider">O</div>
             <div class="social-login">
