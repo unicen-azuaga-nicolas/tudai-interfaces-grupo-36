@@ -4,6 +4,7 @@
 :root {
   /* Colores */
   --color-primary: #de05ff;
+  --color-primary600: #AE23C3;
   --color-secondary: #333333;
   --color-accent: #14a600;
   --background-color: #222121;
@@ -418,15 +419,16 @@ body {
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-12);
 }
-.container--img{
+/*page game-detail */
+.container--img{  /*contenedor de imagen 4 en linea: POKEMON */
   position: relative;
 }
-.img--4enlinea{
+.img--4enlinea{ /* imagen 4 en linea: POKEMON */
   width: 1054px;
   height: 512px;
   position: relative;
 }
-.title h1{
+.title h1{ /* titulo 4 en linea: POKEMON */
   position: absolute;
   color: white;
   background: #121212;
@@ -434,7 +436,7 @@ body {
   left: 10px;
   z-index: 2;
 }
-.container--icon {
+.container--icon {/* contenedor icono jugar */
   width: 103px;
   height: 103px;
   background-color: #de05ff;
@@ -447,11 +449,11 @@ body {
   left: 50%;
   transform: translate(-50%, 0);
 }
-.container--icon i{
+.container--icon i{/* icono jugar */
   font-size: 275%;
 }
 
-.container--icon--compartir{
+.container--icon--compartir{ /* contenedor icono compartir*/
   width: 42px;
   height: 42px;
   background-color:#333333;
@@ -464,42 +466,93 @@ body {
   right: 120px;
 
 }
-.container--icon--compartir i{
+.container--icon--compartir i{/*icono compartir*/
   font-size: 100%;
 }
 
-.contenedor--subtitulo--4enlinea i, h1{
+.contenedor--subtitulo--4enlinea i, h1{/*estrellas y subtitulo: 4.0*/
   display: inline;
   font-size: 24pt;
 }
-.contenedor--subtitulo--4enlinea i{
+.contenedor--subtitulo--4enlinea i{/* estrellas*/
   color: rgba(245, 186, 37, 1);
 }
-.contenedor--subtitulo--4enlinea h1{
+.contenedor--subtitulo--4enlinea h1{/* subtitulo: 4.0*/
   color: white;
 }
-.contenedor--reglas--juego{
+.contenedor--reglas--juego--preview{/*contenedor general de reglas y pre visualizacion*/
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap:  234px; 
+  margin-left: 60px;
+  margin-right: 60px;
+}
+.contenedor--reglas--juego{/*contenedor reglas*/
   width: 479.51px;
   height: 284px;
   margin-top: 132px;
+  flex: 1;
 }
-.contenedor--regla{
+.contenedor--preview--juego{/*contenedor pre visualizacion*/
+  margin-top: 132px;
+  flex: 1;
+}
+.contenedor--regla{/*item regla*/
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    padding: 8px 0;
 }
-.contenedor--regla i,h3{
+.contenedor--regla i,h3{/*iconos y h3*/
   display: inline-block;
-  font-size: 16px;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  font-size: 24px;
+  margin-bottom: 4px;
 }
-.h3--regla{
+.h3--regla{/*h3 de regla*/
   margin-left: 8px;
 }
-hr .linea{
+hr .linea{/*linea*/
   border: 1px solid #de05ff; 
   width: 50%; 
   margin: 20px auto;
 }
+.img--preview--juego{/*imagen pre visualizacion del juego*/
+  max-width: 100%;
+  height: auto;
+}
+
+.container--especificacion--juego{/*contenedor desplegable especificaiones*/
+  width: 479.51px;
+  height: auto;
+  background-color:  #333333;
+  border-radius: 4px;
+}
+.container--especificacion--juego p{/*parrafos desplegable especificaiones*/
+  font-size: 16px;
+  color: white;
+}
+.container--especificacion--juego p, img{
+  padding: 42px;
+}
+.container--especificacion--juego img{/*imagen desplegable especificaiones*/
+  width: 80%;
+  height: auto;
+  display: block;
+}
+details{/*recurso para animacion*/
+  padding: 0.5em 0.5em 0;
+}
+summary{/*recurso para animacion*/
+  padding: 0.5em;
+}
+details > summary {
+  list-style: none;
+}
+details[open] {
+  padding: 0em;
+}
+details[open] summary {
+  border-bottom: 1px solid white;
+  margin-bottom: 0.5em;
+}
+
