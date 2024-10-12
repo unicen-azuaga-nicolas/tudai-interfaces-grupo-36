@@ -420,16 +420,31 @@ body {
   font-size: var(--font-size-12);
 }
 /*page game-detail */
-.container--img{  /*contenedor de imagen 4 en linea: POKEMON */
+.container--game{
+  display: flex;
+  justify-content: center; /* Centra los elementos dentro de la columna 
+  /*align-items: center;*/
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
   position: relative;
+  margin-left: 32px;
 }
-.img--4enlinea{ /* imagen 4 en linea: POKEMON */
+.container--img{  /*contenedor de imagen 4 en linea: POKEMON */
   width: 1054px;
   height: 512px;
   position: relative;
+  justify-content: center;
+  align-items: center; 
 }
-.title h1{ /* titulo 4 en linea: POKEMON */
-  position: absolute;
+.img--4enlinea{ /* imagen 4 en linea: POKEMON */
+  width: 100%;
+  position: relative;
+  margin-left: 32px;
+}
+.container--game .title--container--game, h1{ /* titulo 4 en linea: POKEMON */
+  margin-top: 41px;
+  margin-left: 70px;
   color: white;
   background: #121212;
   top:10px;
@@ -445,9 +460,9 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 0);
+  top: 60%;
+  left: 60%;
+  transform: translate(-60%, 0);
 }
 .container--icon i{/* icono jugar */
   font-size: 275%;
@@ -462,8 +477,8 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 60px;
-  right: 120px;
+  top: 70px;
+  right: -40px;
 
 }
 .container--icon--compartir i{/*icono compartir*/
@@ -473,6 +488,14 @@ body {
 .contenedor--subtitulo--4enlinea i, h1{/*estrellas y subtitulo: 4.0*/
   display: inline;
   font-size: 24pt;
+  margin-right: 8px;
+
+}
+.contenedor--subtitulo--4enlinea{
+  position:relative;
+  margin-top:132px;
+  margin-left: 8px;
+
 }
 .contenedor--subtitulo--4enlinea i{/* estrellas*/
   color: rgba(245, 186, 37, 1);
@@ -487,6 +510,7 @@ body {
   gap:  234px; 
   margin-left: 60px;
   margin-right: 60px;
+  margin-bottom: 0;
 }
 .contenedor--reglas--juego{/*contenedor reglas*/
   width: 479.51px;
@@ -556,3 +580,86 @@ details[open] summary {
   margin-bottom: 0.5em;
 }
 
+.contenedor--comentarios{
+  margin-top: 68px;
+  width: 1054px;
+  height: auto;
+  position: relative;
+  text-align: left;
+}
+.contenedor--img--info--usuario{
+   display: flex;
+   align-items: center;
+   margin-top: 48px;
+   padding: 0;
+}
+.contenedor--info--usuario{
+   display:flex;
+   flex-direction: column;
+   margin: 0;
+   padding: 0;
+}
+.img--avatar {
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+}
+.img--avatar {
+  margin-left: 100px;
+  margin-right: 8px;
+}
+.contenedor--comentarios .title--container--game.h3{
+  margin-bottom: 16px;
+  font-size: 24px;
+  color: white;
+}
+.nombre--usuario p{
+  font-size: 16px;
+  color: white;
+  margin: 0;
+  padding: 0;
+  
+}
+.mail--usuario p{
+  font-size: 12px;
+  color:#999999;
+  margin: 0;
+  padding: 0;
+}
+.contenedor--calificar {
+  margin-top: 16px;
+  margin-left: 100px;
+}
+.contenedor--calificar i, p{
+  display: inline;
+  font-size: 16pt;
+  color: #808080;
+  margin-right: 8px;
+}
+.container--calificar p{
+  color:#999999;
+}
+.container--calificar i{
+  color: #808080;
+}
+.contenedor-text-area {
+  margin-left: 60px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.contenedor-text-area textarea{
+  background: #121212;
+  margin-left: 40px;
+  margin-right: 40px;
+  width: 974px;
+  height: 200px;
+}
+.contenedor-text-area textarea ::placeholder{
+  font-family: "Roboto", sans-serif;
+}
+.contenedor-text-area p {
+  display: inline;
+  font-size: 12pt;
+  color: #808080;
+  margin-left: 976px;
+}
