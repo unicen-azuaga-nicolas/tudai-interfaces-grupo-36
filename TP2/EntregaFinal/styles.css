@@ -79,6 +79,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   color: white;
+  position: relative;
 }
 
 .container--background {
@@ -416,4 +417,89 @@ body {
   color: var(--grey-400);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-12);
+}
+.container--img{
+  position: relative;
+}
+.img--4enlinea{
+  width: 1054px;
+  height: 512px;
+  position: relative;
+}
+.title h1{
+  position: absolute;
+  color: white;
+  background: #121212;
+  top:10px;
+  left: 10px;
+  z-index: 2;
+}
+.container--icon {
+  width: 103px;
+  height: 103px;
+  background-color: #de05ff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.container--icon i{
+  font-size: 275%;
+}
+
+.container--icon--compartir{
+  width: 42px;
+  height: 42px;
+  background-color:#333333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 60px;
+  right: 120px;
+
+}
+.container--icon--compartir i{
+  font-size: 100%;
+}
+
+.contenedor--subtitulo--4enlinea i, h1{
+  display: inline;
+  font-size: 24pt;
+}
+.contenedor--subtitulo--4enlinea i{
+  color: rgba(245, 186, 37, 1);
+}
+.contenedor--subtitulo--4enlinea h1{
+  color: white;
+}
+.contenedor--reglas--juego{
+  width: 479.51px;
+  height: 284px;
+  margin-top: 132px;
+}
+.contenedor--regla{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 8px 0;
+}
+.contenedor--regla i,h3{
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.h3--regla{
+  margin-left: 8px;
+}
+hr .linea{
+  border: 1px solid #de05ff; 
+  width: 50%; 
+  margin: 20px auto;
 }
