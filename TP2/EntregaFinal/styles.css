@@ -41,7 +41,7 @@
   --font-weight-extra-bold: 800;
 
   /* Spacing 8px system */
-  --spacing-0: 0px;
+  --spacing-0: 4px;
   --spacing-1: 8px;
   --spacing-2: 16px;
   --spacing-3: 24px;
@@ -176,6 +176,8 @@ body {
   border: 1px solid #aeaeae;
   gap: 10px;
   padding: var(--spacing-1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Cambiar color del borde al hacer clic (focus) */
@@ -224,6 +226,7 @@ body {
   font-size: var(--font-size-12);
   font-weight: var(--font-weight-medium);
   height: 30px;
+  width: 100%;
 }
 
 .btn--primary {
@@ -416,4 +419,104 @@ body {
   color: var(--grey-400);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-12);
+}
+
+.fat-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  color: var(--grey-200);
+  width: 100%;
+}
+
+.fat-footer__item {
+  margin-right: var(--spacing-6);
+}
+
+.fat-footer__header {
+  width: 100%;
+  text-align: center;
+  background-color: var(--grey-700);
+  padding-top: var(--spacing-0);
+  padding-bottom: var(--spacing-0);
+}
+
+.fat-footer__body {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+  padding-left: var(--spacing-8);
+  padding-right: var(--spacing-8);
+}
+
+.fat-footer__list-title {
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-1);
+}
+
+.fat-footer__list {
+  list-style: none;
+  text-align: left;
+}
+
+.fat-footer__list-item {
+  text-align: left;
+  margin-bottom: var(--spacing-1);
+}
+
+.fat-footer__link {
+  text-decoration: none;
+  color: var(--grey-200);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-light);
+}
+
+.fat-footer__link:hover {
+  color: var(--color-primary);
+}
+
+.fat-footer__suscribe {
+  /* background-color: red; */
+}
+
+.fat-footer__subtitle {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-light);
+  margin-top: var(--spacing-1);
+  margin-bottom: var(--spacing-1);
+}
+
+.fat-footer__separator {
+  width: 80%;
+  height: 1px;
+  background-color: var(--grey-700);
+  background-color: #ccc;
+  border: none;
+}
+
+.fat-footer__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-1);
+  margin-top: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.fat-footer__social-list {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.fat-footer__social-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
