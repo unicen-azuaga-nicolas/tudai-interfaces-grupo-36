@@ -224,7 +224,7 @@ body {
   cursor: pointer;
   transition: background 0.3s ease;
   font-size: var(--font-size-12);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
   height: 30px;
   width: 100%;
 }
