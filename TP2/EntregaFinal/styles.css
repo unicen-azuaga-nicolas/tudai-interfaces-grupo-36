@@ -70,15 +70,16 @@ body {
 .display-none {
   display: none;
 }
-
+main {
+  min-height: 100vh;
+  color: white;
+}
 /* Contenedor principal */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 100vh;
-  color: white;
 }
 
 .container--background {
