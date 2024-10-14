@@ -109,6 +109,10 @@
   font-size: 2rem;
 }
 
+.slide__character-img--reduce-30 {
+  width: 30%;
+}
+
 .bullets {
   display: flex;
   justify-content: center;
@@ -136,6 +140,28 @@
   background-color: #666;
 }
 
-.slide__character-img--reduce-30 {
-  width: 30%;
+.chevron {
+  width: 90%;
+  height: fit-content;
+  font-size: 32px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.chevron:hover {
+  cursor: pointer;
+}
+
+.chevron--left {
+  cursor: pointer;
+}
+
+.chevron--right {
+  cursor: pointer;
 }

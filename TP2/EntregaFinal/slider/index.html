@@ -13,10 +13,6 @@
 <body>
     <section class="container">
         <div class="slider-wrapper">
-            <div
-                style="transform: translate(200%);font-size: 32px; height: 100%; display: flex; justify-content: center; align-items: center;">
-                <i class="fa-solid fa-chevron-left" style="color: white"></i>
-            </div>
             <div class="slider">
                 <div class="slide slide--background-primary">
                     <div class="slide__content">
@@ -55,21 +51,20 @@
                     <button class="slide__button">Jugar</button>
                     <img id="slide-3" src="assets/war-game.png" alt="" srcset="">
                 </div>
-                <!-- <img id="slide-2" class="slide"
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
-                    alt="" srcset=""> -->
-                <!-- <img id="slide-3" class="slide"
-                    src="https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2842&q=80"
-                    alt="" srcset=""> -->
             </div>
             <div class="bullets">
                 <a href="#slide-1" class="active"></a>
                 <a href="#slide-2"></a>
                 <a href="#slide-3"></a>
             </div>
-            <div
-                style="transform: translate(-200%);  font-size: 32px;  height: 100%;  display: flex; justify-content: center; align-items: center;">
-                <i class="fa-solid fa-chevron-right" style="color: white"></i>
+            <div class="chevron">
+                <a class="chevron--left prev">
+                    <i class="fa-solid fa-chevron-left" style="color: white"></i>
+                </a>
+                <a class="chevron--right next">
+                    <i class="fa-solid fa-chevron-right" style="color: white"></i>
+                </a>
+
             </div>
         </div>
     </section>

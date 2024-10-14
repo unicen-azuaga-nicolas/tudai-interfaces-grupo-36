@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".bullets a");
   const slides = document.querySelectorAll(".slide");
   const slider = document.querySelector(".slider");
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
   let currentIndex = 0;
   const autoPlayInterval = 5000;
   let autoPlayTimer;
@@ -16,6 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.forEach((nav) => nav.classList.remove("active"));
     navLinks[index].classList.add("active");
   }
+
+  const nextSlide = () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    goToSlide(currentIndex);
+  };
+
+  const prevSlide = () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    goToSlide(currentIndex);
+  };
 
   navLinks.forEach((link, index) => {
     link.addEventListener("click", (event) => {
@@ -60,13 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Iniciar auto play al cargar la página
-//   startAutoPlay();
+  //   startAutoPlay();
 
   // Detener auto play al hacer hover en el slider
-//   slider.addEventListener("mouseenter", stopAutoPlay);
+  //   slider.addEventListener("mouseenter", stopAutoPlay);
 
-//   // Reanudar auto play al quitar el hover del slider
-//   slider.addEventListener("mouseleave", startAutoPlay);
+  //   // Reanudar auto play al quitar el hover del slider
+  //   slider.addEventListener("mouseleave", startAutoPlay);
 
   // Variables para manejar el swipe
   let startX = 0;
@@ -97,4 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
       goToSlide(currentIndex);
     }
   });
+
+  // Botones de siguiente y anterior
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
 });
