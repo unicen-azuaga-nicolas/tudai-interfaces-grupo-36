@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f8680ec25a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="slider.css">
+    <title>Slider</title>
+</head>
+
+<body>
+    <section class="container">
+        <div class="slider-wrapper">
+            <div
+                style="transform: translate(200%);font-size: 32px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                <i class="fa-solid fa-chevron-left" style="color: white"></i>
+            </div>
+            <div class="slider">
+                <div class="slide slide--background-primary">
+                    <div class="slide__content">
+                        <h3 class="slide__title">
+                            Call of Duty
+                        </h3>
+                        <p class="slide__description">
+                            Call of Duty es una serie de videojuegos de disparos en primera persona
+                        </p>
+                    </div>
+                    <button class="slide__button">Jugar</button>
+                    <img id="slide-1" class="slide__character-img" src="assets/fortnite.png" alt="" srcset="">
+                </div>
+                <div class="slide slide--background-secondary">
+                    <div class="slide__content">
+                        <h3 class="slide__title">
+                            Call of Duty
+                        </h3>
+                        <p class="slide__description">
+                            Call of Duty es una serie de videojuegos de disparos en primera persona
+                        </p>
+                    </div>
+                    <button class="slide__button">Jugar</button>
+                    <img id="slide-2" class="slide__character-img slide__character-img--reduce-30"
+                        src="assets/sonic.png" alt="" srcset="">
+                </div>
+                <div class="slide">
+                    <div class="slide__content">
+                        <h3 class="slide__title">
+                            Call of Duty
+                        </h3>
+                        <p class="slide__description">
+                            Call of Duty es una serie de videojuegos de disparos en primera persona
+                        </p>
+                    </div>
+                    <button class="slide__button">Jugar</button>
+                    <img id="slide-3" src="assets/war-game.png" alt="" srcset="">
+                </div>
+                <!-- <img id="slide-2" class="slide"
+                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
+                    alt="" srcset=""> -->
+                <!-- <img id="slide-3" class="slide"
+                    src="https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2842&q=80"
+                    alt="" srcset=""> -->
+            </div>
+            <div class="bullets">
+                <a href="#slide-1" class="active"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+            </div>
+            <div
+                style="transform: translate(-200%);  font-size: 32px;  height: 100%;  display: flex; justify-content: center; align-items: center;">
+                <i class="fa-solid fa-chevron-right" style="color: white"></i>
+            </div>
+        </div>
+    </section>
+    <script src="slider.js"></script>
+</body>
+
+</html>
