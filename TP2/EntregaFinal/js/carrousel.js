@@ -1,11 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.querySelector('.carrousel')) {
-        // Slider dragging
-        const slider = document.querySelector('.carrousel');
+    // Seleccionar todos los carruseles
+    const sliders = document.querySelectorAll('.carrousel');
+
+    // Iterar sobre cada carrusel
+    sliders.forEach((slider) => {
         let isDown = false;
         let startX;
         let scrollLeft;
+        let velX = 0;
+        let momentumID;
 
+        // Slider dragging
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
             slider.classList.add('active');
@@ -29,16 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX); //scroll-fast
+            const walk = (x - startX); // scroll-fast
             var prevScrollLeft = slider.scrollLeft;
             slider.scrollLeft = scrollLeft - walk;
             velX = slider.scrollLeft - prevScrollLeft;
         });
 
         // Momentum 
-        var velX = 0;
-        var momentumID;
-
         slider.addEventListener('wheel', (e) => {
             cancelMomentumTracking();
         });
@@ -61,14 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Scroll
-        const scrollContainer = document.querySelector(".whiskey-cards");
+        const scrollContainer = slider.querySelector(".carrousel-item");
 
-        scrollContainer.addEventListener("wheel", (evt) => {
-            evt.preventDefault();
-
-            window.requestAnimationFrame(() => {
-                scrollContainer.scrollTo({ top: 0, left: scrollContainer.scrollLeft + (evt.deltaY * 2), behavior: "smooth" });
+        if (scrollContainer) {
+            scrollContainer.addEventListener("wheel", (evt) => {
+                evt.preventDefault();
+                window.requestAnimationFrame(() => {
+                    scrollContainer.scrollTo({ top: 0, left: scrollContainer.scrollLeft + (evt.deltaY * 2), behavior: "smooth" });
+                });
             });
-        });
-    }
+        }
+    });
 });

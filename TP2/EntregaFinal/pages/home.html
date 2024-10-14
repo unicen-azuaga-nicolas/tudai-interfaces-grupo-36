@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="../styles/loader.css">
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/fatfooter.css">
+    <link rel="stylesheet" href="../styles/carrousel.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="icon" href="../assets/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="../assets/favicon.png">
     <title>Play Zone - Home</title>
 </head>
-
 <body>
     <div class="loader">
         <div class="loader__spinner"></div>
@@ -22,10 +22,40 @@
     </div>
     <nav class="navbar">
         <div class="navbar__item">
-            <div class="navbar__hamburger">
-                <span class="navbar__line"></span>
-                <span class="navbar__line"></span>
-                <span class="navbar__line"></span>
+            <div class="navbar__hamburger" >
+                <div class="hamburger" id="menuToggle">
+                    <span class="navbar__line"></span>
+                    <span class="navbar__line"></span>
+                    <span class="navbar__line"></span>
+                </div>
+                <div id="menu" class="menu">
+                    <ul>
+                        <div>
+                            <li class="perfil"><i class="fas fa-user"></i> <a href="#perfil">Mi Perfil</a></li>
+                            <li class="comunidad"><i class="fas fa-users"></i> <a href="#comunidad">Comunidad</a></li>
+                            <li class="continuar"><i class="fas fa-fire"></i> <a href="#continuar">Continuar Jugando</a></li>
+                        </div>
+                        <div>
+                            <li><i class="fas fa-fist-raised"></i> <a href="#accion">Accion</a></li>
+                            <li><i class="fas fa-basketball-ball"></i> <a href="#deportes">Deportes</a></li>
+                            <li><i class="fas fa-ghost"></i> <a href="#clasicos">Clasicos</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="#carreras">Carreras</a></li>
+                            <li><i class="fas fa-book"></i> <a href="#aventura">Aventura</a></li>
+                            <li><i class="fas fa-bug"></i> <a href="#terror">Terror</a></li>
+                            <li><i class="fas fa-brain"></i> <a href="#estrategia">Estrategia</a></li>
+                        </div>
+                        <div class="divider-menu"></div>
+                        <div>
+                            <li><i class="fab fa-instagram"></i> <a href="#instagram">Instagram</a></li>
+                            <li><i class="fab fa-twitch"></i> <a href="#twitch">Twitch</a></li>
+                            <li><i class="fab fa-youtube"></i> <a href="#youtube">Youtube</a></li>
+                        </div>
+                        <div class="divider-menu"></div>
+                        <div>
+                            <li><i class="fas fa-sign-out-alt"></i> <a href="#logout">Cerrar Sesion</a></li>
+                        </div>
+                    </ul>
+                </div>
             </div>
             <div class="navbar__search">
                 <input type="text" placeholder="¿A qué jugamos?" class="navbar__search__input" aria-label="Buscar">
@@ -62,73 +92,151 @@
         </div>
  
         <!-- Carrousel -->
-        <div class="carrousel alignfull">
-            <!-- Card gratis -->
-            <div class="carrousel-item">
-                <div class="game-card">
-                    <img src="..\assets\carrousel\1.jpg" alt="Game Background" class="game-image">
-                    <div class="card-overlay">
-                        <div class="card-top">
-                            <h3 class="game-title">Nombre Del Juego</h3>
-                        </div>
-                        <div class="play-icon">
-                            &#9658;
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Card pro -->
-            <div class="carrousel-item">
-                <div class="game-card">
-                    <img src="..\assets\carrousel\1.jpg" alt="Game Background" class="game-image">
-                    <div class="card-overlay">
-                        <div class="card-top">
-                            <h3 class="game-title">Nombre Del Juego</h3>
-                            <span class="pro-tag">Pro</span>
-                        </div>
-                        <div class="card-bottom">
-                            <button class="buy-button">Comprar</button>
-                            <span class="price">$20.99</span>
+        <div class="carrousel-container">
+            <h2>Para ti</h2>
+            <div class="carrousel alignfull">
+                <!-- Card gratis -->
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\1.jpg" alt="Game Background" class="game-image">
+                        <div class="card-overlay">
+                            <div class="card-top">
+                                <h3 class="game-title">Nombre Del Juego</h3>
+                            </div>
+                            <div class="play-icon">
+                                &#9658;
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Card en carrito -->
-            <div class="carrousel-item">
-                <div class="game-card">
-                    <img src="..\assets\carrousel\1.jpg" alt="Game Background" class="game-image">
-                    <div class="card-overlay">
-                        <div class="card-top">
-                            <h3 class="game-title">Nombre Del Juego</h3>
+                <!-- Card pro -->
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\1.jpg" alt="Game Background" class="game-image">
+                        <div class="card-overlay">
+                            <div class="card-top">
+                                <h3 class="game-title">Nombre Del Juego</h3>
+                                <span class="pro-tag">Pro</span>
+                            </div>
+                            <div class="card-bottom">
+                                <button class="buy-button">Comprar</button>
+                                <span class="price">$20.99</span>
+                            </div>
                         </div>
-                        <div class="card-bottom">
-                            <button class="buy-button">Comprar</button>
-                            <span class="price">$20.99</span>
+                    </div>
+                </div>
+                <!-- Card en carrito -->
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\1.jpg" alt="Game Background" class="game-image">
+                        <div class="card-overlay">
+                            <div class="card-top">
+                                <h3 class="game-title">Nombre Del Juego</h3>
+                            </div>
+                            <div class="card-bottom">
+                                <button class="buy-button">Comprar</button>
+                                <span class="price">$20.99</span>
+                            </div>
+                            <div class="cart-message">En el carrito</div>
                         </div>
-                        <div class="cart-message">En el carrito</div>
+                    </div>
+                </div>
+                <!-- cards basicas -->
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\3.jpg" alt="Game Title" class="game-image">
+                        <span class="pro-tag">PRO</span>
+                        <div class="game-name">Awesome Game Title</div>
+                    </div>
+                </div>
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\4.jpg" alt="Game Title" class="game-image">
+                        <span class="pro-tag">PRO</span>
+                        <div class="game-name">Awesome Game Title</div>
+                    </div>
+                </div>
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\5.jpg" alt="Game Title" class="game-image">
+                        <span class="pro-tag">PRO</span>
+                        <div class="game-name">Awesome Game Title</div>
                     </div>
                 </div>
             </div>
-            <!-- cards basicas -->
-            <div class="carrousel-item">
-                <div class="game-card">
-                    <img src="..\assets\carrousel\3.jpg" alt="Game Title" class="game-image">
-                    <span class="pro-tag">PRO</span>
-                    <div class="game-name">Awesome Game Title</div>
+        </div>
+        
+        <!-- Carrousel -->
+        <div class="carrousel-container">
+            <h2>Continuar Jugando...</h2>
+            <div class="carrousel alignfull">
+                <!-- Card gratis -->
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\1.jpg" alt="Game Background" class="game-image">
+                        <div class="card-overlay">
+                            <div class="card-top">
+                                <h3 class="game-title">Nombre Del Juego</h3>
+                            </div>
+                            <div class="play-icon">
+                                &#9658;
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="carrousel-item">
-                <div class="game-card">
-                    <img src="..\assets\carrousel\4.jpg" alt="Game Title" class="game-image">
-                    <span class="pro-tag">PRO</span>
-                    <div class="game-name">Awesome Game Title</div>
+                <!-- Card pro -->
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\1.jpg" alt="Game Background" class="game-image">
+                        <div class="card-overlay">
+                            <div class="card-top">
+                                <h3 class="game-title">Nombre Del Juego</h3>
+                                <span class="pro-tag">Pro</span>
+                            </div>
+                            <div class="card-bottom">
+                                <button class="buy-button">Comprar</button>
+                                <span class="price">$20.99</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="carrousel-item">
-                <div class="game-card">
-                    <img src="..\assets\carrousel\5.jpg" alt="Game Title" class="game-image">
-                    <span class="pro-tag">PRO</span>
-                    <div class="game-name">Awesome Game Title</div>
+                <!-- Card en carrito -->
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\1.jpg" alt="Game Background" class="game-image">
+                        <div class="card-overlay">
+                            <div class="card-top">
+                                <h3 class="game-title">Nombre Del Juego</h3>
+                            </div>
+                            <div class="card-bottom">
+                                <button class="buy-button">Comprar</button>
+                                <span class="price">$20.99</span>
+                            </div>
+                            <div class="cart-message">En el carrito</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- cards basicas -->
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\3.jpg" alt="Game Title" class="game-image">
+                        <span class="pro-tag">PRO</span>
+                        <div class="game-name">Awesome Game Title</div>
+                    </div>
+                </div>
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\4.jpg" alt="Game Title" class="game-image">
+                        <span class="pro-tag">PRO</span>
+                        <div class="game-name">Awesome Game Title</div>
+                    </div>
+                </div>
+                <div class="carrousel-item">
+                    <div class="game-card">
+                        <img src="..\assets\carrousel\5.jpg" alt="Game Title" class="game-image">
+                        <span class="pro-tag">PRO</span>
+                        <div class="game-name">Awesome Game Title</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -219,7 +327,10 @@
             </ul>
         </section>
     </footer>
+    <script src="https://kit.fontawesome.com/8437a873c6.js" crossorigin="anonymous"></script>
     <script src="../js/carrousel.js"></script>
     <script src="../js/loader.js"></script>
+    <script src="../js/navbar.js"></script>
 </body>
+
 </html>

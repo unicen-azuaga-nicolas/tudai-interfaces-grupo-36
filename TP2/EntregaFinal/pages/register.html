@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/popover.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="icon" href="../assets/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="../assets/favicon.png">
@@ -21,8 +22,8 @@
             </a>
         </div>
         <ul class="navbar__item">
-            <li class="navbar__item"><a class=" navbar__button navbar__button--outline"
-                    href="../index.html">Login</a></li>
+            <li class="navbar__item"><a class=" navbar__button navbar__button--outline" href="../index.html">Login</a>
+            </li>
         </ul>
     </nav>
     <main class="container container--background">
@@ -48,7 +49,8 @@
                 <input class="checkbox__input" type="checkbox" id="robot-check">
                 <label class="checkbox__label" for="robot-check">No soy un robot</label>
             </div>
-            <button class="btn btn--primary" type="submit">Registrarse</button>
+            <button id="registerBtn" class="btn btn--primary" popovertarget="id_popover">Registrarse</button>
+
             <div class="divider">O</div>
             <div class="social-login">
                 <a href="#">
@@ -67,7 +69,19 @@
             <a class="form__link" href="../index.html">Ya tienes cuenta? Logeate</a>
 
         </form>
+
     </main>
+    <div popover id="id_popover">
+        <i class="fas fa-check-circle popover__icon"></i>
+        <p class="popover__text">
+            ¡Registro exitoso!
+        </p>
+        <form id="id_popover_btn">
+            <button class="btn btn--primary">Aceptar</button>
+        </form>
+    </div>
+    <script src="https://kit.fontawesome.com/8437a873c6.js" crossorigin="anonymous"></script>
+    <script src="../js/register.js"></script>
 </body>
 
 </html>
