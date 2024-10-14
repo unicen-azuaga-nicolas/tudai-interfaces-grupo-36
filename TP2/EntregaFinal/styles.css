@@ -70,15 +70,16 @@ body {
 .display-none {
   display: none;
 }
-
+main {
+  min-height: 100vh;
+  color: white;
+}
 /* Contenedor principal */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 100vh;
-  color: white;
 }
 
 .container--background {
@@ -289,4 +290,151 @@ body {
 
 .social-login a:hover {
   background: #444444;
+}
+
+.carrousel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  padding: 48px 48px 0 48px;
+
+}
+
+.carrousel-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 244px;
+  flex-basis: 244px;
+  border-radius: 16px;
+  margin: 8px;
+  padding: 16px;
+  color: #ffffff;
+  transition: all 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.carrousel-item:hover {
+  transform: scale(1.04) translateY(-16px);
+}
+
+.game-card {
+  width: 256px;
+  height: 160px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.game-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fit;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.game-card:hover .card-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.game-title {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-top: 5px;
+}
+
+.game-card:hover .game-title {
+  opacity: 1;
+}
+
+.pro-tag {
+  background-color: #FFD700;
+  color: black;
+  padding: 2px 20px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buy-button {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.game-card:hover .buy-button,
+.game-card:hover .play-icon {
+  opacity: 1;
+}
+
+.price {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.play-icon {
+  font-size: 48px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute; 
+  top: 50%;          
+  left: 50%;        
+  transform: translate(-50%, -50%);
+}
+
+.cart-message {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-accent);
+  color: white;
+  padding: 1px 0;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  font-size: 12px;
+  z-index: 10;
 }
