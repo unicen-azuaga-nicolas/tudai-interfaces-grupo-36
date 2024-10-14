@@ -11,21 +11,47 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="icon" href="../assets/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <title>Play Zone - Home</title>
 </head>
-
 <body>
-    <div class="loader">
-        <div class="loader__spinner"></div>
-        <div class="loader__percentage">Cargando... 0%</div>
-        <div class="loader__bar"></div>
-    </div>
     <nav class="navbar">
         <div class="navbar__item">
-            <div class="navbar__hamburger">
-                <span class="navbar__line"></span>
-                <span class="navbar__line"></span>
-                <span class="navbar__line"></span>
+            <div class="navbar__hamburger" >
+                <div class="hamburger" id="menuToggle">
+                    <span class="navbar__line"></span>
+                    <span class="navbar__line"></span>
+                    <span class="navbar__line"></span>
+                </div>
+                <div id="menu" class="menu">
+                    <ul>
+                        <div>
+                            <li class="perfil"><i class="fas fa-user"></i> <a href="#perfil">Mi Perfil</a></li>
+                            <li class="comunidad"><i class="fas fa-users"></i> <a href="#comunidad">Comunidad</a></li>
+                            <li class="continuar"><i class="fas fa-fire"></i> <a href="#continuar">Continuar Jugando</a></li>
+                        </div>
+                        <div>
+                            <li><i class="fas fa-fist-raised"></i> <a href="#accion">Accion</a></li>
+                            <li><i class="fas fa-basketball-ball"></i> <a href="#deportes">Deportes</a></li>
+                            <li><i class="fas fa-ghost"></i> <a href="#clasicos">Clasicos</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="#carreras">Carreras</a></li>
+                            <li><i class="fas fa-book"></i> <a href="#aventura">Aventura</a></li>
+                            <li><i class="fas fa-bug"></i> <a href="#terror">Terror</a></li>
+                            <li><i class="fas fa-brain"></i> <a href="#estrategia">Estrategia</a></li>
+                        </div>
+                        <div class="divider-menu"></div>
+                        <div>
+                            <li><i class="fab fa-instagram"></i> <a href="#instagram">Instagram</a></li>
+                            <li><i class="fab fa-twitch"></i> <a href="#twitch">Twitch</a></li>
+                            <li><i class="fab fa-youtube"></i> <a href="#youtube">Youtube</a></li>
+                        </div>
+                        <div class="divider-menu"></div>
+                        <div>
+                            <li><i class="fas fa-sign-out-alt"></i> <a href="#logout">Cerrar Sesion</a></li>
+                        </div>
+                    </ul>
+                </div>
             </div>
             <div class="navbar__search">
                 <input type="text" placeholder="¿A qué jugamos?" class="navbar__search__input" aria-label="Buscar">
@@ -144,6 +170,7 @@
     </footer>
     <script src="https://kit.fontawesome.com/8437a873c6.js" crossorigin="anonymous"></script>
     <script src="../js/loader.js"></script>
+    <script src="../js/navbar.js"></script>
 </body>
 
 </html>
