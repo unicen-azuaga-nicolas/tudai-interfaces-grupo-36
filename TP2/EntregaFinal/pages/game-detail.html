@@ -19,17 +19,47 @@
     <nav class="navbar">
         <div class="navbar__item">
             <div class="navbar__hamburger">
-                <span class="navbar__line"></span>
-                <span class="navbar__line"></span>
-                <span class="navbar__line"></span>
+                <div class="hamburger" id="menuToggle">
+                    <span class="navbar__line"></span>
+                    <span class="navbar__line"></span>
+                    <span class="navbar__line"></span>
+                </div>
+                <div id="menu" class="menu">
+                    <ul>
+                        <div>
+                            <li class="perfil"><i class="fas fa-user"></i> <a href="#perfil">Mi Perfil</a></li>
+                            <li class="comunidad"><i class="fas fa-users"></i> <a href="#comunidad">Comunidad</a></li>
+                            <li class="continuar"><i class="fas fa-fire"></i> <a href="#continuar">Continuar Jugando</a>
+                            </li>
+                        </div>
+                        <div>
+                            <li><i class="fas fa-fist-raised"></i> <a href="#accion">Accion</a></li>
+                            <li><i class="fas fa-basketball-ball"></i> <a href="#deportes">Deportes</a></li>
+                            <li><i class="fas fa-ghost"></i> <a href="#clasicos">Clasicos</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="#carreras">Carreras</a></li>
+                            <li><i class="fas fa-book"></i> <a href="#aventura">Aventura</a></li>
+                            <li><i class="fas fa-bug"></i> <a href="#terror">Terror</a></li>
+                            <li><i class="fas fa-brain"></i> <a href="#estrategia">Estrategia</a></li>
+                        </div>
+                        <div class="divider-menu"></div>
+                        <div>
+                            <li><i class="fab fa-instagram"></i> <a href="#instagram">Instagram</a></li>
+                            <li><i class="fab fa-twitch"></i> <a href="#twitch">Twitch</a></li>
+                            <li><i class="fab fa-youtube"></i> <a href="#youtube">Youtube</a></li>
+                        </div>
+                        <div class="divider-menu"></div>
+                        <div>
+                            <li><i class="fas fa-sign-out-alt"></i> <a href="../index.html">Cerrar Sesion</a></li>
+                        </div>
+                    </ul>
+                </div>
             </div>
             <div class="navbar__search">
                 <input type="text" placeholder="¿A qué jugamos?" class="navbar__search__input" aria-label="Buscar">
                 <img class="navbar__search__icon" src="../assets/icons/search-icon.svg" alt="search-icon">
-                <img class="navbar__search__icon" src="../assets/icons/search-icon.svg" alt="search-icon">
             </div>
             <ul class="navbar__links">
-                <li class="navbar__item"><a href="home.html" class="navbar__link">Inicio</a></li>
+                <li class="navbar__item"><a href="#home" class="navbar__link">Inicio</a></li>
             </ul>
         </div>
         <div class="navbar__item navbar__logo">
@@ -49,298 +79,303 @@
         </div>
     </nav>
     <main class="container--game">
-        <h1 class="title--container--game">4 EN LINEA: POKEMON</h1>
-        <div class="container--img">
-            <img class="img img--4enlinea" src="../assets/4enlinea.jpeg" alt="Imagen 4 en linea">
-            <div class="container--icon">
-                <i class="fa-solid fa-gamepad"></i>
+        <section>
+            <h1 class="title--container--game">4 EN LINEA: POKEMON</h1>
+            <div class="container--img">
+                <img class="img img--4enlinea" src="../assets/4enlinea.jpeg" alt="Imagen 4 en linea">
+                <div class="container--icon">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <div class="container--icon--compartir">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </div>
             </div>
-            <div class="container--icon--compartir">
-                <i class="fa-solid fa-share-nodes"></i>
+            <div class="contenedor--subtitulo--4enlinea">
+                <h1 class="h1--4enlinea">4.0</h1>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
             </div>
-        </div>
-        <div class="contenedor--subtitulo--4enlinea">
-            <h1 class="h1--4enlinea">4.0</h1>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-        </div>
-        <div class="contenedor--reglas--juego--preview">
-            <div class="contenedor--reglas--juego">
-                <details>
-                    <summary>
-                        <div class="contenedor--regla">
-                            <div>
-                                <i class="fa-solid fa-table-cells-large"></i>
-                                <h3 class="h3--regla">En Preparacion</h3>
+            <div class="contenedor--reglas--juego--preview">
+                <div class="contenedor--reglas--juego">
+                    <details>
+                        <summary>
+                            <div class="contenedor--regla">
+                                <div>
+                                    <i class="fa-solid fa-table-cells-large"></i>
+                                    <h3 class="h3--regla">En Preparacion</h3>
+                                </div>
+                                <i class="fa-solid fa-chevron-down"></i>
                             </div>
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                    </summary>
-                    <div class="container--especificacion--juego">
-                           <p>
+                        </summary>
+                        <div class="container--especificacion--juego">
+                            <p>
                                 Cada jugador elige su color de fichas.
                                 El tablero (una cuadrícula de 7 columnas
                                 y 6 filas) está vacío al comenzar.
                                 Se decide quién será el jugador que comenzará.
-                           </p>
-                    </div>
-                </details>   
-                <hr class="linea">
-                <details>
-                    <summary>
-                        <div class="contenedor--regla">
-                            <div>
-                                <i class="fa-solid fa-circle-arrow-down"></i>
-                                <h3 class="h3--regla">Como Jugar</h3>
-                            </div>
-                            <i class="fa-solid fa-chevron-down"></i>
+                            </p>
                         </div>
-                    </summary>
-                    <div class="container--especificacion--juego">
-                        <p>
-                            Los jugadores se turnan para dejar caer
-                            una ficha en una columna de su elección.
-                            La ficha cae hasta la posición más baja
-                            disponible en esa columna.
-                            El juego continúa alternando turnos.
-                        </p>
-                   </div>
-                </details>
-                <hr class="linea">
-                <details>
-                    <summary>
-                        <div class="contenedor--regla">
-                            <div>
-                                <i class="fa-solid fa-record-vinyl"></i>
-                                <h3 class="h3--regla">Objetivos</h3>
+                    </details>
+                    <hr class="linea">
+                    <details>
+                        <summary>
+                            <div class="contenedor--regla">
+                                <div>
+                                    <i class="fa-solid fa-circle-arrow-down"></i>
+                                    <h3 class="h3--regla">Como Jugar</h3>
+                                </div>
+                                <i class="fa-solid fa-chevron-down"></i>
                             </div>
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </div>   
-                    </summary>
-                    <div class="container--especificacion--juego">
-                        <p>
-                            El objetivo del juego es ser el primero 
-                            en conseguir cuatro fichas del mismo 
-                            color alineadas de forma horizontal,
-                            vertical o diagonal.
-                        </p>
-                   </div>
-                </details>
-                <hr class="linea">
-                <details>
-                    <summary>
-                        <div class="contenedor--regla">
-                            <div>
-                                <i class="fa-solid fa-award"></i>
-                                <h3 class="h3--regla">Ganar el Juego</h3>
-                            </div>
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </div>   
-                    </summary>
-                    <div class="container--especificacion--juego">
-                        <p>
-                            El primer jugador que alinee cuatro 
-                            fichas consecutivas de su color gana.
-                            Si todas las posiciones del tablero 
-                            se llenan y nadie ha conseguido cuatro 
-                            en línea, el juego termina en empate.
-                        </p>
-                   </div>
-                </details>
-                <hr class="linea">
-                <details>
-                    <summary>
-                        <div class="contenedor--regla">
-                            <div>
-                                <i class="fa-solid fa-gear"></i>
-                                <h3 class="h3--regla">Instrucciones</h3>
-                            </div>
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </div>   
-                    </summary>
-                    <div class="container--especificacion--juego">
-                        <img src="../assets/Instruccionesjuego.png" alt="">
-                   </div>
-                </details>
-            </div>
-            <div class="contenedor--preview--juego">
-                <img class="img--preview--juego" src="../assets/Visiualizacionjuego.png" alt="Pre Visiualizacion Juego">
-            </div>
-        </div>
-        
-        <div class="contenedor--comentarios">
-            <h3 class="title--container--game">Comentarios</h3>
-            <div class="contenedor--img--info--usuario">
-                <img  class="img--avatar" src="../assets/Avatar.png" alt="Avatar de usuario">
-                <div class="contenedor--info--usuario">
-                    <p >Grupo 36</p>
-                    <p class="mail--usuario">@gamer</p> 
-                </div>
-            </div>
-            <div class="contenedor--calificar">
-                <p>Calificar</p>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-            </div>
-            <div class="contenedor-text-area">
-                <textarea name="Comentario" placeholder="Comenta aqui"></textarea>
-                <p>0/200</p>
-            </div>
-            <div>
-                <button class="btn btn--primary--Enviar" >Enviar</button>
-                <button class="btn btn--Outline--Eliminar">Eliminar</button>
-            </div>
-        </div>
-        <div class="contenedor--comentario--realizado">
-            <div class="contenedor--img--info--usuario" id="comentario">
-                <img  class="img--avatar" src="../assets/Avatar.png" alt="Avatar de usuario">
-                <div class="contenedor--info--usuario">
-                    <p class="nombre--usuario">Grupo 36</p>
-                    <p class="mail--usuario">@grupo36</p> 
-                </div>
-            </div>
-            <div class="contenedor--calificar--comentario">
-                <div class="contenedor--calificar--estrellas">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <p>Hace un momento</p>
-            </div>
-            <p class="comentario">Muy buen juego, me encanto</p>
-            <hr class="linea linea--comentario--realizado">
-        </div>
-        <div class="contenedor--comentario--realizado">
-            <div class="contenedor--img--info--usuario" id="comentario">
-                <img  class="img--avatar" src="../assets/JG.png" alt="Avatar de usuario">
-                <div class="contenedor--info--usuario">
-                    <p class="nombre--usuario">JG</p>
-                    <p class="mail--usuario">@zunami</p> 
-                </div>
-            </div>
-            <div class="contenedor--calificar--comentario">
-                <div class="contenedor--calificar--estrellas">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <p>Hace 2 meses</p>
-            </div>
-            <p class="comentario">Jugue mejores :)</p>
-            <hr class="linea linea--comentario--realizado">
-
-        </div>
-        <div class="contenedor--comentario--realizado">
-            <div class="contenedor--img--info--usuario" id="comentario">
-                <img  class="img--avatar" src="../assets/Pepe.png" alt="Avatar de usuario">
-                <div class="contenedor--info--usuario">
-                    <p class="nombre--usuario">Pepe Games</p>
-                    <p class="mail--usuario">@pepegames</p> 
-                </div>
-            </div>
-            <div class="contenedor--calificar--comentario">
-                <div class="contenedor--calificar--estrellas">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <p>Hace 3 meses</p>
-            </div>
-            <p class="comentario">Me re cope jugando :D</p>
-            <hr class="linea linea--comentario--realizado">
-            <button class="btn btn--primary--VerComentarios" > <i class="fa-solid fa-chevron-down"></i> Ver Comentarios</button>
-            <hr class="linea linea--bold">
-        </div>
-        <div class="contenedor--Comunidad">
-            <h1>Comunidad</h1>
-            <div class="contenedor--comunidad--img">
-                <details>
-                    <summary>
-                        <div class="elemento"> 
-                            <img  class="img--avatar--comunidad" src="../assets/Default(1).png" alt="Avatar de usuario">
+                        </summary>
+                        <div class="container--especificacion--juego">
+                            <p>
+                                Los jugadores se turnan para dejar caer
+                                una ficha en una columna de su elección.
+                                La ficha cae hasta la posición más baja
+                                disponible en esa columna.
+                                El juego continúa alternando turnos.
+                            </p>
                         </div>
-                    </summary>
-                    <div class="contenedor--especificaciones--avatar">
-                        <a href="EnviarMensaje"><i class="fa-solid fa-paper-plane"></i>Enviar Mensaje</a>
-                        <a href="VerPerfil"><i class="fa-solid fa-user"></i>Ver PErfil</a>
-                    </div>
-                </details>
-                
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(2).png" alt="Avatar de usuario">
+                    </details>
+                    <hr class="linea">
+                    <details>
+                        <summary>
+                            <div class="contenedor--regla">
+                                <div>
+                                    <i class="fa-solid fa-record-vinyl"></i>
+                                    <h3 class="h3--regla">Objetivos</h3>
+                                </div>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                        </summary>
+                        <div class="container--especificacion--juego">
+                            <p>
+                                El objetivo del juego es ser el primero
+                                en conseguir cuatro fichas del mismo
+                                color alineadas de forma horizontal,
+                                vertical o diagonal.
+                            </p>
+                        </div>
+                    </details>
+                    <hr class="linea">
+                    <details>
+                        <summary>
+                            <div class="contenedor--regla">
+                                <div>
+                                    <i class="fa-solid fa-award"></i>
+                                    <h3 class="h3--regla">Ganar el Juego</h3>
+                                </div>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                        </summary>
+                        <div class="container--especificacion--juego">
+                            <p>
+                                El primer jugador que alinee cuatro
+                                fichas consecutivas de su color gana.
+                                Si todas las posiciones del tablero
+                                se llenan y nadie ha conseguido cuatro
+                                en línea, el juego termina en empate.
+                            </p>
+                        </div>
+                    </details>
+                    <hr class="linea">
+                    <details>
+                        <summary>
+                            <div class="contenedor--regla">
+                                <div>
+                                    <i class="fa-solid fa-gear"></i>
+                                    <h3 class="h3--regla">Instrucciones</h3>
+                                </div>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                        </summary>
+                        <div class="container--especificacion--juego">
+                            <img src="../assets/Instruccionesjuego.png" alt="">
+                        </div>
+                    </details>
                 </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
+                <div class="contenedor--preview--juego">
+                    <img class="img--preview--juego" src="../assets/Visiualizacionjuego.png"
+                        alt="Pre Visiualizacion Juego">
                 </div>
-                <div class="elemento"> 
-                    <img  class="img--avatar--comunidad" src="../assets/Default(4).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento"> 
-                    <img  class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(6).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">  
-                    <img  class="img--avatar--comunidad" src="../assets/Default(6).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento"> 
-                    <img  class="img--avatar--comunidad" src="../assets/Default(7).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(8).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento"> 
-                    <img  class="img--avatar--comunidad" src="../assets/Default(8).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(1).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(2).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(4).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento"> 
-                    <img  class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(1).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(2).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(4).png" alt="Avatar de usuario">
-                </div>
-                <div class="elemento">
-                    <img  class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
-                </div>
-               
             </div>
 
-        </div>
-        </div>
+            <div class="contenedor--comentarios">
+                <h3 class="title--container--game">Comentarios</h3>
+                <div class="contenedor--img--info--usuario">
+                    <img class="img--avatar" src="../assets/Avatar.png" alt="Avatar de usuario">
+                    <div class="contenedor--info--usuario">
+                        <p>Grupo 36</p>
+                        <p class="mail--usuario">@gamer</p>
+                    </div>
+                </div>
+                <div class="contenedor--calificar">
+                    <p>Calificar</p>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <div class="contenedor-text-area">
+                    <textarea name="Comentario" placeholder="Comenta aqui"></textarea>
+                    <p>0/200</p>
+                </div>
+                <div>
+                    <button class="btn btn--primary--Enviar">Enviar</button>
+                    <button class="btn btn--Outline--Eliminar">Eliminar</button>
+                </div>
+            </div>
+            <div class="contenedor--comentario--realizado">
+                <div class="contenedor--img--info--usuario" id="comentario">
+                    <img class="img--avatar" src="../assets/Avatar.png" alt="Avatar de usuario">
+                    <div class="contenedor--info--usuario">
+                        <p class="nombre--usuario">Grupo 36</p>
+                        <p class="mail--usuario">@grupo36</p>
+                    </div>
+                </div>
+                <div class="contenedor--calificar--comentario">
+                    <div class="contenedor--calificar--estrellas">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <p>Hace un momento</p>
+                </div>
+                <p class="comentario">Muy buen juego, me encanto</p>
+                <hr class="linea linea--comentario--realizado">
+            </div>
+            <div class="contenedor--comentario--realizado">
+                <div class="contenedor--img--info--usuario" id="comentario">
+                    <img class="img--avatar" src="../assets/JG.png" alt="Avatar de usuario">
+                    <div class="contenedor--info--usuario">
+                        <p class="nombre--usuario">JG</p>
+                        <p class="mail--usuario">@zunami</p>
+                    </div>
+                </div>
+                <div class="contenedor--calificar--comentario">
+                    <div class="contenedor--calificar--estrellas">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <p>Hace 2 meses</p>
+                </div>
+                <p class="comentario">Jugue mejores :)</p>
+                <hr class="linea linea--comentario--realizado">
+
+            </div>
+            <div class="contenedor--comentario--realizado">
+                <div class="contenedor--img--info--usuario" id="comentario">
+                    <img class="img--avatar" src="../assets/Pepe.png" alt="Avatar de usuario">
+                    <div class="contenedor--info--usuario">
+                        <p class="nombre--usuario">Pepe Games</p>
+                        <p class="mail--usuario">@pepegames</p>
+                    </div>
+                </div>
+                <div class="contenedor--calificar--comentario">
+                    <div class="contenedor--calificar--estrellas">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <p>Hace 3 meses</p>
+                </div>
+                <p class="comentario">Me re cope jugando :D</p>
+                <hr class="linea linea--comentario--realizado">
+                <button class="btn btn--primary--VerComentarios"> <i class="fa-solid fa-chevron-down"></i> Ver
+                    Comentarios</button>
+                <hr class="linea linea--bold">
+            </div>
+            <div class="contenedor--Comunidad">
+                <h1>Comunidad</h1>
+                <div class="contenedor--comunidad--img">
+                    <details>
+                        <summary>
+                            <div class="elemento">
+                                <img class="img--avatar--comunidad" src="../assets/Default(1).png"
+                                    alt="Avatar de usuario">
+                            </div>
+                        </summary>
+                        <div class="contenedor--especificaciones--avatar">
+                            <a href="EnviarMensaje"><i class="fa-solid fa-paper-plane"></i>Enviar Mensaje</a>
+                            <a href="VerPerfil"><i class="fa-solid fa-user"></i>Ver PErfil</a>
+                        </div>
+                    </details>
+
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(2).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(4).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(6).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(6).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(7).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(8).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(8).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(1).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(2).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(4).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(1).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(2).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(4).png" alt="Avatar de usuario">
+                    </div>
+                    <div class="elemento">
+                        <img class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
+                    </div>
+
+                </div>
+
+            </div>
+            </div>
+        </section>
     </main>
     <footer class="fat-footer">
         <header class="fat-footer__header">
