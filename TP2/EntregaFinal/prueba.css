@@ -1,0 +1,361 @@
+/* Estilo general de la página */
+
+/* Configruación */
+:root {
+    /* Colores */
+    --color-primary: #de05ff;
+    --color-primary600: #AE23C3;
+    --color-primary700: #8A049E;
+    --color-secondary: #333333;
+    --color-accent: #14a600;
+    --background-color: #222121;
+    --body-color: #222121;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-naranja:#F5BA25;
+  
+    --grey-100: #e6e6e6;
+    --grey-200: #cccccc;
+    --grey-300: #b3b3b3;
+    --grey-400: #999999;
+    --grey-500: #808080;
+    --grey-600: #666666;
+    --grey-700: #4d4d4d;
+    --grey-800: #333333;
+  
+    /* Tipografías */
+  
+    /* Font Family */
+    --font-primary: "Roboto", sans-serif; /* Fuente principal */
+  
+    /* Font Sizes */
+    --font-size-12: 0.75rem;
+    --font-size-normal: 1rem;
+    --font-size-16: 1.333rem;
+    --font-size-18: 1.125rem;
+    --font-size-24: 1.5rem;
+    --font-size-40: 2.5rem;
+    --font-size-48: 3rem;
+  
+    /* Font Weight */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extra-bold: 800;
+  
+    /* Spacing 8px system */
+    --spacing-0: 0px;
+    --spacing-1: 8px;
+    --spacing-2: 16px;
+    --spacing-3: 24px;
+    --spacing-4: 32px;
+    --spacing-5: 40px;
+    --spacing-6: 48px;
+    --spacing-7: 56px;
+    --spacing-8: 64px;
+    --spacing-9: 72px;
+    --spacing-10: 80px;
+}
+  
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: var(--font-size-normal);
+    background: #121212;
+}
+  
+.display-none {
+    display: none;
+}
+  
+  /* Contenedor principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    color: white;
+    position: relative;
+}
+  
+.container--background {
+    background-image: url("assets/background.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+  
+  /* Color negro con 50% de opacidad */
+.container--background::before {
+    content: "";
+    position: absolute;
+    top: 68;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+nav{
+    height: 67px;
+    position: relative;
+}
+  
+.navbar__logo {
+    position: absolute;
+    left: 48%;
+}
+
+
+  /* Tipografia */
+  
+  /* Headings */
+.h1 {
+    font-size: 48px;
+    font-weight: 800; /* extra bold */
+}
+
+.h2 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+  
+  /* Formulario */
+.form {
+    padding: var(--spacing-6);
+    position: relative;
+    width: 408px;
+  
+    background: #333333;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    font-weight: medium;
+}
+  
+.form__title {
+    color: #ffffff;
+    text-align: center;
+    font-size: var(--font-size-24);
+    margin-top: 0;
+    margin-bottom: var(--spacing-6);
+}
+  
+  /* Estilo para los parrafos del formulario */
+.form__label {
+    margin: 0;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+  
+.form__label--small {
+    font-size: var(--font-size-12);
+}
+  
+.form__link {
+    color: #ffffff;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-light);
+    text-decoration: none;
+}
+  
+.form__link:hover {
+    color: #de05ff;
+}
+  
+  /* Inputs */
+  
+.form__inputs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-6);
+}
+  
+.form__input {
+    padding: 5px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    border: 1px solid #aeaeae;
+    gap: 10px;
+    padding: var(--spacing-1);
+}
+  
+  /* Cambiar color del borde al hacer clic (focus) */
+.form__input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 1px var(--color-primary);
+}
+  
+  /* Placeholder del campo */
+.form__input::placeholder {
+    color: #cccccc;
+}
+  
+  /* Contenedor del checkbox */
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+  
+  /* Espacio entre checkbox y label */
+.checkbox__input {
+    width: 20px;
+    height: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+  
+.checkbox__label {
+    margin: 0;
+    color: #ffffff;
+    margin-left: 5px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-light);
+}
+  
+  /* Buttons */
+.btn {
+    padding: 5px;
+    border: none;
+    border-radius: var(--spacing-1);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-medium);
+    height: 30px;
+}
+  
+.btn--primary {
+    background: var(--color-primary);
+    color: #ffffff;
+}
+  
+.btn--secondary {
+    background: var(--color-secondary);
+    color: #ffffff;
+}
+  
+.btn--primary:hover {
+    background: linear-gradient(90deg, #ff007f, #ff00ff);
+}
+  
+  
+  /* Linea divisora */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    margin: 20px 0;
+    margin-top: var(--spacing-4);
+}
+  
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #fff;
+}
+  .divider::before {
+    margin-right: 0.5em;
+}
+  .divider::after {
+    margin-left: 0.5em;
+}
+  
+  /* Estilo de los enlaces de redes sociales */
+.social-login {
+    display: flex;
+    justify-content: center;
+}
+  
+  /* Iconos de redes sociales */
+.social-login a {
+    color: #ffffff;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.social-login svg {
+    fill: currentColor;
+}
+  
+.social-login a:hover {
+    background: #444444;
+}
+
+button#animado{
+    background: var(--color-black);
+    /*border: 1px solid white;*/
+    cursor: pointer;
+    margin-top: var(--spacing-1);
+    margin-left: var(--spacing-1);
+    padding: var(--spacing-2) var(--spacing-4);
+    color: white;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-bold);
+    border-radius: 12px;
+    position: absolute;
+    
+}
+
+button#animado::before {
+    content: "" ; 
+    position: absolute ;
+    top: 0 ;
+    left: 0 ;
+    z-index: -1 ;
+    width: 100% ;
+    height: 100% ;
+    background: linear-gradient(45deg, 
+    var(--color-naranja), 
+    var(--color-primary600), 
+    var(--color-primary),
+    var(--color-primary700),
+    var(--color-naranja), 
+    var(--color-primary600), 
+    var(--color-primary),
+    var(--color-primary700));
+    background-size: 800%;
+    border-radius: 12px;
+    filter: blur(10px);
+    animation: glowing 20s linear infinite;
+}
+
+@keyframes glowing {
+    0%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 400% 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
+}
