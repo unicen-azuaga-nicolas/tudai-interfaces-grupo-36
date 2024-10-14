@@ -46,7 +46,7 @@
   --font-weight-extra-bold: 800;
 
   /* Spacing 8px system */
-  --spacing-0: 0px;
+  --spacing-0: 4px;
   --spacing-1: 8px;
   --spacing-2: 16px;
   --spacing-3: 24px;
@@ -75,7 +75,10 @@ body {
 .display-none {
   display: none;
 }
-
+main {
+  min-height: 100vh;
+  color: white;
+}
 /* Contenedor principal */
 .container {
   display: flex;
@@ -182,6 +185,8 @@ body {
   border: 1px solid #aeaeae;
   gap: 10px;
   padding: var(--spacing-1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Cambiar color del borde al hacer clic (focus) */
@@ -228,8 +233,9 @@ body {
   cursor: pointer;
   transition: background 0.3s ease;
   font-size: var(--font-size-12);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
   height: 30px;
+  width: 100%;
 }
 
 .btn--primary {
@@ -296,87 +302,166 @@ body {
   background: #444444;
 }
 
-.navbar {
+
+/*page game-detail */
+.container--game{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: var(--spacing-3);
-  padding-right: var(--spacing-3);
-  padding-top: var(--spacing-1);
-  padding-bottom: var(--spacing-1);
-  background-color: black;
-  height: 67px;
-}
-
-.navbar__logo {
-  position: absolute;
-  left: 48%;
-}
-
-.navbar__link {
+  justify-content: center; /* Centra los elementos dentro de la columna 
+  /*align-items: center;*/
+  flex-direction: column;
+  min-height: 100vh;
   color: white;
-  text-decoration: none;
-  font-size: var(--font-size-24);
+  position: relative;
+  margin-left: 75px;
 }
-
-.navbar__item {
+.container--img{  /*contenedor de imagen 4 en linea: POKEMON */
+  width: 1054px;
+  height: 512px;
+  position: relative;
+  justify-content: center;
+  align-items: center; 
+}
+.img--4enlinea{ /* imagen 4 en linea: POKEMON */
+  width: 100%;
+  position: relative;
+  margin-left: 32px;
+}
+.container--game .title--container--game, h1{ /* titulo 4 en linea: POKEMON */
+  margin-top: 41px;
+  margin-left: 75px;
+  color: white;
+  background: #121212;
+  top:10px;
+  left: 10px;
+  z-index: 2;
+}
+.container--icon {/* contenedor icono jugar */
+  width: 103px;
+  height: 103px;
+  background-color: #de05ff;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.navbar__item--gap-16 {
-  gap: var(--spacing-2);
-}
-
-.navbar__link {
-  color: white;
-  text-decoration: none;
-  font-size: var(--font-size-normal);
-  margin-left: var(--spacing-2);
-}
-
-.navbar__link:hover {
-  text-decoration: underline;
-}
-
-.navbar__search {
-  display: flex;
-  align-items: center;
-  position: relative;
-  display: inline-block;
-}
-
-.navbar__search__input {
-  padding: var(--spacing-1) 40px var(--spacing-1) var(--spacing-1);
-  border: none;
-  border-radius: var(--spacing-1);
-  margin: 0.5rem;
-  background-color: var(--grey-800);
-}
-
-.navbar__search__icon {
   position: absolute;
-  right: 16px; /* Ajusta la posición a la derecha */
   top: 50%;
-  transform: translateY(-50%); /* Centra verticalmente */
-  pointer-events: none; /* Permite hacer clic en el input */
+  left: 55%;
+  transform: translate(-60%, 0);
+}
+.container--icon i{/* icono jugar */
+  font-size: 275%;
 }
 
-.navbar__button {
-  padding: var(--spacing-1) var(--spacing-2);
-  border: none;
-  border-radius: var(--spacing-1);
-  background-color: black;
+.container--icon--compartir{ /* contenedor icono compartir*/
+  width: 42px;
+  height: 42px;
+  background-color:#333333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top:20px;
+  right: -10px;
+
+}
+.container--icon--compartir i{/*icono compartir*/
+  font-size: 100%;
+}
+
+.contenedor--subtitulo--4enlinea i, h1{/*estrellas y subtitulo: 4.0*/
+  display: inline;
+  font-size: 24pt;
+  margin-right: 8px;
+
+}
+.contenedor--subtitulo--4enlinea{
+  position:relative;
+  margin-top:132px;
+  margin-left: 8px;
+
+}
+.contenedor--subtitulo--4enlinea i{/* estrellas*/
+  color: rgba(245, 186, 37, 1);
+}
+.contenedor--subtitulo--4enlinea h1{/* subtitulo: 4.0*/
   color: white;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: var(--font-size-12);
-  font-weight: var(--font-weight-light);
-  margin-left: var(--spacing-1);
+}
+.contenedor--reglas--juego--preview{/*contenedor general de reglas y pre visualizacion*/
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap:  234px; 
+  margin-left: 75px;
+  margin-right: 60px;
+  margin-bottom: 0;
+}
+.contenedor--reglas--juego{/*contenedor reglas*/
+  width: 479.51px;
+  height: 284px;
+  margin-top: 132px;
+  flex: 1;
+  margin-bottom:132px;
+}
+.contenedor--preview--juego{/*contenedor pre visualizacion*/
+  margin-top: 132px;
+  flex: 1;
+}
+.contenedor--regla{/*item regla*/
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+.contenedor--regla i,h3{/*iconos y h3*/
+  display: inline-block;
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+.h3--regla{/*h3 de regla*/
+  margin-left: 8px;
+}
+hr .linea{/*linea*/
+  border: 1px solid #de05ff; 
+  width: 50%; 
+  margin: 20px auto;
+}
+.img--preview--juego{/*imagen pre visualizacion del juego*/
+  max-width: 100%;
+  height: auto;
 }
 
-.navbar__button:hover {
-  background-color: var(--color-secondary);
+.container--especificacion--juego{/*contenedor desplegable especificaiones*/
+  width: 415.51px;
+  height: auto;
+  background-color:  #333333;
+  border-radius: 4px;
+  align-items: center;
+  
+}
+.container--especificacion--juego p{/*parrafos desplegable especificaiones*/
+  font-size: 16px;
+  color: white;
+  text-indent: 0;
+  text-align: left;
+}
+.container--especificacion--juego, p{/*parrafos desplegable especificaiones*/
+  padding: 32px;
+}
+
+.container--especificacion--juego img{/*imagen desplegable especificaiones*/
+  width: 80%;
+  height: auto;
+  display: block;
+  justify-items: center;
+  align-items: center;
+  padding: 32px;
+}
+
+details{/*recurso para animacion*/
+  padding: 0.5em 0.5em 0;
+}
+summary{/*recurso para animacion*/
+  padding: 0.5em;
 }
 
 .navbar__hamburger {
