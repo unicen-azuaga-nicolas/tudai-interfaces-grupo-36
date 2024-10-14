@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
     <script src="https://kit.fontawesome.com/f8680ec25a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="prueba.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="icon" href="assets/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="assets/favicon.png">
@@ -20,11 +21,22 @@
                 <img src="assets/logo.svg" alt="logo">
             </a>
         </div>
-        <div class="navbar__button">
-            <button id="animado" onclick="window.location.href='pages/register.html'">Registro</button>
+        <ul class="navbar__item">
+            <li class="navbar__item">
+                <a id="loginanimado" class="navbar__button navbar__button--outline" href="pages/register.html">Registrar</a>
+            </li>
+        </ul>
+    </nav>
+    <!--
+    <nav class="navbar">
+        <div class="navbar__item"></div>
+        <div class="navbar__item navbar__logo">
+            <a href="#" class="navbar__link">
+                <img src="assets/logo.svg" alt="logo">
+            </a>
         </div>
         <button id="animado" onclick="window.location.href='pages/register.html'">Registro</button>
-    </nav>
+    </nav>-->
     <main class="container container--background">
         <form class="form" onsubmit="return false;">
             <h2 class="form__title">Iniciar sesión</h2>
