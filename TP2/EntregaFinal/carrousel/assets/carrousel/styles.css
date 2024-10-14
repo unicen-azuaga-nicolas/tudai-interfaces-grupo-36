@@ -1,0 +1,463 @@
+/* Estilo general de la página */
+
+/* Configruación */
+:root {
+  /* Colores */
+  --color-primary: #de05ff;
+  --color-secondary: #333333;
+  --color-accent: #14a600;
+  --background-color: #222121;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --grey-100: #e6e6e6;
+  --grey-200: #cccccc;
+  --grey-300: #b3b3b3;
+  --grey-400: #999999;
+  --grey-500: #808080;
+  --grey-600: #666666;
+  --grey-700: #4d4d4d;
+  --grey-800: #333333;
+
+  /* Tipografías */
+
+  /* Font Family */
+  --font-primary: "Roboto", sans-serif; /* Fuente principal */
+
+  /* Font Sizes */
+  --font-size-12: 0.75rem;
+  --font-size-normal: 1rem;
+  --font-size-18: 1.125rem;
+  --font-size-24: 1.5rem;
+  --font-size-40: 2.5rem;
+  --font-size-48: 3rem;
+
+  /* Font Weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+
+  /* Spacing 8px system */
+  --spacing-0: 4px;
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-5: 40px;
+  --spacing-6: 48px;
+  --spacing-7: 56px;
+  --spacing-8: 64px;
+  --spacing-9: 72px;
+  --spacing-10: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: var(--font-size-normal);
+  background: #121212;
+}
+
+.display-none {
+  display: none;
+}
+main {
+  min-height: 100vh;
+  color: white;
+}
+/* Contenedor principal */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container--background {
+  background-image: url("assets/background.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Color negro con 50% de opacidad */
+.container--background::before {
+  content: "";
+  position: absolute;
+  top: 68;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Tipografia */
+
+/* Headings */
+.h1 {
+  font-size: 48px;
+  font-weight: 800; /* extra bold */
+}
+.h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Formulario */
+.form {
+  padding: var(--spacing-6);
+  position: relative;
+  width: 408px;
+
+  background: #333333;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  font-weight: medium;
+}
+
+.form__title {
+  color: #ffffff;
+  text-align: center;
+  font-size: var(--font-size-24);
+  margin-top: 0;
+  margin-bottom: var(--spacing-6);
+}
+
+/* Estilo para los parrafos del formulario */
+.form__label {
+  margin: 0;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.form__label--small {
+  font-size: var(--font-size-12);
+}
+
+.form__link {
+  color: #ffffff;
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-light);
+  text-decoration: none;
+}
+
+.form__link:hover {
+  color: #de05ff;
+}
+
+/* Inputs */
+
+.form__inputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-6);
+}
+
+.form__input {
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  border: 1px solid #aeaeae;
+  gap: 10px;
+  padding: var(--spacing-1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Cambiar color del borde al hacer clic (focus) */
+.form__input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 1px var(--color-primary);
+}
+
+/* Placeholder del campo */
+.form__input::placeholder {
+  color: #cccccc;
+}
+
+/* Contenedor del checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Espacio entre checkbox y label */
+.checkbox__input {
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkbox__label {
+  margin: 0;
+  color: #ffffff;
+  margin-left: 5px;
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-light);
+}
+
+/* Buttons */
+.btn {
+  padding: 5px;
+  border: none;
+  border-radius: var(--spacing-1);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-medium);
+  height: 30px;
+  width: 100%;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background: linear-gradient(90deg, #ff007f, #ff00ff);
+}
+
+/* Linea divisora */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  margin: 20px 0;
+  margin-top: var(--spacing-4);
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #fff;
+}
+.divider::before {
+  margin-right: 0.5em;
+}
+.divider::after {
+  margin-left: 0.5em;
+}
+
+/* Estilo de los enlaces de redes sociales */
+.social-login {
+  display: flex;
+  justify-content: center;
+}
+
+/* Iconos de redes sociales */
+.social-login a {
+  color: #ffffff;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+.social-login svg {
+  fill: currentColor;
+}
+
+.social-login a:hover {
+  background: #444444;
+}
+
+.carrousel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  padding: 48px 48px 0 48px;
+
+}
+
+.carrousel::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+  height: 5px;
+}
+
+.carrousel::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, .5);
+  background: linear-gradient(90deg, #02bcf5, #0073e6, #003ab9, #635bff);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  border-radius: 16px;
+  opacity: .5;
+}
+
+.carrousel:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+
+.carrousel-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 244px;
+  flex-basis: 244px;
+  border-radius: 16px;
+  margin: 8px;
+  padding: 16px;
+  box-shadow: 0 -16px 24px rgb(0 0 0 / 5%);
+  color: #ffffff;
+
+  transition: all 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.carrousel-item:hover {
+  transform: scale(1.04) translateY(-16px);
+  box-shadow: 0 -16px 24px rgb(0 0 0 / 10%);
+}
+
+.game-card {
+  width: 256px;
+  height: 160px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.game-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fit;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.game-card:hover .card-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.game-title {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-top: 5px;
+}
+
+.game-card:hover .game-title {
+  opacity: 1;
+}
+
+.pro-tag {
+  background-color: #FFD700;
+  color: black;
+  padding: 2px 20px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buy-button {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.game-card:hover .buy-button,
+.game-card:hover .play-icon {
+  opacity: 1;
+}
+
+.price {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.play-icon {
+  font-size: 48px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute; 
+  top: 50%;          
+  left: 50%;        
+  transform: translate(-50%, -50%);
+}
+
+.cart-message {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-accent);
+  color: white;
+  padding: 1px 0;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  font-size: 12px;
+  z-index: 10;
+}
