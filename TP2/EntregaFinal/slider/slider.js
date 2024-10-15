@@ -72,13 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Iniciar auto play al cargar la página
-  //   startAutoPlay();
+  startAutoPlay();
 
   // Detener auto play al hacer hover en el slider
-  //   slider.addEventListener("mouseenter", stopAutoPlay);
+  slider.addEventListener("mouseenter", stopAutoPlay);
 
-  //   // Reanudar auto play al quitar el hover del slider
-  //   slider.addEventListener("mouseleave", startAutoPlay);
+  // Reanudar auto play al quitar el hover del slider
+  slider.addEventListener("mouseleave", startAutoPlay);
 
   // Variables para manejar el swipe
   let startX = 0;

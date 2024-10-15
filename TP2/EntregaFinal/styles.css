@@ -4,17 +4,17 @@
 :root {
   /* Colores */
   --color-primary: #de05ff;
-  --color-primary600: #AE23C3;
-  --color-primary700: #8A049E;
+  --color-primary600: #ae23c3;
+  --color-primary700: #8a049e;
   --color-secondary: #333333;
   --color-accent: #14a600;
   --background-color: #222121;
   --body-color: #222121;
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-naranja:#F5BA25;
-  --color--neon: #01FFc3;
-  --background-neon:#FFB3FD;
+  --color-naranja: #f5ba25;
+  --color--neon: #01ffc3;
+  --background-neon: #ffb3fd;
 
   --grey-100: #e6e6e6;
   --grey-200: #cccccc;
@@ -81,6 +81,12 @@ main {
   min-height: 100vh;
   color: white;
 }
+
+.main-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 /* Contenedor principal */
 .container {
   display: flex;
@@ -254,7 +260,6 @@ main {
   background: linear-gradient(90deg, #ff007f, #ff00ff);
 }
 
-
 /* Linea divisora */
 .divider {
   display: flex;
@@ -304,9 +309,8 @@ main {
   background: #444444;
 }
 
-
 /*page game-detail */
-.container--game{
+.container--game {
   display: flex;
   justify-content: center; /* Centra los elementos dentro de la columna 
   /*align-items: center;*/
@@ -316,28 +320,33 @@ main {
   position: relative;
   margin-left: 75px;
 }
-.container--img{  /*contenedor de imagen 4 en linea: POKEMON */
+.container--img {
+  /*contenedor de imagen 4 en linea: POKEMON */
   width: 1054px;
   height: 512px;
   position: relative;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
-.img--4enlinea{ /* imagen 4 en linea: POKEMON */
+.img--4enlinea {
+  /* imagen 4 en linea: POKEMON */
   width: 100%;
   position: relative;
   margin-left: 32px;
 }
-.container--game .title--container--game, h1{ /* titulo 4 en linea: POKEMON */
+.container--game .title--container--game,
+h1 {
+  /* titulo 4 en linea: POKEMON */
   margin-top: 41px;
   margin-left: 75px;
   color: white;
   background: #121212;
-  top:10px;
+  top: 10px;
   left: 10px;
   z-index: 2;
 }
-.container--icon {/* contenedor icono jugar */
+.container--icon {
+  /* contenedor icono jugar */
   width: 103px;
   height: 103px;
   background-color: #de05ff;
@@ -350,107 +359,124 @@ main {
   left: 55%;
   transform: translate(-60%, 0);
 }
-.container--icon i{/* icono jugar */
+.container--icon i {
+  /* icono jugar */
   font-size: 275%;
 }
 
-.container--icon--compartir{ /* contenedor icono compartir*/
+.container--icon--compartir {
+  /* contenedor icono compartir*/
   width: 42px;
   height: 42px;
-  background-color:#333333;
+  background-color: #333333;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top:20px;
+  top: 20px;
   right: -10px;
-
 }
-.container--icon--compartir i{/*icono compartir*/
+.container--icon--compartir i {
+  /*icono compartir*/
   font-size: 100%;
 }
 
-.contenedor--subtitulo--4enlinea i, h1{/*estrellas y subtitulo: 4.0*/
+.contenedor--subtitulo--4enlinea i,
+h1 {
+  /*estrellas y subtitulo: 4.0*/
   display: inline;
   font-size: 24pt;
   margin-right: 8px;
-
 }
-.contenedor--subtitulo--4enlinea{
-  position:relative;
-  margin-top:132px;
+.contenedor--subtitulo--4enlinea {
+  position: relative;
+  margin-top: 132px;
   margin-left: 8px;
-
 }
-.contenedor--subtitulo--4enlinea i{/* estrellas*/
+.contenedor--subtitulo--4enlinea i {
+  /* estrellas*/
   color: rgba(245, 186, 37, 1);
 }
-.contenedor--subtitulo--4enlinea h1{/* subtitulo: 4.0*/
+.contenedor--subtitulo--4enlinea h1 {
+  /* subtitulo: 4.0*/
   color: white;
 }
-.contenedor--reglas--juego--preview{/*contenedor general de reglas y pre visualizacion*/
+.contenedor--reglas--juego--preview {
+  /*contenedor general de reglas y pre visualizacion*/
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap:  234px; 
+  gap: 234px;
   margin-left: 75px;
   margin-right: 60px;
   margin-bottom: 0;
 }
-.contenedor--reglas--juego{/*contenedor reglas*/
+.contenedor--reglas--juego {
+  /*contenedor reglas*/
   width: 479.51px;
   height: 284px;
   margin-top: 132px;
   flex: 1;
-  margin-bottom:132px;
+  margin-bottom: 132px;
 }
-.contenedor--preview--juego{/*contenedor pre visualizacion*/
+.contenedor--preview--juego {
+  /*contenedor pre visualizacion*/
   margin-top: 132px;
   flex: 1;
 }
-.contenedor--regla{/*item regla*/
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
+.contenedor--regla {
+  /*item regla*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.contenedor--regla i,h3{/*iconos y h3*/
+.contenedor--regla i,
+h3 {
+  /*iconos y h3*/
   display: inline-block;
   font-size: 24px;
   margin-bottom: 4px;
 }
-.h3--regla{/*h3 de regla*/
+.h3--regla {
+  /*h3 de regla*/
   margin-left: 8px;
 }
-hr .linea{/*linea*/
-  border: 1px solid #de05ff; 
-  width: 50%; 
+hr .linea {
+  /*linea*/
+  border: 1px solid #de05ff;
+  width: 50%;
   margin: 20px auto;
 }
-.img--preview--juego{/*imagen pre visualizacion del juego*/
+.img--preview--juego {
+  /*imagen pre visualizacion del juego*/
   max-width: 100%;
   height: auto;
 }
 
-.container--especificacion--juego{/*contenedor desplegable especificaiones*/
+.container--especificacion--juego {
+  /*contenedor desplegable especificaiones*/
   width: 415.51px;
   height: auto;
-  background-color:  #333333;
+  background-color: #333333;
   border-radius: 4px;
   align-items: center;
-  
 }
-.container--especificacion--juego p{/*parrafos desplegable especificaiones*/
+.container--especificacion--juego p {
+  /*parrafos desplegable especificaiones*/
   font-size: 16px;
   color: white;
   text-indent: 0;
   text-align: left;
 }
-.container--especificacion--juego, p{/*parrafos desplegable especificaiones*/
+.container--especificacion--juego,
+p {
+  /*parrafos desplegable especificaiones*/
   padding: 32px;
 }
 
-.container--especificacion--juego img{/*imagen desplegable especificaiones*/
+.container--especificacion--juego img {
+  /*imagen desplegable especificaiones*/
   width: 80%;
   height: auto;
   display: block;
@@ -459,10 +485,12 @@ hr .linea{/*linea*/
   padding: 32px;
 }
 
-details{/*recurso para animacion*/
+details {
+  /*recurso para animacion*/
   padding: 0.5em 0.5em 0;
 }
-summary{/*recurso para animacion*/
+summary {
+  /*recurso para animacion*/
   padding: 0.5em;
 }
 
@@ -509,47 +537,51 @@ summary{/*recurso para animacion*/
   font-size: var(--font-size-12);
 }
 
-
 /*page game-detail */
-.container--game{
+.container--game {
   display: flex;
   justify-content: center; /* Centra los elementos dentro de la columna 
   /*align-items: center;*/
   flex-direction: column;
   min-height: 100vh;
-  color:var(--color-white);
+  color: var(--color-white);
   position: relative;
-  margin-left:var(--spacing-9);
+  margin-left: var(--spacing-9);
 }
 
-.container--img{  /*contenedor de imagen 4 en linea: POKEMON */
+.container--img {
+  /*contenedor de imagen 4 en linea: POKEMON */
   width: 1054px;
   height: 512px;
   position: relative;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
-.img--4enlinea{ /* imagen 4 en linea: POKEMON */
+.img--4enlinea {
+  /* imagen 4 en linea: POKEMON */
   width: 100%;
   position: relative;
   margin-left: var(--spacing-4);
 }
 
-.container--game .title--container--game, h1{ /* titulo 4 en linea: POKEMON */
+.container--game .title--container--game,
+h1 {
+  /* titulo 4 en linea: POKEMON */
   margin-top: var(--spacing-5);
   margin-bottom: var(--spacing-1);
-  margin-left:var(--spacing-9);
-  color:var(--color-white);
+  margin-left: var(--spacing-9);
+  color: var(--color-white);
   top: var(--spacing-1);
   left: var(--spacing-1);
   z-index: 2;
 }
 
-.container--icon {/* contenedor icono jugar */
+.container--icon {
+  /* contenedor icono jugar */
   width: 103px;
   height: 103px;
-  background-color:var(--color-primary);
+  background-color: var(--color-primary);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -558,128 +590,142 @@ summary{/*recurso para animacion*/
   top: 50%;
   left: 55%;
   transform: translate(-60%, 0);
-  box-shadow: 0 0 3em 0  #FFB3FD,
-              0 0 3em 0  #FFB3FD;
+  box-shadow: 0 0 3em 0 #ffb3fd, 0 0 3em 0 #ffb3fd;
 }
 
-.container--icon i{/* icono jugar */
+.container--icon i {
+  /* icono jugar */
   font-size: 500%;
   font-size: 24px;
   transition: transform 0.5s ease;
-
 }
 
-.container--icon i:hover{
+.container--icon i:hover {
   transform: rotate(360deg);
 }
 
-
-
-.container--icon--compartir{ /* contenedor icono compartir*/
+.container--icon--compartir {
+  /* contenedor icono compartir*/
   width: 42px;
   height: 42px;
-  background-color:var(--color-secondary);
+  background-color: var(--color-secondary);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top:var(--spacing-3);
-  right:var(--spacing-1);
+  top: var(--spacing-3);
+  right: var(--spacing-1);
 }
 
-.container--icon--compartir i{/*icono compartir*/
+.container--icon--compartir i {
+  /*icono compartir*/
   font-size: 100%;
 }
 
-.contenedor--subtitulo--4enlinea i, h1{/*estrellas y subtitulo: 4.0*/
+.contenedor--subtitulo--4enlinea i,
+h1 {
+  /*estrellas y subtitulo: 4.0*/
   display: inline;
   font-size: var(--font-size-24);
   margin-right: var(--spacing-1);
 }
 
-.contenedor--subtitulo--4enlinea{
-  position:relative;
-  margin-top:132px;
-  margin-left:var(--spacing-1);
+.contenedor--subtitulo--4enlinea {
+  position: relative;
+  margin-top: 132px;
+  margin-left: var(--spacing-1);
 }
 
-.contenedor--subtitulo--4enlinea i{/* estrellas*/
-  color:var(--color-naranja);
+.contenedor--subtitulo--4enlinea i {
+  /* estrellas*/
+  color: var(--color-naranja);
 }
 
-.contenedor--subtitulo--4enlinea h1{/* subtitulo: 4.0*/
-  color:var(--color-white);
+.contenedor--subtitulo--4enlinea h1 {
+  /* subtitulo: 4.0*/
+  color: var(--color-white);
 }
 
-.contenedor--reglas--juego--preview{/*contenedor general de reglas y pre visualizacion*/
+.contenedor--reglas--juego--preview {
+  /*contenedor general de reglas y pre visualizacion*/
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap:  234px; 
+  gap: 234px;
   margin-left: var(--spacing-9);
   margin-right: var(--spacing-8);
   margin-bottom: var(--spacing-0);
 }
 
-.contenedor--reglas--juego{/*contenedor reglas*/
+.contenedor--reglas--juego {
+  /*contenedor reglas*/
   width: 479.51px;
   height: 284px;
   margin-top: 132px;
   flex: 1;
-  margin-bottom:132px;
+  margin-bottom: 132px;
 }
 
-.contenedor--preview--juego{/*contenedor pre visualizacion*/
+.contenedor--preview--juego {
+  /*contenedor pre visualizacion*/
   margin-top: 132px;
   flex: 1;
 }
 
-.contenedor--regla{/*item regla*/
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
+.contenedor--regla {
+  /*item regla*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.contenedor--regla i,h3{/*iconos y h3*/
+.contenedor--regla i,
+h3 {
+  /*iconos y h3*/
   display: inline-block;
   font-size: var(--font-size-24);
   margin-bottom: var(--spacing-1);
 }
 
-.h3--regla{/*h3 de regla*/
+.h3--regla {
+  /*h3 de regla*/
   margin-left: var(--spacing-1);
 }
 
-hr .linea{/*linea*/
-  border: 1px solid var(--color-primary); 
-  width: 50%; 
+hr .linea {
+  /*linea*/
+  border: 1px solid var(--color-primary);
+  width: 50%;
   margin: var(--spacing-3) auto;
 }
 
-.img--preview--juego{/*imagen pre visualizacion del juego*/
+.img--preview--juego {
+  /*imagen pre visualizacion del juego*/
   max-width: 100%;
   height: auto;
 }
 
-.container--especificacion--juego{/*contenedor desplegable especificaiones*/
+.container--especificacion--juego {
+  /*contenedor desplegable especificaiones*/
   width: 415.51px;
   height: auto;
   background-color: var(--background-color);
   border-radius: 4px;
   align-items: center;
   padding: var(--spacing-5);
-  
 }
 
-.container--especificacion--juego p{/*parrafos desplegable especificaiones*/
+.container--especificacion--juego p {
+  /*parrafos desplegable especificaiones*/
   font-size: var(--font-size-16);
   color: var(--color-white);
   text-indent: 0;
   text-align: left;
 }
 
-.container--especificacion--juego img{/*imagen desplegable especificaiones*/
+.container--especificacion--juego img {
+  /*imagen desplegable especificaiones*/
   width: 80%;
   height: auto;
   display: block;
@@ -687,11 +733,13 @@ hr .linea{/*linea*/
   align-items: center;
 }
 
-details{/*recurso para animacion*/
+details {
+  /*recurso para animacion*/
   padding: 0.5em 0.5em 0;
 }
 
-summary{/*recurso para animacion*/
+summary {
+  /*recurso para animacion*/
   padding: 0.5em;
 }
 
@@ -708,7 +756,7 @@ details[open] summary {
   margin-bottom: 0.5em;
 }
 
-.contenedor--comentarios{
+.contenedor--comentarios {
   margin-top: var(--spacing-10);
   width: 1054px;
   height: auto;
@@ -716,54 +764,54 @@ details[open] summary {
   text-align: left;
 }
 
-.contenedor--img--info--usuario{
-   display: flex;
-   align-items: center;
-   margin-top: var(--spacing-6);
-   padding: var(--spacing-0);
+.contenedor--img--info--usuario {
+  display: flex;
+  align-items: center;
+  margin-top: var(--spacing-6);
+  padding: var(--spacing-0);
 }
 
-.contenedor--info--usuario{
-   display:flex;
-   flex-direction: column;
-   margin: var(--spacing-0);
-   padding: var(--spacing-0);
+.contenedor--info--usuario {
+  display: flex;
+  flex-direction: column;
+  margin: var(--spacing-0);
+  padding: var(--spacing-0);
 }
 
-.contenedor--img--info--usuario{
-  margin-left:var(--spacing-9);
+.contenedor--img--info--usuario {
+  margin-left: var(--spacing-9);
 }
 
 .img--avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  padding:var(--spacing-0);
+  padding: var(--spacing-0);
   margin-right: var(--spacing-1);
 }
 
-.contenedor--comentarios{
+.contenedor--comentarios {
   margin-bottom: var(--spacing-7);
 }
 
-.contenedor--comentarios .title--container--game.h3{
+.contenedor--comentarios .title--container--game.h3 {
   margin-bottom: var(--spacing-2);
-  font-size:var(--font-size-24);
+  font-size: var(--font-size-24);
   color: var(--color-white);
 }
 
-.contenedor--info--usuario p{
-  font-size:var(--font-size-16);
-  color:var(--grey-400);
+.contenedor--info--usuario p {
+  font-size: var(--font-size-16);
+  color: var(--grey-400);
   margin: var(--spacing-0);
   padding: var(--spacing-0);
 }
 
-.contenedor--info--usuario p.mail--usuario{
+.contenedor--info--usuario p.mail--usuario {
   font-size: var(--font-size-12);
-  color:var(--grey-600);
+  color: var(--grey-600);
   margin: var(--spacing-0);
-  padding:  var(--spacing-0);
+  padding: var(--spacing-0);
 }
 
 .contenedor--calificar {
@@ -771,16 +819,17 @@ details[open] summary {
   margin-left: var(--spacing-9);
 }
 
-.contenedor--calificar.p{
+.contenedor--calificar.p {
   padding: var(--spacing-0);
   margin-right: var(--spacing-1);
 }
 
-.contenedor--calificar i, p{
+.contenedor--calificar i,
+p {
   display: inline;
   font-size: var(--font-size-16);
   margin-right: var(--spacing-0);
-  color:var(--grey-400);
+  color: var(--grey-400);
 }
 
 .contenedor-text-area {
@@ -789,7 +838,7 @@ details[open] summary {
   margin-bottom: var(--spacing-2);
 }
 
-.contenedor-text-area textarea{
+.contenedor-text-area textarea {
   background: var(--body-color);
   background: transparent;
   border-radius: 4px;
@@ -797,7 +846,7 @@ details[open] summary {
   height: 200px;
 }
 
-.contenedor-text-area textarea::placeholder{
+.contenedor-text-area textarea::placeholder {
   font-family: "Roboto", sans-serif;
 }
 
@@ -808,12 +857,13 @@ details[open] summary {
   margin-left: 976px;
 }
 
-.btn--primary--Enviar,.btn--Outline--Eliminar {
+.btn--primary--Enviar,
+.btn--Outline--Eliminar {
   border-radius: 4;
-  display: inline-block; 
-  text-align: center; 
-  justify-content: center; 
-  align-items: center; 
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: var(--color-white);
   font-size: var(--font-size-12);
@@ -823,13 +873,13 @@ details[open] summary {
   padding-top: var(--spacing-1);
 }
 
-.btn--primary--Enviar{
+.btn--primary--Enviar {
   background: var(--color-primary);
-  margin-right:var(--spacing-1);
+  margin-right: var(--spacing-1);
   margin-left: var(--spacing-9);
 }
 
-.btn--Outline--Eliminar{
+.btn--Outline--Eliminar {
   background: var(--background-color);
   border: 1px solid var(--color-white);
 }
@@ -846,54 +896,54 @@ details[open] summary {
   justify-content: first baseline;
 }
 
-.contenedor--calificar--comentario p{
+.contenedor--calificar--comentario p {
   font-size: var(--font-size-12);
   color: var(--grey-600);
   margin-left: var(--spacing-0);
   margin-right: var(--spacing-1);
 }
 
-.contenedor--calificar--comentario i{
+.contenedor--calificar--comentario i {
   margin-left: var(--spacing-1);
   color: var(--color-naranja);
 }
 
-.contenedor--calificar--estrellas{
+.contenedor--calificar--estrellas {
   margin-right: var(--spacing-1);
   margin-top: var(--spacing-1);
   margin-bottom: var(--spacing-1);
   display: flex;
 }
 
-.contenedor--comentario--realizado{
+.contenedor--comentario--realizado {
   margin-left: var(--spacing-9);
   margin-bottom: var(--spacing-1);
   margin-top: var(--spacing-1);
 }
 
-.contenedor--comentario--realizado p.comentario{
+.contenedor--comentario--realizado p.comentario {
   color: white;
-  font-size:var(--font-size-16);
-  margin-bottom:  var(--spacing-2);
+  font-size: var(--font-size-16);
+  margin-bottom: var(--spacing-2);
 }
 
-hr.linea--comentario--realizado{
+hr.linea--comentario--realizado {
   align-items: center;
   width: 974px;
-  border: none; 
-  border-top: 0.2px solid var(--grey-600); 
+  border: none;
+  border-top: 0.2px solid var(--grey-600);
   margin: var(--spacing-1) var(--spacing-0);
 }
 
-button i{
-  margin-right:var(--spacing-1);
+button i {
+  margin-right: var(--spacing-1);
 }
 
 .btn--primary--VerComentarios {
   background: var(--color-primary);
   width: 200px;
   border-radius: 4;
-  text-align: center; 
+  text-align: center;
   text-decoration: none;
   color: var(--color-white);
   font-size: var(--font-size-12);
@@ -906,19 +956,19 @@ button i{
   margin-bottom: var(--spacing-9);
 }
 
-.contenedor--Comunidad{
+.contenedor--Comunidad {
   margin-left: var(--spacing-9);
 }
 
-.contenedor--Comunidad h1{
-  margin:var(--spacing-0);
+.contenedor--Comunidad h1 {
+  margin: var(--spacing-0);
 }
 
-.contenedor--comunidad--img{
+.contenedor--comunidad--img {
   margin-top: var(--spacing-4);
   display: flex;
   flex-wrap: nowrap;
-  overflow:scroll;
+  overflow: scroll;
 }
 
 .contenedor--comunidad--img::-webkit-scrollbar {
@@ -926,22 +976,22 @@ button i{
 }
 
 .contenedor--comunidad--img::-webkit-scrollbar-thumb {
-  background-color:var(--background-color); 
-  border-radius: 4px; 
+  background-color: var(--background-color);
+  border-radius: 4px;
 }
 
 .contenedor--comunidad--img::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
 
-.elemento { 
+.elemento {
   flex: 1 0 auto;
   margin: var(--spacing-0) var(--spacing-1);
 }
 
-hr.linea--bold{
+hr.linea--bold {
   width: 974px;
-  border-top: 0.5px solid  var(--color-white); 
+  border-top: 0.5px solid var(--color-white);
 }
 
 .contenedor--especificaciones--avatar {
@@ -952,7 +1002,7 @@ hr.linea--bold{
   align-items: center;
 }
 
-.contenedor--especificaciones--avatar a{
+.contenedor--especificaciones--avatar a {
   display: inline-block;
   text-align: left;
   font-size: var(--font-size-16);
@@ -962,8 +1012,8 @@ hr.linea--bold{
   padding: var(--spacing-1);
 }
 
-.contenedor--especificaciones--avatar i{
-  margin-right:var(--spacing-1);
+.contenedor--especificaciones--avatar i {
+  margin-right: var(--spacing-1);
 }
 
 .contenedor--comunidad--img details[open] summary {
@@ -971,8 +1021,7 @@ hr.linea--bold{
   margin-bottom: 0.5em;
 }
 
-.contenedor--comentario--realizado{
+.contenedor--comentario--realizado {
   margin-top: var(--spacing-2);
   margin-bottom: var(--spacing-2);
 }
-
