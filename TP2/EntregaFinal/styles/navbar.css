@@ -294,9 +294,13 @@ ul .comunidad:hover {
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
   .navbar {
-    display: block;
+    display: flex;
     padding: var(--spacing-2);
     height: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 
   .navbar__logo {
@@ -309,7 +313,13 @@ ul .comunidad:hover {
   }
 
   .navbar__cart {
-    position: relative;
-    float: left;
+    position: absolute;
+    right: 1rem;
+    top: 1.5rem;
+    transform: scale(0.8);
+  }
+
+  .navbar__links {
+    display: none;
   }
 }
