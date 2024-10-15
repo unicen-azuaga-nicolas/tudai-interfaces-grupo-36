@@ -1,0 +1,1027 @@
+/* Estilo general de la página */
+
+/* Configruación */
+:root {
+  /* Colores */
+  --color-primary: #de05ff;
+  --color-primary600: #ae23c3;
+  --color-primary700: #8a049e;
+  --color-secondary: #333333;
+  --color-accent: #14a600;
+  --background-color: #222121;
+  --body-color: #222121;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-naranja: #f5ba25;
+  --color--neon: #01ffc3;
+  --background-neon: #ffb3fd;
+
+  --grey-100: #e6e6e6;
+  --grey-200: #cccccc;
+  --grey-300: #b3b3b3;
+  --grey-400: #999999;
+  --grey-500: #808080;
+  --grey-600: #666666;
+  --grey-700: #4d4d4d;
+  --grey-800: #333333;
+
+  /* Tipografías */
+
+  /* Font Family */
+  --font-primary: "Roboto", sans-serif; /* Fuente principal */
+
+  /* Font Sizes */
+  --font-size-12: 0.75rem;
+  --font-size-normal: 1rem;
+  --font-size-16: 1.333rem;
+  --font-size-18: 1.125rem;
+  --font-size-24: 1.5rem;
+  --font-size-40: 2.5rem;
+  --font-size-48: 3rem;
+
+  /* Font Weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+
+  /* Spacing 8px system */
+  --spacing-0: 4px;
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-5: 40px;
+  --spacing-6: 48px;
+  --spacing-7: 56px;
+  --spacing-8: 64px;
+  --spacing-9: 72px;
+  --spacing-10: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: var(--font-size-normal);
+  background: #121212;
+}
+
+.display-none {
+  display: none;
+}
+main {
+  min-height: 100vh;
+  color: white;
+}
+
+.main-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
+  position: relative;
+}
+
+.container--background {
+  background-image: url("assets/background.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Color negro con 50% de opacidad */
+.container--background::before {
+  content: "";
+  position: absolute;
+  top: 68;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Tipografia */
+
+/* Headings */
+.h1 {
+  font-size: 48px;
+  font-weight: 800; /* extra bold */
+}
+.h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Formulario */
+.form {
+  padding: var(--spacing-6);
+  position: relative;
+  width: 408px;
+
+  background: #333333;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  font-weight: medium;
+}
+
+.form__title {
+  color: #ffffff;
+  text-align: center;
+  font-size: var(--font-size-24);
+  margin-top: 0;
+  margin-bottom: var(--spacing-6);
+}
+
+/* Estilo para los parrafos del formulario */
+.form__label {
+  margin: 0;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.form__label--small {
+  font-size: var(--font-size-12);
+}
+
+.form__link {
+  color: #ffffff;
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-light);
+  text-decoration: none;
+}
+
+.form__link:hover {
+  color: #de05ff;
+}
+
+/* Inputs */
+
+.form__inputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-6);
+}
+
+.form__input {
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  border: 1px solid #aeaeae;
+  gap: 10px;
+  padding: var(--spacing-1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Cambiar color del borde al hacer clic (focus) */
+.form__input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 1px var(--color-primary);
+}
+
+/* Placeholder del campo */
+.form__input::placeholder {
+  color: #cccccc;
+}
+
+/* Contenedor del checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Espacio entre checkbox y label */
+.checkbox__input {
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkbox__label {
+  margin: 0;
+  color: #ffffff;
+  margin-left: 5px;
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-light);
+}
+
+/* Buttons */
+.btn {
+  padding: 5px;
+  border: none;
+  border-radius: var(--spacing-1);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+  height: 30px;
+  width: 100%;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background: linear-gradient(90deg, #ff007f, #ff00ff);
+}
+
+/* Linea divisora */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  margin: 20px 0;
+  margin-top: var(--spacing-4);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #fff;
+}
+.divider::before {
+  margin-right: 0.5em;
+}
+.divider::after {
+  margin-left: 0.5em;
+}
+
+/* Estilo de los enlaces de redes sociales */
+.social-login {
+  display: flex;
+  justify-content: center;
+}
+
+/* Iconos de redes sociales */
+.social-login a {
+  color: #ffffff;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+.social-login svg {
+  fill: currentColor;
+}
+
+.social-login a:hover {
+  background: #444444;
+}
+
+/*page game-detail */
+.container--game {
+  display: flex;
+  justify-content: center; /* Centra los elementos dentro de la columna 
+  /*align-items: center;*/
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
+  position: relative;
+  margin-left: 75px;
+}
+.container--img {
+  /*contenedor de imagen 4 en linea: POKEMON */
+  width: 1054px;
+  height: 512px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.img--4enlinea {
+  /* imagen 4 en linea: POKEMON */
+  width: 100%;
+  position: relative;
+  margin-left: 32px;
+}
+.container--game .title--container--game,
+h1 {
+  /* titulo 4 en linea: POKEMON */
+  margin-top: 41px;
+  margin-left: 75px;
+  color: white;
+  background: #121212;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
+.container--icon {
+  /* contenedor icono jugar */
+  width: 103px;
+  height: 103px;
+  background-color: #de05ff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-60%, 0);
+}
+.container--icon i {
+  /* icono jugar */
+  font-size: 275%;
+}
+
+.container--icon--compartir {
+  /* contenedor icono compartir*/
+  width: 42px;
+  height: 42px;
+  background-color: #333333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  right: -10px;
+}
+.container--icon--compartir i {
+  /*icono compartir*/
+  font-size: 100%;
+}
+
+.contenedor--subtitulo--4enlinea i,
+h1 {
+  /*estrellas y subtitulo: 4.0*/
+  display: inline;
+  font-size: 24pt;
+  margin-right: 8px;
+}
+.contenedor--subtitulo--4enlinea {
+  position: relative;
+  margin-top: 132px;
+  margin-left: 8px;
+}
+.contenedor--subtitulo--4enlinea i {
+  /* estrellas*/
+  color: rgba(245, 186, 37, 1);
+}
+.contenedor--subtitulo--4enlinea h1 {
+  /* subtitulo: 4.0*/
+  color: white;
+}
+.contenedor--reglas--juego--preview {
+  /*contenedor general de reglas y pre visualizacion*/
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 234px;
+  margin-left: 75px;
+  margin-right: 60px;
+  margin-bottom: 0;
+}
+.contenedor--reglas--juego {
+  /*contenedor reglas*/
+  width: 479.51px;
+  height: 284px;
+  margin-top: 132px;
+  flex: 1;
+  margin-bottom: 132px;
+}
+.contenedor--preview--juego {
+  /*contenedor pre visualizacion*/
+  margin-top: 132px;
+  flex: 1;
+}
+.contenedor--regla {
+  /*item regla*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contenedor--regla i,
+h3 {
+  /*iconos y h3*/
+  display: inline-block;
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+.h3--regla {
+  /*h3 de regla*/
+  margin-left: 8px;
+}
+hr .linea {
+  /*linea*/
+  border: 1px solid #de05ff;
+  width: 50%;
+  margin: 20px auto;
+}
+.img--preview--juego {
+  /*imagen pre visualizacion del juego*/
+  max-width: 100%;
+  height: auto;
+}
+
+.container--especificacion--juego {
+  /*contenedor desplegable especificaiones*/
+  width: 415.51px;
+  height: auto;
+  background-color: #333333;
+  border-radius: 4px;
+  align-items: center;
+}
+.container--especificacion--juego p {
+  /*parrafos desplegable especificaiones*/
+  font-size: 16px;
+  color: white;
+  text-indent: 0;
+  text-align: left;
+}
+.container--especificacion--juego,
+p {
+  /*parrafos desplegable especificaiones*/
+  padding: 32px;
+}
+
+.container--especificacion--juego img {
+  /*imagen desplegable especificaiones*/
+  width: 80%;
+  height: auto;
+  display: block;
+  justify-items: center;
+  align-items: center;
+  padding: 32px;
+}
+
+details {
+  /*recurso para animacion*/
+  padding: 0.5em 0.5em 0;
+}
+summary {
+  /*recurso para animacion*/
+  padding: 0.5em;
+}
+
+.navbar__hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: var(--spacing-3);
+}
+
+.navbar__line {
+  height: 3px;
+  width: 25px;
+  background-color: var(--grey-600);
+  margin: 4px 0;
+}
+
+.navbar__user {
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: var(--spacing-1);
+}
+
+.navbar__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.navbar__user-info {
+  text-align: right;
+}
+
+.navbar__user-name {
+  font-weight: var(--font-size-normal);
+}
+
+.navbar__user-alias {
+  color: var(--grey-400);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-12);
+}
+
+/*page game-detail */
+.container--game {
+  display: flex;
+  justify-content: center; /* Centra los elementos dentro de la columna 
+  /*align-items: center;*/
+  flex-direction: column;
+  min-height: 100vh;
+  color: var(--color-white);
+  position: relative;
+  margin-left: var(--spacing-9);
+}
+
+.container--img {
+  /*contenedor de imagen 4 en linea: POKEMON */
+  width: 1054px;
+  height: 512px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.img--4enlinea {
+  /* imagen 4 en linea: POKEMON */
+  width: 100%;
+  position: relative;
+  margin-left: var(--spacing-4);
+}
+
+.container--game .title--container--game,
+h1 {
+  /* titulo 4 en linea: POKEMON */
+  margin-top: var(--spacing-5);
+  margin-bottom: var(--spacing-1);
+  margin-left: var(--spacing-9);
+  color: var(--color-white);
+  top: var(--spacing-1);
+  left: var(--spacing-1);
+  z-index: 2;
+}
+
+.container--icon {
+  /* contenedor icono jugar */
+  width: 103px;
+  height: 103px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-60%, 0);
+  box-shadow: 0 0 3em 0 #ffb3fd, 0 0 3em 0 #ffb3fd;
+}
+
+.container--icon i {
+  /* icono jugar */
+  font-size: 500%;
+  font-size: 24px;
+  transition: transform 0.5s ease;
+}
+
+.container--icon i:hover {
+  transform: rotate(360deg);
+}
+
+.container--icon--compartir {
+  /* contenedor icono compartir*/
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-1);
+}
+
+.container--icon--compartir i {
+  /*icono compartir*/
+  font-size: 100%;
+}
+
+.contenedor--subtitulo--4enlinea i,
+h1 {
+  /*estrellas y subtitulo: 4.0*/
+  display: inline;
+  font-size: var(--font-size-24);
+  margin-right: var(--spacing-1);
+}
+
+.contenedor--subtitulo--4enlinea {
+  position: relative;
+  margin-top: 132px;
+  margin-left: var(--spacing-1);
+}
+
+.contenedor--subtitulo--4enlinea i {
+  /* estrellas*/
+  color: var(--color-naranja);
+}
+
+.contenedor--subtitulo--4enlinea h1 {
+  /* subtitulo: 4.0*/
+  color: var(--color-white);
+}
+
+.contenedor--reglas--juego--preview {
+  /*contenedor general de reglas y pre visualizacion*/
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 234px;
+  margin-left: var(--spacing-9);
+  margin-right: var(--spacing-8);
+  margin-bottom: var(--spacing-0);
+}
+
+.contenedor--reglas--juego {
+  /*contenedor reglas*/
+  width: 479.51px;
+  height: 284px;
+  margin-top: 132px;
+  flex: 1;
+  margin-bottom: 132px;
+}
+
+.contenedor--preview--juego {
+  /*contenedor pre visualizacion*/
+  margin-top: 132px;
+  flex: 1;
+}
+
+.contenedor--regla {
+  /*item regla*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contenedor--regla i,
+h3 {
+  /*iconos y h3*/
+  display: inline-block;
+  font-size: var(--font-size-24);
+  margin-bottom: var(--spacing-1);
+}
+
+.h3--regla {
+  /*h3 de regla*/
+  margin-left: var(--spacing-1);
+}
+
+hr .linea {
+  /*linea*/
+  border: 1px solid var(--color-primary);
+  width: 50%;
+  margin: var(--spacing-3) auto;
+}
+
+.img--preview--juego {
+  /*imagen pre visualizacion del juego*/
+  max-width: 100%;
+  height: auto;
+}
+
+.container--especificacion--juego {
+  /*contenedor desplegable especificaiones*/
+  width: 415.51px;
+  height: auto;
+  background-color: var(--background-color);
+  border-radius: 4px;
+  align-items: center;
+  padding: var(--spacing-5);
+}
+
+.container--especificacion--juego p {
+  /*parrafos desplegable especificaiones*/
+  font-size: var(--font-size-16);
+  color: var(--color-white);
+  text-indent: 0;
+  text-align: left;
+}
+
+.container--especificacion--juego img {
+  /*imagen desplegable especificaiones*/
+  width: 80%;
+  height: auto;
+  display: block;
+  justify-items: center;
+  align-items: center;
+}
+
+details {
+  /*recurso para animacion*/
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  /*recurso para animacion*/
+  padding: 0.5em;
+}
+
+details > summary {
+  list-style: none;
+}
+
+details[open] {
+  padding: 0em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid white;
+  margin-bottom: 0.5em;
+}
+
+.contenedor--comentarios {
+  margin-top: var(--spacing-10);
+  width: 1054px;
+  height: auto;
+  position: relative;
+  text-align: left;
+}
+
+.contenedor--img--info--usuario {
+  display: flex;
+  align-items: center;
+  margin-top: var(--spacing-6);
+  padding: var(--spacing-0);
+}
+
+.contenedor--info--usuario {
+  display: flex;
+  flex-direction: column;
+  margin: var(--spacing-0);
+  padding: var(--spacing-0);
+}
+
+.contenedor--img--info--usuario {
+  margin-left: var(--spacing-9);
+}
+
+.img--avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: var(--spacing-0);
+  margin-right: var(--spacing-1);
+}
+
+.contenedor--comentarios {
+  margin-bottom: var(--spacing-7);
+}
+
+.contenedor--comentarios .title--container--game.h3 {
+  margin-bottom: var(--spacing-2);
+  font-size: var(--font-size-24);
+  color: var(--color-white);
+}
+
+.contenedor--info--usuario p {
+  font-size: var(--font-size-16);
+  color: var(--grey-400);
+  margin: var(--spacing-0);
+  padding: var(--spacing-0);
+}
+
+.contenedor--info--usuario p.mail--usuario {
+  font-size: var(--font-size-12);
+  color: var(--grey-600);
+  margin: var(--spacing-0);
+  padding: var(--spacing-0);
+}
+
+.contenedor--calificar {
+  margin-top: var(--spacing-2);
+  margin-left: var(--spacing-9);
+}
+
+.contenedor--calificar.p {
+  padding: var(--spacing-0);
+  margin-right: var(--spacing-1);
+}
+
+.contenedor--calificar i,
+p {
+  display: inline;
+  font-size: var(--font-size-16);
+  margin-right: var(--spacing-0);
+  color: var(--grey-400);
+}
+
+.contenedor-text-area {
+  margin-left: var(--spacing-9);
+  margin-top: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+}
+
+.contenedor-text-area textarea {
+  background: var(--body-color);
+  background: transparent;
+  border-radius: 4px;
+  width: 974px;
+  height: 200px;
+}
+
+.contenedor-text-area textarea::placeholder {
+  font-family: "Roboto", sans-serif;
+}
+
+.contenedor-text-area p {
+  display: inline;
+  font-size: var(--font-size-12);
+  color: var(--grey-600);
+  margin-left: 976px;
+}
+
+.btn--primary--Enviar,
+.btn--Outline--Eliminar {
+  border-radius: 4;
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: var(--font-size-12);
+  padding-left: var(--spacing-2);
+  padding-right: var(--spacing-2);
+  padding-bottom: var(--spacing-1);
+  padding-top: var(--spacing-1);
+}
+
+.btn--primary--Enviar {
+  background: var(--color-primary);
+  margin-right: var(--spacing-1);
+  margin-left: var(--spacing-9);
+}
+
+.btn--Outline--Eliminar {
+  background: var(--background-color);
+  border: 1px solid var(--color-white);
+}
+
+#comentario {
+  margin: var(--spacing-0);
+}
+
+.contenedor--calificar--comentario {
+  /*margin-top: var(--spacing-1);
+  margin-bottom: var(--spacing-1);*/
+  display: flex;
+  align-items: center;
+  justify-content: first baseline;
+}
+
+.contenedor--calificar--comentario p {
+  font-size: var(--font-size-12);
+  color: var(--grey-600);
+  margin-left: var(--spacing-0);
+  margin-right: var(--spacing-1);
+}
+
+.contenedor--calificar--comentario i {
+  margin-left: var(--spacing-1);
+  color: var(--color-naranja);
+}
+
+.contenedor--calificar--estrellas {
+  margin-right: var(--spacing-1);
+  margin-top: var(--spacing-1);
+  margin-bottom: var(--spacing-1);
+  display: flex;
+}
+
+.contenedor--comentario--realizado {
+  margin-left: var(--spacing-9);
+  margin-bottom: var(--spacing-1);
+  margin-top: var(--spacing-1);
+}
+
+.contenedor--comentario--realizado p.comentario {
+  color: white;
+  font-size: var(--font-size-16);
+  margin-bottom: var(--spacing-2);
+}
+
+hr.linea--comentario--realizado {
+  align-items: center;
+  width: 974px;
+  border: none;
+  border-top: 0.2px solid var(--grey-600);
+  margin: var(--spacing-1) var(--spacing-0);
+}
+
+button i {
+  margin-right: var(--spacing-1);
+}
+
+.btn--primary--VerComentarios {
+  background: var(--color-primary);
+  width: 200px;
+  border-radius: 4;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: var(--font-size-12);
+  padding-left: var(--spacing-2);
+  padding-right: var(--spacing-2);
+  padding-bottom: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  margin-right: var(--spacing-1);
+  margin-top: var(--spacing-3);
+  margin-bottom: var(--spacing-9);
+}
+
+.contenedor--Comunidad {
+  margin-left: var(--spacing-9);
+}
+
+.contenedor--Comunidad h1 {
+  margin: var(--spacing-0);
+}
+
+.contenedor--comunidad--img {
+  margin-top: var(--spacing-4);
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: scroll;
+}
+
+.contenedor--comunidad--img::-webkit-scrollbar {
+  width: 1px; /* Ancho de la barra */
+}
+
+.contenedor--comunidad--img::-webkit-scrollbar-thumb {
+  background-color: var(--background-color);
+  border-radius: 4px;
+}
+
+.contenedor--comunidad--img::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.elemento {
+  flex: 1 0 auto;
+  margin: var(--spacing-0) var(--spacing-1);
+}
+
+hr.linea--bold {
+  width: 974px;
+  border-top: 0.5px solid var(--color-white);
+}
+
+.contenedor--especificaciones--avatar {
+  width: auto;
+  height: auto;
+  background-color: var(--color-primary);
+  border-radius: 4px;
+  align-items: center;
+}
+
+.contenedor--especificaciones--avatar a {
+  display: inline-block;
+  text-align: left;
+  font-size: var(--font-size-16);
+  color: var(--color-white);
+  text-indent: 0;
+  text-align: left;
+  padding: var(--spacing-1);
+}
+
+.contenedor--especificaciones--avatar i {
+  margin-right: var(--spacing-1);
+}
+
+.contenedor--comunidad--img details[open] summary {
+  border-bottom: 1px solid var(--color-primary);
+  margin-bottom: 0.5em;
+}
+
+.contenedor--comentario--realizado {
+  margin-top: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+}

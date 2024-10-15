@@ -1,0 +1,53 @@
+#id_popover {
+  position: absolute;
+  background-color: var(--color-secondary);
+  border: none;
+  border-radius: 8px;
+  padding: 50px;
+  margin: auto;
+  font-size: large;
+  text-align: center;
+}
+
+#id_popover::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popover__icon {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-48);
+  color: var(--color-accent);
+}
+
+.popover__text {
+  margin-bottom: var(--spacing-4);
+  color: white;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+.active {
+  animation: scaleIn 0.3s forwards;
+}
+
+.inactive {
+  animation: scaleOut 0.3s forwards;
+}
