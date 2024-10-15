@@ -12,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
+  margin-bottom: var(--spacing-8);
 }
 
 .slider {

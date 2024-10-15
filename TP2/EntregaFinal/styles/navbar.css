@@ -298,7 +298,6 @@ ul .comunidad:hover {
     padding: var(--spacing-2);
     height: auto;
     justify-content: flex-start;
-    align-items: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
   }
@@ -306,6 +305,7 @@ ul .comunidad:hover {
   .navbar__logo {
     position: relative;
     left: 0;
+    right: 0;
   }
 
   .navbar__user-info {
