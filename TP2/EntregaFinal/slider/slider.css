@@ -108,7 +108,7 @@
 }
 .slide__button {
   margin-top: 5px;
-  font-size: var(--font-size-12);
+  font-size: var(--font-size-18);
   font-weight: bold;
   display: inline-block;
   position: relative;
