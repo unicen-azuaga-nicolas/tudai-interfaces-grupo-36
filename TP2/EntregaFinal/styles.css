@@ -558,11 +558,22 @@ summary{/*recurso para animacion*/
   top: 50%;
   left: 55%;
   transform: translate(-60%, 0);
+  box-shadow: 0 0 3em 0  #FFB3FD,
+              0 0 3em 0  #FFB3FD;
 }
 
 .container--icon i{/* icono jugar */
-  font-size: 275%;
+  font-size: 500%;
+  font-size: 24px;
+  transition: transform 0.5s ease;
+
 }
+
+.container--icon i:hover{
+  transform: rotate(360deg);
+}
+
+
 
 .container--icon--compartir{ /* contenedor icono compartir*/
   width: 42px;
