@@ -27,9 +27,6 @@
 }
 
 .slide {
-  /* width: 480px;
-  height: 380px; */
-  /* height: 80%; */
   position: relative;
   top: 70%;
   transform: translate(0, -50%);
@@ -224,4 +221,10 @@
 
 .chevron--right {
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .slide--background-primary .slide__character-img {
+    width: 50%;
+  }
 }
