@@ -161,7 +161,7 @@
 }
 
 .menu {
-  font-size: var(--font-size-12);
+  font-size: var(--font-size-normal);
   display: none;
   flex-direction: column;
   gap: 1rem;
