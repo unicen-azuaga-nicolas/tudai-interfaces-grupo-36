@@ -69,13 +69,19 @@
         </div>
         <div class="navbar__item navbar__user">
             <div class="navbar__user-info">
-                <div class="navbar__user-name">Nombre del Usuario</div>
-                <div class="navbar__user-alias">@aliasusuario</div>
+                <div class="navbar__user-info__username">
+                    <span class="navbar__user-name">Nombre del Usuario</span>
+                    <span class="navbar__user-alias">@aliasusuario</span>
+                </div>
+                <a href="../index.html">
+                    <img src="../assets/user-avatar.png" alt="Avatar de usuario" class="navbar__avatar">
+                </a>
             </div>
-            <a href="../index.html">
-                <img src="../assets/user-avatar.png" alt="Avatar de usuario" class="navbar__avatar">
-            </a>
-            <img src="../assets/icons/cart-icon.svg" alt="cart">
+            <div class="navbar__item navbar__cart">
+                <a>
+                    <img src="../assets/icons/cart-icon.svg" alt="cart">
+                </a>
+            </div>
         </div>
     </nav>
     <main class="container--game">
@@ -88,11 +94,11 @@
         </div>
             <div class="contenedor--subtitulo--4enlinea">
                 <h1 class="h1--4enlinea">4.0</h1>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
+                <i  class="fa-solid fa-star"></i>
+                <i  class="fa-solid fa-star"></i>
+                <i  class="fa-solid fa-star"></i>
+                <i  class="fa-solid fa-star"></i>
+                <i  class="fa-regular fa-star"></i>
             </div>
             <div class="contenedor--reglas--juego--preview">
                 <div class="contenedor--reglas--juego">
@@ -204,8 +210,8 @@
                 <div class="contenedor--img--info--usuario">
                     <img class="img--avatar" src="../assets/Avatar.png" alt="Avatar de usuario">
                     <div class="contenedor--info--usuario">
-                        <p>Grupo 36</p>
-                        <p class="mail--usuario">@gamer</p>
+                        <p class="Nombre--usuario--p">Grupo 36</p>
+                        <p class="mail--usuario--p">@gamer</p>
                     </div>
                 </div>
                 <div class="contenedor--calificar">
@@ -218,19 +224,19 @@
                 </div>
                 <div class="contenedor-text-area">
                     <textarea name="Comentario" placeholder="Comenta aqui"></textarea>
-                    <p>0/200</p>
+                    <p class="contenedor-text-area--p">0/200</p>
                 </div>
                 <div>
-                    <button class="btn btn--primary--Enviar">Enviar</button>
-                    <button class="btn btn--Outline--Eliminar">Eliminar</button>
+                    <button class="btn--primary--Enviar" class="game-detail--btn--primary--Enviar">Enviar</button>
+                    <button class="btn--Outline--Eliminar" class="game-detail--btn--Outline--Eliminar">Eliminar</button>
                 </div>
             </div>
             <div class="contenedor--comentario--realizado">
                 <div class="contenedor--img--info--usuario" id="comentario">
                     <img class="img--avatar" src="../assets/Avatar.png" alt="Avatar de usuario">
                     <div class="contenedor--info--usuario">
-                        <p class="nombre--usuario">Grupo 36</p>
-                        <p class="mail--usuario">@grupo36</p>
+                        <p class="Nombre--usuario--p">Grupo 36</p>
+                        <p class="mail--usuario--p">@grupo36</p>
                     </div>
                 </div>
                 <div class="contenedor--calificar--comentario">
@@ -241,7 +247,7 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                     </div>
-                    <p>Hace un momento</p>
+                    <p class="contenedor--calificar--comentario--p">Hace un momento</p>
                 </div>
                 <p class="comentario">Muy buen juego, me encanto</p>
                 <hr class="linea linea--comentario--realizado">
@@ -250,8 +256,8 @@
                 <div class="contenedor--img--info--usuario" id="comentario">
                     <img class="img--avatar" src="../assets/JG.png" alt="Avatar de usuario">
                     <div class="contenedor--info--usuario">
-                        <p class="nombre--usuario">JG</p>
-                        <p class="mail--usuario">@zunami</p>
+                        <p class="Nombre--usuario--p">JG</p>
+                        <p class="mail--usuario--p">@zunami</p>
                     </div>
                 </div>
                 <div class="contenedor--calificar--comentario">
@@ -262,7 +268,7 @@
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                     </div>
-                    <p>Hace 2 meses</p>
+                    <p class="contenedor--calificar--comentario--p">Hace 2 meses</p>
                 </div>
                 <p class="comentario">Jugue mejores :)</p>
                 <hr class="linea linea--comentario--realizado">
@@ -272,19 +278,19 @@
                 <div class="contenedor--img--info--usuario" id="comentario">
                     <img class="img--avatar" src="../assets/Pepe.png" alt="Avatar de usuario">
                     <div class="contenedor--info--usuario">
-                        <p class="nombre--usuario">Pepe Games</p>
-                        <p class="mail--usuario">@pepegames</p>
+                        <p class="Nombre--usuario--p">Pepe Games</p>
+                        <p class="mail--usuario--p">@pepegames</p>
                     </div>
                 </div>
                 <div class="contenedor--calificar--comentario">
                     <div class="contenedor--calificar--estrellas">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                        <i  class="fa-solid fa-star"></i>
+                        <i  class="fa-solid fa-star"></i>
+                        <i  class="fa-solid fa-star"></i>
+                        <i  class="fa-solid fa-star"></i>
+                        <i  class="fa-regular fa-star"></i>
                     </div>
-                    <p>Hace 3 meses</p>
+                    <p class="contenedor--calificar--comentario--p">Hace 3 meses</p>
                 </div>
                 <p class="comentario">Me re cope jugando :D</p>
                 <hr class="linea linea--comentario--realizado">
@@ -293,7 +299,7 @@
                 <hr class="linea linea--bold">
             </div>
             <div class="contenedor--Comunidad">
-                <h1>Comunidad</h1>
+                <h3 class="title--container--game">Comunidad</h3>
                 <div class="contenedor--comunidad--img">
                     <details>
                         <summary>
@@ -303,8 +309,8 @@
                             </div>
                         </summary>
                         <div class="contenedor--especificaciones--avatar">
-                            <a href="EnviarMensaje"><i class="fa-solid fa-paper-plane"></i>Enviar Mensaje</a>
-                            <a href="VerPerfil"><i class="fa-solid fa-user"></i>Ver PErfil</a>
+                            <a href="EnviarMensaje"><i class="fa-solid fa-paper-plane"></i>Mensaje</a>
+                            <a href="VerPerfil"><i class="fa-solid fa-user"></i>Ver Perfil</a>
                         </div>
                     </details>
 
