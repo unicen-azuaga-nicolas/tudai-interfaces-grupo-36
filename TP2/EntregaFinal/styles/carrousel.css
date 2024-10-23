@@ -9,9 +9,9 @@
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     scrollbar-width: none;
-  }
+}
   
-  .carrousel-item {
+.carrousel-item {
     display: flex;
     flex-direction: column;
     min-width: 180px;
@@ -20,27 +20,27 @@
     padding: 12px;
     color: #ffffff;
     transition: all 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
+}
   
-  .carrousel-item:hover {
+.carrousel-item:hover {
     transform: scale(1.04) translateY(-8px);
-  }
+}
   
-  .game-card {
+.game-card {
     width: 100%;
     height: 140px;
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-  }
+}
   
-  .game-image {
+.game-image {
     width: 100%;
     height: 100%;
     object-fit: cover; 
-  }
+}
   
-  .card-overlay {
+.card-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -53,49 +53,51 @@
     justify-content: space-between;
     padding: 12px;
     box-sizing: border-box;
-  }
+}
   
-  .game-card:hover .card-overlay {
+.game-card:hover .card-overlay {
     background-color: rgba(0, 0, 0, 0.6);
-  }
+}
   
-  .card-top {
+.card-top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-  }
+}
   
-  .game-title {
+.game-title {
     color: white;
     font-size: 12px;
     font-weight: bold;
     opacity: 0;
     transition: opacity 0.3s ease;
     margin-top: 5px;
-  }
+}
   
-  .game-card:hover .game-title {
+.game-card:hover .game-title {
     opacity: 1;
-  }
+}
   
-  .pro-tag {
-    background-color: #FFD700;
+.pro-tag {
+    background-color:  var(--color--neon--amarillo);
     color: black;
     padding: 2px 20px;
     border-radius: 8px;
-    font-size: 10px;
-    font-weight: bold;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-extra-bold);
     text-transform: uppercase;
     margin-top: 5px;
-  }
+    /*
+    box-shadow: 0 0 0.5em 0 var(--color--neon--amarillo), 0 0 0.5em 0 var( --color--neon--amarillo);*/
+}
   
-  .card-bottom {
+.card-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+}
   
-  .buy-button {
+.buy-button {
     background-color: var(--color-accent);
     color: white;
     border: none;
@@ -107,20 +109,20 @@
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-  }
+}
   
-  .game-card:hover .buy-button,
-  .game-card:hover .play-icon {
+.game-card:hover .buy-button,
+.game-card:hover .play-icon {
     opacity: 1;
-  }
+}
   
-  .price {
+.price {
     color: white;
     font-size: 14px;
     font-weight: bold;
-  }
+}
   
-  .play-icon {
+.play-icon {
     font-size: 48px;
     color: white;
     opacity: 0;
@@ -129,9 +131,9 @@
     top: 50%;          
     left: 50%;        
     transform: translate(-50%, -50%);
-  }
+}
   
-  .cart-message {
+.cart-message {
     position: absolute;
     top: 0px;
     left: 0;
@@ -143,7 +145,7 @@
     border-radius: 8px 8px 0 0;
     font-size: 12px;
     z-index: 10;
-  }
+}
 
   /* Responsivo para pantallas más pequeñas */
 @media (max-width: 768px) {
