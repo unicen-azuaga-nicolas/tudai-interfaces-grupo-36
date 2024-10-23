@@ -2,6 +2,10 @@ document.getElementById("menuToggle").addEventListener("click", function() {
   document.getElementById("menu").classList.toggle("active");
 });
 
+document.getElementById("menuClose").addEventListener("click", function() {
+  document.getElementById("menu").classList.toggle("active");
+});
+
 // Cerrar el menú al hacer clic fuera de él
 document.addEventListener("click", function(event) {
   const menu = document.getElementById("menu");
