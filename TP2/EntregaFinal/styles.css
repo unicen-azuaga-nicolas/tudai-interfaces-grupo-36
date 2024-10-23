@@ -349,7 +349,7 @@ h1 {
   /* contenedor icono jugar */
   width: 103px;
   height: 103px;
-  background-color: #de05ff;
+  background-color: val(--color-primary);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -359,9 +359,9 @@ h1 {
   left: 55%;
   transform: translate(-60%, 0);
 }
-.container--icon i {
+#gamepad {
   /* icono jugar */
-  font-size: 275%;
+  font-size: 300%;
 }
 
 .container--icon--compartir {
