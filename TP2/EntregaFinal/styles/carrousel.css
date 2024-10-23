@@ -79,7 +79,7 @@
 }
   
 .pro-tag {
-    background-color:  var(--color--neon--amarillo);
+    background-color:  var(--color-naranja);
     color: black;
     padding: var(--spacing-1) var(--spacing-2);
     border-radius: 8px;
