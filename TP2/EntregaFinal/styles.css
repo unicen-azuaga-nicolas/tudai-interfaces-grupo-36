@@ -308,6 +308,8 @@ main {
 
 .social-login a:hover {
   background: #444444;
+  align-items: center;
+  justify-content: center;
 }
 
 /*page game-detail */
