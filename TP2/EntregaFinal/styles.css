@@ -8,12 +8,14 @@
   --color-primary700: #8a049e;
   --color-secondary: #333333;
   --color-accent: #14a600;
+  --color--accent700:#14A600;
   --background-color: #222121;
   --body-color: #222121;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-naranja: #f5ba25;
   --color--neon: #01ffc3;
+  --color--neon--amarillo:#ECFD18;
   --background-neon: #ffb3fd;
 
   --grey-100: #e6e6e6;
@@ -71,7 +73,7 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   font-size: var(--font-size-normal);
-  background: #121212;
+  background: var(--background-color);
 }
 
 .no-scroll {
@@ -311,6 +313,8 @@ main {
 
 .social-login a:hover {
   background: #444444;
+  align-items: center;
+  justify-content: center;
 }
 
 /*page game-detail */
@@ -353,7 +357,7 @@ h1 {
   /* contenedor icono jugar */
   width: 103px;
   height: 103px;
-  background-color: #de05ff;
+  background-color: val(--color-primary);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -363,9 +367,9 @@ h1 {
   left: 55%;
   transform: translate(-60%, 0);
 }
-.container--icon i {
+#gamepad {
   /* icono jugar */
-  font-size: 275%;
+  font-size: 300%;
 }
 
 .container--icon--compartir {
