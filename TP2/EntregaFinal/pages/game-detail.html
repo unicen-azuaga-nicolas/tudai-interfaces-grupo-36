@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://kit.fontawesome.com/f8680ec25a.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/f8680ec25a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles/game-detail.css">
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/fatfooter.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
@@ -26,6 +27,9 @@
                     <span class="navbar__line"></span>
                 </div>
                 <div id="menu" class="menu">
+                    <span class="menu__close" id="menuClose">
+                        <i class="fas fa-times"></i>
+                    </span>
                     <ul>
                         <div>
                             <li class="perfil"><i class="fas fa-user"></i> <a href="#perfil">Mi Perfil</a></li>
@@ -60,7 +64,7 @@
                 <img class="navbar__search__icon" src="../assets/icons/search-icon.svg" alt="search-icon">
             </div>
             <ul class="navbar__links">
-                <li class="navbar__item"><a href="../pages/home.html" class="navbar__link">Inicio</a></li>
+                <li class="navbar__item"><a href="#home" class="navbar__link">Inicio</a></li>
             </ul>
         </div>
         <div class="navbar__item navbar__logo">
@@ -75,7 +79,7 @@
                     <span class="navbar__user-alias">@aliasusuario</span>
                 </div>
                 <a href="../index.html">
-                    <img src="../assets/user-avatar.png" alt="Avatar de usuario" class="navbar__avatar">
+                    <img src="../assets/games-images/user-avatar.png" alt="Avatar de usuario" class="navbar__avatar">
                 </a>
             </div>
             <div class="navbar__item navbar__cart">
@@ -84,11 +88,12 @@
                 </a>
             </div>
         </div>
+
     </nav>
     <main class="container--game">
         <h1 class="title--container--game">4 EN LINEA: POKEMON</h1>
         <div class="container--img">
-            <img class="img img--4enlinea" src="../assets/4enlinea.jpeg" alt="Imagen 4 en linea">
+            <img class="img img--4enlinea" src="../assets/games-images/4enlinea.jpeg" alt="Imagen 4 en linea">
             <div class="container--icon">
                <i id="gamepad" class="fa-solid fa-gamepad"></i>
             </div>
@@ -201,7 +206,7 @@
                     </details>
                 </div>
                 <div class="contenedor--preview--juego">
-                    <img class="img--preview--juego" src="../assets/Visiualizacionjuego.png"
+                    <img class="img--preview--juego" src="../assets/games-images/Visiualizacionjuego.png"
                         alt="Pre Visiualizacion Juego">
                 </div>
             </div>
@@ -209,7 +214,7 @@
             <div class="contenedor--comentarios">
                 <h3 class="title--container--game">Comentarios</h3>
                 <div class="contenedor--img--info--usuario">
-                    <img class="img--avatar" src="../assets/Avatar.png" alt="Avatar de usuario">
+                    <img class="img--avatar" src="../assets/games-images/Avatar.png" alt="Avatar de usuario">
                     <div class="contenedor--info--usuario">
                         <p class="Nombre--usuario--p">Grupo 36</p>
                         <p class="mail--usuario--p">@gamer</p>
@@ -234,7 +239,7 @@
             </div>
             <div class="contenedor--comentario--realizado">
                 <div class="contenedor--img--info--usuario" id="comentario">
-                    <img class="img--avatar" src="../assets/Avatar.png" alt="Avatar de usuario">
+                    <img class="img--avatar" src="../assets/games-images/Avatar.png" alt="Avatar de usuario">
                     <div class="contenedor--info--usuario">
                         <p class="Nombre--usuario--p">Grupo 36</p>
                         <p class="mail--usuario--p">@grupo36</p>
@@ -255,7 +260,7 @@
             </div>
             <div class="contenedor--comentario--realizado">
                 <div class="contenedor--img--info--usuario" id="comentario">
-                    <img class="img--avatar" src="../assets/JG.png" alt="Avatar de usuario">
+                    <img class="img--avatar" src="../assets/games-images/JG.png" alt="Avatar de usuario">
                     <div class="contenedor--info--usuario">
                         <p class="Nombre--usuario--p">JG</p>
                         <p class="mail--usuario--p">@zunami</p>
@@ -277,7 +282,7 @@
             </div>
             <div class="contenedor--comentario--realizado">
                 <div class="contenedor--img--info--usuario" id="comentario">
-                    <img class="img--avatar" src="../assets/Pepe.png" alt="Avatar de usuario">
+                    <img class="img--avatar" src="../assets/games-images/Pepe.png" alt="Avatar de usuario">
                     <div class="contenedor--info--usuario">
                         <p class="Nombre--usuario--p">Pepe Games</p>
                         <p class="mail--usuario--p">@pepegames</p>
@@ -299,91 +304,68 @@
                     Comentarios</button>
                 <hr class="linea linea--bold">
             </div>
+            
             <div class="contenedor--Comunidad">
-                <h3 class="title--container--game">Comunidad</h3>
-                <div class="contenedor--comunidad--img">
-                    <details>
-                        <summary>
-                            <div class="elemento">
-                                <img class="img--avatar--comunidad" src="../assets/Default(1).png"
-                                    alt="Avatar de usuario">
+                <h3 class="h3-comunidad">Comunidad</h3>
+                <section id="users--container" class="users">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                 <img src="../assets/games-images/AvatarCallofDuty.png" alt="">
                             </div>
-                        </summary>
-                        <div class="contenedor--especificaciones--avatar">
-                            <a href="EnviarMensaje"><i class="fa-solid fa-paper-plane"></i>Mensaje</a>
-                            <a href="VerPerfil"><i class="fa-solid fa-user"></i>Ver Perfil</a>
+                            <div class="swiper-slide">
+                                <img src="../assets/games-images/Default(1).png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/games-images/Default(2).png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/games-images/Default(3).png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/games-images/Default(4).png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/games-images/Default(5).png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/games-images/Default(6).png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/games-images/Default(7).png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/games-images/Default(8).png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../assets/games-images/AvatarCallofDuty.png" alt="">
+                           </div>
+                           <div class="swiper-slide">
+                               <img src="../assets/games-images/Default(1).png" alt="">
+                           </div>
+                           <div class="swiper-slide">
+                               <img src="../assets/games-images/Default(2).png" alt="">
+                           </div>
+                           <div class="swiper-slide">
+                               <img src="../assets/games-images/Default(3).png" alt="">
+                           </div>
+                           <div class="swiper-slide">
+                               <img src="../assets/games-images/Default(4).png" alt="">
+                           </div>
+                           <div class="swiper-slide">
+                               <img src="../assets/games-images/Default(5).png" alt="">
+                           </div>
                         </div>
-                    </details>
-
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(2).png" alt="Avatar de usuario">
                     </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(4).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(6).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(6).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(7).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(8).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(8).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(1).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(2).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(4).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(1).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(2).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(3).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(4).png" alt="Avatar de usuario">
-                    </div>
-                    <div class="elemento">
-                        <img class="img--avatar--comunidad" src="../assets/Default(5).png" alt="Avatar de usuario">
-                    </div>
-
+                </section>
+                <div class="icons">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <i class="fa-solid fa-user"></i>
                 </div>
-
             </div>
-            </div>
-        </section>
+          
+            
+     
     </main>
     <footer class="fat-footer">
         <header class="fat-footer__header">
@@ -473,7 +455,8 @@
     <script src="../js/loader.js"></script>
     <script src="../js/navbar.js"></script>
     <script src="../slider/slider.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../js/carouserljuego.js"></script>
 </body>
 
 </html>
