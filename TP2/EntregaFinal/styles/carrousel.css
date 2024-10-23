@@ -81,7 +81,7 @@
 .pro-tag {
     background-color:  var(--color--neon--amarillo);
     color: black;
-    padding: 2px 20px;
+    padding: var(--spacing-1) var(--spacing-2);
     border-radius: 8px;
     font-size: var(--font-size-16);
     font-weight: var(--font-weight-extra-bold);
