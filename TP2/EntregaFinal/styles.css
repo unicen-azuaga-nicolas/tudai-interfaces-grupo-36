@@ -8,14 +8,14 @@
   --color-primary700: #8a049e;
   --color-secondary: #333333;
   --color-accent: #14a600;
-  --color--accent700:#14A600;
+  --color--accent700: #14a600;
   --background-color: #222121;
   --body-color: #222121;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-naranja: #f5ba25;
   --color--neon: #01ffc3;
-  --color--neon--amarillo:#ECFD18;
+  --color--neon--amarillo: #ecfd18;
   --background-neon: #ffb3fd;
 
   --grey-100: #e6e6e6;
@@ -33,6 +33,7 @@
   --font-primary: "Roboto", sans-serif; /* Fuente principal */
 
   /* Font Sizes */
+  --font-size-8: 0.5rem;
   --font-size-12: 0.75rem;
   --font-size-normal: 1rem;
   --font-size-16: 1.333rem;
@@ -83,6 +84,11 @@ body {
 .display-none {
   display: none;
 }
+
+.hide {
+  opacity: 0;
+}
+
 main {
   min-height: 100vh;
   color: white;

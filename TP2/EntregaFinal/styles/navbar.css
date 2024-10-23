@@ -17,9 +17,19 @@
   left: 48%;
 }
 
-.navbar__cart {
-  /* position: absolute;
-  left: 48%; */
+.cart__counter {
+  position: absolute;
+  top: 20px;
+  right: 29px;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-12);
 }
 
 .navbar__link {
@@ -338,5 +348,9 @@ ul .comunidad:hover {
 
   .navbar__links {
     display: none;
+  }
+  .cart__counter {
+    top: -5px;
+    right: 5px;
   }
 }

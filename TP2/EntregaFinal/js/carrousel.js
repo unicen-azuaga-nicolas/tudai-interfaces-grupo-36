@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+function carrousel() {
   const sliders = document.querySelectorAll(".carrousel");
-
   // Iterar sobre cada carrusel
   sliders.forEach((slider) => {
     let isDown = false;
@@ -62,19 +61,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Scroll
-    const scrollContainer = slider.querySelector(".carrousel-item");
+    // const scrollContainer = slider.querySelector(".carrousel-item");
 
-    if (scrollContainer) {
-      scrollContainer.addEventListener("wheel", (evt) => {
-        evt.preventDefault();
-        window.requestAnimationFrame(() => {
-          scrollContainer.scrollTo({
-            top: 0,
-            left: scrollContainer.scrollLeft + evt.deltaY * 2,
-            behavior: "smooth",
-          });
-        });
-      });
-    }
+    // if (scrollContainer) {
+    //   scrollContainer.addEventListener("wheel", (evt) => {
+    //     evt.preventDefault();
+    //     window.requestAnimationFrame(() => {
+    //       scrollContainer.scrollTo({
+    //         top: 0,
+    //         left: scrollContainer.scrollLeft + evt.deltaY * 2,
+    //         behavior: "smooth",
+    //       });
+    //     });
+    //   });
+    // }
   });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  carrousel();
 });

@@ -9,6 +9,7 @@
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  margin-bottom: 24px;
 }
 
 .carrousel-item {
@@ -55,6 +56,7 @@
   justify-content: space-between;
   padding: 12px;
   box-sizing: border-box;
+  border-radius: 8px;
 }
 
 .game-card:hover .card-overlay {
@@ -70,7 +72,7 @@
 .game-title {
   color: white;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: var(--font-weight-medium);
   opacity: 0;
   transition: opacity 0.3s ease;
   margin-top: 5px;
@@ -85,12 +87,13 @@
   justify-content: center;
   align-items: center;
   height: 16px;
-  width: 86px;
+  max-width: 86px;
+  width: 100%;
   background-color: var(--color-naranja);
   color: #333;
   padding: var(--spacing-1) var(--spacing-2);
   border-radius: 8px;
-  font-size: var(--font-size-16);
+  font-size: var(--font-size-normal);
   font-weight: var(--font-weight-bold);
   position: absolute;
   right: -8px;
@@ -100,7 +103,7 @@
 
 .card-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -112,24 +115,41 @@
   border-radius: 8px;
   font-size: 14px;
   cursor: pointer;
-  display: flex;
+  display: none;
   align-items: center;
-  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
+.add-to-cart-button {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-cart-button i {
+  position: relative;
+  left: 2.5px;
+}
+
 .game-card:hover .buy-button,
+.game-card:hover .price,
+.game-card:hover .add-to-cart-button,
 .game-card:hover .play-icon {
-  opacity: 1;
+  display: flex;
 }
 
 .price {
   color: white;
-  font-size: var(--font-size-12);
-  font-weight: bold;
-  background-color: rgba(51, 51, 51, 0.4);
-  padding: var(--spacing-1) var(--spacing-2);
-  border-radius: 8px;
+  font-size: var(--font-size-24);
+  font-weight: var(--font-weight-light);
+  opacity: 0;
 }
 
 .play-icon {
@@ -151,6 +171,9 @@
   position: absolute;
   top: 0px;
   left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   background-color: var(--color-accent);
   color: white;
@@ -161,28 +184,33 @@
   z-index: 10;
 }
 
+.cart-message__close {
+  cursor: pointer;
+  padding: 0 8px;
+}
+
 /* Responsivo para pantallas más pequeñas */
 @media (max-width: 768px) {
-  .carrousel-item {
-    min-width: 150px; /* Más pequeño */
-    flex-basis: 150px; /* Más pequeño */
-  }
+  /* .carrousel-item {
+    min-width: 150px; 
+    flex-basis: 150px;
+  } */
 
-  .game-card {
-    height: 120px; /* Más pequeño */
-  }
+  /* .game-card {
+    height: 120px; 
+  } */
 
-  .game-title {
-    font-size: 10px; /* Más pequeño */
-  }
+  /* .game-title {
+    font-size: 10px; 
+  } */
 
   .pro-tag {
-    font-size: 8px; /* Más pequeño */
+    /* font-size: var(--font-size-12); */
   }
 
-  .price {
-    font-size: 12px; /* Más pequeño */
-  }
+  /* .price {
+    font-size: 12px; 
+  } */
 
   .play-icon {
     font-size: 28px; /* Más pequeño */
@@ -191,26 +219,26 @@
 
 /* Responsivo para pantallas muy pequeñas */
 @media (max-width: 480px) {
-  .carrousel-item {
-    min-width: 120px; /* Más pequeño */
-    flex-basis: 120px; /* Más pequeño */
-  }
+  /* .carrousel-item {
+    min-width: 120px; 
+    flex-basis: 120px;
+  } */
 
-  .game-card {
-    height: 80px; /* Más pequeño */
-  }
+  /* .game-card {
+    height: 80px; 
+  } */
 
-  .game-title {
-    font-size: 8px; /* Más pequeño */
-  }
+  /* .game-title {
+    font-size: 8px;
+  } */
 
   .pro-tag {
-    font-size: 6px; /* Más pequeño */
+    /* font-size: var(--font-size-12); */
   }
 
-  .price {
-    font-size: 10px; /* Más pequeño */
-  }
+  /* .price {
+    font-size: 10px;
+  } */
 
   .play-icon {
     font-size: 24px; /* Más pequeño */

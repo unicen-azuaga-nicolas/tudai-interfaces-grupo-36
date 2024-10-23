@@ -6,9 +6,6 @@
  */
 const addToCart = (id, product, cart) => {
   if (id === undefined || product === undefined || cart === undefined) {
-    console.log("addToCart - id:", id);
-    console.log("addToCart - product:", product);
-    console.log("addToCart - cart:", cart);
     console.error("addToCart: Missing parameters");
     return;
   }
@@ -65,7 +62,8 @@ const generateCarrouselHTML = (title, products, carrouselId, cart) => {
                             <div class="card-top">
                             <h3 class="game-title">${product.name}</h3>
                             ${
-                              product.price > 0
+                              product.price > 0 &&
+                              !cart.products.has(product.id)
                                 ? '<span class="pro-tag">Pro</span>'
                                 : ""
                             }
@@ -74,6 +72,9 @@ const generateCarrouselHTML = (title, products, carrouselId, cart) => {
                                   product.price > 0
                                     ? `
                                 <div class="card-bottom">
+                                    <button class="add-to-cart-button">
+                                      <i class="fas fa-shopping-cart"></i>
+                                    </button>
                                     <button class="buy-button" 
                                             id="buy-button-${carrouselId}-${product.id}"
                                             data-id="${product.id}"
@@ -84,14 +85,14 @@ const generateCarrouselHTML = (title, products, carrouselId, cart) => {
                                 </div>`
                                     : `
                                 <div class="play-icon">     
-                                <a href=${product?.href || '#'}>
+                                <a href=${product?.href || "#"}>
                                   <i class="fas fa-search"></i>
                                 </a>                     
                                 </div>`
                                 }
                                 ${
                                   cart.products.has(product.id)
-                                    ? '<div class="cart-message">En el carrito</div>'
+                                    ? '<div class="cart-message"><span></span>En el carrito <a class="cart-message__close"><i class="fas fa-times"></i></a></div>'
                                     : ""
                                 }
                             </div>
@@ -110,6 +111,13 @@ const generateCarrouselHTML = (title, products, carrouselId, cart) => {
  * @param {Cart} cart
  */
 function renderCarrousels(cart) {
+  const cartCounter = document.querySelector(".cart__counter");
+  cartCounter.innerText = cart.getTotalProducts();
+  if (cart.getTotalProducts() > 0) {
+    cartCounter.classList.remove("hide");
+  } else {
+    cartCounter.classList.add("hide");
+  }
   const userGamesContainer = document.querySelector(".user-games");
   const categoriesContainer = document.querySelector(".categories");
 
@@ -143,6 +151,18 @@ function renderCarrousels(cart) {
     );
     categoriesContainer.insertAdjacentHTML("beforeend", carrouselHTML);
     addEventListenersToButtons(products, `categories-${index}`, cart);
+    carrousel();
+    const cartRemoveButtons = document.querySelectorAll(".cart-message__close");
+    cartRemoveButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const cartMessage = event.target.closest(".cart-message");
+        const productId = cartMessage.previousElementSibling.querySelector(
+          ".buy-button"
+        ).getAttribute("data-id");
+        cart.removeProduct(productId);
+        renderCarrousels(cart);
+      });
+    });
   });
 }
 
