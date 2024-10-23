@@ -1,25 +1,32 @@
 class Cart {
   constructor() {
-    this.products = [];
+    this.products = new Map();
   }
 
-  addProduct(product) {
-    this.products.push(product);
+  addProduct(id, product) {
+    if (this.products.has(id)) {
+      console.log(`El producto con ID ${id} ya está en el carrito.`);
+      return;
+    }
+    this.products.set(id, product);
   }
 
   removeProduct(id) {
-    this.products = this.products.filter((product) => product.id !== id);
-  }
-
-  getTotal() {
-    return this.products.reduce((total, product) => total + product.price, 0);
-  }
-
-  listProducts() {
-    return this.products;
+    this.products.delete(id);
   }
 
   getTotalProducts() {
-    return this.products.length;
+    return this.products.size;
+  }
+
+  listProducts() {
+    return Array.from(this.products.values());
+  }
+
+  getTotal() {
+    return Array.from(this.products.values()).reduce(
+      (total, product) => total + product.price,
+      0
+    );
   }
 }

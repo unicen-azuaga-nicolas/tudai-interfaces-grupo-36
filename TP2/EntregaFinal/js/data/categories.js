@@ -52,7 +52,7 @@ const GAME_NAMES_BY_IMAGE = {
   24: "Bloons TD 4",
 };
 
-const generateRandomGames = (quantity) => {
+const generateRandomGames = ({ carrouselName, quantity }) => {
   const games = [];
   const usedImages = new Set();
 
@@ -65,14 +65,13 @@ const generateRandomGames = (quantity) => {
     usedImages.add(imageNumber);
 
     const image = getImageByID(imageNumber);
-    const id = generateUniqueID();
+    const id = `${carrouselName}-${generateUniqueID()}`;
     const name = GAME_NAMES_BY_IMAGE[imageNumber];
     games.push({
       id,
       name,
       price: generateRandomPrice(),
       image,
-      inCart: false,
     });
   }
   return games;
@@ -81,16 +80,31 @@ const generateRandomGames = (quantity) => {
 // USER GAMES
 
 // PARA TI
-const FOR_YOU = generateRandomGames(10);
+const FOR_YOU = [
+  {
+    id: "para-ti-1",
+    name: "4 en linea",
+    price: 0,
+    image: "../assets/4enlinea.jpeg",
+    href:'./game-detail.html'
+  },
+  ...generateRandomGames({ quantity: 10, carrouselName: "para-ti" }),
+];
 // CONTINUAR JUGANDO
-const KEEP_PLAYING = generateRandomGames(10);
+const KEEP_PLAYING = generateRandomGames({
+  quantity: 10,
+  carrouselName: "continuar-jugando",
+});
 // CATEGORIAS
 
-const ACTION = generateRandomGames(10);
+const ACTION = generateRandomGames({ quantity: 10, carrouselName: "accion" });
 
-const SPORTS = generateRandomGames(10);
+const SPORTS = generateRandomGames({ quantity: 10, carrouselName: "deportes" });
 
-const CLASSICS = generateRandomGames(10);
+const CLASSICS = generateRandomGames({
+  quantity: 10,
+  carrouselName: "clasicos",
+});
 
 // MAPS
 /**

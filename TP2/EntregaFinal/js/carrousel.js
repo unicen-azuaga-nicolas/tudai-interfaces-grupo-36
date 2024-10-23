@@ -1,13 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  renderCarrousel({
-    container: document.querySelector(".user-games"),
-    dataSource: userGames,
-  });
-  renderCarrousel({
-    container: document.querySelector(".categories"),
-    dataSource: categories,
-  });
-  // Seleccionar todos los carruseles
   const sliders = document.querySelectorAll(".carrousel");
 
   // Iterar sobre cada carrusel
