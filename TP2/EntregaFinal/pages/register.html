@@ -31,9 +31,14 @@
         <form class="form">
             <h2 class="form__title">Regístrate y diviértete</h2>
 
+            <label class="form__label" for="fecha">Fecha de Nacimiento</label>
+            <input class="form__input" id="fecha" name="fecha" type="date" placeholder="Fecha de Nacimiento" required>
+
             <label class="form__label" for="userName">Nombre y Apellido</label>
-            <input class="form__input" id="userName" name="userName" type="text" placeholder="Nombre y Apellido"
-                required>
+            <input class="form__input" id="userName" name="userName" type="text" placeholder="Nombre y Apellido" required>
+            
+            <label class="form__label" for="nickname">Nickname</label>
+            <input class="form__input" id="nickname" name="nickname" type="text" placeholder="Nickname" required>
 
 
             <label class="form__label" for="email">Email</label>
@@ -52,7 +57,7 @@
             </div>
             <button id="registerBtn" class="btn btn--primary" popovertarget="id_popover">Registrarse</button>
 
-            <div class="divider">O</div>
+            <div class="divider">O inicia sesión con</div>
             <div class="social-login">
                 <a href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
