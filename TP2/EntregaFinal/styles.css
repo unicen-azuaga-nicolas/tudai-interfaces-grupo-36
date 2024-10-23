@@ -76,6 +76,10 @@ body {
   background: var(--background-color);
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .display-none {
   display: none;
 }

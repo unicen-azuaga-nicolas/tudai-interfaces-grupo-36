@@ -12,7 +12,7 @@
   align-items: center;
   z-index: 9999;
   animation: fadeOut 1s forwards;
-  animation-delay: 6s; /* Ajusta el retraso para que coincida con la duración de la barra de progreso */
+  animation-delay: 5s; /* Ajusta el retraso para que coincida con la duración de la barra de progreso */
 }
 
 /* Animación para ocultar el loader */
