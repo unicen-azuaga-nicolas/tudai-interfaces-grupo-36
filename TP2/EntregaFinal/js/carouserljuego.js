@@ -3,12 +3,12 @@ var swiper = new Swiper(".mySwiper",{
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: "auto",
-    coverFlowEffect:{
+    coverflowEffect:{
         rotate:15,
-        strech:0,
-        depth:300,
+        stretch:0,
+        depth:100,
         modifier:1,
-        sliderShadows:true,
+        slideShadows:false,
     },
     loop:true,
 });
