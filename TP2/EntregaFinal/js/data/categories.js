@@ -85,7 +85,7 @@ const FOR_YOU = [
     id: "para-ti-1",
     name: "4 en linea",
     price: 0,
-    image: "../assets/4enlinea.jpeg",
+    image: "../assets/games-images/4enlinea.jpeg",
     href:'./game-detail.html'
   },
   ...generateRandomGames({ quantity: 10, carrouselName: "para-ti" }),

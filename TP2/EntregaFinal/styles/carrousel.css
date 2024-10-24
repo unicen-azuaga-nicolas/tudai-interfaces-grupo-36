@@ -12,6 +12,19 @@
   margin-bottom: 24px;
 }
 
+.carrousel-header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: var(--spacing-2);
+  gap: var(--spacing-2);
+}
+
+.carrousel-header .btn {
+  width: 100px;
+  font-size: var(--font-size-12);
+}
+
 .carrousel-item {
   display: flex;
   flex-direction: column;
@@ -71,11 +84,16 @@
 
 .game-title {
   color: white;
-  font-size: 12px;
+  font-size: var(--font-size-normal);
   font-weight: var(--font-weight-medium);
   opacity: 0;
   transition: opacity 0.3s ease;
-  margin-top: 5px;
+  margin-top: var(--spacing-0);
+  width: 80%;
+  /* cortar el texto si se pasa de un limite */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .game-card:hover .game-title {
@@ -87,8 +105,8 @@
   justify-content: center;
   align-items: center;
   height: 16px;
-  max-width: 86px;
-  width: 100%;
+  /* max-width: 86px;
+  width: 100%; */
   background-color: var(--color-naranja);
   color: #333;
   padding: var(--spacing-1) var(--spacing-2);
@@ -113,7 +131,7 @@
   border: none;
   padding: 8px 12px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: var(--font-size-normal);
   cursor: pointer;
   display: none;
   align-items: center;
@@ -126,23 +144,29 @@
   border: 1px solid white;
   border-radius: 8px;
   padding: 8px;
-  font-size: 1rem;
+  font-size: var(--font-size-normal);
   cursor: pointer;
   display: none;
   align-items: center;
   justify-content: center;
 }
 
-.add-to-cart-button i {
-  position: relative;
-  left: 2.5px;
+.add-to-cart-button:hover {
+  background-color: white;
+  color: black;
 }
+
+/* .add-to-cart-button i {
+  position: relative;
+left: 2.5px;
+} */
 
 .game-card:hover .buy-button,
 .game-card:hover .price,
 .game-card:hover .add-to-cart-button,
 .game-card:hover .play-icon {
   display: flex;
+  opacity: 1;
 }
 
 .price {
@@ -172,21 +196,25 @@
   top: 0px;
   left: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   width: 100%;
+  height: 20px;
   background-color: var(--color-accent);
   color: white;
   padding: 1px 0;
-  text-align: center;
   border-radius: 8px 8px 0 0;
   font-size: 12px;
+  font-weight: var(--font-weight-medium);
   z-index: 10;
 }
 
 .cart-message__close {
   cursor: pointer;
   padding: 0 8px;
+  position: absolute;
+  right: 0;
 }
 
 /* Responsivo para pantallas más pequeñas */

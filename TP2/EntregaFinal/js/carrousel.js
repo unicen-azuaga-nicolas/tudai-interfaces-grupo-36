@@ -61,20 +61,20 @@ function carrousel() {
     }
 
     // Scroll
-    // const scrollContainer = slider.querySelector(".carrousel-item");
+    const scrollContainer = slider.querySelector(".carrousel-item");
 
-    // if (scrollContainer) {
-    //   scrollContainer.addEventListener("wheel", (evt) => {
-    //     evt.preventDefault();
-    //     window.requestAnimationFrame(() => {
-    //       scrollContainer.scrollTo({
-    //         top: 0,
-    //         left: scrollContainer.scrollLeft + evt.deltaY * 2,
-    //         behavior: "smooth",
-    //       });
-    //     });
-    //   });
-    // }
+    if (scrollContainer) {
+      scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        window.requestAnimationFrame(() => {
+          scrollContainer.scrollTo({
+            top: 0,
+            left: scrollContainer.scrollLeft + evt.deltaY * 2,
+            behavior: "smooth",
+          });
+        });
+      });
+    }
   });
 }
 

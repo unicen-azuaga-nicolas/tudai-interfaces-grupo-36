@@ -9,10 +9,12 @@ class Cart {
       return;
     }
     this.products.set(id, product);
+    console.log(`Producto con ID ${id} agregado al carrito.`);
   }
 
   removeProduct(id) {
     this.products.delete(id);
+    console.log(`Producto con ID ${id} eliminado del carrito.`);
   }
 
   getTotalProducts() {
