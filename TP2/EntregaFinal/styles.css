@@ -307,6 +307,7 @@ main {
   color: #ffffff;
   margin: 0 10px;
   display: flex;
+  align-items: center;
   justify-content: center;
   width: 30px;
   height: 30px;
@@ -318,9 +319,9 @@ main {
 }
 
 .social-login a:hover {
-  background: #444444;
   align-items: center;
   justify-content: center;
+  color: var(--color-primary);
 }
 
 .navbar__hamburger {
