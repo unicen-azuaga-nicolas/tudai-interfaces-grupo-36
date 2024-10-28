@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/popover.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="icon" href="../assets/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../assets/favicon.png">
+    <title>Play Zone - Registro</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__item"></div>
+        <div class="navbar__item navbar__logo">
+            <a href="#" class="navbar__link">
+                <img src="../assets/logo.svg" alt="logo">
+            </a>
+        </div>
+        <ul class="navbar__item">
+            <li class="navbar__item">
+                <a id="loginanimado" class="navbar__button navbar__button--outline" href="../index.html">Login</a>
+            </li>
+        </ul>
+    </nav>
+    <main class="container container--background">
+        <form class="form">
+            <h2 class="form__title">Regístrate y diviértete</h2>
+
+            <label class="form__label" for="fecha">Fecha de Nacimiento</label>
+            <input class="form__input" id="fecha" name="fecha" type="date" placeholder="Fecha de Nacimiento" required>
+
+            <label class="form__label" for="userName">Nombre y Apellido</label>
+            <input class="form__input" id="userName" name="userName" type="text" placeholder="Nombre y Apellido" required>
+            
+            <label class="form__label" for="nickname">Nickname</label>
+            <input class="form__input" id="nickname" name="nickname" type="text" placeholder="Nickname" required>
+
+
+            <label class="form__label" for="email">Email</label>
+            <input class="form__input" id="email" name="Email" type="email">
+
+
+            <label class="form__label" for="password">Contraseña</label>
+            <input class="form__input" id="password" type="password" placeholder="Contraseña" required>
+
+            <label class="form__label" for="repeatPassword">Repetir Contraseña</label>
+            <input class="form__input" id="repeatPassword" type="password" placeholder="Repetir Contraseña" required>
+
+            <div class="checkbox">
+                <input class="checkbox__input" type="checkbox" id="robot-check">
+                <label class="checkbox__label" for="robot-check">No soy un robot</label>
+            </div>
+            <button id="registerBtn" class="btn btn--primary" popovertarget="id_popover">Registrarse</button>
+
+            <div class="divider">O inicia sesión con</div>
+            <div class="social-login">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+                        <path
+                            d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.153,8.505,9.876V14.65H8.031v-2.629h2.474v-1.749 c0-2.896,1.411-4.167,3.818-4.167c1.153,0,1.762,0.085,2.051,0.124v2.294h-1.642c-1.022,0-1.379,0.969-1.379,2.061v1.437h2.995 l-0.406,2.629h-2.588v7.247C18.235,21.236,22,17.062,22,12C22,6.477,17.523,2,12,2z" />
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+                        <path
+                            d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z" />
+                    </svg>
+                </a>
+            </div>
+            <a class="form__link" href="../index.html">¿Ya tienes cuenta?</a>
+
+        </form>
+
+    </main>
+    <div popover id="id_popover">
+        <i class="fas fa-check-circle popover__icon"></i>
+        <p class="popover__text">
+            ¡Registro exitoso!
+        </p>
+        <form id="id_popover_btn">
+            <button class="btn btn--primary">Aceptar</button>
+        </form>
+    </div>
+    <script src="https://kit.fontawesome.com/8437a873c6.js" crossorigin="anonymous"></script>
+    <script src="../js/register.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f8680ec25a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="slider.css">
+    <title>Slider</title>
+</head>
+
+<body>
+    <section class="container">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <div class="slide slide--background-primary">
+                    <div class="slide__content">
+                        <h3 class="slide__title">
+                            Call of Duty
+                        </h3>
+                        <p class="slide__description">
+                            Call of Duty es una serie de videojuegos de disparos en primera persona
+                        </p>
+                    </div>
+                    <button class="slide__button">Jugar</button>
+                    <img id="slide-1" class="slide__character-img" src="assets/fortnite.png" alt="" srcset="">
+                </div>
+                <div class="slide slide--background-secondary">
+                    <div class="slide__content">
+                        <h3 class="slide__title">
+                            Call of Duty
+                        </h3>
+                        <p class="slide__description">
+                            Call of Duty es una serie de videojuegos de disparos en primera persona
+                        </p>
+                    </div>
+                    <button class="slide__button">Jugar</button>
+                    <img id="slide-2" class="slide__character-img slide__character-img--reduce-30"
+                        src="assets/sonic.png" alt="" srcset="">
+                </div>
+                <div class="slide">
+                    <div class="slide__content">
+                        <h3 class="slide__title">
+                            Call of Duty
+                        </h3>
+                        <p class="slide__description">
+                            Call of Duty es una serie de videojuegos de disparos en primera persona
+                        </p>
+                    </div>
+                    <button class="slide__button">Jugar</button>
+                    <img id="slide-3" src="assets/war-game.png" alt="" srcset="">
+                </div>
+            </div>
+            <div class="bullets">
+                <a href="#slide-1" class="active"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+            </div>
+            <div class="chevron">
+                <a class="chevron--left prev">
+                    <i class="fa-solid fa-chevron-left" style="color: white"></i>
+                </a>
+                <a class="chevron--right next">
+                    <i class="fa-solid fa-chevron-right" style="color: white"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <script src="slider.js"></script>
+</body>
+
+</html>
