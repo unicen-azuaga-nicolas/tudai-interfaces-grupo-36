@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Dibujar contenedor de fichas jugador 1
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "yellow";
     ctx.fillRect(
       0,
       canvas.height - boardHeight,
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     // Dibujar contenedor de fichas jugador 2
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "red";
     ctx.fillRect(
       canvas.width - (canvas.width - boardWidth) / 2,
       canvas.height - boardHeight,
