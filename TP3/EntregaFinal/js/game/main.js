@@ -2,6 +2,17 @@
  * Cuatro en línea
  */
 
+/**
+ * Objetos
+ *
+ * Board -> Piece
+ * Player -> Piece
+ * Game -> Board, Player, Piece
+ * Piece o Token -> Player
+ * UI -> Game
+ *
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("gameCanvas");
   const gamePortrait = document.querySelector(".game-portrait");
@@ -59,7 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Dibujar el texto del turno actual
     ctx.fillStyle = "white";
     ctx.font = "24px Arial";
-    ctx.fillText(`Turno: ${currentPlayer === PLAYERS.RED? 'Jugador Rojo': 'Jugador Amarillo'}`, 20, 40);
+    ctx.fillText(
+      `Turno: ${
+        currentPlayer === PLAYERS.RED ? "Jugador Rojo" : "Jugador Amarillo"
+      }`,
+      20,
+      40
+    );
 
     for (let x = 0; x < board.length; x++) {
       for (let y = 0; y < board[x].length; y++) {
@@ -98,8 +115,11 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.classList.remove("display-none");
     playGameButton.classList.add("display-none");
     gamePortrait.classList.add("display-none");
-    const board = createBoard({ cols: 7, rows: 6 });
+    // const board = createBoard({ cols: 7, rows: 6 });
+    // drawBoard(board);
+
+    const board = new Board({ rows: 6, cols: 7, canvas });
     console.log(board);
-    drawBoard(board);
+    board.draw(ctx);
   }
 });
