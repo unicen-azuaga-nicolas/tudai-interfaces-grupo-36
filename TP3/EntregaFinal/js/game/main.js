@@ -1,18 +1,6 @@
 /**
  * Cuatro en línea
  */
-
-/**
- * Objetos
- *
- * Board -> Piece
- * Player -> Piece
- * Game -> Board, Player, Piece
- * Piece o Token -> Player
- * UI -> Game
- *
- */
-
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("gameCanvas");
   const gamePortrait = document.querySelector(".game-portrait");
@@ -24,102 +12,52 @@ document.addEventListener("DOMContentLoaded", () => {
     GAME_OVER: "game-over",
   };
 
-  const PLAYERS = {
-    RED: "red",
-    YELLOW: "yellow",
-  };
-
-  let currentPlayer = PLAYERS.RED;
+  let board;
+  let player1;
+  let player2;
+  let currentPlayer;
   let mode = MODES.READY;
 
-  /**
-   * @type {CanvasRenderingContext2D}
-   */
+  // Contexto de canvas
   const ctx = canvas.getContext("2d");
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   playGameButton.addEventListener("click", startGame);
 
-  const createBoard = ({ rows, cols }) => {
-    const board = [];
-    for (let x = 0; x < rows; x++) {
-      board[x] = [];
-      for (let y = 0; y < cols; y++) {
-        board[x][y] = null;
-      }
-    }
-    return board;
-  };
-
-  const drawBoard = (board) => {
-    const cellSize = 80;
-    const radius = cellSize / 2 - 5;
-
-    // Calcular el tamaño total del tablero
-    const boardWidth = board[0].length * cellSize;
-    const boardHeight = board.length * cellSize;
-
-    // Calcular las coordenadas de inicio para centrar el tablero
-    const startX = (canvas.width - boardWidth) / 2;
-    const startY = canvas.height - boardHeight;
-
-    ctx.fillStyle = "#3498db";
-    ctx.fillRect(startX, startY, boardWidth, boardHeight);
-
-    // Dibujar el texto del turno actual
-    ctx.fillStyle = "white";
-    ctx.font = "24px Arial";
-    ctx.fillText(
-      `Turno: ${
-        currentPlayer === PLAYERS.RED ? "Jugador Rojo" : "Jugador Amarillo"
-      }`,
-      20,
-      40
-    );
-
-    for (let x = 0; x < board.length; x++) {
-      for (let y = 0; y < board[x].length; y++) {
-        const cx = startX + y * cellSize + cellSize / 2;
-        const cy = startY + x * cellSize + cellSize / 2;
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fillStyle = "white";
-        ctx.fill();
-      }
-    }
-
-    // Dibujar contenedor de fichas jugador 1
-    ctx.fillStyle = "yellow";
-    ctx.fillRect(
-      0,
-      canvas.height - boardHeight,
-      (canvas.width - boardWidth) / 2,
-      canvas.height
-    );
-
-    // Dibujar contenedor de fichas jugador 2
-    ctx.fillStyle = "red";
-    ctx.fillRect(
-      canvas.width - (canvas.width - boardWidth) / 2,
-      canvas.height - boardHeight,
-      (canvas.width - boardWidth) / 2,
-      canvas.height
-    );
-  };
-
   function startGame() {
     mode = MODES.PLAYING;
     canvas.classList.remove("display-none");
     playGameButton.classList.add("display-none");
     gamePortrait.classList.add("display-none");
-    // const board = createBoard({ cols: 7, rows: 6 });
-    // drawBoard(board);
 
-    const board = new Board({ rows: 6, cols: 7, canvas });
-    console.log(board);
+    // Crear e inicializar el tablero usando la clase `Board`
+    board = new Board({ rows: 6, cols: 7, canvas });
     board.draw(ctx);
+
+    // Crear e inicializar los jugadores usando la clase `Player`
+    player1 = new Player("red");
+    player2 = new Player("yellow");
+    
+    // Establecer el jugador actual (comienza el jugador 1)
+    currentPlayer = player1;
+
+    // Añadir el evento de clic en el canvas
+    canvas.addEventListener("click", handleCanvasClick);
+  }
+
+  function handleCanvasClick(event) {
+    if (mode !== MODES.PLAYING) return;
+
+    const mouseX = event.clientX - canvas.getBoundingClientRect().left;
+    const column = currentPlayer.getColumnFromClick(mouseX, board);
+
+    if (column !== -1 && currentPlayer.placeToken(column, board)) {
+      // Dibujar el tablero con la nueva ficha
+      board.draw(ctx);
+
+      // Cambiar al siguiente jugador
+      currentPlayer = currentPlayer === player1 ? player2 : player1;
+    }
   }
 });

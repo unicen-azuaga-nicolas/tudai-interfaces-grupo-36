@@ -1,6 +1,4 @@
-// clase para crear tablero 4 en linea, el mismo es un refactor del archivo main.js
-
-class Board extends GameElement{
+class Board extends GameElement {
   /**
    * @param {Object} param0
    * @param {number} param0.rows
@@ -28,26 +26,40 @@ class Board extends GameElement{
   draw(ctx) {
     const cellSize = 80;
     const radius = cellSize / 2 - 5;
+  
     // Calcular el tamaño total del tablero
-    const boardWidth = this.board[0].length * cellSize;
-    const boardHeight = this.board.length * cellSize;
-
+    const boardWidth = this.cols * cellSize;
+    const boardHeight = this.rows * cellSize;
+  
     // Calcular las coordenadas de inicio para centrar el tablero
     const startX = (this.canvas.width - boardWidth) / 2;
     const startY = this.canvas.height - boardHeight;
-
-    ctx.fillStyle = "#3498db";
+  
+    // Dibujar el fondo del tablero
+    ctx.fillStyle = "#3498db"; // Color del tablero
     ctx.fillRect(startX, startY, boardWidth, boardHeight);
-    // Dibujar el tablero
-    for (let x = 0; x < this.board.length; x++) {
-      for (let y = 0; y < this.board[x].length; y++) {
+  
+    // Dibujar las fichas en el tablero
+    for (let x = 0; x < this.rows; x++) {
+      for (let y = 0; y < this.cols; y++) {
         const cx = startX + y * cellSize + cellSize / 2;
         const cy = startY + x * cellSize + cellSize / 2;
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fillStyle = "white";
-        ctx.fill();
+  
+        // Dibujar las fichas si existen
+        if (this.board[x][y] !== null) {
+          ctx.beginPath();
+          ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.fillStyle = this.board[x][y]; // Color de la ficha (rojo o amarillo)
+          ctx.fill();
+        } else {
+          // Dibujar la celda vacía
+          ctx.beginPath();
+          ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.fillStyle = "white"; // Color de la celda vacía
+          ctx.fill();
+        }
       }
     }
   }
