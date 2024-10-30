@@ -94,8 +94,9 @@
         <div class="container--game-title-img">
             <h1 class="title--container--game">4 EN LINEA: POKEMON</h1>
             <div class="container--img">
-                <img class="img img--4enlinea game-portrait" src="../assets/games-images/4enlinea.jpeg" alt="Imagen 4 en linea">
-                <canvas id="gameCanvas"  class="display-none" width="1080" height="720"></canvas>
+                <img class="img img--4enlinea game-portrait" src="../assets/games-images/4enlinea.jpeg"
+                    alt="Imagen 4 en linea">
+                <canvas id="gameCanvas" class="display-none" width="1920" height="1080"></canvas>
                 <a href="#" id="playGameBtn">
                     <div class="container--icon">
                         <i id="gamepad" class="fa-solid fa-gamepad"></i>
@@ -453,10 +454,17 @@
         </section>
     </footer>
     <script src="https://kit.fontawesome.com/8437a873c6.js" crossorigin="anonymous"></script>
-
-    <script src="../js/game/GameElement.js"></script>
-    <script src="../js/game/Player.js"></script>
-    <script src="../js/game/Board.js"></script>
+    <script src="../js/game/GameObject.js"></script>
+    <script src="../js/game/components/Button.js"></script>
+    <script src="../js/game/components/Title.js"></script>
+    <script src="../js/game/components/Board.js"></script>
+    <script src="../js/game/components/Token.js"></script>
+    <script src="../js/game/components/Player.js"></script>
+    <script src="../js/game/screens/BaseScreen.js"></script>
+    <script src="../js/game/screens/MainMenuScreen.js"></script>
+    <script src="../js/game/screens/GameScreen.js"></script>
+    <script src="../js/game/EventHandler.js"></script>
+    <script src="../js/game/Game.js"></script>
     <script src="../js/game/main.js"></script>
     <script src="../js/carrousel.js"></script>
     <script src="../js/loader.js"></script>
