@@ -34,7 +34,7 @@ class Game {
      * Patrón composite: la pantalla actual puede contener otros game objects.
      * @type {BaseScreen}
      */
-    this.currentScreen = new BaseScreen(this.canvas);
+    this.currentScreen = null;
     /**
      * Manejador de eventos, se encarga de manejar los eventos del canvas.
      * @type {EventHandler}
@@ -52,7 +52,6 @@ class Game {
   }
 
   drawScreen(screen) {
-    this.clearCanvas();
     this.currentScreen = screen;
     this.currentScreen.draw(this.ctx);
   }
@@ -87,7 +86,8 @@ class Game {
       onExitGame: () => console.log("Exit Game Clicked"),
       onStartGame: () => this.startGame(),
     });
-    this.drawScreen(menu);
+    this.currentScreen = menu;
+    this.render();
   }
 
   gameLoop(timestamp) {

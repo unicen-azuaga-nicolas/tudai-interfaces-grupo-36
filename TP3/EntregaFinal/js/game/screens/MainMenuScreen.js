@@ -20,39 +20,29 @@ class MainMenuScreen extends BaseScreen {
      * @type {function}
      */
     this.onExitGame = onExitGame;
-    this.createMainMenu();
   }
 
-  createMainMenu() {
-    this.setBackgroundColor("white");
-    const title = new Title(
-      this.canvas.width / 2 - 100,
-      100,
-      200,
-      50,
-      "Bienvenido al juego 4 en linea",
-      40
-    );
-    const resumeButton = new Button({
-      x: this.canvas.width / 2 - 100,
-      y: 200,
-      width: 200,
-      height: 50,
-      text: "Jugar",
-      onClick: () => this.onStartGame(),
-    });
-
-    const mainMenuButton = new Button({
-      x: this.canvas.width / 2 - 100,
-      y: 300,
-      width: 200,
-      height: 50,
-      text: "Salir",
-      onClick: () => this.onExitGame(),
-    });
-
-    this.add(title);
-    this.add(resumeButton);
-    this.add(mainMenuButton);
+  /**
+   *
+   * @param {ScreenBuilder} builder
+   */
+  create(builder) {
+    builder
+      .setBackgroundColor("white")
+      .addTitle(
+        this.canvas.width / 2 - 100,
+        100,
+        200,
+        50,
+        "Bienvenido al juego 4 en linea",
+        40
+      )
+      .addButton(this.canvas.width / 2 - 100, 200, 200, 50, "Jugar", () =>
+        this.onStartGame()
+      )
+      .addButton(this.canvas.width / 2 - 100, 300, 200, 50, "Salir", () =>
+        this.onExitGame()
+      )
+      .build();
   }
 }

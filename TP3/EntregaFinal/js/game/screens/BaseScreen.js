@@ -1,6 +1,11 @@
 class BaseScreen extends GameObject {
   constructor(canvas, backgroundColor = "black") {
     super(0, 0, canvas.width, canvas.height);
+
+    if (new.target === BaseScreen) {
+      throw new Error("No puedes instanciar BaseScreen directamente");
+    }
+
     /**
      * @type {HTMLCanvasElement}
      */
@@ -10,6 +15,8 @@ class BaseScreen extends GameObject {
      */
     this.children = [];
     this.backgroundColor = backgroundColor;
+
+    this.create(new ScreenBuilder(this));
   }
 
   setBackgroundColor(color) {
@@ -43,5 +50,13 @@ class BaseScreen extends GameObject {
 
   isMouseOver(x, y) {
     return this.children.some((child) => child.isMouseOver(x, y));
+  }
+
+  /**
+   * Método para crear los elementos de la pantalla
+   * @param {ScreenBuilder} builder
+   */
+  create(builder) {
+    throw new Error("You have to implement the method create!");
   }
 }
