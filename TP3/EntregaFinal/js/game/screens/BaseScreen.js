@@ -2,10 +2,6 @@ class BaseScreen extends GameObject {
   constructor(canvas, backgroundColor = "black") {
     super(0, 0, canvas.width, canvas.height);
 
-    if (new.target === BaseScreen) {
-      throw new Error("No puedes instanciar BaseScreen directamente");
-    }
-
     /**
      * @type {HTMLCanvasElement}
      */
@@ -17,6 +13,10 @@ class BaseScreen extends GameObject {
     this.backgroundColor = backgroundColor;
 
     this.create(new ScreenBuilder(this));
+
+    if (new.target === BaseScreen) {
+      throw new Error("No puedes instanciar BaseScreen directamente");
+    }
   }
 
   setBackgroundColor(color) {

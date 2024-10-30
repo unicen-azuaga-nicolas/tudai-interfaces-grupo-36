@@ -1,5 +1,12 @@
 class ScreenBuilder {
+  /**
+   *
+   * @param {BaseScreen} screen
+   */
   constructor(screen) {
+    /**
+     * @type {BaseScreen}
+     */
     this.screen = screen;
     this.elements = [];
     this.backgroundColor = "white";
