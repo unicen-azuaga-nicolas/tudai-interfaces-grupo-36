@@ -1,6 +1,25 @@
+/**
+ * @typedef {Object} ScreenProps
+ * @property {function} onStartGame
+ * @property {function} onExitGame
+ */
+
 class MainMenuScreen extends BaseScreen {
-  constructor(canvas) {
+  /**
+   *
+   * @param {HTMLCanvasElement} canvas
+   * @param {ScreenProps} param1
+   */
+  constructor(canvas, { onStartGame, onExitGame }) {
     super(canvas);
+    /**
+     * @type {function}
+     */
+    this.onStartGame = onStartGame;
+    /**
+     * @type {function}
+     */
+    this.onExitGame = onExitGame;
     this.createMainMenu();
   }
 
@@ -19,8 +38,8 @@ class MainMenuScreen extends BaseScreen {
       y: 200,
       width: 200,
       height: 50,
-      text: "Continuar",
-      onClick: () => this.resumeGame(),
+      text: "Jugar",
+      onClick: () => this.onStartGame(),
     });
 
     const mainMenuButton = new Button({
@@ -28,8 +47,8 @@ class MainMenuScreen extends BaseScreen {
       y: 300,
       width: 200,
       height: 50,
-      text: "Menú Principal",
-      onClick: () => this.showMenu(),
+      text: "Salir",
+      onClick: () => this.onExitGame(),
     });
 
     this.add(title);

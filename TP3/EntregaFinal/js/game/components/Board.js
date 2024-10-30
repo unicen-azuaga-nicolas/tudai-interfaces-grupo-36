@@ -37,7 +37,7 @@ class Board extends GameObject {
     const boardWidth = this.cols * CELL_SIZE;
     const boardHeight = this.rows * CELL_SIZE;
 
-    ctx.fillStyle = "#3498db";
+    ctx.fillStyle = "black";
     ctx.fillRect(this.x, this.y, boardWidth, boardHeight);
 
     for (let x = 0; x < this.rows; x++) {

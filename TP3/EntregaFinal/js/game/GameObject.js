@@ -20,5 +20,7 @@ class GameObject {
 
   isClicked(x, y) {}
 
-  isMouseOver(x, y) {}
+  isMouseOver(x, y) {
+    this.isClicked(x, y);
+  }
 }

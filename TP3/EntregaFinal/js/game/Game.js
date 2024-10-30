@@ -58,8 +58,12 @@ class Game {
   }
 
   startGame() {
+    console.log("Start Game Clicked");
     this.currentGameState = this.states.PLAYING;
-    this.currentScreen = new GameScreen(this.canvas);
+    this.currentScreen = new GameScreen(this.canvas, {
+      onExitGame: () => this.showMenu(),
+    });
+    // this.currentScreen.draw(this.ctx);
     this.lastTime = 0;
     this.gameLoop(0);
   }
@@ -79,13 +83,16 @@ class Game {
 
   showMenu() {
     this.currentGameState = this.states.MENU;
-    const menu = new MainMenuScreen(this.canvas);
+    const menu = new MainMenuScreen(this.canvas, {
+      onExitGame: () => console.log("Exit Game Clicked"),
+      onStartGame: () => this.startGame(),
+    });
     this.drawScreen(menu);
   }
 
   gameLoop(timestamp) {
-    if (this.state !== this.states.PLAYING) return;
-
+    if (this.currentGameState !== this.states.PLAYING) return;
+    console.log("Game Loop");
     const deltaTime = (timestamp - this.lastTime) / 1000; // Convertir a segundos
     this.lastTime = timestamp;
 
@@ -101,6 +108,6 @@ class Game {
 
   render() {
     this.clearCanvas();
-    this.currentScreen.draw(this.ctx);
+    this.drawScreen(this.currentScreen);
   }
 }
