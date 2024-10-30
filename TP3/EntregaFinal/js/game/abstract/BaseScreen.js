@@ -23,6 +23,21 @@ class BaseScreen extends GameObject {
     this.background = color;
   }
 
+  setBackgroundImage(imageSrc) {
+    const backgroundImage = new Image();
+    backgroundImage.src = imageSrc;
+
+    backgroundImage.onload = () => {
+      this.ctx.drawImage(
+        backgroundImage,
+        0,
+        0,
+        this.canvas.width,
+        this.canvas.height
+      );
+    };
+  }
+
   add(child) {
     this.children.push(child);
   }
