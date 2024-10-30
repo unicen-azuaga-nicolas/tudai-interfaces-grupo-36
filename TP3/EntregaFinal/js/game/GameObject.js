@@ -4,6 +4,9 @@ class GameObject {
     this.y = y;
     this.width = width;
     this.height = height;
+    if (new.target === GameObject) {
+      throw new Error("No puedes instanciar GameObject directamente");
+    }
   }
 
   /**
