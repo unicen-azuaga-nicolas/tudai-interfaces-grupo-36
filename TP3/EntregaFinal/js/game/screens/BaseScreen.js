@@ -1,7 +1,13 @@
 class BaseScreen extends GameObject {
   constructor(canvas, backgroundColor = "black") {
     super(0, 0, canvas.width, canvas.height);
+    /**
+     * @type {HTMLCanvasElement}
+     */
     this.canvas = canvas;
+    /**
+     * @type {GameObject[]}
+     */
     this.children = [];
     this.backgroundColor = backgroundColor;
   }
