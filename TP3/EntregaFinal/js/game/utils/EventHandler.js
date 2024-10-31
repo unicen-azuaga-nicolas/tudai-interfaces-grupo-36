@@ -39,7 +39,7 @@ class EventHandler {
     console.log(`Mouse clicked at: ${x}, ${y}`);
 
     this.game.currentScreen.children.forEach((obj) => {
-      if (obj.isClicked(x, y)) {
+      if (obj.isClicked(x, y) && obj.onClick) {
         console.log("Entro al IF de isClicked");
         obj.onClick();
       }

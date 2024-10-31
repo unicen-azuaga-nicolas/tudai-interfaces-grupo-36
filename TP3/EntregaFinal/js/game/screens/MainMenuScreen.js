@@ -8,10 +8,11 @@ class MainMenuScreen extends BaseScreen {
   /**
    *
    * @param {HTMLCanvasElement} canvas
+   * @param {Image[]} assets
    * @param {ScreenProps} param1
    */
-  constructor(canvas, { onStartGame, onExitGame }) {
-    super(canvas);
+  constructor(canvas, assets, { onStartGame, onExitGame }) {
+    super(canvas, assets);
     /**
      * @type {function}
      */
@@ -22,27 +23,45 @@ class MainMenuScreen extends BaseScreen {
     this.onExitGame = onExitGame;
   }
 
-  /**
-   *
-   * @param {ScreenBuilder} builder
-   */
-  create(builder) {
-    builder
-      .setBackgroundColor("white")
-      .addTitle(
-        this.canvas.width / 2 - 100,
-        100,
-        200,
-        50,
-        "Bienvenido al juego 4 en linea",
-        40
-      )
-      .addButton(this.canvas.width / 2 - 100, 200, 200, 50, "Jugar", () =>
-        this.onStartGame()
-      )
-      .addButton(this.canvas.width / 2 - 100, 300, 200, 50, "Salir", () =>
-        this.onExitGame()
-      )
-      .build();
+  create() {
+    this.setBackgroundColor("black");
+    const title = new Title({
+      x: this.canvas.width / 2 - 100,
+      y: 100,
+      width: 200,
+      height: 50,
+      text: "Bienvenido al juego 4 en linea",
+      fontSize: 40,
+      color: "white",
+    });
+
+    const playButton = new Button({
+      x: this.canvas.width / 2 - 100,
+      y: 200,
+      width: 200,
+      height: 80,
+      text: "Jugar",
+      onClick: () => this.onStartGame(),
+      backgroundImage: this.assets[1],
+    });
+
+    const exitButton = new Button({
+      x: this.canvas.width / 2 - 100,
+      y: 300,
+      width: 200,
+      height: 50,
+      text: "Salir",
+      onClick: () => this.onExitGame(),
+    });
+
+    this.add(title);
+    this.add(playButton);
+    this.add(exitButton);
+  }
+
+  draw(ctx) {
+    // this.fillBackground(ctx);
+    this.fillBackgroundImage(ctx, this.assets[0]);
+    super.draw(ctx);
   }
 }

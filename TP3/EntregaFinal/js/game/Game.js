@@ -1,9 +1,16 @@
 class Game {
-  constructor(canvasId) {
+  constructor(canvasId, assets) {
     /**
      * @type {HTMLCanvasElement}
      */
     this.canvas = document.getElementById(canvasId);
+
+    /**
+     * Assets del juego
+     * @type {Image[]}
+     */
+    this.assets = assets;
+
     /**
      * @type {CanvasRenderingContext2D}
      */
@@ -21,6 +28,8 @@ class Game {
      */
     this.states = {
       MENU: "menu",
+      GAAMEMODE: "gamemode",
+      PLAYERSELECT: "playerselect",
       PLAYING: "playing",
       PAUSED: "paused",
       // Agregar más estados si es necesario
@@ -45,6 +54,9 @@ class Game {
      * @type {number}
      */
     this.lastTime = 0;
+
+    this.boardSize = null; // Inicializamos la propiedad boardSize
+    this.selectedPlayers = []; // Propiedad para almacenar los personajes seleccionados
   }
 
   clearCanvas() {
@@ -82,11 +94,43 @@ class Game {
 
   showMenu() {
     this.currentGameState = this.states.MENU;
-    const menu = new MainMenuScreen(this.canvas, {
+    console.log("Show Menu");
+    console.log(this.assets);
+    const menu = new MainMenuScreen(this.canvas, this.assets, {
       onExitGame: () => console.log("Exit Game Clicked"),
-      onStartGame: () => this.startGame(),
+      onStartGame: () => this.gameMode(),
     });
     this.currentScreen = menu;
+    this.render();
+  }
+  gameMode() {
+    this.currentGameState = this.states.GAMEMODE;
+    console.log("Game mode screen");
+    console.log(this.assets);
+    const gamemode = new GameModeScreen(this.canvas, this.assets, {
+      onExitGame: () => console.log("Exit Game Clicked"),
+      onStartGame: (boardSize) => {
+        this.boardSize = boardSize;  // Asignamos boardSize
+        this.playerSelect();
+        console.log(boardSize);
+      },
+    });
+    this.currentScreen = gamemode;
+    this.render();
+  }
+  playerSelect() {
+    this.currentGameState = this.states.PLAYERSELECT;
+    console.log("player select screen");
+    console.log(this.assets);
+    const playerselect = new PlayerSelectScreen(this.canvas, this.assets, {
+      onExitGame: () => console.log("Exit Game Clicked"),
+      onStartGame: (selectedPlayers) => {
+        this.selectedPlayers = selectedPlayers; // Asignamos los personajes
+        this.startGame();
+        console.log(selectedPlayers);
+      },
+    });
+    this.currentScreen = playerselect;
     this.render();
   }
 

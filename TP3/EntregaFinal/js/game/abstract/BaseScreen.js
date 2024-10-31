@@ -1,18 +1,29 @@
+/**
+ * Clase abstracta para representar una pantalla del juego
+ * @abstract
+ */
 class BaseScreen extends GameObject {
-  constructor(canvas, backgroundColor = "black") {
+  constructor(canvas, assets) {
     super(0, 0, canvas.width, canvas.height);
 
     /**
      * @type {HTMLCanvasElement}
      */
     this.canvas = canvas;
+
+    /**
+     * Assets de la pantalla
+     * @type {Image[]}
+     */
+    this.assets = assets;
+
     /**
      * @type {GameObject[]}
      */
     this.children = [];
-    this.backgroundColor = backgroundColor;
+    this.backgroundColor = "green";
 
-    this.create(new ScreenBuilder(this));
+    this.create();
 
     if (new.target === BaseScreen) {
       throw new Error("No puedes instanciar BaseScreen directamente");
@@ -20,22 +31,7 @@ class BaseScreen extends GameObject {
   }
 
   setBackgroundColor(color) {
-    this.background = color;
-  }
-
-  setBackgroundImage(imageSrc) {
-    const backgroundImage = new Image();
-    backgroundImage.src = imageSrc;
-
-    backgroundImage.onload = () => {
-      this.ctx.drawImage(
-        backgroundImage,
-        0,
-        0,
-        this.canvas.width,
-        this.canvas.height
-      );
-    };
+    this.backgroundColor = color;
   }
 
   add(child) {
@@ -49,9 +45,21 @@ class BaseScreen extends GameObject {
     }
   }
 
-  draw(ctx) {
-    ctx.fillStyle = this.background;
+  fillBackground(ctx) {
+    ctx.fillStyle = this.backgroundColor;
     ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  /**
+   * 
+   * @param {CanvasRenderingContext2D} ctx
+   * @param {Image} image 
+   */
+  fillBackgroundImage(ctx, image) {
+    ctx.drawImage(image, 0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  draw(ctx) {
     this.children.forEach((child) => child.draw(ctx));
   }
 
@@ -69,9 +77,9 @@ class BaseScreen extends GameObject {
 
   /**
    * Método para crear los elementos de la pantalla
-   * @param {ScreenBuilder} builder
+   * @abstract
    */
-  create(builder) {
+  create() {
     throw new Error("You have to implement the method create!");
   }
 }
