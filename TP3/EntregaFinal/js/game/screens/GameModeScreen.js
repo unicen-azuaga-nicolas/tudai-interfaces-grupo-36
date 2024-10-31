@@ -24,7 +24,7 @@ class GameModeScreen extends BaseScreen {
             textColor: "black",
             fontSize: 70,
             background: "transparent",
-            onClick: () => this.onStartGame(),
+            onClick: () => this.onStartGame(4),
           });
           const mode5 = new Button({
             x: 720,
@@ -35,7 +35,7 @@ class GameModeScreen extends BaseScreen {
             textColor: "black",
             fontSize: 70,
             background: "transparent",
-            onClick: () => this.onStartGame(),
+            onClick: () => this.onStartGame(5),
           });
           const mode6 = new Button({
             x: 1305,
@@ -46,7 +46,7 @@ class GameModeScreen extends BaseScreen {
             textColor: "black",
             fontSize: 70,
             background: "transparent",
-            onClick: () => this.onStartGame(),
+            onClick: () => this.onStartGame(6),
           });
           this.add(title);
           this.add(mode4);

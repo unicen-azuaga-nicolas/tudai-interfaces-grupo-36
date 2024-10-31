@@ -54,6 +54,9 @@ class Game {
      * @type {number}
      */
     this.lastTime = 0;
+
+    this.boardSize = null; // Inicializamos la propiedad boardSize
+    this.selectedPlayers = []; // Propiedad para almacenar los personajes seleccionados
   }
 
   clearCanvas() {
@@ -65,7 +68,7 @@ class Game {
     this.currentScreen.draw(this.ctx);
   }
 
-  startGame(BoardSize, Players) {
+  startGame() {
     console.log("Start Game Clicked");
     this.currentGameState = this.states.PLAYING;
     this.currentScreen = new GameScreen(this.canvas, {
@@ -106,18 +109,26 @@ class Game {
     console.log(this.assets);
     const gamemode = new GameModeScreen(this.canvas, this.assets, {
       onExitGame: () => console.log("Exit Game Clicked"),
-      onStartGame: () => this.playerSelect(),
+      onStartGame: (boardSize) => {
+        this.boardSize = boardSize;  // Asignamos boardSize
+        this.playerSelect();
+        console.log(boardSize);
+      },
     });
     this.currentScreen = gamemode;
     this.render();
   }
-  playerSelect(BoardSize) {
+  playerSelect() {
     this.currentGameState = this.states.PLAYERSELECT;
     console.log("player select screen");
     console.log(this.assets);
     const playerselect = new PlayerSelectScreen(this.canvas, this.assets, {
       onExitGame: () => console.log("Exit Game Clicked"),
-      onStartGame: () => this.startGame(BoardSize, Players),
+      onStartGame: (selectedPlayers) => {
+        this.selectedPlayers = selectedPlayers; // Asignamos los personajes
+        this.startGame();
+        console.log(selectedPlayers);
+      },
     });
     this.currentScreen = playerselect;
     this.render();

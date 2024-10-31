@@ -3,6 +3,7 @@ class PlayerSelectScreen extends BaseScreen {
         super(canvas, assets);
         this.onExitGame = onExitGame;
         this.onStartGame = onStartGame;
+        this.selectedPlayers = []; // Lista para almacenar los personajes seleccionados
     }
     create() {
         this.setBackgroundColor("black");
@@ -23,7 +24,7 @@ class PlayerSelectScreen extends BaseScreen {
             textColor: "black",
             fontSize: 70,
             background: "transparent",
-            onClick: () => this.onStartGame(),
+            onClick: () => this.playerSelect("Pikachu"),
           });
           const charmander = new Button({
             x: 485,
@@ -33,7 +34,7 @@ class PlayerSelectScreen extends BaseScreen {
             textColor: "black",
             fontSize: 70,
             background: "transparent",
-            onClick: () => this.onStartGame(),
+            onClick: () => this.playerSelect("Charmander"),
           });
           const bulbasaur = new Button({
             x: 960,
@@ -43,7 +44,7 @@ class PlayerSelectScreen extends BaseScreen {
             textColor: "black",
             fontSize: 70,
             background: "transparent",
-            onClick: () => this.onStartGame(),
+            onClick: () => this.playerSelect("Bulbasaur"),
           });
           const snorlax = new Button({
             x: 1440,
@@ -53,7 +54,7 @@ class PlayerSelectScreen extends BaseScreen {
             textColor: "black",
             fontSize: 70,
             background: "transparent",
-            onClick: () => this.onStartGame(),
+            onClick: () => this.playerSelect("Snorlax"),
           });
           this.add(title);
           this.add(pikachu);
@@ -61,10 +62,19 @@ class PlayerSelectScreen extends BaseScreen {
           this.add(bulbasaur);
           this.add(snorlax);
     }
+
     playerSelect(personaje) {
+      // Agrega el personaje seleccionado si aún no está en la lista
+      if (this.selectedPlayers.length < 2 && !this.selectedPlayers.includes(personaje)) {
+          this.selectedPlayers.push(personaje);
+      }
+      
+      // Verifica si ya se seleccionaron dos personajes y llama a onStartGame con ambos
+      if (this.selectedPlayers.length === 2) {
+          this.onStartGame(this.selectedPlayers); // Pasamos los dos personajes seleccionados
+      }
+  }
 
-
-    }
     draw(ctx) {
         this.fillBackgroundImage(ctx, this.assets[0]);
         this.fillBackgroundImage(ctx, this.assets[3]);
