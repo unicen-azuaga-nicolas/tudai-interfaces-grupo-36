@@ -4,24 +4,33 @@ class GameScreen extends BaseScreen {
     this.onExitGame = onExitGame;
   }
 
-  /**
-   * Método para crear los elementos de la pantalla
-   * @param {ScreenBuilder} builder
-   */
-  create(builder) {
-    builder
-      .setBackgroundColor("white")
-      .addTitle(
-        this.canvas.width / 2 - 100,
-        100,
-        200,
-        50,
-        "Pantalla del juego",
-        40
-      )
-      .addButton(this.canvas.width / 2 - 100, 300, 200, 50, "Salir", () =>
-        this.onExitGame()
-      )
-      .build();
+  create() {
+    this.setBackgroundColor("white");
+    const title = new Title({
+      x: this.canvas.width / 2 - 100,
+      y: 100,
+      width: 200,
+      height: 50,
+      text: "Pantalla del juego",
+      fontSize: 40,
+      color: "black",
+    });
+
+    const exitButton = new Button({
+      x: this.canvas.width / 2 - 100,
+      y: 300,
+      width: 200,
+      height: 50,
+      text: "Salir",
+      onClick: () => this.onExitGame(),
+    });
+
+    this.add(title);
+    this.add(exitButton);
+  }
+
+  draw(ctx) {
+    this.fillBackground(ctx);
+    super.draw(ctx);
   }
 }

@@ -1,9 +1,16 @@
 class Game {
-  constructor(canvasId) {
+  constructor(canvasId, assets) {
     /**
      * @type {HTMLCanvasElement}
      */
     this.canvas = document.getElementById(canvasId);
+
+    /**
+     * Assets del juego
+     * @type {Image[]}
+     */
+    this.assets = assets;
+
     /**
      * @type {CanvasRenderingContext2D}
      */
@@ -82,7 +89,9 @@ class Game {
 
   showMenu() {
     this.currentGameState = this.states.MENU;
-    const menu = new MainMenuScreen(this.canvas, {
+    console.log("Show Menu");
+    console.log(this.assets);
+    const menu = new MainMenuScreen(this.canvas, this.assets, {
       onExitGame: () => console.log("Exit Game Clicked"),
       onStartGame: () => this.startGame(),
     });
