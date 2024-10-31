@@ -13,7 +13,7 @@ class Button extends GameObject {
     onClick,
   }) {
     super(x, y, width, height);
-    this.text = text;
+    this.text = text || "";
     this.background = background || "blue";
     this.backgroundImage = backgroundImage || null;
     this.onClick = onClick;

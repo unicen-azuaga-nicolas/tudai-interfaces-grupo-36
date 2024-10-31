@@ -7,8 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const MENU_SCREEN_BACKGROUND_URL = `${ASSETS_BASE_URL}menu/fondo.jpg`;
   const BUTTON_NORMAL_URL = `${ASSETS_BASE_URL}menu/btn-normal.png`;
+  const GAMEMODE_BACKGROUND_URL = `${ASSETS_BASE_URL}/FondoNivelesSINNADA.png`;
+  const PLAYERSELECT_URL = `${ASSETS_BASE_URL}/eligepersonaje2.png`;
 
-  const assets = [MENU_SCREEN_BACKGROUND_URL, BUTTON_NORMAL_URL];
+  const assets = [MENU_SCREEN_BACKGROUND_URL, BUTTON_NORMAL_URL, GAMEMODE_BACKGROUND_URL, PLAYERSELECT_URL];
 
   function loadImage(src) {
     return new Promise((resolve, reject) => {

@@ -28,6 +28,8 @@ class Game {
      */
     this.states = {
       MENU: "menu",
+      GAAMEMODE: "gamemode",
+      PLAYERSELECT: "playerselect",
       PLAYING: "playing",
       PAUSED: "paused",
       // Agregar más estados si es necesario
@@ -63,7 +65,7 @@ class Game {
     this.currentScreen.draw(this.ctx);
   }
 
-  startGame() {
+  startGame(BoardSize, Players) {
     console.log("Start Game Clicked");
     this.currentGameState = this.states.PLAYING;
     this.currentScreen = new GameScreen(this.canvas, {
@@ -93,9 +95,31 @@ class Game {
     console.log(this.assets);
     const menu = new MainMenuScreen(this.canvas, this.assets, {
       onExitGame: () => console.log("Exit Game Clicked"),
-      onStartGame: () => this.startGame(),
+      onStartGame: () => this.gameMode(),
     });
     this.currentScreen = menu;
+    this.render();
+  }
+  gameMode() {
+    this.currentGameState = this.states.GAMEMODE;
+    console.log("Game mode screen");
+    console.log(this.assets);
+    const gamemode = new GameModeScreen(this.canvas, this.assets, {
+      onExitGame: () => console.log("Exit Game Clicked"),
+      onStartGame: () => this.playerSelect(),
+    });
+    this.currentScreen = gamemode;
+    this.render();
+  }
+  playerSelect(BoardSize) {
+    this.currentGameState = this.states.PLAYERSELECT;
+    console.log("player select screen");
+    console.log(this.assets);
+    const playerselect = new PlayerSelectScreen(this.canvas, this.assets, {
+      onExitGame: () => console.log("Exit Game Clicked"),
+      onStartGame: () => this.startGame(BoardSize, Players),
+    });
+    this.currentScreen = playerselect;
     this.render();
   }
 
