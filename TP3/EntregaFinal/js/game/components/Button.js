@@ -28,7 +28,7 @@ class Button extends GameObject {
   draw() {
     if (this.drawCustomShape) {
       this.drawCustomShape(
-        GameObject.ctx,
+        Game.ctx,
         this.x,
         this.y,
         this.width,
@@ -39,10 +39,10 @@ class Button extends GameObject {
     } else {
       this.fillBackground();
     }
-    GameObject.ctx.fillStyle = this.textColor;
-    GameObject.ctx.font = this.font;
-    GameObject.ctx.textAlign = "center";
-    GameObject.ctx.fillText(
+    Game.ctx.fillStyle = this.textColor;
+    Game.ctx.font = this.font;
+    Game.ctx.textAlign = "center";
+    Game.ctx.fillText(
       this.text,
       this.x + this.width / 2,
       this.y + this.height / 2 + 8

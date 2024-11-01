@@ -8,7 +8,7 @@ class EventHandler {
     /**
      * @type {HTMLCanvasElement}
      */
-    GameObject.canvas = canvas;
+    Game.canvas = canvas;
     /**
      * @type {Game}
      */
@@ -17,17 +17,17 @@ class EventHandler {
   }
 
   initEventListeners() {
-    GameObject.canvas.addEventListener("click", (event) =>
+    Game.canvas.addEventListener("click", (event) =>
       this.handleMouseClick(event)
     );
-    GameObject.canvas.addEventListener("mousemove", (event) =>
+    Game.canvas.addEventListener("mousemove", (event) =>
       this.handleMouseOver(event)
     );
     // Agregar más eventos si es necesario
   }
 
   getMousePos(event) {
-    const rect = GameObject.canvas.getBoundingClientRect();
+    const rect = Game.canvas.getBoundingClientRect();
     return {
       x: event.clientX - rect.left,
       y: event.clientY - rect.top,

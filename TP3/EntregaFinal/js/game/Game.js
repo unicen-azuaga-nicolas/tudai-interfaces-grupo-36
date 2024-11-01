@@ -1,8 +1,24 @@
 class Game {
+  /**
+   * @type {HTMLCanvasElement}
+   */
+  static canvas = null;
+  /**
+   * @type {CanvasRenderingContext2D}
+   */
+  static ctx = null;
+
+  /**
+   * Assets del juego
+   * @type {Image[]}
+   */
+  static assets = [];
+
   constructor(canvasId, assets) {
-    GameObject.setCanvas(document.getElementById(canvasId));
-    GameObject.setContext(GameObject.canvas.getContext("2d"));
-    GameObject.assets = assets;
+    Game.canvas = document.getElementById(canvasId);
+    Game.ctx = Game.canvas.getContext("2d");
+    Game.assets = assets;
+    // Game.assets = assets;
 
     /**
      * @typedef {Object} GameStates
@@ -37,7 +53,7 @@ class Game {
      * Manejador de eventos, se encarga de manejar los eventos del canvas.
      * @type {EventHandler}
      */
-    this.eventHandler = new EventHandler(GameObject.canvas, this);
+    this.eventHandler = new EventHandler(Game.canvas, this);
     /**
      * Último tiempo de ejecución del juego.
      * @type {number}
@@ -49,12 +65,7 @@ class Game {
   }
 
   clearCanvas() {
-    GameObject.ctx.clearRect(
-      0,
-      0,
-      GameObject.canvas.width,
-      GameObject.canvas.height
-    );
+    Game.ctx.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
   }
 
   drawScreen(screen) {

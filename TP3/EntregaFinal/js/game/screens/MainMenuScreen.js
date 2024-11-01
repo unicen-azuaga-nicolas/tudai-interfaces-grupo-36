@@ -25,7 +25,7 @@ class MainMenuScreen extends BaseScreen {
   create() {
     this.setBackgroundColor("black");
     const title = new Title({
-      x: GameObject.canvas.width / 2 - 100,
+      x: Game.canvas.width / 2 - 100,
       y: 100,
       width: 200,
       height: 50,
@@ -35,17 +35,17 @@ class MainMenuScreen extends BaseScreen {
     });
 
     const playButton = new Button({
-      x: GameObject.canvas.width / 2 - 100,
+      x: Game.canvas.width / 2 - 100,
       y: 200,
       width: 200,
       height: 80,
       text: "Jugar",
       onClick: () => this.onStartGame(),
-      backgroundImage: GameObject.assets[1],
+      backgroundImage: Game.assets[1],
     });
 
     const exitButton = new Button({
-      x: GameObject.canvas.width / 2 - 100,
+      x: Game.canvas.width / 2 - 100,
       y: 300,
       width: 200,
       height: 50,
@@ -59,7 +59,7 @@ class MainMenuScreen extends BaseScreen {
   }
 
   draw() {
-    this.fillBackgroundImage(GameObject.assets[0]);
+    this.fillBackgroundImage(Game.assets[0]);
     super.draw();
   }
 }

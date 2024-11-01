@@ -9,7 +9,7 @@ class PlayerSelectScreen extends BaseScreen {
   create() {
     this.setBackgroundColor("black");
     const title = new Title({
-      x: GameObject.canvas.width / 2 - 100,
+      x: Game.canvas.width / 2 - 100,
       y: 100,
       width: 200,
       height: 50,
@@ -123,39 +123,39 @@ class PlayerSelectScreen extends BaseScreen {
       y: 800,
       width: 120,
       height: 120,
-      backgroundImage: GameObject.assets[5],
+      backgroundImage: Game.assets[5],
     });
     this.charmanderToken = new Button({
       x: 650,
       y: 750,
       width: 120,
       height: 120,
-      backgroundImage: GameObject.assets[6],
+      backgroundImage: Game.assets[6],
     });
     this.bulbasaurToken = new Button({
       x: 1150,
       y: 750,
       width: 120,
       height: 120,
-      backgroundImage: GameObject.assets[7],
+      backgroundImage: Game.assets[7],
     });
     this.snorlaxToken = new Button({
       x: 1620,
       y: 800,
       width: 140,
       height: 140,
-      backgroundImage: GameObject.assets[8],
+      backgroundImage: Game.assets[8],
     });
 
     this.confirmButton = new Button({
-      x: GameObject.canvas.width / 2 - 100,
+      x: Game.canvas.width / 2 - 100,
       y: 1000,
       width: 200,
       height: 80,
       text: "Confirmar",
       textColor: "white",
       fontSize: 30,
-      backgroundImage: GameObject.assets[4],
+      backgroundImage: Game.assets[4],
       onClick: () => this.confirmSelection(),
     });
     this.confirmButton.enabled = false;
@@ -184,11 +184,11 @@ class PlayerSelectScreen extends BaseScreen {
     // Habilitar o deshabilitar el botón de confirmación
     this.confirmButton.enabled = this.selectedPlayers.length === 2;
     if (this.confirmButton.enabled) {
-      (this.confirmButton.x = GameObject.canvas.width / 2 - 105),
+      (this.confirmButton.x = Game.canvas.width / 2 - 105),
         (this.confirmButton.y = 995);
       (this.confirmButton.width = 210),
         (this.confirmButton.height = 90),
-        (this.confirmButton.backgroundImage = GameObject.assets[1]),
+        (this.confirmButton.backgroundImage = Game.assets[1]),
         this.confirmButton.draw(this.ctx);
     }
 
@@ -203,8 +203,8 @@ class PlayerSelectScreen extends BaseScreen {
   }
 
   draw() {
-    this.fillBackgroundImage(GameObject.assets[0]);
-    this.fillBackgroundImage(GameObject.assets[3]);
+    this.fillBackgroundImage(Game.assets[0]);
+    this.fillBackgroundImage(Game.assets[3]);
     super.draw();
   }
 }

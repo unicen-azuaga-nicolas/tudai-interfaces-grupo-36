@@ -9,10 +9,10 @@ class Title extends GameObject {
   }
 
   draw() {
-    GameObject.ctx.fillStyle = this.color;
-    GameObject.ctx.font = this.font;
-    GameObject.ctx.textAlign = "center";
-    GameObject.ctx.fillText(
+    Game.ctx.fillStyle = this.color;
+    Game.ctx.font = this.font;
+    Game.ctx.textAlign = "center";
+    Game.ctx.fillText(
       this.text,
       this.x + this.width / 2,
       this.y + this.height / 2 + 8

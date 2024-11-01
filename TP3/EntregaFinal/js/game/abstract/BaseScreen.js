@@ -4,7 +4,7 @@
  */
 class BaseScreen extends GameObject {
   constructor() {
-    super(0, 0, GameObject.canvas.width, GameObject.canvas.height);
+    super(0, 0, Game.canvas.width, Game.canvas.height);
 
     /**
      * @type {GameObject[]}
@@ -35,12 +35,12 @@ class BaseScreen extends GameObject {
   }
 
   fillBackground() {
-    GameObject.ctx.fillStyle = this.backgroundColor;
-    GameObject.ctx.fillRect(
+    Game.ctx.fillStyle = this.backgroundColor;
+    Game.ctx.fillRect(
       0,
       0,
-      GameObject.canvas.width,
-      GameObject.canvas.height
+      Game.canvas.width,
+      Game.canvas.height
     );
   }
 
@@ -50,12 +50,12 @@ class BaseScreen extends GameObject {
    * @param {Image} image
    */
   fillBackgroundImage(image) {
-    GameObject.ctx.drawImage(
+    Game.ctx.drawImage(
       image,
       0,
       0,
-      GameObject.canvas.width,
-      GameObject.canvas.height
+      Game.canvas.width,
+      Game.canvas.height
     );
   }
 
