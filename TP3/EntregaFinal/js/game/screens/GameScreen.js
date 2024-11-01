@@ -1,13 +1,13 @@
 class GameScreen extends BaseScreen {
-  constructor(canvas, { onExitGame }) {
-    super(canvas);
+  constructor({ onExitGame }) {
+    super();
     this.onExitGame = onExitGame;
   }
 
   create() {
     this.setBackgroundColor("white");
     const title = new Title({
-      x: this.canvas.width / 2 - 100,
+      x: GameObject.canvas.width / 2 - 100,
       y: 100,
       width: 200,
       height: 50,
@@ -17,7 +17,7 @@ class GameScreen extends BaseScreen {
     });
 
     const exitButton = new Button({
-      x: this.canvas.width / 2 - 100,
+      x: GameObject.canvas.width / 2 - 100,
       y: 300,
       width: 200,
       height: 50,

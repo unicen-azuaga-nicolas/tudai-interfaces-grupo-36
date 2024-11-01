@@ -15,37 +15,34 @@ class Button extends GameObject {
   }) {
     super(x, y, width, height);
     this.text = text || "";
-    this.background = background || "blue";
-    this.backgroundImage = backgroundImage || null;
     this.onClick = onClick;
     this.textColor = textColor || "white";
     this.fontSize = fontSize || 20;
     this.fontFamily = fontFamily || "Arial";
     this.font = `${this.fontSize}px ${this.fontFamily}`;
     this.drawCustomShape = drawCustomShape;
+    this.background = background || "blue";
+    this.backgroundImage = backgroundImage || null;
   }
 
-  fillBackground(ctx) {
-    ctx.fillStyle = this.background;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-  }
-
-  fillBackgroundImage(ctx, image) {
-    ctx.drawImage(image, this.x, this.y, this.width, this.height);
-  }
-
-  draw(ctx) {
+  draw() {
     if (this.drawCustomShape) {
-      this.drawCustomShape(ctx, this.x, this.y, this.width, this.height);
+      this.drawCustomShape(
+        GameObject.ctx,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
     } else if (this.backgroundImage) {
-      this.fillBackgroundImage(ctx, this.backgroundImage);
+      this.fillBackgroundImage(this.backgroundImage);
     } else {
-      this.fillBackground(ctx);
+      this.fillBackground();
     }
-    ctx.fillStyle = this.textColor;
-    ctx.font = this.font;
-    ctx.textAlign = "center";
-    ctx.fillText(
+    GameObject.ctx.fillStyle = this.textColor;
+    GameObject.ctx.font = this.font;
+    GameObject.ctx.textAlign = "center";
+    GameObject.ctx.fillText(
       this.text,
       this.x + this.width / 2,
       this.y + this.height / 2 + 8

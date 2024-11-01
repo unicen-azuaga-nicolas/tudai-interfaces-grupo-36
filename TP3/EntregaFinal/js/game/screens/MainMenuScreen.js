@@ -8,11 +8,10 @@ class MainMenuScreen extends BaseScreen {
   /**
    *
    * @param {HTMLCanvasElement} canvas
-   * @param {Image[]} assets
    * @param {ScreenProps} param1
    */
-  constructor(canvas, assets, { onStartGame, onExitGame }) {
-    super(canvas, assets);
+  constructor({ onStartGame, onExitGame }) {
+    super();
     /**
      * @type {function}
      */
@@ -26,7 +25,7 @@ class MainMenuScreen extends BaseScreen {
   create() {
     this.setBackgroundColor("black");
     const title = new Title({
-      x: this.canvas.width / 2 - 100,
+      x: GameObject.canvas.width / 2 - 100,
       y: 100,
       width: 200,
       height: 50,
@@ -36,17 +35,17 @@ class MainMenuScreen extends BaseScreen {
     });
 
     const playButton = new Button({
-      x: this.canvas.width / 2 - 100,
+      x: GameObject.canvas.width / 2 - 100,
       y: 200,
       width: 200,
       height: 80,
       text: "Jugar",
       onClick: () => this.onStartGame(),
-      backgroundImage: this.assets[1],
+      backgroundImage: GameObject.assets[1],
     });
 
     const exitButton = new Button({
-      x: this.canvas.width / 2 - 100,
+      x: GameObject.canvas.width / 2 - 100,
       y: 300,
       width: 200,
       height: 50,
@@ -59,9 +58,8 @@ class MainMenuScreen extends BaseScreen {
     this.add(exitButton);
   }
 
-  draw(ctx) {
-    // this.fillBackground(ctx);
-    this.fillBackgroundImage(ctx, this.assets[0]);
-    super.draw(ctx);
+  draw() {
+    this.fillBackgroundImage(GameObject.assets[0]);
+    super.draw();
   }
 }

@@ -3,19 +3,8 @@
  * @abstract
  */
 class BaseScreen extends GameObject {
-  constructor(canvas, assets) {
-    super(0, 0, canvas.width, canvas.height);
-
-    /**
-     * @type {HTMLCanvasElement}
-     */
-    this.canvas = canvas;
-
-    /**
-     * Assets de la pantalla
-     * @type {Image[]}
-     */
-    this.assets = assets;
+  constructor() {
+    super(0, 0, GameObject.canvas.width, GameObject.canvas.height);
 
     /**
      * @type {GameObject[]}
@@ -45,22 +34,33 @@ class BaseScreen extends GameObject {
     }
   }
 
-  fillBackground(ctx) {
-    ctx.fillStyle = this.backgroundColor;
-    ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  fillBackground() {
+    GameObject.ctx.fillStyle = this.backgroundColor;
+    GameObject.ctx.fillRect(
+      0,
+      0,
+      GameObject.canvas.width,
+      GameObject.canvas.height
+    );
   }
 
   /**
-   * 
+   *
    * @param {CanvasRenderingContext2D} ctx
-   * @param {Image} image 
+   * @param {Image} image
    */
-  fillBackgroundImage(ctx, image) {
-    ctx.drawImage(image, 0, 0, this.canvas.width, this.canvas.height);
+  fillBackgroundImage(image) {
+    GameObject.ctx.drawImage(
+      image,
+      0,
+      0,
+      GameObject.canvas.width,
+      GameObject.canvas.height
+    );
   }
 
-  draw(ctx) {
-    this.children.forEach((child) => child.draw(ctx));
+  draw() {
+    this.children.forEach((child) => child.draw());
   }
 
   update(deltaTime) {

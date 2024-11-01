@@ -1,20 +1,9 @@
 class Game {
   constructor(canvasId, assets) {
-    /**
-     * @type {HTMLCanvasElement}
-     */
-    this.canvas = document.getElementById(canvasId);
+    GameObject.setCanvas(document.getElementById(canvasId));
+    GameObject.setContext(GameObject.canvas.getContext("2d"));
+    GameObject.assets = assets;
 
-    /**
-     * Assets del juego
-     * @type {Image[]}
-     */
-    this.assets = assets;
-
-    /**
-     * @type {CanvasRenderingContext2D}
-     */
-    this.ctx = this.canvas.getContext("2d");
     /**
      * @typedef {Object} GameStates
      * @property {string} MENU - Estado del menú
@@ -48,7 +37,7 @@ class Game {
      * Manejador de eventos, se encarga de manejar los eventos del canvas.
      * @type {EventHandler}
      */
-    this.eventHandler = new EventHandler(this.canvas, this);
+    this.eventHandler = new EventHandler(GameObject.canvas, this);
     /**
      * Último tiempo de ejecución del juego.
      * @type {number}
@@ -60,18 +49,23 @@ class Game {
   }
 
   clearCanvas() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    GameObject.ctx.clearRect(
+      0,
+      0,
+      GameObject.canvas.width,
+      GameObject.canvas.height
+    );
   }
 
   drawScreen(screen) {
     this.currentScreen = screen;
-    this.currentScreen.draw(this.ctx);
+    this.currentScreen.draw();
   }
 
   startGame() {
     console.log("Start Game Clicked");
     this.currentGameState = this.states.PLAYING;
-    this.currentScreen = new GameScreen(this.canvas, {
+    this.currentScreen = new GameScreen({
       onExitGame: () => this.showMenu(),
     });
     // this.currentScreen.draw(this.ctx);
@@ -82,7 +76,7 @@ class Game {
   pauseGame() {
     this.currentGameState = this.states.PAUSED;
     //TODO: Implementar pantalla de pausa
-    const pauseScreen = new BaseScreen(this.canvas);
+    const pauseScreen = new BaseScreen();
     this.drawScreen(pauseScreen);
   }
 
@@ -95,8 +89,7 @@ class Game {
   showMenu() {
     this.currentGameState = this.states.MENU;
     console.log("Show Menu");
-    console.log(this.assets);
-    const menu = new MainMenuScreen(this.canvas, this.assets, {
+    const menu = new MainMenuScreen({
       onExitGame: () => console.log("Exit Game Clicked"),
       onStartGame: () => this.gameMode(),
     });
@@ -106,11 +99,10 @@ class Game {
   gameMode() {
     this.currentGameState = this.states.GAMEMODE;
     console.log("Game mode screen");
-    console.log(this.assets);
-    const gamemode = new GameModeScreen(this.canvas, this.assets, {
+    const gamemode = new GameModeScreen({
       onExitGame: () => console.log("Exit Game Clicked"),
       onStartGame: (boardSize) => {
-        this.boardSize = boardSize;  // Asignamos boardSize
+        this.boardSize = boardSize; // Asignamos boardSize
         this.playerSelect();
         console.log(boardSize);
       },
@@ -121,8 +113,7 @@ class Game {
   playerSelect() {
     this.currentGameState = this.states.PLAYERSELECT;
     console.log("player select screen");
-    console.log(this.assets);
-    const playerselect = new PlayerSelectScreen(this.canvas, this.assets, {
+    const playerselect = new PlayerSelectScreen({
       onExitGame: () => console.log("Exit Game Clicked"),
       onStartGame: (selectedPlayers) => {
         this.selectedPlayers = selectedPlayers; // Asignamos los personajes
