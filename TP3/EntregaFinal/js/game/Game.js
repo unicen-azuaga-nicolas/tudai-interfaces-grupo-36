@@ -14,11 +14,13 @@ class Game {
    */
   static assets = [];
 
+  /**
+   * Constructor de la clase Game
+   */
   constructor(canvasId, assets) {
     Game.canvas = document.getElementById(canvasId);
     Game.ctx = Game.canvas.getContext("2d");
     Game.assets = assets;
-    // Game.assets = assets;
 
     /**
      * @typedef {Object} GameStates
@@ -100,9 +102,12 @@ class Game {
   showMenu() {
     this.currentGameState = this.states.MENU;
     console.log("Show Menu");
+    const onExitGame = () => console.log("Exit Game Clicked");
+    const onStartGame = () => this.gameMode();
+
     const menu = new MainMenuScreen({
-      onExitGame: () => console.log("Exit Game Clicked"),
-      onStartGame: () => this.gameMode(),
+      onExitGame,
+      onStartGame,
     });
     this.currentScreen = menu;
     this.render();
