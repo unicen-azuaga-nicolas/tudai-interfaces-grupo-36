@@ -6,8 +6,6 @@
 
 class MainMenuScreen extends BaseScreen {
   /**
-   *
-   * @param {HTMLCanvasElement} canvas
    * @param {ScreenProps} param1
    */
   constructor({ onStartGame, onExitGame }) {
