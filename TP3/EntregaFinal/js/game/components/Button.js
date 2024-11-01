@@ -11,6 +11,7 @@ class Button extends GameObject {
     fontSize,
     fontFamily,
     onClick,
+    drawCustomShape,
   }) {
     super(x, y, width, height);
     this.text = text || "";
@@ -21,6 +22,7 @@ class Button extends GameObject {
     this.fontSize = fontSize || 20;
     this.fontFamily = fontFamily || "Arial";
     this.font = `${this.fontSize}px ${this.fontFamily}`;
+    this.drawCustomShape = drawCustomShape;
   }
 
   fillBackground(ctx) {
@@ -33,7 +35,9 @@ class Button extends GameObject {
   }
 
   draw(ctx) {
-    if (this.backgroundImage) {
+    if (this.drawCustomShape) {
+      this.drawCustomShape(ctx, this.x, this.y, this.width, this.height);
+    } else if (this.backgroundImage) {
       this.fillBackgroundImage(ctx, this.backgroundImage);
     } else {
       this.fillBackground(ctx);
