@@ -1,3 +1,8 @@
+import BaseScreen from "../abstract/BaseScreen.js";
+import Button from "../components/Button.js";
+import Title from "../components/Title.js";
+import Game from "../Game.js";
+
 class GameScreen extends BaseScreen {
   constructor({ onExitGame, tablero }) {
     super();
@@ -36,3 +41,5 @@ class GameScreen extends BaseScreen {
     super.draw(ctx);
   }
 }
+
+export default GameScreen;

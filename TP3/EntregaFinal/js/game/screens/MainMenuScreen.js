@@ -1,9 +1,16 @@
+"use strict";
+
+import BaseScreen from "../abstract/BaseScreen.js";
+import Button from "../components/Button.js";
+import Title from "../components/Title.js";
+import Game from "../Game.js";
+
 /**
+ * Tipo de dato para las props de MainMenuScreen
  * @typedef {Object} ScreenProps
  * @property {function} onStartGame
  * @property {function} onExitGame
  */
-
 class MainMenuScreen extends BaseScreen {
   /**
    * @param {ScreenProps} param1
@@ -61,3 +68,5 @@ class MainMenuScreen extends BaseScreen {
     super.draw();
   }
 }
+
+export default MainMenuScreen;

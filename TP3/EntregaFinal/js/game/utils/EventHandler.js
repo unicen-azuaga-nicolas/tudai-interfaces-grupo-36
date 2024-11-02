@@ -1,3 +1,5 @@
+import Game from "../Game.js";
+
 class EventHandler {
   /**
    *
@@ -55,3 +57,5 @@ class EventHandler {
     });
   }
 }
+
+export default EventHandler;

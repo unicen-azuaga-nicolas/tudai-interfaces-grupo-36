@@ -1,3 +1,14 @@
+"use strict";
+
+import BaseScreen from "./abstract/BaseScreen.js";
+import Board from "./components/Board.js";
+import Player from "./Player.js";
+import CharacterSelectScreen from "./screens/CharacterSelectScreen.js";
+import GameModeScreen from "./screens/GameModeScreen.js";
+import GameScreen from "./screens/GameScreen.js";
+import MainMenuScreen from "./screens/MainMenuScreen.js";
+import EventHandler from "./utils/EventHandler.js";
+
 class Game {
   /**
    * @type {HTMLCanvasElement}
@@ -14,7 +25,6 @@ class Game {
    */
   static assets = [];
 
-  
   /**
    * Constructor de la clase Game
    */
@@ -65,32 +75,37 @@ class Game {
 
     this.boardSize = null; // Inicializamos la propiedad boardSize
     this.selectedPlayers = []; // Propiedad para almacenar los personajes seleccionados
+
+    // Jugador 1 y 2
+    this.player1 = new Player("red");
+    this.player2 = new Player("yellow");
+
     this.modosDeJuegos = [
       {
-          "nombre": 4,
-          "columnas": 7,
-          "filas": 6,
-          "tamanioCasillero": 100
+        nombre: 4,
+        columnas: 7,
+        filas: 6,
+        tamanioCasillero: 100,
       },
       {
-          "nombre": 5,
-          "columnas": 8,
-          "filas": 7,
-          "tamanioCasillero": 90
+        nombre: 5,
+        columnas: 8,
+        filas: 7,
+        tamanioCasillero: 90,
       },
       {
-          "nombre": 6,
-          "columnas": 9,
-          "filas": 8,
-          "tamanioCasillero": 80
+        nombre: 6,
+        columnas: 9,
+        filas: 8,
+        tamanioCasillero: 80,
       },
       {
-          "nombre": 7,
-          "columnas": 10,
-          "filas": 9,
-          "tamanioCasillero": 70
-      }
-  ];
+        nombre: 7,
+        columnas: 10,
+        filas: 9,
+        tamanioCasillero: 70,
+      },
+    ];
   }
 
   clearCanvas() {
@@ -105,7 +120,7 @@ class Game {
   startGame() {
     console.log("Start Game Clicked");
     this.currentGameState = this.states.PLAYING;
-  
+
     // Configuración del tablero
     let col = this.modosDeJuegos[this.boardSize].columnas; // Número de columnas
     let fil = this.modosDeJuegos[this.boardSize].filas; // Número de filas
@@ -113,30 +128,29 @@ class Game {
     let imagen = Game.assets[9]; // La imagen que quieres usar para cada casilla
     let tamanioCasillero = this.modosDeJuegos[this.boardSize].tamanioCasillero; // Tamaño de cada casilla
     let modoJuego = this.modosDeJuegos[this.boardSize].nombre; // Cantidad de fichas en línea para ganar
-  
+
     let tablero = new Board(col, fil, ctx, imagen, tamanioCasillero, modoJuego);
-  
+
     this.currentScreen = new GameScreen({
       onExitGame: () => this.showMenu(),
       tablero: tablero,
     });
-  
+
     this.lastTime = 0;
     this.gameLoop(0);
   }
 
-  pauseGame() {
-    this.currentGameState = this.states.PAUSED;
-    //TODO: Implementar pantalla de pausa
-    const pauseScreen = new BaseScreen();
-    this.drawScreen(pauseScreen);
-  }
+  // pauseGame() {
+  //   this.currentGameState = this.states.PAUSED;
+  //   const pauseScreen = new BaseScreen();
+  //   this.drawScreen(pauseScreen);
+  // }
 
-  resumeGame() {
-    this.currentGameState = this.states.PLAYING;
-    this.lastTime = 0;
-    this.gameLoop(0);
-  }
+  // resumeGame() {
+  //   this.currentGameState = this.states.PLAYING;
+  //   this.lastTime = 0;
+  //   this.gameLoop(0);
+  // }
 
   showMenu() {
     this.currentGameState = this.states.MENU;
@@ -158,17 +172,18 @@ class Game {
       onExitGame: () => console.log("Exit Game Clicked"),
       onStartGame: (boardSize) => {
         this.boardSize = boardSize; // Asignamos boardSize
-        this.playerSelect();
+        this.characterSelect();
         console.log(boardSize);
       },
     });
     this.currentScreen = gamemode;
     this.render();
   }
-  playerSelect() {
+
+  characterSelect() {
     this.currentGameState = this.states.PLAYERSELECT;
-    console.log("player select screen");
-    const playerselect = new PlayerSelectScreen({
+    console.log("character select screen");
+    const playerselect = new CharacterSelectScreen({
       onExitGame: () => console.log("Exit Game Clicked"),
       onStartGame: (selectedPlayers) => {
         this.selectedPlayers = selectedPlayers; // Asignamos los personajes
@@ -201,3 +216,5 @@ class Game {
     this.drawScreen(this.currentScreen);
   }
 }
+
+export default Game;

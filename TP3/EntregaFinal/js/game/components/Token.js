@@ -1,3 +1,7 @@
+"use strict";
+
+import GameObject from "../abstract/GameObject.js";
+
 class Token extends GameObject {
   /**
    * @param {Object} param
@@ -12,16 +16,20 @@ class Token extends GameObject {
     super(x, y, width, height);
     this.color = color;
     this.isDragging = false;
+    this.radius = 30;
   }
 
   drag() {
     this.isDragging = true;
   }
 
+  drop() {
+    this.isDragging = false;
+  }
+
   draw(ctx) {
-    const radius = 30;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fillStyle = this.color;
     ctx.fill();
@@ -40,15 +48,13 @@ class Token extends GameObject {
   }
 
   isClicked(x, y) {
-    return (
-      x >= this.x &&
-      x <= this.x + this.width &&
-      y >= this.y &&
-      y <= this.y + this.height
-    );
+    const distance = Math.sqrt((this.x - x) ** 2 + (this.y - y) ** 2);
+    return distance < this.radius;
   }
 
   isMouseOver(x, y) {
     return this.isClicked(x, y);
   }
 }
+
+export default Token;

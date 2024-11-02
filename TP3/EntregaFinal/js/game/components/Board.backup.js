@@ -1,7 +1,3 @@
-"use strict";
-
-import Game from "../Game.js";
-
 class Board {
   constructor(col, fil, ctx, imagen, tamanioCasillero, modoJuego) {
     this.col = col;
@@ -129,5 +125,3 @@ class Board {
     return false;
   }
 }
-
-export default Board;

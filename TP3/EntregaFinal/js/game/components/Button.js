@@ -1,3 +1,8 @@
+"use strict";
+
+import GameObject from "../abstract/GameObject.js";
+import Game from "../Game.js";
+
 class Button extends GameObject {
   constructor({
     x,
@@ -27,13 +32,7 @@ class Button extends GameObject {
 
   draw() {
     if (this.drawCustomShape) {
-      this.drawCustomShape(
-        Game.ctx,
-        this.x,
-        this.y,
-        this.width,
-        this.height
-      );
+      this.drawCustomShape(Game.ctx, this.x, this.y, this.width, this.height);
     } else if (this.backgroundImage) {
       this.fillBackgroundImage(this.backgroundImage);
     } else {
@@ -63,3 +62,5 @@ class Button extends GameObject {
     this.onClick();
   }
 }
+
+export default Button;

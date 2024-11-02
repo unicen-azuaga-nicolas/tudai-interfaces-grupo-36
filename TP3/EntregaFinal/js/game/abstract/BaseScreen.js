@@ -1,3 +1,8 @@
+"use strict";
+
+import Game from "../Game.js";
+import GameObject from "./GameObject.js";
+
 /**
  * Clase abstracta para representar una pantalla del juego
  * @abstract
@@ -36,12 +41,7 @@ class BaseScreen extends GameObject {
 
   fillBackground() {
     Game.ctx.fillStyle = this.backgroundColor;
-    Game.ctx.fillRect(
-      0,
-      0,
-      Game.canvas.width,
-      Game.canvas.height
-    );
+    Game.ctx.fillRect(0, 0, Game.canvas.width, Game.canvas.height);
   }
 
   /**
@@ -50,13 +50,7 @@ class BaseScreen extends GameObject {
    * @param {Image} image
    */
   fillBackgroundImage(image) {
-    Game.ctx.drawImage(
-      image,
-      0,
-      0,
-      Game.canvas.width,
-      Game.canvas.height
-    );
+    Game.ctx.drawImage(image, 0, 0, Game.canvas.width, Game.canvas.height);
   }
 
   draw() {
@@ -83,3 +77,5 @@ class BaseScreen extends GameObject {
     throw new Error("You have to implement the method create!");
   }
 }
+
+export default BaseScreen;

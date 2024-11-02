@@ -1,7 +1,9 @@
 import BaseScreen from "../abstract/BaseScreen.js";
+import Title from "../components/Title.js";
+import Button from "../components/Button.js";
 import Game from "../Game.js";
 
-class PlayerSelectScreen extends BaseScreen {
+class CharacterSelectScreen extends BaseScreen {
   constructor({ onExitGame, onStartGame }) {
     super();
     this.onExitGame = onExitGame;
@@ -212,4 +214,4 @@ class PlayerSelectScreen extends BaseScreen {
   }
 }
 
-export default PlayerSelectScreen;
+export default CharacterSelectScreen;

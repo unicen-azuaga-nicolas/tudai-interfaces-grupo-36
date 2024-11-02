@@ -1,3 +1,5 @@
+import Game from "../Game.js";
+
 class GameObject {
   constructor(x, y, width, height) {
     this.x = x;
@@ -41,3 +43,5 @@ class GameObject {
     Game.ctx.drawImage(image, this.x, this.y, this.width, this.height);
   }
 }
+
+export default GameObject;

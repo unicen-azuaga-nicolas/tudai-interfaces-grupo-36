@@ -1,3 +1,6 @@
+import Game from "../Game.js";
+import GameObject from "../abstract/GameObject.js";
+
 class Title extends GameObject {
   constructor({ x, y, width, height, text, fontSize, fontFamily, color }) {
     super(x, y, width, height);
@@ -23,3 +26,5 @@ class Title extends GameObject {
     return false;
   }
 }
+
+export default Title;

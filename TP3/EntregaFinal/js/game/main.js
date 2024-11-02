@@ -1,3 +1,7 @@
+"use strict";
+
+import Game from "./Game.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const gamePortrait = document.querySelector(".game-portrait");
   const enterToTheGameBtn = document.getElementById("enterToTheGameBtn");
@@ -16,8 +20,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const SNORLAX_URL = `${ASSETS_BASE_URL}/snorlax.png`;
   const CASILLERO_URL = `${ASSETS_BASE_URL}/casillero.png`;
 
-
-  const assets = [MENU_SCREEN_BACKGROUND_URL, BUTTON_NORMAL_URL, GAMEMODE_BACKGROUND_URL, PLAYERSELECT_URL, BUTTON_DESACTIVADO_URL, PIKACHU_URL, CHARMANDER_URL, BULBASAUR_URL, SNORLAX_URL, CASILLERO_URL];
+  const assets = [
+    MENU_SCREEN_BACKGROUND_URL,
+    BUTTON_NORMAL_URL,
+    GAMEMODE_BACKGROUND_URL,
+    PLAYERSELECT_URL,
+    BUTTON_DESACTIVADO_URL,
+    PIKACHU_URL,
+    CHARMANDER_URL,
+    BULBASAUR_URL,
+    SNORLAX_URL,
+    CASILLERO_URL,
+  ];
 
   function loadImage(src) {
     return new Promise((resolve, reject) => {

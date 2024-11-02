@@ -1,3 +1,9 @@
+import BaseScreen from "../abstract/BaseScreen.js";
+import GameObject from "../abstract/GameObject.js";
+import Button from "../components/Button.js";
+import Title from "../components/Title.js";
+import Game from "../Game.js";
+
 class GameModeScreen extends BaseScreen {
   constructor({ onExitGame, onStartGame }) {
     super();
@@ -58,3 +64,5 @@ class GameModeScreen extends BaseScreen {
     super.draw();
   }
 }
+
+export default GameModeScreen;
