@@ -111,6 +111,7 @@ const generateCarrouselHTML = (title, products, cart) => {
           )
           .join("")}
       </div>
+      ${/* agregar aqui botón flecha para correr el carrusel */ null}
     </div>
   `;
 };
