@@ -1,18 +1,119 @@
+"use strict";
+
 import BaseScreen from "../abstract/BaseScreen.js";
 import Title from "../components/Title.js";
 import Button from "../components/Button.js";
 import Game from "../Game.js";
+import GameCharacter from "../GameCharacter.js";
+import Player from "../Player.js";
+import Token from "../components/Token.js";
 
 class CharacterSelectScreen extends BaseScreen {
-  constructor({ onExitGame, onStartGame }) {
+  /**
+   *
+   * @param {Props} param0
+   * @param {Player} param0.player1
+   * @param {Player} param0.player2
+   * @param {Function} param0.onExitGame
+   * @param {Function} param0.onStartGame
+   */
+  constructor({ player1, player2, onExitGame, onConfirmSelection }) {
     super();
     this.onExitGame = onExitGame;
-    this.onStartGame = onStartGame;
-    this.selectedPlayers = []; // Lista de personajes seleccionados
+    this.onConfirmSelection = onConfirmSelection;
+    /**
+     * @type {string[]}
+     */
+    this.selectedCharacters = []; // Lista de personajes seleccionados
+    /**
+     * @type {Player}
+     */
+    this.player1 = player1;
+    this.player1.setCharacter(null);
+    /**
+     * @type {Player}
+     */
+    this.player2 = player2;
+    this.player2.setCharacter(null);
+    /**
+     * @type {Object.<string, GameCharacter>}
+     */
+
+    /**
+     * @type {Player}
+     */
+    this.currentPlayer = this.player1;
+  }
+
+  nextPlayer() {
+    this.currentPlayer =
+      this.currentPlayer === this.player1 ? this.player2 : this.player1;
+  }
+
+  getStrokeColorByPlayer(characterName) {
+    if (
+      this.player1.hasCharacterSelected() &&
+      this.player1.characterSelected.name === characterName
+    ) {
+      return this.player1.color;
+    } else if (
+      this.player2.hasCharacterSelected() &&
+      this.player2.characterSelected.name === characterName
+    ) {
+      return this.player2.color;
+    } else {
+      return "transparent";
+    }
   }
 
   create() {
-    this.setBackgroundColor("black");
+    const CHARACTERS = {
+      PIKACHU: new GameCharacter({
+        name: "Pikachu",
+        token: new Token({
+          x: 170,
+          y: 800,
+          width: 120,
+          height: 120,
+          radius: 60,
+          backgroundImage: Game.assets[5],
+        }),
+      }),
+      CHARMANDER: new GameCharacter({
+        name: "Charmander",
+        token: new Token({
+          x: 650,
+          y: 750,
+          width: 120,
+          height: 120,
+          radius: 60,
+          backgroundImage: Game.assets[6],
+        }),
+      }),
+      BULBASAUR: new GameCharacter({
+        name: "Bulbasaur",
+        token: new Token({
+          x: 1150,
+          y: 750,
+          width: 120,
+          height: 120,
+          radius: 60,
+          backgroundImage: Game.assets[7],
+        }),
+      }),
+      SNORLAX: new GameCharacter({
+        name: "Snorlax",
+        token: new Token({
+          x: 1650,
+          y: 800,
+          width: 140,
+          height: 140,
+          radius: 60,
+          backgroundImage: Game.assets[8],
+        }),
+      }),
+    };
+
     const title = new Title({
       x: Game.canvas.width / 2 - 100,
       y: 100,
@@ -24,7 +125,7 @@ class CharacterSelectScreen extends BaseScreen {
     });
 
     // Configuración de cada botón de personaje
-    const pikachu = new Button({
+    const pikachuBtn = new Button({
       x: 0,
       y: 260,
       width: 480,
@@ -33,9 +134,8 @@ class CharacterSelectScreen extends BaseScreen {
       fontSize: 70,
       background: "transparent",
       drawCustomShape: (ctx, x, y, width, height) => {
-        ctx.strokeStyle = this.selectedPlayers.includes("Pikachu")
-          ? "white"
-          : "transparent";
+        // el color de la linea debe ser la del color del jugador que lo seleccionó al personaje
+        ctx.strokeStyle = this.getStrokeColorByPlayer("Pikachu");
         ctx.lineWidth = 10;
         ctx.beginPath();
         ctx.moveTo(x + 3, y - 60);
@@ -45,10 +145,10 @@ class CharacterSelectScreen extends BaseScreen {
         ctx.closePath();
         ctx.stroke();
       },
-      onClick: () => this.playerSelect("Pikachu"),
+      onClick: () => this.playerSelect(CHARACTERS.PIKACHU),
     });
 
-    const charmander = new Button({
+    const charmanderBtn = new Button({
       x: 485,
       y: 290,
       width: 470,
@@ -57,9 +157,8 @@ class CharacterSelectScreen extends BaseScreen {
       fontSize: 70,
       background: "transparent",
       drawCustomShape: (ctx, x, y, width, height) => {
-        ctx.strokeStyle = this.selectedPlayers.includes("Charmander")
-          ? "white"
-          : "transparent";
+        ctx.strokeStyle = ctx.strokeStyle =
+          this.getStrokeColorByPlayer("Charmander");
         ctx.lineWidth = 10;
         ctx.beginPath();
         ctx.moveTo(x - 4, y - 32);
@@ -71,10 +170,10 @@ class CharacterSelectScreen extends BaseScreen {
         ctx.closePath();
         ctx.stroke();
       },
-      onClick: () => this.playerSelect("Charmander"),
+      onClick: () => this.playerSelect(CHARACTERS.CHARMANDER),
     });
 
-    const bulbasaur = new Button({
+    const bulbasaurBtn = new Button({
       x: 960,
       y: 290,
       width: 470,
@@ -83,9 +182,7 @@ class CharacterSelectScreen extends BaseScreen {
       fontSize: 70,
       background: "transparent",
       drawCustomShape: (ctx, x, y, width, height) => {
-        ctx.strokeStyle = this.selectedPlayers.includes("Bulbasaur")
-          ? "white"
-          : "transparent";
+        ctx.strokeStyle = this.getStrokeColorByPlayer("Bulbasaur");
         ctx.lineWidth = 10;
         ctx.beginPath();
         ctx.moveTo(x, y + 5);
@@ -97,10 +194,10 @@ class CharacterSelectScreen extends BaseScreen {
         ctx.closePath();
         ctx.stroke();
       },
-      onClick: () => this.playerSelect("Bulbasaur"),
+      onClick: () => this.playerSelect(CHARACTERS.BULBASAUR),
     });
 
-    const snorlax = new Button({
+    const snorlaxBtn = new Button({
       x: 1440,
       y: 250,
       width: 480,
@@ -109,9 +206,7 @@ class CharacterSelectScreen extends BaseScreen {
       fontSize: 70,
       background: "transparent",
       drawCustomShape: (ctx, x, y, width, height) => {
-        ctx.strokeStyle = this.selectedPlayers.includes("Snorlax")
-          ? "white"
-          : "transparent";
+        ctx.strokeStyle = this.getStrokeColorByPlayer("Snorlax");
         ctx.lineWidth = 10;
         ctx.beginPath();
         ctx.moveTo(x, y + 10);
@@ -121,35 +216,7 @@ class CharacterSelectScreen extends BaseScreen {
         ctx.closePath();
         ctx.stroke();
       },
-      onClick: () => this.playerSelect("Snorlax"),
-    });
-    this.pikachuToken = new Button({
-      x: 170,
-      y: 800,
-      width: 120,
-      height: 120,
-      backgroundImage: Game.assets[5],
-    });
-    this.charmanderToken = new Button({
-      x: 650,
-      y: 750,
-      width: 120,
-      height: 120,
-      backgroundImage: Game.assets[6],
-    });
-    this.bulbasaurToken = new Button({
-      x: 1150,
-      y: 750,
-      width: 120,
-      height: 120,
-      backgroundImage: Game.assets[7],
-    });
-    this.snorlaxToken = new Button({
-      x: 1620,
-      y: 800,
-      width: 140,
-      height: 140,
-      backgroundImage: Game.assets[8],
+      onClick: () => this.playerSelect(CHARACTERS.SNORLAX),
     });
 
     this.confirmButton = new Button({
@@ -166,34 +233,70 @@ class CharacterSelectScreen extends BaseScreen {
     this.confirmButton.enabled = false;
 
     this.add(title);
-    this.add(pikachu);
-    this.add(charmander);
-    this.add(bulbasaur);
-    this.add(snorlax);
-    this.add(this.pikachuToken);
-    this.add(this.charmanderToken);
-    this.add(this.bulbasaurToken);
-    this.add(this.snorlaxToken);
+    this.add(pikachuBtn);
+    this.add(charmanderBtn);
+    this.add(bulbasaurBtn);
+    this.add(snorlaxBtn);
+    this.add(CHARACTERS.PIKACHU);
+    this.add(CHARACTERS.CHARMANDER);
+    this.add(CHARACTERS.BULBASAUR);
+    this.add(CHARACTERS.SNORLAX);
     this.add(this.confirmButton);
+    // this.add(this.characters.charmander.getToken());
+    // this.add(this.characters.bulbasaur.getToken());
+    // this.add(this.characters.snorlax.getToken());
+    // this.add(this.confirmButton);
   }
 
+  /**
+   *
+   * @param {GameCharacter} personaje
+   */
   playerSelect(personaje) {
-    if (this.selectedPlayers.includes(personaje)) {
-      this.selectedPlayers = this.selectedPlayers.filter(
-        (p) => p !== personaje
-      );
-    } else if (this.selectedPlayers.length < 2) {
-      this.selectedPlayers.push(personaje);
+    /**
+     * Lógica para guardar el personaje seleccionado por el jugador 1
+     * y el jugador 2, y habilitar el botón de confirmación
+     */
+    if (this.currentPlayer.hasCharacterSelected()) {
+      this.currentPlayer.setCharacter(null);
+    } else {
+      this.currentPlayer.setCharacter(personaje);
     }
 
+    this.nextPlayer();
+
+    // if (this.selectedCharacters.includes(personaje.name)) {
+    //   this.selectedCharacters = this.selectedCharacters.filter(
+    //     (p) => p !== personaje.name
+    //   );
+    // } else if (this.selectedCharacters.length < 2) {
+    //   this.selectedCharacters.push(personaje.name);
+    // }
+
     // Habilitar o deshabilitar el botón de confirmación
-    this.confirmButton.enabled = this.selectedPlayers.length === 2;
+
+    if (
+      this.player1.hasCharacterSelected() &&
+      this.player2.hasCharacterSelected()
+    ) {
+      this.confirmButton.enabled = true;
+    } else {
+      this.confirmButton.enabled = false;
+    }
+
     if (this.confirmButton.enabled) {
       (this.confirmButton.x = Game.canvas.width / 2 - 105),
         (this.confirmButton.y = 995);
       (this.confirmButton.width = 210),
         (this.confirmButton.height = 90),
         (this.confirmButton.backgroundImage = Game.assets[1]),
+        this.confirmButton.draw(this.ctx);
+    } else {
+      (this.confirmButton.x = Game.canvas.width / 2 - 100),
+        (this.confirmButton.y = 1000);
+      (this.confirmButton.width = 200),
+        (this.confirmButton.height = 80),
+        (this.confirmButton.backgroundImage = Game.assets[4]),
         this.confirmButton.draw(this.ctx);
     }
 
@@ -202,8 +305,8 @@ class CharacterSelectScreen extends BaseScreen {
   }
 
   confirmSelection() {
-    if (this.selectedPlayers.length === 2) {
-      this.onStartGame(this.selectedPlayers);
+    if (this.confirmButton.enabled) {
+      this.onConfirmSelection(this.selectedCharacters);
     }
   }
 

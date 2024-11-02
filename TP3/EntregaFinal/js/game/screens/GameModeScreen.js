@@ -3,6 +3,7 @@ import GameObject from "../abstract/GameObject.js";
 import Button from "../components/Button.js";
 import Title from "../components/Title.js";
 import Game from "../Game.js";
+import CanvasUtils from "../utils/CanvasUtils.js";
 
 class GameModeScreen extends BaseScreen {
   constructor({ onExitGame, onStartGame }) {
@@ -22,10 +23,10 @@ class GameModeScreen extends BaseScreen {
       color: "white",
     });
     const mode4 = new Button({
-      x: GameObject.percentOf(Game.canvas.width, 6),
-      y: GameObject.percentOf(Game.canvas.height, 30),
-      width: GameObject.percentOf(Game.canvas.width, 25),
-      height: GameObject.percentOf(Game.canvas.height, 45),
+      x: CanvasUtils.setRelativeX(6),
+      y: CanvasUtils.setRelativeY(30),
+      width: CanvasUtils.setRelativeWidth(25),
+      height: CanvasUtils.setRelativeHeight(45),
       text: "4",
       textColor: "black",
       fontSize: GameObject.percentOf(Game.canvas.height, 7),

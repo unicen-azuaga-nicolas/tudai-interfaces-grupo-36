@@ -78,10 +78,8 @@ class Game {
     this.selectedPlayers = []; // Propiedad para almacenar los personajes seleccionados
 
     // Jugador 1 y 2
-    this.player1 = new Player("1");
-    this.player2 = new Player("2");
-
-    this.turnManager = new TurnManager([this.player1, this.player2]);
+    this.player1 = new Player({ name: "1", color: "blue" });
+    this.player2 = new Player({ name: "2", color: "orange" });
 
     this.modosDeJuegos = [
       {
@@ -143,18 +141,6 @@ class Game {
     this.gameLoop(0);
   }
 
-  // pauseGame() {
-  //   this.currentGameState = this.states.PAUSED;
-  //   const pauseScreen = new BaseScreen();
-  //   this.drawScreen(pauseScreen);
-  // }
-
-  // resumeGame() {
-  //   this.currentGameState = this.states.PLAYING;
-  //   this.lastTime = 0;
-  //   this.gameLoop(0);
-  // }
-
   showMenu() {
     this.currentGameState = this.states.MENU;
     console.log("Show Menu");
@@ -187,11 +173,22 @@ class Game {
     this.currentGameState = this.states.PLAYERSELECT;
     console.log("character select screen");
     const playerselect = new CharacterSelectScreen({
+      player1: this.player1,
+      player2: this.player2,
       onExitGame: () => console.log("Exit Game Clicked"),
-      onStartGame: (selectedPlayers) => {
-        this.selectedPlayers = selectedPlayers; // Asignamos los personajes
+      onConfirmSelection: () => {
+        console.log("Confirm Selection Clicked");
+        // this.player1.fillTokenStack(this.boardSize);
+        // this.player2.fillTokenStack(this.boardSize);
+        console.log(
+          "Jugador 1 eligio: ",
+          this.player1.characterSelected.getName()
+        );
+        console.log(
+          "Jugador 2 eligio: ",
+          this.player2.characterSelected.getName()
+        );
         this.startGame();
-        console.log(selectedPlayers);
       },
     });
     this.currentScreen = playerselect;
