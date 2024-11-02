@@ -1,78 +1,96 @@
-class Board extends GameObject {
-  /**
-   * @param {Object} param
-   * @param {number} param.x
-   * @param {number} param.y
-   * @param {number} param.width
-   * @param {number} param.height
-   * @param {number} param.rows
-   * @param {number} param.cols
-   */
-  constructor({ x, y, width, height, cols, rows }) {
-    super(x, y, width, height);
-    this.rows = rows;
-    this.cols = cols;
-    this.grid = this.createGrid({ rows, cols });
+class Board {
+  constructor(col, fil, ctx, imagen, tamanioCasillero, modoJuego) {
+    this.col = col;
+    this.fil = fil;
+    /** @type {CanvasRenderingContext2D} */
+    this.ctx = ctx;
+    this.imagen = imagen;
+    this.tamanioCasillero = tamanioCasillero;
+    this.modoJuego = modoJuego;
+    this.matriz = Array.from({ length: fil }, () => Array(col).fill(null));
   }
 
-  createGrid({ rows, cols }) {
-    const grid = [];
-    for (let x = 0; x < rows; x++) {
-      grid[x] = [];
-      for (let y = 0; y < cols; y++) {
-        grid[x][y] = null;
+  // Dibuja el tablero con sus respectivas casillas y fichas
+  dibujar() {
+    this.ctx.save();
+    this.ctx.beginPath();
+    const xInicio = Game.canvas.width / 2 - (this.tamanioCasillero * this.col) / 2;
+    const yInicio = Game.canvas.height / 2 - (this.tamanioCasillero * this.fil) / 2;
+
+    // Dibujar borde del tablero
+    this.ctx.rect(xInicio, yInicio, this.col * this.tamanioCasillero, this.fil * this.tamanioCasillero);
+    this.ctx.strokeStyle = "#013636";
+    this.ctx.lineWidth = 7;
+    this.ctx.stroke();
+    this.ctx.closePath();
+
+    // Dibujar cada casilla y la imagen de fondo
+    for (let fila = 0; fila < this.fil; fila++) {
+      for (let columna = 0; columna < this.col; columna++) {
+        this.ctx.beginPath();
+        const x = xInicio + columna * this.tamanioCasillero;
+        const y = yInicio + fila * this.tamanioCasillero;
+        this.ctx.drawImage(this.imagen, x, y, this.tamanioCasillero, this.tamanioCasillero);
+        this.ctx.closePath();
+
+        // Dibuja la ficha si existe en esta posición
+        if (this.matriz[fila][columna]) {
+          this.matriz[fila][columna].dibujar(this.ctx, x + this.tamanioCasillero / 2, y + this.tamanioCasillero / 2);
+        }
       }
     }
-    return grid;
+
+    this.ctx.restore();
   }
 
-  /**
-   * Draws the board and its pieces on the given context.
-   * @param {CanvasRenderingContext2D} ctx
-   */
-  draw(ctx) {
-    const CELL_SIZE = 80;
-    const RADIUS = CELL_SIZE / 2 - 5;
-
-    const boardWidth = this.cols * CELL_SIZE;
-    const boardHeight = this.rows * CELL_SIZE;
-
-    ctx.fillStyle = "black";
-    ctx.fillRect(this.x, this.y, boardWidth, boardHeight);
-
-    for (let x = 0; x < this.rows; x++) {
-      for (let y = 0; y < this.cols; y++) {
-        const cx = this.x + y * CELL_SIZE + CELL_SIZE / 2;
-        const cy = this.y + x * CELL_SIZE + CELL_SIZE / 2;
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, RADIUS, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fillStyle = this.grid[x][y] !== null ? this.grid[x][y] : "white";
-        ctx.fill();
+  // Inserta una ficha en la columna especificada
+  insertarFicha(columna, ficha) {
+    for (let fila = this.fil - 1; fila >= 0; fila--) {
+      if (!this.matriz[fila][columna]) {
+        this.matriz[fila][columna] = ficha;
+        const x = Game.canvas.width / 2 - (this.tamanioCasillero * this.col) / 2 + columna * this.tamanioCasillero + this.tamanioCasillero / 2;
+        const y = Game.canvas.height / 2 - (this.tamanioCasillero * this.fil) / 2 + fila * this.tamanioCasillero + this.tamanioCasillero / 2;
+        ficha.soltarEn(x, y);
+        break;
       }
     }
   }
 
-  /**
-   * Updates the board state.
-   * @param {number} deltaTime
-   */
-  update(deltaTime) {
-    // No-op
-  }
+  // Verifica si hay un ganador
+  hayGanador() {
+    const direcciones = [
+      [0, 1],   // Derecha
+      [1, 0],   // Abajo
+      [1, 1],   // Diagonal descendente
+      [1, -1]   // Diagonal ascendente
+    ];
 
-  /**
-   * El método isClicked de la clase Board siempre retorna false
-   * ya que no se espera que el tablero sea clickeable.
-   * @param {number} x
-   * @param {number} y
-   */
-  isClicked(x, y) {
-    return false;
-  }
+    for (let fila = 0; fila < this.fil; fila++) {
+      for (let columna = 0; columna < this.col; columna++) {
+        const fichaActual = this.matriz[fila][columna];
+        if (!fichaActual) continue;
 
-  isMouseOver(x, y) {
+        // Verificar cada dirección
+        for (const [df, dc] of direcciones) {
+          let contador = 1;
+
+          for (let paso = 1; paso < this.modoJuego; paso++) {
+            const nuevaFila = fila + paso * df;
+            const nuevaColumna = columna + paso * dc;
+
+            if (nuevaFila < 0 || nuevaFila >= this.fil || nuevaColumna < 0 || nuevaColumna >= this.col) break;
+            if (fichaActual.esIgual(this.matriz[nuevaFila][nuevaColumna])) {
+              contador++;
+            } else {
+              break;
+            }
+          }
+
+          if (contador === this.modoJuego) return true;
+        }
+      }
+    }
+
     return false;
   }
 }

@@ -1,7 +1,8 @@
 class GameScreen extends BaseScreen {
-  constructor({ onExitGame }) {
+  constructor({ onExitGame, tablero }) {
     super();
     this.onExitGame = onExitGame;
+    this.tablero = tablero;
   }
 
   create() {
@@ -18,7 +19,7 @@ class GameScreen extends BaseScreen {
 
     const exitButton = new Button({
       x: Game.canvas.width / 2 - 100,
-      y: 300,
+      y: 1000,
       width: 200,
       height: 50,
       text: "Salir",
@@ -31,6 +32,7 @@ class GameScreen extends BaseScreen {
 
   draw(ctx) {
     this.fillBackground(ctx);
+    this.tablero.dibujar();
     super.draw(ctx);
   }
 }

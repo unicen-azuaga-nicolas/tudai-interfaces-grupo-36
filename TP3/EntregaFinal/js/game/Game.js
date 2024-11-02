@@ -14,6 +14,7 @@ class Game {
    */
   static assets = [];
 
+  
   /**
    * Constructor de la clase Game
    */
@@ -64,6 +65,32 @@ class Game {
 
     this.boardSize = null; // Inicializamos la propiedad boardSize
     this.selectedPlayers = []; // Propiedad para almacenar los personajes seleccionados
+    this.modosDeJuegos = [
+      {
+          "nombre": 4,
+          "columnas": 7,
+          "filas": 6,
+          "tamanioCasillero": 100
+      },
+      {
+          "nombre": 5,
+          "columnas": 8,
+          "filas": 7,
+          "tamanioCasillero": 90
+      },
+      {
+          "nombre": 6,
+          "columnas": 9,
+          "filas": 8,
+          "tamanioCasillero": 80
+      },
+      {
+          "nombre": 7,
+          "columnas": 10,
+          "filas": 9,
+          "tamanioCasillero": 70
+      }
+  ];
   }
 
   clearCanvas() {
@@ -78,10 +105,22 @@ class Game {
   startGame() {
     console.log("Start Game Clicked");
     this.currentGameState = this.states.PLAYING;
+  
+    // Configuración del tablero
+    let col = this.modosDeJuegos[this.boardSize].columnas; // Número de columnas
+    let fil = this.modosDeJuegos[this.boardSize].filas; // Número de filas
+    let ctx = Game.ctx;
+    let imagen = Game.assets[9]; // La imagen que quieres usar para cada casilla
+    let tamanioCasillero = this.modosDeJuegos[this.boardSize].tamanioCasillero; // Tamaño de cada casilla
+    let modoJuego = this.modosDeJuegos[this.boardSize].nombre; // Cantidad de fichas en línea para ganar
+  
+    let tablero = new Board(col, fil, ctx, imagen, tamanioCasillero, modoJuego);
+  
     this.currentScreen = new GameScreen({
       onExitGame: () => this.showMenu(),
+      tablero: tablero,
     });
-    // this.currentScreen.draw(this.ctx);
+  
     this.lastTime = 0;
     this.gameLoop(0);
   }
