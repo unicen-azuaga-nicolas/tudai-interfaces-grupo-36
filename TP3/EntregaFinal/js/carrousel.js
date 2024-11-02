@@ -78,6 +78,16 @@ function carrousel() {
   });
 }
 
+// Agregar funcionalidad de scroll con la flecha derecha
+/*
+const rightArrow = slider.querySelector(".chevron--cont--flech--carrousel");
+
+if (rightArrow) {
+  rightArrow.addEventListener("click", () => {
+    slider.scrollBy({ left: 200, behavior: "smooth" });
+  });
+}
+*/
 document.addEventListener("DOMContentLoaded", () => {
   carrousel();
 });

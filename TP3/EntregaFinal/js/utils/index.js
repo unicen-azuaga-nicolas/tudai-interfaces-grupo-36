@@ -51,12 +51,12 @@ const addEventListenersToButtons = (products, cart) => {
 const generateCarrouselHTML = (title, products, cart) => {
   return `
     <div class="carrousel-container">
-    <div class="carrousel-header">
-      <h2 class="h2">${title}</h2>
-      <button class="btn btn--primary">
-      Ver Más <i class="fas fa-chevron-right"></i>
-      </button>
-    </div>
+      <div class="carrousel-header">
+        <h2 class="h2">${title}</h2>
+        <button class="btn btn--primary">
+        Ver Más <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
       <div class="carrousel alignfull">
         ${products
           .map(
@@ -111,7 +111,9 @@ const generateCarrouselHTML = (title, products, cart) => {
           )
           .join("")}
       </div>
-      ${/* agregar aqui botón flecha para correr el carrusel */ null}
+      <div class="chevron--cont--flech--carrousel">
+         <i class="fa-solid fa-chevron-right" style="color: white"></i>
+      </div>
     </div>
   `;
 };
