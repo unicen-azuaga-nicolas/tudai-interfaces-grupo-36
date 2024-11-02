@@ -245,10 +245,10 @@ left: 2.5px;
 }
 /* Responsivo para pantallas más pequeñas */
 @media (max-width: 768px) {
-  .chevron--cont--flech--carrousel{
+  .chevron--cont--flech--carrousel--left .fa-chevron-left{
     display: none;
   }
-  .chevron--cont--flech--carrousel--left{
+  .chevron--cont--flech--carrousel .fa-chevron-right{
     display: none;
   }
   /* .carrousel-item {
