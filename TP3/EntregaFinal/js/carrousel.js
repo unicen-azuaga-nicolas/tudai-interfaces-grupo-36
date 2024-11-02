@@ -1,5 +1,6 @@
 function carrousel() {
   const sliders = document.querySelectorAll(".carrousel");
+  console.log("Elementos seleccionados:", sliders);
   // Iterar sobre cada carrusel
   sliders.forEach((slider) => {
     let isDown = false;
@@ -75,19 +76,21 @@ function carrousel() {
         });
       });
     }
+    // Agregar funcionalidad de scroll con la flecha derecha
+
+    const rightArrow = slider.nextElementSibling;
+
+    if (rightArrow) {
+      rightArrow.addEventListener("click", () => {
+        console.log("Flecha derecha clickeada");
+        slider.scrollBy({ left: 200, behavior: "smooth" });
+      });
+    }
   });
+  
+
 }
 
-// Agregar funcionalidad de scroll con la flecha derecha
-/*
-const rightArrow = slider.querySelector(".chevron--cont--flech--carrousel");
-
-if (rightArrow) {
-  rightArrow.addEventListener("click", () => {
-    slider.scrollBy({ left: 200, behavior: "smooth" });
-  });
-}
-*/
 document.addEventListener("DOMContentLoaded", () => {
   carrousel();
 });
