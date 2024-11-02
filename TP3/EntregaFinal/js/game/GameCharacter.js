@@ -1,11 +1,14 @@
+import GameObject from "./abstract/GameObject.js";
 import Token from "./components/Token.js";
 
-class GameCharacter {
+class GameCharacter extends GameObject {
   /**
    *
    * @param {Token} token
    */
-  constructor(token) {
+  constructor({ name, token }) {
+    super(0, 0, token.width, token.height);
+    this.name = name;
     this.token = token;
   }
 
@@ -15,6 +18,17 @@ class GameCharacter {
    */
   getToken() {
     return this.token;
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  /**
+   * Dibuja el personaje en el canvas.
+   */
+  draw() {
+    this.token.draw();
   }
 }
 

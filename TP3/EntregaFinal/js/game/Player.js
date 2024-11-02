@@ -1,17 +1,23 @@
 import Board from "./components/Board.js";
 import Token from "./components/Token.js";
+import Game from "./Game.js";
 import GameCharacter from "./GameCharacter.js";
 
 class Player {
   /**
    * @param {string} name - Nombre del jugador.
    */
-  constructor(name) {
+  constructor({ name, color }) {
+    /**
+     * Nombre del jugador.
+     * @type {string}
+     */
     this.name = name;
     /**
      * Personaje seleccionado por el jugador.
      * @type {GameCharacter}
      */
+    this.color = color;
     this.characterSelected = null;
     /**
      * Fichas del jugador.
@@ -28,19 +34,27 @@ class Player {
     this.characterSelected = character;
   }
 
-  getToken() {
+  getTokenSelected() {
     return this.characterSelected.getToken();
   }
 
+  /**
+   * Método para saber si el jugador selecciono un personaje
+   * @returns {boolean} - Devuelve true si el jugador seleccionó un personaje, false si no.
+   */
+  hasCharacterSelected() {
+    return this.characterSelected !== null;
+  }
+
   // Método para llenar el stack de fichas basado en el tamaño del tablero
-  fillTokenStack(columns, rows) {
+  fillTokenStack({ columns, rows, posX, posY }) {
     const numberOfTokens = Math.ceil((columns * rows) / 2);
     const token = this.characterSelected.getToken();
     for (let i = 0; i < numberOfTokens; i++) {
       this.tokenStack.push(
         new Token({
-          x: 0 + i * token.width,
-          y: 0 + i * token.height,
+          x: posX,
+          y: posY + i * token.height,
           width: token.width,
           height: token.height,
           img: token.backgroundImage,
