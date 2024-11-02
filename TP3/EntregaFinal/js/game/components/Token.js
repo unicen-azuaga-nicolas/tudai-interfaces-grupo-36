@@ -1,6 +1,7 @@
 "use strict";
 
 import GameObject from "../abstract/GameObject.js";
+import Game from "../Game.js";
 
 class Token extends GameObject {
   /**
@@ -12,11 +13,12 @@ class Token extends GameObject {
    * @param {string} param.color
    * @param {boolean} param.isDragging
    */
-  constructor({ x, y, width, height, color }) {
+  constructor({ x, y, width, height, radius, backgroundImage }) {
     super(x, y, width, height);
     this.color = color;
     this.isDragging = false;
-    this.radius = 30;
+    this.radius = radius;
+    this.backgroundImage = backgroundImage;
   }
 
   drag() {
@@ -27,12 +29,19 @@ class Token extends GameObject {
     this.isDragging = false;
   }
 
-  draw(ctx) {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.closePath();
-    ctx.fillStyle = this.color;
-    ctx.fill();
+  draw() {
+    // ctx.beginPath();
+    // ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    // ctx.closePath();
+    // ctx.fillStyle = this.color;
+    // ctx.fill();
+    Game.ctx.drawImage(
+      this.img,
+      this.x - this.radio,
+      this.y - this.radio,
+      this.radio * 2,
+      this.radio * 2
+    );
   }
 
   /**

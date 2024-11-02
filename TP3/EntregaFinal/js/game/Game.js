@@ -7,6 +7,7 @@ import CharacterSelectScreen from "./screens/CharacterSelectScreen.js";
 import GameModeScreen from "./screens/GameModeScreen.js";
 import GameScreen from "./screens/GameScreen.js";
 import MainMenuScreen from "./screens/MainMenuScreen.js";
+import TurnManager from "./TurnManager.js";
 import EventHandler from "./utils/EventHandler.js";
 
 class Game {
@@ -77,8 +78,10 @@ class Game {
     this.selectedPlayers = []; // Propiedad para almacenar los personajes seleccionados
 
     // Jugador 1 y 2
-    this.player1 = new Player("red");
-    this.player2 = new Player("yellow");
+    this.player1 = new Player("1");
+    this.player2 = new Player("2");
+
+    this.turnManager = new TurnManager([this.player1, this.player2]);
 
     this.modosDeJuegos = [
       {

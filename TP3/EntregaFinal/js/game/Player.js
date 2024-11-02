@@ -1,11 +1,52 @@
 import Board from "./components/Board.js";
+import Token from "./components/Token.js";
+import GameCharacter from "./GameCharacter.js";
 
 class Player {
   /**
-   * @param {string} color - Color del jugador (por ejemplo, 'red' o 'yellow')
+   * @param {string} name - Nombre del jugador.
    */
-  constructor(color) {
-    this.color = color;
+  constructor(name) {
+    this.name = name;
+    /**
+     * Personaje seleccionado por el jugador.
+     * @type {GameCharacter}
+     */
+    this.characterSelected = null;
+    /**
+     * Fichas del jugador.
+     * @type {Token[]}
+     */
+    this.tokenStack = [];
+  }
+
+  /**
+   * Selecciona un personaje para el jugador.
+   * @param {GameCharacter} character
+   */
+  setCharacter(character) {
+    this.characterSelected = character;
+  }
+
+  getToken() {
+    return this.characterSelected.getToken();
+  }
+
+  // Método para llenar el stack de fichas basado en el tamaño del tablero
+  fillTokenStack(columns, rows) {
+    const numberOfTokens = Math.ceil((columns * rows) / 2);
+    const token = this.characterSelected.getToken();
+    for (let i = 0; i < numberOfTokens; i++) {
+      this.tokenStack.push(
+        new Token({
+          x: 0 + i * token.width,
+          y: 0 + i * token.height,
+          width: token.width,
+          height: token.height,
+          img: token.backgroundImage,
+        })
+      );
+    }
   }
 
   /**
@@ -43,14 +84,18 @@ class Player {
     // Buscar la primera fila vacía en la columna, desde abajo hacia arriba
     for (let row = board.rows - 1; row >= 0; row--) {
       if (board.board[row][column] === null) {
-        board.board[row][column] = this.color; // Colocar la ficha del jugador
+        board.board[row][column] = this.name; // Colocar la ficha del jugador
         console.log(
-          `Ficha colocada en columna ${column} por el jugador ${this.color}`
+          `Ficha colocada en columna ${column} por el jugador ${this.name}`
         );
         return true;
       }
     }
     return false; // Si la columna está llena, no se coloca la ficha
+  }
+
+  drawTokens() {
+    this.tokenStack.forEach((token) => token.draw());
   }
 }
 
