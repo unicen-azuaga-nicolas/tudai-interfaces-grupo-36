@@ -79,13 +79,40 @@ function carrousel() {
     // Agregar funcionalidad de scroll con la flecha derecha
 
     const rightArrow = slider.nextElementSibling;
+    const leftArrow = slider.previousElementSibling;
 
     if (rightArrow) {
       rightArrow.addEventListener("click", () => {
         console.log("Flecha derecha clickeada");
-        slider.scrollBy({ left: 200, behavior: "smooth" });
+        slider.scrollBy({ left:600, behavior: "smooth" });
+        updateArrowVisibility();
       });
     }
+    if (leftArrow) { // Asegúrate de que la flecha izquierda existe
+      leftArrow.addEventListener("click", () => {
+        console.log("Flecha izquierda clickeada");
+        slider.scrollBy({ left: -600, behavior: "smooth" }); // Desplazarse a la izquierda
+        updateArrowVisibility();
+    });
+    }
+    // Función para actualizar la visibilidad de las flechas
+    function updateArrowVisibility() {
+      const isAtStart = slider.scrollLeft === 0;
+      const isAtEnd = slider.scrollWidth - slider.scrollLeft <= slider.clientWidth;
+
+      // Ocultar flecha izquierda si estamos al inicio
+      if (leftArrow) {
+        leftArrow.style.display = isAtStart ? 'none' : 'flex'; // O 'block', según tu diseño
+      }
+      
+      // Ocultar flecha derecha si estamos al final
+      if (rightArrow) {
+        rightArrow.style.display = isAtEnd ? 'none' : 'flex'; // O 'block', según tu diseño
+      }
+    }
+
+    // Llamar a la función para configurar la visibilidad de las flechas al cargar
+    updateArrowVisibility();
   });
   
 

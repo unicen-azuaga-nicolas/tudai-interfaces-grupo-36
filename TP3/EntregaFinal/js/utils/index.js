@@ -57,6 +57,9 @@ const generateCarrouselHTML = (title, products, cart) => {
         Ver Más <i class="fas fa-chevron-right"></i>
         </button>
       </div>
+      <div class="chevron--cont--flech--carrousel--left">
+         <i class="fa-solid fa-chevron-left" style="color: white"></i>
+      </div>
       <div class="carrousel alignfull">
         ${products
           .map(
@@ -114,7 +117,6 @@ const generateCarrouselHTML = (title, products, cart) => {
       <div class="chevron--cont--flech--carrousel">
          <i class="fa-solid fa-chevron-right" style="color: white"></i>
       </div>
-    </div>
   `;
 };
 

@@ -3,6 +3,7 @@
 }
 .carrousel-container{
   position:relative;
+  margin: var(--spacing-1);
 }
 .carrousel {
   display: flex;
@@ -225,7 +226,19 @@ left: 2.5px;
   top: 65%;
   margin: calc(-1 * var(--spacing-1));
 }
-.chevron--cont--flech--carrousel i{
+.chevron--cont--flech--carrousel--left {
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  top: 65%;
+  margin: calc(-1 * var(--spacing-1));
+}
+.chevron--cont--flech--carrousel--left .fa-chevron-left{
+  margin: calc(-1 * var(--spacing-1));
+  font-size: 24px; /* Ajusta el tamaño de la flecha según sea necesario */
+  cursor: pointer; /* Para indicar que es clickeable */
+}
+.chevron--cont--flech--carrousel .fa-chevron-right{
   margin: calc(-1 * var(--spacing-1));
   font-size: var(--font-size-24);
   cursor: pointer;
@@ -233,6 +246,9 @@ left: 2.5px;
 /* Responsivo para pantallas más pequeñas */
 @media (max-width: 768px) {
   .chevron--cont--flech--carrousel{
+    display: none;
+  }
+  .chevron--cont--flech--carrousel--left{
     display: none;
   }
   /* .carrousel-item {
