@@ -42,6 +42,15 @@ class GameObject {
   fillBackgroundImage(image) {
     Game.ctx.drawImage(image, this.x, this.y, this.width, this.height);
   }
+
+  setPos(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  getPos() {
+    return { x: this.x, y: this.y };
+  }
 }
 
 export default GameObject;

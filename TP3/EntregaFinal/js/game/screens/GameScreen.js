@@ -1,13 +1,45 @@
 import BaseScreen from "../abstract/BaseScreen.js";
+import Board from "../components/Board.js";
 import Button from "../components/Button.js";
 import Title from "../components/Title.js";
+import Token from "../components/Token.js";
 import Game from "../Game.js";
+import Player from "../Player.js";
+import CanvasUtils from "../utils/CanvasUtils.js";
 
 class GameScreen extends BaseScreen {
-  constructor({ onExitGame, tablero }) {
-    super();
-    this.onExitGame = onExitGame;
+  constructor({ player1, player2, onExitGame, tablero }) {
+    super(); // --> se ejecuta el create()
+
+    /**
+     * @type {Player}
+     */
+    this.player1 = player1;
+
+    /**
+     * @type {Player}
+     */
+    this.player2 = player2;
+
+    /**
+     * @type {Board}
+     */
+
     this.tablero = tablero;
+    /**
+     * @type {function}
+     */
+    this.onExitGame = onExitGame;
+
+    this.placeTokens();
+  }
+
+  placeTokens() {
+    this.children = [
+      ...this.children,
+      ...this.player1.tokenStack,
+      ...this.player2.tokenStack,
+    ];
   }
 
   create() {
@@ -35,10 +67,10 @@ class GameScreen extends BaseScreen {
     this.add(exitButton);
   }
 
-  draw(ctx) {
-    this.fillBackground(ctx);
+  draw() {
+    this.fillBackground();
     this.tablero.dibujar();
-    super.draw(ctx);
+    super.draw();
   }
 }
 

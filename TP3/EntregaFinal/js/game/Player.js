@@ -1,6 +1,5 @@
 import Board from "./components/Board.js";
 import Token from "./components/Token.js";
-import Game from "./Game.js";
 import GameCharacter from "./GameCharacter.js";
 
 class Player {
@@ -17,13 +16,17 @@ class Player {
      * Personaje seleccionado por el jugador.
      * @type {GameCharacter}
      */
-    this.color = color;
     this.characterSelected = null;
     /**
      * Fichas del jugador.
      * @type {Token[]}
      */
     this.tokenStack = [];
+    /**
+     * Color del jugador.
+     * @type {string}
+     */
+    this.color = color;
   }
 
   /**
@@ -46,20 +49,48 @@ class Player {
     return this.characterSelected !== null;
   }
 
-  // Método para llenar el stack de fichas basado en el tamaño del tablero
-  fillTokenStack({ columns, rows, posX, posY }) {
-    const numberOfTokens = Math.ceil((columns * rows) / 2);
-    const token = this.characterSelected.getToken();
-    for (let i = 0; i < numberOfTokens; i++) {
-      this.tokenStack.push(
-        new Token({
-          x: posX,
-          y: posY + i * token.height,
-          width: token.width,
-          height: token.height,
-          img: token.backgroundImage,
-        })
-      );
+  /**
+   * Crea las fichas del jugador en base al personaje seleccionado y el
+   * tamaño del tablero. Las fichas deben estar apiladas una encima de la otra.
+   * en un costado del tablero.
+   */
+  createTokens({ posX, posY }) {
+    if (!this.hasCharacterSelected()) {
+      console.error("No se seleccionó un personaje para el jugador");
+      return;
+    }
+
+    const token = this.getTokenSelected();
+    const tokenWidth = 65;
+    const tokenHeight = 65;
+    const tokenRadius = 32.5;
+    const tokenImage = token.backgroundImage;
+
+    // Cantidad de fichas que se pueden colocar en el tablero
+    const maxTokens = 21;
+
+    // Posición inicial de las fichas
+    const startX = posX;
+    const startY = posY;
+
+    // Espaciado entre las fichas apiladas
+    const spacing = token.radius / 2;
+
+    // Crear las fichas y apilarlas
+    for (let i = 0; i < maxTokens; i++) {
+      const x = startX;
+      const y = startY - i * spacing;
+      const newToken = new Token({
+        x,
+        y,
+        width: tokenWidth,
+        height: tokenHeight,
+        radius: tokenRadius,
+        backgroundImage: tokenImage,
+        name: this.characterSelected.name,
+        player: this,
+      });
+      this.tokenStack.push(newToken);
     }
   }
 
@@ -106,10 +137,6 @@ class Player {
       }
     }
     return false; // Si la columna está llena, no se coloca la ficha
-  }
-
-  drawTokens() {
-    this.tokenStack.forEach((token) => token.draw());
   }
 }
 

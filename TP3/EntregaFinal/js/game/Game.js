@@ -8,6 +8,7 @@ import GameModeScreen from "./screens/GameModeScreen.js";
 import GameScreen from "./screens/GameScreen.js";
 import MainMenuScreen from "./screens/MainMenuScreen.js";
 import TurnManager from "./TurnManager.js";
+import CanvasUtils from "./utils/CanvasUtils.js";
 import EventHandler from "./utils/EventHandler.js";
 
 class Game {
@@ -132,7 +133,24 @@ class Game {
 
     let tablero = new Board(col, fil, ctx, imagen, tamanioCasillero, modoJuego);
 
+    const pisoY = Game.canvas.height - tamanioCasillero;
+
+    this.player1.tokenStack = [];
+    this.player2.tokenStack = [];
+
+    // Configuración de los jugadores
+    this.player1.createTokens({
+      posX: CanvasUtils.setRelativeX(10),
+      posY: pisoY,
+    });
+    this.player2.createTokens({
+      posX: CanvasUtils.setRelativeX(90),
+      posY: pisoY,
+    });
+
     this.currentScreen = new GameScreen({
+      player1: this.player1,
+      player2: this.player2,
       onExitGame: () => this.showMenu(),
       tablero: tablero,
     });
@@ -178,8 +196,7 @@ class Game {
       onExitGame: () => console.log("Exit Game Clicked"),
       onConfirmSelection: () => {
         console.log("Confirm Selection Clicked");
-        // this.player1.fillTokenStack(this.boardSize);
-        // this.player2.fillTokenStack(this.boardSize);
+
         console.log(
           "Jugador 1 eligio: ",
           this.player1.characterSelected.getName()
@@ -197,7 +214,7 @@ class Game {
 
   gameLoop(timestamp) {
     if (this.currentGameState !== this.states.PLAYING) return;
-    console.log("Game Loop");
+    // console.log("Game Loop");
     const deltaTime = (timestamp - this.lastTime) / 1000; // Convertir a segundos
     this.lastTime = timestamp;
 

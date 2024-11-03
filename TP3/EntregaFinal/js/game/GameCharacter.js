@@ -20,6 +20,10 @@ class GameCharacter extends GameObject {
     return this.token;
   }
 
+  setToken(){
+    
+  }
+
   getName() {
     return this.name;
   }

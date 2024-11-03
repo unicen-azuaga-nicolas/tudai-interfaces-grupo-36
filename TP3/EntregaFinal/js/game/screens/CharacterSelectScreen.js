@@ -35,9 +35,6 @@ class CharacterSelectScreen extends BaseScreen {
      */
     this.player2 = player2;
     this.player2.setCharacter(null);
-    /**
-     * @type {Object.<string, GameCharacter>}
-     */
 
     /**
      * @type {Player}
@@ -306,7 +303,13 @@ class CharacterSelectScreen extends BaseScreen {
 
   confirmSelection() {
     if (this.confirmButton.enabled) {
-      this.onConfirmSelection(this.selectedCharacters);
+      const selectedToken1 = this.player1.characterSelected.getToken();
+      const selectedToken2 = this.player2.characterSelected.getToken();
+
+      selectedToken1.setPlayer(this.player1);
+      selectedToken2.setPlayer(this.player2);
+
+      this.onConfirmSelection();
     }
   }
 

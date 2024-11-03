@@ -1,4 +1,6 @@
+import Token from "../components/Token.js";
 import Game from "../Game.js";
+import CanvasUtils from "./CanvasUtils.js";
 
 class EventHandler {
   /**
@@ -25,6 +27,19 @@ class EventHandler {
     Game.canvas.addEventListener("mousemove", (event) =>
       this.handleMouseOver(event)
     );
+
+    Game.canvas.addEventListener("mousedown", (event) => {
+      this.handleMouseDown(event);
+    });
+
+    Game.canvas.addEventListener("mouseup", (event) => {
+      this.handleMouseUp(event);
+    });
+
+    Game.canvas.addEventListener("mousemove", (event) => {
+      this.handleMouseMove(event);
+    });
+
     // Agregar más eventos si es necesario
   }
 
@@ -42,7 +57,6 @@ class EventHandler {
 
     this.game.currentScreen.children.forEach((obj) => {
       if (obj.isClicked(x, y) && obj.onClick) {
-        console.log("Entro al IF de isClicked");
         obj.onClick();
       }
     });
@@ -53,6 +67,38 @@ class EventHandler {
     this.game.currentScreen.children.forEach((obj) => {
       if (obj.isMouseOver(x, y) && obj.onMouseOver) {
         obj.onMouseOver();
+      }
+    });
+  }
+
+  handleMouseDown(event) {
+    const { x, y } = this.getMousePos(event);
+    console.log(`Mouse down at: ${x}, ${y}`);
+
+    this.game.currentScreen.children.forEach((obj) => {
+      if (obj.isClicked && obj.isClicked(x, y) && obj.startDragging) {
+        obj.startDragging(x, y);
+      }
+    });
+  }
+
+  handleMouseMove(event) {
+    const { x, y } = this.getMousePos(event);
+
+    this.game.currentScreen.children.forEach((obj) => {
+      if (obj instanceof Token && obj.isDragging) {
+        console.log("dragging");
+        obj.drag(x, y);
+      }
+    });
+  }
+
+  handleMouseUp(event) {
+    const { x, y } = this.getMousePos(event);
+    this.game.currentScreen.children.forEach((obj) => {
+      if (obj instanceof Token && obj.isDragging) {
+        console.log("drop");
+        obj.drop(CanvasUtils.setRelativeY(90));
       }
     });
   }
