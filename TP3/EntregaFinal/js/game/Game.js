@@ -171,10 +171,13 @@ class Game {
       posX: CanvasUtils.setRelativeX(10),
       posY: pisoY,
     });
+    this.player1.lockAllTokens();
     this.player2.createTokens({
       posX: CanvasUtils.setRelativeX(90),
       posY: pisoY,
     });
+    this.player2.lockAllTokens();
+    this.turnManager.getCurrentPlayer().unlockLastToken();
   }
 
   startGame() {

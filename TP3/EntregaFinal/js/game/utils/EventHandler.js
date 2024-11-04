@@ -133,13 +133,11 @@ class EventHandler {
           } else {
             // Si la columna está llena, animar el regreso al tokenStack
             obj.returnToStack();
-            this.game.turnoActual.tokenStack.push(obj);
             console.log("Token returned to stack with animation");
           }
         } else {
           // Si no se coloca en una columna válida, animar el regreso al tokenStack
           obj.returnToStack();
-          this.game.turnManager.getCurrentPlayer().tokenStack.push(obj);
           console.log("Token returned to stack with animation");
         }
       }

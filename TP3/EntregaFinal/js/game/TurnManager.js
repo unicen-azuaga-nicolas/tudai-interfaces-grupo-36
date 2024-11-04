@@ -21,6 +21,8 @@ class TurnManager {
   nextTurn() {
     this.currentPlayerIndex =
       (this.currentPlayerIndex + 1) % this.players.length;
+      console.log(`Turno de dsadsadsas: ${this.getCurrentPlayer().name}`);
+      this.getCurrentPlayer().unlockLastToken();
   }
 
   // Método para reiniciar los turnos
