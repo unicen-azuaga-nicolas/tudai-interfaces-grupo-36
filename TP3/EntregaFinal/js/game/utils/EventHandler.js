@@ -75,10 +75,9 @@ class EventHandler {
   handleMouseMove(event) {
     const { x, y } = this.getMousePos(event);
 
-    this.handleMouseOver(event);
-
     this.game.currentScreen.children.forEach((obj) => {
       if (obj instanceof Token && obj.isDragging) {
+        this.handleMouseOver(event);
         console.log("dragging");
         obj.drag(x, y);
       }
