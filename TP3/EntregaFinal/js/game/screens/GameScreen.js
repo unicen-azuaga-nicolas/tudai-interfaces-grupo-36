@@ -1,5 +1,5 @@
 import BaseScreen from "../abstract/BaseScreen.js";
-import Board from "../components/Board.js";
+import Board from "../components/Board.dev.js";
 import Button from "../components/Button.js";
 import Title from "../components/Title.js";
 import Token from "../components/Token.js";

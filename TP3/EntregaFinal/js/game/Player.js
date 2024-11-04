@@ -1,4 +1,4 @@
-import Board from "./components/Board.js";
+import Board from "./components/Board.dev.js";
 import Token from "./components/Token.js";
 import GameCharacter from "./GameCharacter.js";
 

@@ -1,7 +1,7 @@
 "use strict";
 
 import BaseScreen from "./abstract/BaseScreen.js";
-import Board from "./components/Board.js";
+import Board from "./components/Board.dev.js";
 import Player from "./Player.js";
 import CharacterSelectScreen from "./screens/CharacterSelectScreen.js";
 import GameModeScreen from "./screens/GameModeScreen.js";
