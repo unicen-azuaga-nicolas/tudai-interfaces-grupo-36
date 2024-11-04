@@ -101,13 +101,10 @@ class Player {
    * @returns {number} - Índice de la columna seleccionada.
    */
   getColumnFromClick(mouseX, board) {
-    const cellSize = 80;
-    const boardWidth = board.cols * cellSize;
-
+    const cellSize = board.tamanioCasillero;
+    const boardWidth = board.col * cellSize;
     // Calcular la posición X de inicio del tablero para centrarlo en el canvas
-    const startX = (board.canvas.width - boardWidth) / 2;
-    const adjustedMouseX = mouseX - startX;
-
+    const adjustedMouseX = mouseX - board.xInicio;
     // Si el clic está fuera del tablero, devolver -1
     if (adjustedMouseX < 0 || adjustedMouseX > boardWidth) {
       return -1;
@@ -124,20 +121,26 @@ class Player {
    * @returns {boolean} - Devuelve true si la ficha se colocó con éxito, false si la columna está llena.
    */
   placeToken(column, board) {
-    if (column < 0 || column >= board.cols) return false; // Verificar que la columna es válida
 
+    if (column < 0 || column >= board.col) return false; // Verificar que la columna es válida
+    console.log(`Intentando colocar ficha en columna ${column}`);
     // Buscar la primera fila vacía en la columna, desde abajo hacia arriba
-    for (let row = board.rows - 1; row >= 0; row--) {
-      if (board.board[row][column] === null) {
-        board.board[row][column] = this.name; // Colocar la ficha del jugador
-        console.log(
-          `Ficha colocada en columna ${column} por el jugador ${this.name}`
-        );
-        return true;
-      }
-    }
-    return false; // Si la columna está llena, no se coloca la ficha
+    return board.insertarFicha(column, this.tokenStack[this.tokenStack.length - 1]);
   }
+
+  lockAllTokens() {
+    this.tokenStack.forEach(token => token.lock());
+  }
+
+  /**
+   * Desbloquea la última ficha del jugador.
+   */
+  unlockLastToken() {
+    if (this.tokenStack.length > 0) {
+      this.tokenStack[this.tokenStack.length - 1].unlock();
+    }
+  }
+  
 }
 
 export default Player;

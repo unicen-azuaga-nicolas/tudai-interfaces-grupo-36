@@ -181,6 +181,9 @@ class Game {
       board: this.board,
     });
 
+    this.turnoActual = this.player1; // Inicializar con el primer jugador
+    this.player1.unlockLastToken();
+    this.cambiarTurno();
     this.lastTime = 0;
     this.gameLoop(0);
   }
@@ -238,6 +241,33 @@ class Game {
     this.render();
   }
 
+    placeToken(column) {
+      if (this.currentGameState !== this.states.PLAYING) return;
+  
+      let currentPlayer = this.turnoActual;
+      let board = this.currentScreen.tablero;
+  
+      // Intentar colocar la ficha del jugador actual en la columna seleccionada
+      if (currentPlayer.placeToken(column, board)) {
+        // Cambiar turno si la ficha se coloca correctamente
+        this.cambiarTurno();
+      }
+    }
+  
+    cambiarTurno() {
+      if (this.turnoActual === this.player1) {
+        this.player1.lockAllTokens();
+        this.turnoActual = this.player2;
+        this.player2.unlockLastToken();
+      } else {
+        this.player2.lockAllTokens();
+        this.turnoActual = this.player1;
+        this.player1.unlockLastToken();
+      }
+      console.log(`Turno de: ${this.turnoActual.name}`);
+    }
+  
+    
   gameLoop(timestamp) {
     if (this.currentGameState !== this.states.PLAYING) return;
     // console.log("Game Loop");

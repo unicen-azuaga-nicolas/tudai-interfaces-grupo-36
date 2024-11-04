@@ -32,6 +32,11 @@ class Token extends GameObject {
     this.rebound = false;
     this.reboundSpeed = 0;
     this.friction = 0.25;
+    this.isInBoard = false;
+    this.returning = false;
+    this.returnSpeed = 0.1; 
+    this.originalX = this.x; 
+    this.originalY = this.y;
   }
 
   /**
@@ -74,12 +79,14 @@ class Token extends GameObject {
     if (this.falling) {
       this.fallSpeed += this.gravity * deltaTime; // Incrementar la velocidad debido a la gravedad
       this.y += this.fallSpeed * deltaTime; // Actualizar la posición
+      this.x = this.targetX;
 
       if (this.y >= this.targetY) {
         this.y = this.targetY;
         this.falling = false;
         this.rebound = true;
         this.reboundSpeed = -this.fallSpeed * this.friction; // Calcular la velocidad de rebote
+        console.log(`Token reached (${this.x}, ${this.y})`);
       }
     }
 
@@ -95,9 +102,24 @@ class Token extends GameObject {
           this.reboundSpeed = 0;
           this.rebound = false;
           this.isLocked = true;
+          console.log(`Token locked at (${this.x}, ${this.y})`);
         }
       }
     }
+    if (this.returning) {
+      const distX = this.originalX - this.x;
+      const distY = this.originalY - this.y;
+      const distance = Math.sqrt(distX ** 2 + distY ** 2);
+      if (distance > 1) {
+        this.x += distX * this.returnSpeed;
+        this.y += distY * this.returnSpeed;
+      } else {
+        this.x = this.originalX;
+        this.y = this.originalY;
+        this.returning = false;
+      }
+    }
+    
   }
 
   isClicked(x, y) {
@@ -120,6 +142,7 @@ class Token extends GameObject {
   }
 
   startDragging(mouseX, mouseY) {
+    if (this.isLocked || this.isInBoard) return;
     this.isDragging = true;
     this.offsetX = mouseX - this.x;
     this.offsetY = mouseY - this.y;
@@ -131,12 +154,21 @@ class Token extends GameObject {
     }
   }
 
-  drop(targetY) {
+  drop(targetX, targetY) {
     this.isDragging = false;
     this.falling = true;
     this.fallSpeed = 0; // Reiniciar la velocidad de caída
+    this.targetX = targetX; 
     this.targetY = targetY;
+    this.isInBoard = true;
+    console.log(`Dropping token to (${targetX}, ${targetY})`);
   }
+
+  returnToStack() {
+    this.isDragging = false;
+    this.returning = true;
+  }
+
 }
 
 export default Token;
