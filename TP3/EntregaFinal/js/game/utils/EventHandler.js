@@ -85,7 +85,13 @@ class EventHandler {
   handleMouseDown(event) {
     const { x, y } = this.getMousePos(event);
     this.game.currentScreen.children.forEach((obj) => {
-      if (obj instanceof Token && !obj.isInBoard && !obj.isLocked && obj.isClicked(x, y) && obj.startDragging) {
+      if (
+        obj instanceof Token &&
+        !obj.isInBoard &&
+        !obj.isLocked &&
+        obj.isClicked(x, y) &&
+        obj.startDragging
+      ) {
         const token = this.game.turnoActual.tokenStack.pop();
         if (token) {
           token.setPlayer(this.game.turnoActual); // Asociar el token con el jugador actual
@@ -97,24 +103,30 @@ class EventHandler {
       }
     });
   }
-  
-  
+
   handleMouseUp(event) {
     const { x, y } = this.getMousePos(event);
     this.game.currentScreen.children.forEach((obj) => {
       if (obj instanceof Token && obj.isDragging) {
         console.log("drop");
         obj.isDragging = false; // Detener el arrastre de la ficha
-  
-        const column = this.game.turnoActual.getColumnFromClick(x, this.game.currentScreen.tablero);
-  
+
+        const column = this.game.turnoActual.getColumnFromClick(
+          x,
+          this.game.board
+        );
+
         if (column !== -1) {
           // Coordenadas para la caída de la ficha
-          const targetX = Game.canvas.width / 2 - (this.game.currentScreen.tablero.tamanioCasillero * this.game.currentScreen.tablero.col) / 2 + column * obj.radius * 2 + obj.radius;
+          const targetX =
+            Game.canvas.width / 2 -
+            (this.game.board.getSlotSize() * this.game.board.columns) / 2 +
+            column * obj.radius * 2 +
+            obj.radius;
           const targetY = Game.canvas.height - obj.radius * 2;
           obj.drop(targetX, targetY); // Caída de la ficha
-  
-          this.game.currentScreen.tablero.insertarFicha(column, obj); // Usar directamente la ficha arrastrada
+          const currentPlayer = this.game.turnoActual;
+          this.game.board.placeToken(currentPlayer, column); // Colocar la ficha en el tablero
           obj.lock(); // Bloquear la ficha para evitar que se mueva nuevamente
           console.log(`Token dropped at column ${column}`);
           this.game.cambiarTurno(); // Cambiar el turno después de colocar la ficha
@@ -127,10 +139,6 @@ class EventHandler {
       }
     });
   }
-  
-  
-  
-  
 }
 
 export default EventHandler;

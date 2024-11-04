@@ -3,16 +3,20 @@ import Game from "../Game.js";
 import Player from "../Player.js";
 import BoardHint from "./BoardHint.js";
 import BoardSlot from "./BoardSlot.js";
+import Token from "./Token.js";
 
 class Board extends GameObject {
   constructor({ x, y, width, height, columns, rows, onWin }) {
     super(x, y, width, height);
     this.background = "transparent";
     this.backgroundImage = null;
+
     /**
-     * @type {BoardSlot[]}
+     * Slots Grid
+     * @type {BoardSlot[][]}
      */
     this.slots = [];
+
     /**
      * Array de hints, para saber en que columna se va a colocar la ficha
      * @type {BoardHint[]}
@@ -25,6 +29,10 @@ class Board extends GameObject {
     this.currentPlayer = null;
     this.background = "orange";
     this.createSlots(this.columns, this.rows);
+  }
+
+  getSlotSize() {
+    return this.width / this.columns;
   }
 
   setColumns(columns) {
@@ -52,19 +60,19 @@ class Board extends GameObject {
   createSlots(columns, rows) {
     const slotWidth = this.width / columns;
     const slotHeight = this.height / rows;
+    this.slots = [];
     for (let i = 0; i < columns; i++) {
       this.slots[i] = [];
       for (let j = 0; j < rows; j++) {
-        this.slots[i][j] = new BoardSlot(
-          this.x + i * slotWidth,
-          this.y + j * slotHeight,
-          slotWidth,
-          slotHeight
-        );
+        this.slots[i][j] = new BoardSlot({
+          x: this.x + i * slotWidth,
+          y: this.y + j * slotHeight,
+          width: slotWidth,
+          height: slotHeight,
+        });
       }
     }
-
-    this.createHints(columns);
+    // this.createHints(columns);
   }
 
   /**
@@ -82,13 +90,22 @@ class Board extends GameObject {
     }
   }
 
+  /**
+   *
+   * @param {Player} player
+   * @param {number} column
+   * @returns
+   */
   placeToken(player, column) {
-    if (column < 0 || column >= this.slots.length) return false;
-
-    for (let row = this.slots[column].length - 1; row >= 0; row--) {
-      if (this.slots[column][row].isEmpty()) {
-        this.slots[column][row].setToken(player);
-        return true;
+    for (let i = this.slots[column].length - 1; i >= 0; i--) {
+      const currentSlot = this.slots[column][i];
+      if (currentSlot.isEmpty()) {
+        // el metodo pop saca el token de la pila y devuelve el token
+        const token = player.tokenStack.pop();
+        if (token) {
+          currentSlot.setToken(token.player);
+          return true;
+        }
       }
     }
     return false;
