@@ -12,21 +12,18 @@ class Board {
     this.tamanioCasillero = tamanioCasillero;
     this.modoJuego = modoJuego;
     this.matriz = Array.from({ length: fil }, () => Array(col).fill(null));
+    this.xInicio = Game.canvas.width / 2 - (this.tamanioCasillero * this.col) / 2;
+    this.yInicio = Game.canvas.height / 2 - (this.tamanioCasillero * this.fil) / 2;
   }
 
   // Dibuja el tablero con sus respectivas casillas y fichas
   dibujar() {
     this.ctx.save();
     this.ctx.beginPath();
-    const xInicio =
-      Game.canvas.width / 2 - (this.tamanioCasillero * this.col) / 2;
-    const yInicio =
-      Game.canvas.height / 2 - (this.tamanioCasillero * this.fil) / 2;
-
     // Dibujar borde del tablero
     this.ctx.rect(
-      xInicio,
-      yInicio,
+      this.xInicio,
+      this.yInicio,
       this.col * this.tamanioCasillero,
       this.fil * this.tamanioCasillero
     );
@@ -39,8 +36,8 @@ class Board {
     for (let fila = 0; fila < this.fil; fila++) {
       for (let columna = 0; columna < this.col; columna++) {
         this.ctx.beginPath();
-        const x = xInicio + columna * this.tamanioCasillero;
-        const y = yInicio + fila * this.tamanioCasillero;
+        const x = this.xInicio + columna * this.tamanioCasillero;
+        const y = this.yInicio + fila * this.tamanioCasillero;
         this.ctx.drawImage(
           this.imagen,
           x,
@@ -52,7 +49,7 @@ class Board {
 
         // Dibuja la ficha si existe en esta posición
         if (this.matriz[fila][columna]) {
-          this.matriz[fila][columna].dibujar(
+          this.matriz[fila][columna].draw(
             this.ctx,
             x + this.tamanioCasillero / 2,
             y + this.tamanioCasillero / 2
@@ -65,25 +62,20 @@ class Board {
   }
 
   // Inserta una ficha en la columna especificada
-  insertarFicha(columna, ficha) {
-    for (let fila = this.fil - 1; fila >= 0; fila--) {
-      if (!this.matriz[fila][columna]) {
-        this.matriz[fila][columna] = ficha;
-        const x =
-          Game.canvas.width / 2 -
-          (this.tamanioCasillero * this.col) / 2 +
-          columna * this.tamanioCasillero +
-          this.tamanioCasillero / 2;
-        const y =
-          Game.canvas.height / 2 -
-          (this.tamanioCasillero * this.fil) / 2 +
-          fila * this.tamanioCasillero +
-          this.tamanioCasillero / 2;
-        ficha.soltarEn(x, y);
-        break;
+    insertarFicha(columna, ficha) {
+      for (let fila = this.fil - 1; fila >= 0; fila--) {
+        if (!this.matriz[fila][columna]) {
+          this.matriz[fila][columna] = ficha;
+          const x = Game.canvas.width / 2 - (this.tamanioCasillero * this.col) / 2 + columna * this.tamanioCasillero + this.tamanioCasillero / 2;
+          const y = Game.canvas.height / 2 - (this.tamanioCasillero * this.fil) / 2 + fila * this.tamanioCasillero + this.tamanioCasillero / 2;
+          console.log(`Ficha insertada en (${x}, ${y})`);
+          ficha.drop(x, y);
+          return true;
+        }
       }
+      return false;
     }
-  }
+  
 
   // Verifica si hay un ganador
   hayGanador() {
