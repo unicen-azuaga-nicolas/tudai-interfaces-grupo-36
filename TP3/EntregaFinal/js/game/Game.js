@@ -79,7 +79,7 @@ class Game {
 
     // Jugador 1 y 2
     this.player1 = new Player({ name: "Jugador 1", color: "blue" });
-    this.player2 = new Player({ name: "Jugador 2", color: "orange" });
+    this.player2 = new Player({ name: "Jugador 2", color: "red" });
 
     // Turn Manager
     this.turnManager = new TurnManager([this.player1, this.player2]);

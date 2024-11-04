@@ -30,13 +30,14 @@ class GameScreen extends BaseScreen {
      * */
     this.onRestartGame = onRestartGame;
     this.currentTurnTitle = new Title({
-      x: CanvasUtils.setRelativeX(45),
+      x: CanvasUtils.setRelativeX(54.2),
       y: CanvasUtils.setRelativeY(5),
       width: CanvasUtils.setRelativeWidth(10),
       height: CanvasUtils.setRelativeHeight(5),
-      text: `Turno de ${this.game.turnManager.getCurrentPlayer().name}`,
+      text: "",
       fontSize: 40,
-      color: "black",
+      color: "transparent",
+      bold: true,
     });
     this.placeTitles();
     this.placeHints();
@@ -88,16 +89,16 @@ class GameScreen extends BaseScreen {
   }
 
   create() {
-    this.setBackgroundColor("white");
-    // const title = new Title({
-    //   x: Game.canvas.width / 2 - 100,
-    //   y: 100,
-    //   width: 200,
-    //   height: 50,
-    //   text: "Pantalla del juego",
-    //   fontSize: 40,
-    //   color: "black",
-    // });
+    this.setBackgroundColor("lightgray");
+    const titleTurn = new Title({
+      x: CanvasUtils.setRelativeX(45),
+      y: CanvasUtils.setRelativeY(5),
+      width: CanvasUtils.setRelativeWidth(10),
+      height: CanvasUtils.setRelativeHeight(5),
+      text: `Turno de `,
+      fontSize: 40,
+      color: "black",
+    });
 
     const exitButton = new Button({
       x: CanvasUtils.setRelativeX(50) - 100,
@@ -117,7 +118,7 @@ class GameScreen extends BaseScreen {
       onClick: () => this.onRestartGame(),
     });
 
-    // this.add(title);
+    this.add(titleTurn);
     this.add(exitButton);
     this.add(restartButton);
   }
@@ -130,8 +131,13 @@ class GameScreen extends BaseScreen {
 
   update(deltaTime) {
     this.currentTurnTitle.setText(
-      `Turno de ${this.game.turnManager.getCurrentPlayer().name}`
+      `${this.game.turnManager.getCurrentPlayer().name}`
     );
+    this.currentTurnTitle.setColor(
+      this.game.turnManager.getCurrentPlayer().color
+    );
+    this.game.turnManager.getCurrentPlayer().color;
+
     super.update(deltaTime);
   }
 }
