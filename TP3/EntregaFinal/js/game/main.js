@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const MENU_SCREEN_BACKGROUND_URL = `${ASSETS_BASE_URL}menu/fondo.jpg`;
   const BUTTON_NORMAL_URL = `${ASSETS_BASE_URL}menu/btn-normal.png`;
   const BUTTON_DESACTIVADO_URL = `${ASSETS_BASE_URL}menu/btn-desactivado.png`;
-  const GAMEMODE_BACKGROUND_URL = `${ASSETS_BASE_URL}/FondoNiveles3.png`;
+  const GAMEMODE_BACKGROUND_URL = `${ASSETS_BASE_URL}/FondoNiveles2.png`;
   const PLAYERSELECT_URL = `${ASSETS_BASE_URL}/eligepersonaje2.png`;
   const PIKACHU_URL = `${ASSETS_BASE_URL}/pikachu.png`;
   const CHARMANDER_URL = `${ASSETS_BASE_URL}/charmander.png`;
@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const CHARACTER_CHARMANDER_URL = `${ASSETS_BASE_URL}/charmanderc.png`;
   const CHARACTER_BULBASAUR_URL = `${ASSETS_BASE_URL}/pokemonverde.png`;
   const CHARACTER_SNORLAX_URL = `${ASSETS_BASE_URL}/snorlax.webp`;
+  const GAMEMODE_BUTTON_URL = `${ASSETS_BASE_URL}/buttonreiniciar.png`;
+  const GAMEMODE_POKEBOLA_URL = `${ASSETS_BASE_URL}/pokebola.png`;
+  const GAMEMODE_CONTAINER_TEXT = `${ASSETS_BASE_URL}/marcotituloniveles.png`;
+  const GAMEMODE_ICONO = `${ASSETS_BASE_URL}/iconoSalir.png`;
 
   const assets = [
     MENU_SCREEN_BACKGROUND_URL,
@@ -39,6 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
     CHARACTER_CHARMANDER_URL,
     CHARACTER_BULBASAUR_URL,
     CHARACTER_SNORLAX_URL,
+    GAMEMODE_BUTTON_URL,
+    GAMEMODE_POKEBOLA_URL,
+    GAMEMODE_CONTAINER_TEXT,
+    GAMEMODE_ICONO
+    
   ];
 
   function loadImage(src) {
