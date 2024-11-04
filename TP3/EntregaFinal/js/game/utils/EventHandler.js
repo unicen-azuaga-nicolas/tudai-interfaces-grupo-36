@@ -106,19 +106,29 @@ class EventHandler {
           .getCurrentPlayer()
           .getColumnFromClick(x, this.game.board);
 
-        if (column !== -1) {
+        console.log("Columna seleccionada: ", column);
+
+        if (
+          column !== -1 &&
+          this.game.board.isTokenInRigthPosition(obj, column)
+        ) {
           // dejar caer la ficha en la columna seleccionada
           const emptySlot = this.game.board.getEmptySlot(column);
           const { x: emptySlotX, y: emptySlotY } = emptySlot;
-          obj.drop(emptySlotX, emptySlotY);
+          obj.drop(
+            emptySlotX + emptySlot.width / 2 - obj.width / 2,
+            emptySlotY + emptySlot.height / 2
+          );
           const placed = this.game.turnManager
             .getCurrentPlayer()
             .placeToken(column, this.game.board);
           if (placed) {
             console.log("Token placed in column with animation");
             this.game.board.clearHints();
-            this.game.board.checkWin();
             this.game.turnManager.nextTurn();
+            setTimeout(() => {
+              this.game.board.checkWinner();
+            }, 500);
           } else {
             // Si la columna está llena, animar el regreso al tokenStack
             obj.returnToStack();

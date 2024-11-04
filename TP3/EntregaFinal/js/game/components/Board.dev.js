@@ -137,6 +137,7 @@ class Board extends GameObject {
 
     for (let i = 0; i < this.slots.length; i++) {
       for (let j = 0; j < this.slots[i].length; j++) {
+        // omitir si el slot esta vacio
         if (this.slots[i][j].token === null) continue;
 
         for (let k = 0; k < directions.length; k++) {
@@ -235,10 +236,28 @@ class Board extends GameObject {
     return null;
   }
 
+  /**
+   * Limpiar los hints
+   */
   clearHints() {
     this.hints.forEach((hint) => {
       hint.clear();
     });
+  }
+
+  /**
+   * Método que determina si el token esta en la posición exacta para ser colocado en el tablero
+   * devuelve true si esta en la posición exacta, false si no.
+   * La posición debe ser justo el centro del slot.
+   * @param {Token} token
+   */
+  isTokenInRigthPosition(token, column) {
+    // debe estar en el centro del hint
+    const hint = this.hints[column];
+    const x = hint.x + hint.width / 2;
+    const y = hint.y + hint.height / 2;
+    const distance = Math.hypot(token.x - x, token.y - y);
+    return distance < 10;
   }
 }
 

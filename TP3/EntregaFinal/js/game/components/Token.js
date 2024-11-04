@@ -79,7 +79,7 @@ class Token extends GameObject {
     if (this.falling) {
       this.fallSpeed += this.gravity * deltaTime; // Incrementar la velocidad debido a la gravedad
       this.y += this.fallSpeed * deltaTime; // Actualizar la posición
-      this.x = this.targetX;
+      // this.x = this.targetX;
 
       if (this.y >= this.targetY) {
         this.y = this.targetY;
@@ -90,22 +90,22 @@ class Token extends GameObject {
       }
     }
 
-    if (this.rebound) {
-      this.reboundSpeed += this.gravity * deltaTime; // Incrementar la velocidad de rebote debido a la gravedad
-      this.y += this.reboundSpeed * deltaTime; // Actualizar la posición
+    // if (this.rebound) {
+    //   this.reboundSpeed += this.gravity * deltaTime; // Incrementar la velocidad de rebote debido a la gravedad
+    //   this.y += this.reboundSpeed * deltaTime; // Actualizar la posición
 
-      if (this.y >= this.targetY) {
-        this.y = this.targetY;
-        this.reboundSpeed *= this.friction; // Aplicar fricción para reducir la velocidad de rebote
-        if (Math.abs(this.reboundSpeed) < 1) {
-          // Si la velocidad de rebote es muy baja, detener el rebote
-          this.reboundSpeed = 0;
-          this.rebound = false;
-          this.isLocked = true;
-          console.log(`Token locked at (${this.x}, ${this.y})`);
-        }
-      }
-    }
+    //   if (this.y >= this.targetY) {
+    //     this.y = this.targetY;
+    //     this.reboundSpeed *= this.friction; // Aplicar fricción para reducir la velocidad de rebote
+    //     if (Math.abs(this.reboundSpeed) < 1) {
+    //       // Si la velocidad de rebote es muy baja, detener el rebote
+    //       this.reboundSpeed = 0;
+    //       this.rebound = false;
+    //       this.isLocked = true;
+    //       console.log(`Token locked at (${this.x}, ${this.y})`);
+    //     }
+    //   }
+    // }
     if (this.returning) {
       const distX = this.originalX - this.x;
       const distY = this.originalY - this.y;
