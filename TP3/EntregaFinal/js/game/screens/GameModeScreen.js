@@ -6,10 +6,10 @@ import Game from "../Game.js";
 import CanvasUtils from "../utils/CanvasUtils.js";
 
 class GameModeScreen extends BaseScreen {
-  constructor({ onExitGame, onStartGame }) {
+  constructor({ onExitGame, onSelectMode }) {
     super();
     this.onExitGame = onExitGame;
-    this.onStartGame = onStartGame;
+    this.onSelectMode = onSelectMode;
   }
   create() {
     this.setBackgroundColor("black");
@@ -31,7 +31,8 @@ class GameModeScreen extends BaseScreen {
       textColor: "black",
       fontSize: GameObject.percentOf(Game.canvas.height, 7),
       background: "transparent",
-      onClick: () => this.onStartGame(0),
+      backgroundImage: null, // TODO: Agregar imagen de botón
+      onClick: () => this.onSelectMode(0),
     });
     const mode5 = new Button({
       x: 720,
@@ -42,7 +43,8 @@ class GameModeScreen extends BaseScreen {
       textColor: "black",
       fontSize: 70,
       background: "transparent",
-      onClick: () => this.onStartGame(1),
+      backgroundImage: null, // TODO: Agregar imagen de botón
+      onClick: () => this.onSelectMode(1),
     });
     const mode6 = new Button({
       x: 1305,
@@ -53,7 +55,8 @@ class GameModeScreen extends BaseScreen {
       textColor: "black",
       fontSize: 70,
       background: "transparent",
-      onClick: () => this.onStartGame(2),
+      backgroundImage: null, // TODO: Agregar imagen de botón
+      onClick: () => this.onSelectMode(2),
     });
     this.add(title);
     this.add(mode4);

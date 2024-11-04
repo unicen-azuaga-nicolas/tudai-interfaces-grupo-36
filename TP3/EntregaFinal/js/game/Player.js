@@ -1,4 +1,4 @@
-import Board from "./components/Board.js";
+import Board from "./components/Board.dev.js";
 import Token from "./components/Token.js";
 import GameCharacter from "./GameCharacter.js";
 
@@ -76,20 +76,24 @@ class Player {
     // Espaciado entre las fichas apiladas
     const spacing = token.radius / 2;
 
+    const tokenModel = new Token({
+      x: startX,
+      y: startY,
+      width: tokenWidth,
+      height: tokenHeight,
+      radius: tokenRadius,
+      backgroundImage: tokenImage,
+      name: this.characterSelected.name,
+      player: this,
+    });
+
+    
+
     // Crear las fichas y apilarlas
     for (let i = 0; i < maxTokens; i++) {
       const x = startX;
       const y = startY - i * spacing;
-      const newToken = new Token({
-        x,
-        y,
-        width: tokenWidth,
-        height: tokenHeight,
-        radius: tokenRadius,
-        backgroundImage: tokenImage,
-        name: this.characterSelected.name,
-        player: this,
-      });
+      const newToken = tokenModel.clone({ x, y });
       this.tokenStack.push(newToken);
     }
   }
@@ -101,17 +105,24 @@ class Player {
    * @returns {number} - Índice de la columna seleccionada.
    */
   getColumnFromClick(mouseX, board) {
-    const cellSize = board.tamanioCasillero;
-    const boardWidth = board.col * cellSize;
+
+    const cellSize = board.getSlotSize();
+    console.log(`Cell size: ${cellSize}`);
+    const boardWidth = board.width;
+    console.log(`Board width: ${boardWidth}`);
     // Calcular la posición X de inicio del tablero para centrarlo en el canvas
-    const adjustedMouseX = mouseX - board.xInicio;
+    const adjustedMouseX = mouseX - board.x;
+    console.log(`Adjusted mouse X: ${adjustedMouseX}`);
     // Si el clic está fuera del tablero, devolver -1
     if (adjustedMouseX < 0 || adjustedMouseX > boardWidth) {
       return -1;
     }
 
     // Calcular y devolver la columna en la que se hizo clic
-    return Math.floor(adjustedMouseX / cellSize);
+    const column = Math.floor(adjustedMouseX / cellSize);
+    console.log(`Column: ${column}`);
+
+    return column;
   }
 
   /**
@@ -121,15 +132,14 @@ class Player {
    * @returns {boolean} - Devuelve true si la ficha se colocó con éxito, false si la columna está llena.
    */
   placeToken(column, board) {
-
     if (column < 0 || column >= board.col) return false; // Verificar que la columna es válida
     console.log(`Intentando colocar ficha en columna ${column}`);
     // Buscar la primera fila vacía en la columna, desde abajo hacia arriba
-    return board.insertarFicha(column, this.tokenStack[this.tokenStack.length - 1]);
+    return board.placeToken(this, column);
   }
 
   lockAllTokens() {
-    this.tokenStack.forEach(token => token.lock());
+    this.tokenStack.forEach((token) => token.lock());
   }
 
   /**
@@ -140,7 +150,6 @@ class Player {
       this.tokenStack[this.tokenStack.length - 1].unlock();
     }
   }
-  
 }
 
 export default Player;
