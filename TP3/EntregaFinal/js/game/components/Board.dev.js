@@ -234,6 +234,12 @@ class Board extends GameObject {
     }
     return null;
   }
+
+  clearHints() {
+    this.hints.forEach((hint) => {
+      hint.clear();
+    });
+  }
 }
 
 export default Board;

@@ -116,6 +116,8 @@ class EventHandler {
             .placeToken(column, this.game.board);
           if (placed) {
             console.log("Token placed in column with animation");
+            this.game.board.clearHints();
+            this.game.board.checkWin();
             this.game.turnManager.nextTurn();
           } else {
             // Si la columna está llena, animar el regreso al tokenStack

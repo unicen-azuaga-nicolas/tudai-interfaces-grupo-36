@@ -148,6 +148,7 @@ class Game {
         // this.currentScreen = new BaseScreen();
         // console.log("Ganó el jugador: ", player.name);
         // alert("Ganó el jugador: " + player.name);
+        this.currentGameState = this.states.PAUSED;
         console.log("Ganó el jugador: ", player.name);
       },
     });

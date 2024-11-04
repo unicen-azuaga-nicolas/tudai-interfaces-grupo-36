@@ -28,6 +28,10 @@ class BoardHint extends GameObject {
     this.background = "transparent";
   }
 
+  clear() {
+    this.background = "transparent";
+  }
+
   draw() {
     this.fillBackground();
   }

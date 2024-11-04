@@ -148,11 +148,11 @@ class Token extends GameObject {
   }
 
   drop(targetX, targetY) {
+    this.targetX = targetX;
+    this.targetY = targetY;
     this.isDragging = false;
     this.falling = true;
     this.fallSpeed = 0; // Reiniciar la velocidad de caída
-    this.targetX = targetX;
-    this.targetY = targetY;
     this.isInBoard = true;
     console.log(`Dropping token to (${targetX}, ${targetY})`);
   }
