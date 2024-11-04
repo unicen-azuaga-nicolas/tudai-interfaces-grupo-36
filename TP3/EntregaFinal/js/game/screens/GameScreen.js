@@ -39,6 +39,7 @@ class GameScreen extends BaseScreen {
       color: "black",
     });
     this.placeTitles();
+    this.placeHints();
     this.placeTokens();
     this.placeBoard();
     console.log("GameScreen created");
@@ -53,8 +54,11 @@ class GameScreen extends BaseScreen {
     ];
   }
 
-  placeBoard() {
+  placeHints() {
     this.children = [...this.children, ...this.game.board.hints]; // --> se agregan los hints
+  }
+
+  placeBoard() {
     this.add(this.game.board);
   }
 
