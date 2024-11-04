@@ -127,7 +127,7 @@ class Board extends GameObject {
     }
   }
 
-  checkWin() {
+  checkWinner() {
     const directions = [
       { x: 1, y: 0 },
       { x: 0, y: 1 },
@@ -258,6 +258,14 @@ class Board extends GameObject {
     const y = hint.y + hint.height / 2;
     const distance = Math.hypot(token.x - x, token.y - y);
     return distance < 10;
+  }
+
+  clear() {
+    this.slots.forEach((column) => {
+      column.forEach((slot) => {
+        slot.clear();
+      });
+    });
   }
 }
 

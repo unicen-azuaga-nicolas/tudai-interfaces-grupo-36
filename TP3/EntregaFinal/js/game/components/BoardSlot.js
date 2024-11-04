@@ -58,6 +58,10 @@ class BoardSlot extends GameObject {
       }, 100);
     }
   }
+
+  clear() {
+    this.token = null;
+  }
 }
 
 export default BoardSlot;

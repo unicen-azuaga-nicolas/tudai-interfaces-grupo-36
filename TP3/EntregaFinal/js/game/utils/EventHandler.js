@@ -87,7 +87,8 @@ class EventHandler {
   handleMouseDown(event) {
     const { x, y } = this.getMousePos(event);
     this.game.currentScreen.children.forEach((obj) => {
-      if (obj.isClicked(x, y) && obj.startDragging) {
+      if (obj.isClicked(x, y) && obj.startDragging && obj instanceof Token) {
+        if (obj.player !== this.game.turnManager.getCurrentPlayer()) return;
         obj.startDragging(x, y);
       }
     });

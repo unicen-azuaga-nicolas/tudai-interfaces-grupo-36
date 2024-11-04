@@ -126,6 +126,14 @@ class Game {
     this.currentScreen.draw();
   }
 
+  resetGame() {
+    this.currentGameState = this.states.MENU;
+    this.board.clear();
+    this.player1.tokenStack = [];
+    this.player2.tokenStack = [];
+    this.turnManager.reset();
+  }
+
   /**
    * Función para setear la configuración inicial del juego.
    */
@@ -177,7 +185,10 @@ class Game {
 
     this.currentScreen = new GameScreen({
       game: this,
-      onExitGame: () => this.showMenu(),
+      onExitGame: () => {
+        this.resetGame();
+        this.showMenu();
+      },
       onRestartGame: () => this.startGame(),
     });
 
@@ -203,7 +214,7 @@ class Game {
     console.log("Game mode screen");
     const gamemode = new GameModeScreen({
       onExitGame: () => console.log("Exit Game Clicked"),
-      onStartGame: (boardSize) => {
+      onSelectMode: (boardSize) => {
         this.boardSize = boardSize; // Asignamos boardSize
         this.characterSelect();
         console.log(boardSize);
