@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const MENU_SCREEN_BACKGROUND_URL = `${ASSETS_BASE_URL}menu/fondo.jpg`;
   const BUTTON_NORMAL_URL = `${ASSETS_BASE_URL}menu/btn-normal.png`;
   const BUTTON_DESACTIVADO_URL = `${ASSETS_BASE_URL}menu/btn-desactivado.png`;
-  const GAMEMODE_BACKGROUND_URL = `${ASSETS_BASE_URL}/FondoNivelesSINNADA.png`;
+  const GAMEMODE_BACKGROUND_URL = `${ASSETS_BASE_URL}/FondoNiveles3.png`;
   const PLAYERSELECT_URL = `${ASSETS_BASE_URL}/eligepersonaje2.png`;
   const PIKACHU_URL = `${ASSETS_BASE_URL}/pikachu.png`;
   const CHARMANDER_URL = `${ASSETS_BASE_URL}/charmander.png`;
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const CASILLERO_URL = `${ASSETS_BASE_URL}/casillero.png`;
   const CHARACTER_PIKACHU_URL = `${ASSETS_BASE_URL}/pikachu.webp`;
   const CHARACTER_CHARMANDER_URL = `${ASSETS_BASE_URL}/charmanderc.png`;
-  const CHARACTER_BULBASAUR_URL = `${ASSETS_BASE_URL}/bulbasaurc.png`;
+  const CHARACTER_BULBASAUR_URL = `${ASSETS_BASE_URL}/pokemonverde.png`;
   const CHARACTER_SNORLAX_URL = `${ASSETS_BASE_URL}/snorlax.webp`;
 
   const assets = [
