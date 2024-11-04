@@ -76,20 +76,24 @@ class Player {
     // Espaciado entre las fichas apiladas
     const spacing = token.radius / 2;
 
+    const tokenModel = new Token({
+      x: startX,
+      y: startY,
+      width: tokenWidth,
+      height: tokenHeight,
+      radius: tokenRadius,
+      backgroundImage: tokenImage,
+      name: this.characterSelected.name,
+      player: this,
+    });
+
+    
+
     // Crear las fichas y apilarlas
     for (let i = 0; i < maxTokens; i++) {
       const x = startX;
       const y = startY - i * spacing;
-      const newToken = new Token({
-        x,
-        y,
-        width: tokenWidth,
-        height: tokenHeight,
-        radius: tokenRadius,
-        backgroundImage: tokenImage,
-        name: this.characterSelected.name,
-        player: this,
-      });
+      const newToken = tokenModel.clone({ x, y });
       this.tokenStack.push(newToken);
     }
   }

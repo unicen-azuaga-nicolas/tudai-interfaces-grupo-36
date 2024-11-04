@@ -1,30 +1,24 @@
 import BaseScreen from "../abstract/BaseScreen.js";
-import Board from "../components/Board.dev.js";
 import Button from "../components/Button.js";
 import Title from "../components/Title.js";
-import Token from "../components/Token.js";
 import Game from "../Game.js";
-import Player from "../Player.js";
 import CanvasUtils from "../utils/CanvasUtils.js";
 
 class GameScreen extends BaseScreen {
-  constructor({ player1, player2, onExitGame, onRestartGame, board }) {
+  /**
+   *
+   * @param {Props} param0
+   * @param {Game} game
+   * @param {function} onExitGame
+   * @param {function} onRestartGame
+   */
+  constructor({ game, onExitGame, onRestartGame }) {
     super(); // --> se ejecuta el create()
 
     /**
-     * @type {Player}
+     * @type {Game}
      */
-    this.player1 = player1;
-
-    /**
-     * @type {Player}
-     */
-    this.player2 = player2;
-
-    /**
-     * @type {Board}
-     */
-    this.board = board;
+    this.game = game;
 
     /**
      * @type {function}
@@ -35,39 +29,75 @@ class GameScreen extends BaseScreen {
      * @type {function}
      * */
     this.onRestartGame = onRestartGame;
-
+    this.currentTurnTitle = new Title({
+      x: CanvasUtils.setRelativeX(45),
+      y: CanvasUtils.setRelativeY(5),
+      width: CanvasUtils.setRelativeWidth(10),
+      height: CanvasUtils.setRelativeHeight(5),
+      text: `Turno de ${this.game.turnManager.getCurrentPlayer().name}`,
+      fontSize: 40,
+      color: "black",
+    });
+    this.placeTitles();
     this.placeTokens();
     this.placeBoard();
+    console.log("GameScreen created");
+    console.log(this.children);
   }
 
   placeTokens() {
     this.children = [
       ...this.children, // --> se agregan los elementos de la pantalla
-      ...this.player1.tokenStack, // --> se agregan las fichas del jugador 1
-      ...this.player2.tokenStack, // --> se agregan las fichas del jugador 2
+      ...this.game.player1.tokenStack, // --> se agregan las fichas del jugador 1
+      ...this.game.player2.tokenStack, // --> se agregan las fichas del jugador 2
     ];
   }
 
   placeBoard() {
-    this.children = [...this.children, ...this.board.hints]; // --> se agregan los hints
-    this.add(this.board);
+    this.children = [...this.children, ...this.game.board.hints]; // --> se agregan los hints
+    this.add(this.game.board);
+  }
+
+  placeTitles() {
+    const player1Title = new Title({
+      x: CanvasUtils.setRelativeX(5.5),
+      y: CanvasUtils.setRelativeY(25),
+      width: CanvasUtils.setRelativeWidth(10),
+      height: CanvasUtils.setRelativeHeight(5),
+      text: this.game.player1.name,
+      fontSize: 20,
+      color: "black",
+    });
+
+    const player2Title = new Title({
+      x: CanvasUtils.setRelativeX(85),
+      y: CanvasUtils.setRelativeY(25),
+      width: CanvasUtils.setRelativeWidth(10),
+      height: CanvasUtils.setRelativeHeight(5),
+      text: this.game.player2.name,
+      fontSize: 20,
+      color: "black",
+    });
+
+    this.add(player1Title);
+    this.add(player2Title);
   }
 
   create() {
     this.setBackgroundColor("white");
-    const title = new Title({
-      x: Game.canvas.width / 2 - 100,
-      y: 100,
-      width: 200,
-      height: 50,
-      text: "Pantalla del juego",
-      fontSize: 40,
-      color: "black",
-    });
+    // const title = new Title({
+    //   x: Game.canvas.width / 2 - 100,
+    //   y: 100,
+    //   width: 200,
+    //   height: 50,
+    //   text: "Pantalla del juego",
+    //   fontSize: 40,
+    //   color: "black",
+    // });
 
     const exitButton = new Button({
-      x: Game.canvas.width / 2 - 100,
-      y: 1000,
+      x: CanvasUtils.setRelativeX(50) - 100,
+      y: CanvasUtils.setRelativeY(90),
       width: 200,
       height: 50,
       text: "Salir",
@@ -83,15 +113,22 @@ class GameScreen extends BaseScreen {
       onClick: () => this.onRestartGame(),
     });
 
-    this.add(title);
+    // this.add(title);
     this.add(exitButton);
     this.add(restartButton);
   }
 
   draw() {
     this.fillBackground();
-    // this.board.draw();
+    this.currentTurnTitle.draw();
     super.draw();
+  }
+
+  update(deltaTime) {
+    this.currentTurnTitle.setText(
+      `Turno de ${this.game.turnManager.getCurrentPlayer().name}`
+    );
+    super.update(deltaTime);
   }
 }
 

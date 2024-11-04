@@ -3,7 +3,7 @@ import GameObject from "../abstract/GameObject.js";
 class BoardHint extends GameObject {
   constructor({ x, y, width, height }) {
     super(x, y, width, height);
-    this.background = "red";
+    this.background = "transparent";
     this.backgroundImage = null;
   }
 
@@ -16,10 +16,16 @@ class BoardHint extends GameObject {
     );
   }
 
-  onMouseOver(x, y) {
-    console.log("Paso por el hint");
-    this.background = "rgba(0, 0, 0, 0.1)";
+  isMouseOver(x, y) {
     return this.isClicked(x, y);
+  }
+
+  onMouseOver() {
+    this.background = "rgba(0, 0, 0, 0.1)";
+  }
+
+  onMouseLeave() {
+    this.background = "transparent";
   }
 
   draw() {

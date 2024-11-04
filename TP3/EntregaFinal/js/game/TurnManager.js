@@ -1,10 +1,18 @@
 class TurnManager {
+  /**
+   * Constructor de la clase TurnManager.
+   * @param {Player[]} players
+   */
   constructor(players) {
     this.players = players;
     this.currentPlayerIndex = 0;
   }
 
-  // Método para obtener el jugador actual
+  
+  /**
+   * Metodo para obtener el jugador actual.
+   * @returns {Player}
+   */
   getCurrentPlayer() {
     return this.players[this.currentPlayerIndex];
   }

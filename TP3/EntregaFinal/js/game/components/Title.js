@@ -11,6 +11,19 @@ class Title extends GameObject {
     this.color = color || "black";
   }
 
+  clearTextArea(x, y, width, height) {
+    Game.ctx.clearRect(x, y - height, width, height);
+  }
+
+  setText(text) {
+    this.text = text;
+  }
+
+  update() {
+    this.clearTextArea(this.x, this.y, this.width, this.height);
+    this.draw();
+  }
+
   draw() {
     Game.ctx.fillStyle = this.color;
     Game.ctx.font = this.font;

@@ -15,7 +15,7 @@ class Token extends GameObject {
    * @param {string} param.backgroundImage
    * @param {Player} param.player
    */
-  constructor({ x, y, width, height, radius, backgroundImage }) {
+  constructor({ x, y, width, height, radius, backgroundImage, player, name }) {
     super(x, y, width, height);
     this.radius = radius;
     this.backgroundImage = backgroundImage;
@@ -23,8 +23,8 @@ class Token extends GameObject {
     this.isLocked = false;
     this.offsetX = 0;
     this.offsetY = 0;
-    this.player = null;
-    this.name = "Token";
+    this.player = player;
+    this.name = name || "";
     this.falling = false;
     this.fallSpeed = 0;
     this.gravity = 980; // Aceleración debida a la gravedad en píxeles por segundo^2
@@ -34,8 +34,8 @@ class Token extends GameObject {
     this.friction = 0.25;
     this.isInBoard = false;
     this.returning = false;
-    this.returnSpeed = 0.1; 
-    this.originalX = this.x; 
+    this.returnSpeed = 0.1;
+    this.originalX = this.x;
     this.originalY = this.y;
   }
 
@@ -119,18 +119,11 @@ class Token extends GameObject {
         this.returning = false;
       }
     }
-    
   }
 
   isClicked(x, y) {
     const distance = Math.sqrt((this.x - x) ** 2 + (this.y - y) ** 2);
     return distance <= this.radius;
-    // return (
-    //   x >= this.x &&
-    //   x <= this.x + this.width &&
-    //   y >= this.y &&
-    //   y <= this.y + this.height
-    // );
   }
 
   isMouseOver(x, y) {
@@ -158,7 +151,7 @@ class Token extends GameObject {
     this.isDragging = false;
     this.falling = true;
     this.fallSpeed = 0; // Reiniciar la velocidad de caída
-    this.targetX = targetX; 
+    this.targetX = targetX;
     this.targetY = targetY;
     this.isInBoard = true;
     console.log(`Dropping token to (${targetX}, ${targetY})`);
@@ -169,6 +162,18 @@ class Token extends GameObject {
     this.returning = true;
   }
 
+  clone({ x, y }) {
+    return new Token({
+      x,
+      y,
+      width: this.width,
+      height: this.height,
+      radius: this.radius,
+      backgroundImage: this.backgroundImage,
+      player: this.player,
+      name: this.name,
+    });
+  }
 }
 
 export default Token;

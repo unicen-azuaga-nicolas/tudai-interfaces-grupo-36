@@ -76,11 +76,13 @@ class Game {
     this.lastTime = 0;
 
     this.boardSize = null; // Inicializamos la propiedad boardSize
-    this.selectedPlayers = []; // Propiedad para almacenar los personajes seleccionados
 
     // Jugador 1 y 2
-    this.player1 = new Player({ name: "1", color: "blue" });
-    this.player2 = new Player({ name: "2", color: "orange" });
+    this.player1 = new Player({ name: "Jugador 1", color: "blue" });
+    this.player2 = new Player({ name: "Jugador 2", color: "orange" });
+
+    // Turn Manager
+    this.turnManager = new TurnManager([this.player1, this.player2]);
 
     // Board
     /**
@@ -120,8 +122,7 @@ class Game {
     Game.ctx.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
   }
 
-  drawScreen(screen) {
-    this.currentScreen = screen;
+  drawScreen() {
     this.currentScreen.draw();
   }
 
@@ -129,11 +130,11 @@ class Game {
    * Función para setear la configuración inicial del juego.
    */
   initGame() {
+    this.turnManager.reset();
     // Configuración del tablero
     let col = this.modosDeJuegos[this.boardSize].columnas; // Número de columnas
     let fil = this.modosDeJuegos[this.boardSize].filas; // Número de filas
     let tamanioCasillero = this.modosDeJuegos[this.boardSize].tamanioCasillero; // Tamaño de cada casilla
-    
 
     this.board = new Board({
       columns: col,
@@ -174,16 +175,11 @@ class Game {
     this.initGame();
 
     this.currentScreen = new GameScreen({
-      player1: this.player1,
-      player2: this.player2,
+      game: this,
       onExitGame: () => this.showMenu(),
       onRestartGame: () => this.startGame(),
-      board: this.board,
     });
 
-    this.turnoActual = this.player1; // Inicializar con el primer jugador
-    this.player1.unlockLastToken();
-    this.cambiarTurno();
     this.lastTime = 0;
     this.gameLoop(0);
   }
@@ -241,36 +237,34 @@ class Game {
     this.render();
   }
 
-    placeToken(column) {
-      if (this.currentGameState !== this.states.PLAYING) return;
-  
-      let currentPlayer = this.turnoActual;
-      let board = this.currentScreen.tablero;
-  
-      // Intentar colocar la ficha del jugador actual en la columna seleccionada
-      if (currentPlayer.placeToken(column, board)) {
-        // Cambiar turno si la ficha se coloca correctamente
-        this.cambiarTurno();
-      }
-    }
-  
-    cambiarTurno() {
-      if (this.turnoActual === this.player1) {
-        this.player1.lockAllTokens();
-        this.turnoActual = this.player2;
-        this.player2.unlockLastToken();
-      } else {
-        this.player2.lockAllTokens();
-        this.turnoActual = this.player1;
-        this.player1.unlockLastToken();
-      }
-      console.log(`Turno de: ${this.turnoActual.name}`);
-    }
-  
-    
+  // placeToken(column) {
+  //   if (this.currentGameState !== this.states.PLAYING) return;
+
+  //   let currentPlayer = this.turnoActual;
+  //   let board = this.currentScreen.tablero;
+
+  //   // Intentar colocar la ficha del jugador actual en la columna seleccionada
+  //   if (currentPlayer.placeToken(column, board)) {
+  //     // Cambiar turno si la ficha se coloca correctamente
+  //     this.cambiarTurno();
+  //   }
+  // }
+
+  // cambiarTurno() {
+  //   if (this.turnoActual === this.player1) {
+  //     this.player1.lockAllTokens();
+  //     this.turnoActual = this.player2;
+  //     this.player2.unlockLastToken();
+  //   } else {
+  //     this.player2.lockAllTokens();
+  //     this.turnoActual = this.player1;
+  //     this.player1.unlockLastToken();
+  //   }
+  //   console.log(`Turno de: ${this.turnoActual.name}`);
+  // }
+
   gameLoop(timestamp) {
     if (this.currentGameState !== this.states.PLAYING) return;
-    // console.log("Game Loop");
     const deltaTime = (timestamp - this.lastTime) / 1000; // Convertir a segundos
     this.lastTime = timestamp;
 
@@ -286,7 +280,7 @@ class Game {
 
   render() {
     this.clearCanvas();
-    this.drawScreen(this.currentScreen);
+    this.drawScreen();
   }
 }
 

@@ -69,10 +69,12 @@ class Board extends GameObject {
           y: this.y + j * slotHeight,
           width: slotWidth,
           height: slotHeight,
+          column: i + 1,
+          row: j + 1,
         });
       }
     }
-    // this.createHints(columns);
+    this.createHints(columns);
   }
 
   /**
@@ -97,18 +99,32 @@ class Board extends GameObject {
    * @returns
    */
   placeToken(player, column) {
-    for (let i = this.slots[column].length - 1; i >= 0; i--) {
-      const currentSlot = this.slots[column][i];
-      if (currentSlot.isEmpty()) {
-        // el metodo pop saca el token de la pila y devuelve el token
-        const token = player.tokenStack.pop();
-        if (token) {
-          currentSlot.setToken(token.player);
-          return true;
+    try {
+      console.log("Placing token");
+      console.log("Current player is: ", player);
+      console.log("Column is: ", column);
+      if (this.winner !== null) {
+        return false;
+      }
+      for (let i = this.slots[column].length - 1; i >= 0; i--) {
+        const currentSlot = this.slots[column][i];
+        if (currentSlot.isEmpty()) {
+          console.log("Current slot is empty");
+          // el metodo pop saca el token de la pila y devuelve el token
+          const token = player.tokenStack.pop();
+          if (token) {
+            currentSlot.setToken(token.player);
+            return true;
+          }
         }
       }
+      return false;
+    } catch (error) {
+      console.log("Error placing token: ", error);
+      console.log("Current player is: ", player);
+      console.log("Column is: ", column);
+      return false;
     }
-    return false;
   }
 
   checkWin() {
@@ -187,7 +203,6 @@ class Board extends GameObject {
 
   draw() {
     // this.fillBackground();
-    // this.drawHints();
     this.drawSlots();
   }
 
@@ -196,6 +211,28 @@ class Board extends GameObject {
       console.log(`Player ${this.winner.name} wins!`);
       this.onWin(this.winner);
     }
+  }
+
+  onMouseMove(x, y) {
+    for (let i = 0; i < this.hints.length; i++) {
+      if (this.hints[i].onMouseOver(x, y)) {
+        console.log("Mouse over hint");
+      }
+    }
+  }
+
+  /**
+   * Obtener el primer slot vacio de una columna
+   * @param {number} column
+   * @returns {BoardSlot}
+   */
+  getEmptySlot(column) {
+    for (let i = this.slots[column].length - 1; i >= 0; i--) {
+      if (this.slots[column][i].isEmpty()) {
+        return this.slots[column][i];
+      }
+    }
+    return null;
   }
 }
 

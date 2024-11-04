@@ -1,3 +1,4 @@
+import Board from "../components/Board.dev.js";
 import Token from "../components/Token.js";
 import Game from "../Game.js";
 import CanvasUtils from "./CanvasUtils.js";
@@ -23,9 +24,6 @@ class EventHandler {
   initEventListeners() {
     Game.canvas.addEventListener("click", (event) =>
       this.handleMouseClick(event)
-    );
-    Game.canvas.addEventListener("mousemove", (event) =>
-      this.handleMouseOver(event)
     );
 
     Game.canvas.addEventListener("mousedown", (event) => {
@@ -64,15 +62,20 @@ class EventHandler {
 
   handleMouseOver(event) {
     const { x, y } = this.getMousePos(event);
+
     this.game.currentScreen.children.forEach((obj) => {
       if (obj.isMouseOver(x, y) && obj.onMouseOver) {
         obj.onMouseOver();
+      } else if (obj.onMouseLeave) {
+        obj.onMouseLeave();
       }
     });
   }
 
   handleMouseMove(event) {
     const { x, y } = this.getMousePos(event);
+
+    this.handleMouseOver(event);
 
     this.game.currentScreen.children.forEach((obj) => {
       if (obj instanceof Token && obj.isDragging) {
@@ -85,21 +88,8 @@ class EventHandler {
   handleMouseDown(event) {
     const { x, y } = this.getMousePos(event);
     this.game.currentScreen.children.forEach((obj) => {
-      if (
-        obj instanceof Token &&
-        !obj.isInBoard &&
-        !obj.isLocked &&
-        obj.isClicked(x, y) &&
-        obj.startDragging
-      ) {
-        const token = this.game.turnoActual.tokenStack.pop();
-        if (token) {
-          token.setPlayer(this.game.turnoActual); // Asociar el token con el jugador actual
-          token.x = x;
-          token.y = y;
-          token.startDragging(x, y);
-          console.log(`Token picked up from stack`);
-        }
+      if (obj.isClicked(x, y) && obj.startDragging) {
+        obj.startDragging(x, y);
       }
     });
   }
@@ -110,34 +100,55 @@ class EventHandler {
       if (obj instanceof Token && obj.isDragging) {
         console.log("drop");
         obj.isDragging = false; // Detener el arrastre de la ficha
-
-        const column = this.game.turnoActual.getColumnFromClick(
-          x,
-          this.game.board
+        console.log(
+          `Turno de ${this.game.turnManager.getCurrentPlayer().name}`
         );
+        const column = this.game.turnManager
+          .getCurrentPlayer()
+          .getColumnFromClick(x, this.game.board);
 
         if (column !== -1) {
-          // Coordenadas para la caída de la ficha
-          const targetX =
-            Game.canvas.width / 2 -
-            (this.game.board.getSlotSize() * this.game.board.columns) / 2 +
-            column * obj.radius * 2 +
-            obj.radius;
-          const targetY = Game.canvas.height - obj.radius * 2;
-          obj.drop(targetX, targetY); // Caída de la ficha
-          const currentPlayer = this.game.turnoActual;
-          this.game.board.placeToken(currentPlayer, column); // Colocar la ficha en el tablero
-          obj.lock(); // Bloquear la ficha para evitar que se mueva nuevamente
-          console.log(`Token dropped at column ${column}`);
-          this.game.cambiarTurno(); // Cambiar el turno después de colocar la ficha
+          // dejar caer la ficha en la columna seleccionada
+          const emptySlot = this.game.board.getEmptySlot(column);
+          const { x: emptySlotX, y: emptySlotY } = emptySlot;
+          obj.drop(emptySlotX, emptySlotY);
+          const placed = this.game.turnManager
+            .getCurrentPlayer()
+            .placeToken(column, this.game.board);
+          if (placed) {
+            console.log("Token placed in column with animation");
+            this.game.turnManager.nextTurn();
+          } else {
+            // Si la columna está llena, animar el regreso al tokenStack
+            obj.returnToStack();
+            this.game.turnoActual.tokenStack.push(obj);
+            console.log("Token returned to stack with animation");
+          }
         } else {
           // Si no se coloca en una columna válida, animar el regreso al tokenStack
           obj.returnToStack();
-          this.game.turnoActual.tokenStack.push(obj);
+          this.game.turnManager.getCurrentPlayer().tokenStack.push(obj);
           console.log("Token returned to stack with animation");
         }
       }
     });
+
+    if (this.game.board) {
+      console.log("Board State:");
+      /**
+       * [0, 0, 0, 0, 0, 0, 0],
+       * [0, 0, 0, 0, 0, 0, 0],
+       * [0, 0, 0, 0, 0, 0, 0],
+       * [0, 0, 0, 0, 0, 0, 0],
+       * [0, 0, 0, 0, 0, 0, 0],
+       * [0, 0, 0, 0, 0, 0, 0],
+       */
+      console.log(
+        this.game.board.slots.map((column) =>
+          column.map((slot) => (slot.isEmpty() ? 0 : slot.token))
+        )
+      );
+    }
   }
 }
 
