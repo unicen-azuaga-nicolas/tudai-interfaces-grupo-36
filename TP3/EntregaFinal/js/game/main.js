@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const BULBASAUR_URL = `${ASSETS_BASE_URL}/bulbasaur.png`;
   const SNORLAX_URL = `${ASSETS_BASE_URL}/snorlax.png`;
   const CASILLERO_URL = `${ASSETS_BASE_URL}/casillero.png`;
+  const CHARACTER_PIKACHU_URL = `${ASSETS_BASE_URL}/pikachu.webp`;
+  const CHARACTER_CHARMANDER_URL = `${ASSETS_BASE_URL}/charmanderc.png`;
+  const CHARACTER_BULBASAUR_URL = `${ASSETS_BASE_URL}/bulbasaurc.png`;
+  const CHARACTER_SNORLAX_URL = `${ASSETS_BASE_URL}/snorlax.webp`;
 
   const assets = [
     MENU_SCREEN_BACKGROUND_URL,
@@ -31,6 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
     BULBASAUR_URL,
     SNORLAX_URL,
     CASILLERO_URL,
+    CHARACTER_PIKACHU_URL,
+    CHARACTER_CHARMANDER_URL,
+    CHARACTER_BULBASAUR_URL,
+    CHARACTER_SNORLAX_URL,
   ];
 
   function loadImage(src) {

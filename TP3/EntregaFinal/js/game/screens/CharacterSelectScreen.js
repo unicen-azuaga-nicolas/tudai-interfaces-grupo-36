@@ -67,6 +67,7 @@ class CharacterSelectScreen extends BaseScreen {
     const CHARACTERS = {
       PIKACHU: new GameCharacter({
         name: "Pikachu",
+        image: Game.assets[10],
         token: new Token({
           x: 170,
           y: 800,
@@ -78,6 +79,7 @@ class CharacterSelectScreen extends BaseScreen {
       }),
       CHARMANDER: new GameCharacter({
         name: "Charmander",
+        image: Game.assets[11],
         token: new Token({
           x: 650,
           y: 750,
@@ -89,6 +91,7 @@ class CharacterSelectScreen extends BaseScreen {
       }),
       BULBASAUR: new GameCharacter({
         name: "Bulbasaur",
+        image: Game.assets[12],
         token: new Token({
           x: 1150,
           y: 750,
@@ -100,6 +103,7 @@ class CharacterSelectScreen extends BaseScreen {
       }),
       SNORLAX: new GameCharacter({
         name: "Snorlax",
+        image: Game.assets[13],
         token: new Token({
           x: 1650,
           y: 800,

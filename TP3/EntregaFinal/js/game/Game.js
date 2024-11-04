@@ -168,12 +168,12 @@ class Game {
 
     // Configuración de los jugadores
     this.player1.createTokens({
-      posX: CanvasUtils.setRelativeX(10),
+      posX: CanvasUtils.setRelativeX(25),
       posY: pisoY,
     });
     this.player1.lockAllTokens();
     this.player2.createTokens({
-      posX: CanvasUtils.setRelativeX(90),
+      posX: CanvasUtils.setRelativeX(75),
       posY: pisoY,
     });
     this.player2.lockAllTokens();
