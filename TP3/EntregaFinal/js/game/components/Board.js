@@ -1,132 +1,184 @@
-"use strict";
-
+import GameObject from "../abstract/GameObject.js";
 import Game from "../Game.js";
+import Player from "../Player.js";
+import BoardHint from "./BoardHint.js";
+import BoardSlot from "./BoardSlot.js";
 
-class Board {
-  constructor(col, fil, ctx, imagen, tamanioCasillero, modoJuego) {
-    this.col = col;
-    this.fil = fil;
-    /** @type {CanvasRenderingContext2D} */
-    this.ctx = ctx;
-    this.imagen = imagen;
-    this.tamanioCasillero = tamanioCasillero;
-    this.modoJuego = modoJuego;
-    this.matriz = Array.from({ length: fil }, () => Array(col).fill(null));
+class Board extends GameObject {
+  constructor({ x, y, width, height, columns, rows, onWin }) {
+    super(x, y, width, height);
+    this.background = "transparent";
+    this.backgroundImage = null;
+    /**
+     * @type {BoardSlot[]}
+     */
+    this.slots = [];
+    /**
+     * Array de hints, para saber en que columna se va a colocar la ficha
+     * @type {BoardHint[]}
+     */
+    this.hints = [];
+    this.columns = columns || 7;
+    this.rows = rows || 6;
+    this.winner = null;
+    this.onWin = onWin;
+    this.currentPlayer = null;
+    this.background = "orange";
+    this.createSlots(this.columns, this.rows);
   }
 
-  // Dibuja el tablero con sus respectivas casillas y fichas
-  dibujar() {
-    this.ctx.save();
-    this.ctx.beginPath();
-    const xInicio =
-      Game.canvas.width / 2 - (this.tamanioCasillero * this.col) / 2;
-    const yInicio =
-      Game.canvas.height / 2 - (this.tamanioCasillero * this.fil) / 2;
+  setColumns(columns) {
+    this.columns = columns;
+    this.createSlots(this.columns, this.rows);
+  }
 
-    // Dibujar borde del tablero
-    this.ctx.rect(
-      xInicio,
-      yInicio,
-      this.col * this.tamanioCasillero,
-      this.fil * this.tamanioCasillero
-    );
-    this.ctx.strokeStyle = "#013636";
-    this.ctx.lineWidth = 7;
-    this.ctx.stroke();
-    this.ctx.closePath();
+  setRows(rows) {
+    this.rows = rows;
+    this.createSlots(this.columns, this.rows);
+  }
 
-    // Dibujar cada casilla y la imagen de fondo
-    for (let fila = 0; fila < this.fil; fila++) {
-      for (let columna = 0; columna < this.col; columna++) {
-        this.ctx.beginPath();
-        const x = xInicio + columna * this.tamanioCasillero;
-        const y = yInicio + fila * this.tamanioCasillero;
-        this.ctx.drawImage(
-          this.imagen,
-          x,
-          y,
-          this.tamanioCasillero,
-          this.tamanioCasillero
+  /**
+   * Metodo para setear el jugador actual
+   * @param {Player} player
+   */
+  setCurrentPlayer(player) {
+    this.currentPlayer = player;
+  }
+
+  /**
+   * @param {number} columns
+   * @param {number} rows
+   */
+  createSlots(columns, rows) {
+    const slotWidth = this.width / columns;
+    const slotHeight = this.height / rows;
+    for (let i = 0; i < columns; i++) {
+      this.slots[i] = [];
+      for (let j = 0; j < rows; j++) {
+        this.slots[i][j] = new BoardSlot(
+          this.x + i * slotWidth,
+          this.y + j * slotHeight,
+          slotWidth,
+          slotHeight
         );
-        this.ctx.closePath();
-
-        // Dibuja la ficha si existe en esta posición
-        if (this.matriz[fila][columna]) {
-          this.matriz[fila][columna].dibujar(
-            this.ctx,
-            x + this.tamanioCasillero / 2,
-            y + this.tamanioCasillero / 2
-          );
-        }
       }
     }
 
-    this.ctx.restore();
+    this.createHints(columns);
   }
 
-  // Inserta una ficha en la columna especificada
-  insertarFicha(columna, ficha) {
-    for (let fila = this.fil - 1; fila >= 0; fila--) {
-      if (!this.matriz[fila][columna]) {
-        this.matriz[fila][columna] = ficha;
-        const x =
-          Game.canvas.width / 2 -
-          (this.tamanioCasillero * this.col) / 2 +
-          columna * this.tamanioCasillero +
-          this.tamanioCasillero / 2;
-        const y =
-          Game.canvas.height / 2 -
-          (this.tamanioCasillero * this.fil) / 2 +
-          fila * this.tamanioCasillero +
-          this.tamanioCasillero / 2;
-        ficha.soltarEn(x, y);
-        break;
-      }
+  /**
+   * @param {number} columns
+   */
+  createHints(columns) {
+    const slotWidth = this.width / columns;
+    for (let i = 0; i < columns; i++) {
+      this.hints[i] = new BoardHint({
+        x: this.x + i * slotWidth,
+        y: this.y - slotWidth,
+        width: slotWidth,
+        height: slotWidth,
+      });
     }
   }
 
-  // Verifica si hay un ganador
-  hayGanador() {
-    const direcciones = [
-      [0, 1], // Derecha
-      [1, 0], // Abajo
-      [1, 1], // Diagonal descendente
-      [1, -1], // Diagonal ascendente
+  placeToken(player, column) {
+    if (column < 0 || column >= this.slots.length) return false;
+
+    for (let row = this.slots[column].length - 1; row >= 0; row--) {
+      if (this.slots[column][row].isEmpty()) {
+        this.slots[column][row].setToken(player);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  checkWin() {
+    const directions = [
+      { x: 1, y: 0 },
+      { x: 0, y: 1 },
+      { x: 1, y: 1 },
+      { x: 1, y: -1 },
     ];
 
-    for (let fila = 0; fila < this.fil; fila++) {
-      for (let columna = 0; columna < this.col; columna++) {
-        const fichaActual = this.matriz[fila][columna];
-        if (!fichaActual) continue;
+    for (let i = 0; i < this.slots.length; i++) {
+      for (let j = 0; j < this.slots[i].length; j++) {
+        if (this.slots[i][j].token === null) continue;
 
-        // Verificar cada dirección
-        for (const [df, dc] of direcciones) {
-          let contador = 1;
-
-          for (let paso = 1; paso < this.modoJuego; paso++) {
-            const nuevaFila = fila + paso * df;
-            const nuevaColumna = columna + paso * dc;
-
-            if (
-              nuevaFila < 0 ||
-              nuevaFila >= this.fil ||
-              nuevaColumna < 0 ||
-              nuevaColumna >= this.col
-            )
-              break;
-            if (fichaActual.esIgual(this.matriz[nuevaFila][nuevaColumna])) {
-              contador++;
-            } else {
-              break;
-            }
+        for (let k = 0; k < directions.length; k++) {
+          const direction = directions[k];
+          const win = this.checkDirection(
+            i,
+            j,
+            direction.x,
+            direction.y,
+            this.slots[i][j].token.player
+          );
+          if (win) {
+            this.winner = this.slots[i][j].token.player;
+            return;
           }
-
-          if (contador === this.modoJuego) return true;
         }
       }
     }
+  }
 
+  checkDirection(x, y, dx, dy, player) {
+    let count = 1;
+    let i = 1;
+    while (true) {
+      const newX = x + dx * i;
+      const newY = y + dy * i;
+      if (
+        newX < 0 ||
+        newX >= this.slots.length ||
+        newY < 0 ||
+        newY >= this.slots[x].length
+      ) {
+        break;
+      }
+      if (this.slots[newX][newY].token === null) {
+        break;
+      }
+      if (this.slots[newX][newY].token.player === player) {
+        count++;
+        if (count === 4) {
+          return true;
+        }
+      } else {
+        break;
+      }
+      i++;
+    }
     return false;
+  }
+
+  drawHints() {
+    for (let i = 0; i < this.hints.length; i++) {
+      this.hints[i].draw();
+    }
+  }
+
+  drawSlots() {
+    for (let i = 0; i < this.slots.length; i++) {
+      for (let j = 0; j < this.slots[i].length; j++) {
+        this.slots[i][j].draw();
+      }
+    }
+  }
+
+  draw() {
+    // this.fillBackground();
+    // this.drawHints();
+    this.drawSlots();
+  }
+
+  update(deltaTime) {
+    if (this.winner !== null) {
+      console.log(`Player ${this.winner.name} wins!`);
+      this.onWin(this.winner);
+    }
   }
 }
 

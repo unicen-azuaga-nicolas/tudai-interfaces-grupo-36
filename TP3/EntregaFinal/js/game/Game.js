@@ -82,6 +82,12 @@ class Game {
     this.player1 = new Player({ name: "1", color: "blue" });
     this.player2 = new Player({ name: "2", color: "orange" });
 
+    // Board
+    /**
+     * @type {Board}
+     */
+    this.board = null;
+
     this.modosDeJuegos = [
       {
         nombre: 4,
@@ -119,19 +125,31 @@ class Game {
     this.currentScreen.draw();
   }
 
-  startGame() {
-    console.log("Start Game Clicked");
-    this.currentGameState = this.states.PLAYING;
-
+  /**
+   * Función para setear la configuración inicial del juego.
+   */
+  initGame() {
     // Configuración del tablero
     let col = this.modosDeJuegos[this.boardSize].columnas; // Número de columnas
     let fil = this.modosDeJuegos[this.boardSize].filas; // Número de filas
-    let ctx = Game.ctx;
-    let imagen = Game.assets[9]; // La imagen que quieres usar para cada casilla
     let tamanioCasillero = this.modosDeJuegos[this.boardSize].tamanioCasillero; // Tamaño de cada casilla
-    let modoJuego = this.modosDeJuegos[this.boardSize].nombre; // Cantidad de fichas en línea para ganar
+    
 
-    let tablero = new Board(col, fil, ctx, imagen, tamanioCasillero, modoJuego);
+    this.board = new Board({
+      columns: col,
+      rows: fil,
+      x: CanvasUtils.setRelativeX(50) - tamanioCasillero * col * 0.5,
+      y: CanvasUtils.setRelativeY(50) - tamanioCasillero * fil * 0.5,
+      width: tamanioCasillero * col,
+      height: tamanioCasillero * fil,
+      onWin: (player) => {
+        // this.currentGameState = this.states.PAUSED;
+        // this.currentScreen = new BaseScreen();
+        // console.log("Ganó el jugador: ", player.name);
+        // alert("Ganó el jugador: " + player.name);
+        console.log("Ganó el jugador: ", player.name);
+      },
+    });
 
     const pisoY = Game.canvas.height - tamanioCasillero;
 
@@ -147,12 +165,20 @@ class Game {
       posX: CanvasUtils.setRelativeX(90),
       posY: pisoY,
     });
+  }
+
+  startGame() {
+    console.log("Start Game Clicked");
+    this.currentGameState = this.states.PLAYING;
+
+    this.initGame();
 
     this.currentScreen = new GameScreen({
       player1: this.player1,
       player2: this.player2,
       onExitGame: () => this.showMenu(),
-      tablero: tablero,
+      onRestartGame: () => this.startGame(),
+      board: this.board,
     });
 
     this.lastTime = 0;
