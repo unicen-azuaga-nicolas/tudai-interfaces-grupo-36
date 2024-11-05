@@ -66,26 +66,38 @@ class GameScreen extends BaseScreen {
   placeBoard() {
     this.add(this.game.board);
   }
-
+  
+  getPersonajeAssetIndex(personaje) {
+    const personajeMap = {
+      "Pikachu": 21,
+      "Charmander": 22,
+      "Bulbasaur": 23,
+      "Snorlax": 24,
+    };
+    return personajeMap[personaje] || 0; // Devuelve un índice predeterminado si el personaje no existe
+  }
+  
   placeTitles() {
     const player1Title = new Title({
       x: CanvasUtils.setRelativeX(5.5),
       y: CanvasUtils.setRelativeY(25),
-      width: CanvasUtils.setRelativeWidth(10),
-      height: CanvasUtils.setRelativeHeight(5),
+      width: CanvasUtils.setRelativeWidth(20),
+      height: CanvasUtils.setRelativeHeight(10),
       text: this.game.player1.name,
-      fontSize: 20,
-      color: "black",
+      fontSize: 35,
+      color: "white",
+      backgroundImage: Game.assets[this.getPersonajeAssetIndex(this.game.player1.characterSelected.getName())],
     });
 
     const player2Title = new Title({
       x: CanvasUtils.setRelativeX(85),
       y: CanvasUtils.setRelativeY(25),
-      width: CanvasUtils.setRelativeWidth(10),
-      height: CanvasUtils.setRelativeHeight(5),
+      width: CanvasUtils.setRelativeWidth(20),
+      height: CanvasUtils.setRelativeHeight(10),
       text: this.game.player2.name,
-      fontSize: 20,
-      color: "black",
+      fontSize: 35,
+      color: "white",
+      backgroundImage: Game.assets[this.getPersonajeAssetIndex(this.game.player2.characterSelected.getName())],
     });
 
     this.add(player1Title);

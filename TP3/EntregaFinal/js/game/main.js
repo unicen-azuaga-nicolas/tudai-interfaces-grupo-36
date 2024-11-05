@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const BUTTON_NORMAL_URL = `${ASSETS_BASE_URL}menu/btn-normal.png`;
   const BUTTON_DESACTIVADO_URL = `${ASSETS_BASE_URL}menu/btn-desactivado.png`;
   const GAMEMODE_BACKGROUND_URL = `${ASSETS_BASE_URL}/FondoNiveles2.png`;
-  const PLAYERSELECT_URL = `${ASSETS_BASE_URL}/eligepersonaje2.png`;
+  const PLAYERSELECT_URL = `${ASSETS_BASE_URL}/eligepersonaje3.png`;
   const PIKACHU_URL = `${ASSETS_BASE_URL}/fichav21.png`;
   const CHARMANDER_URL = `${ASSETS_BASE_URL}/fichav24.png`;
   const BULBASAUR_URL = `${ASSETS_BASE_URL}/ficha23.png`;
@@ -30,6 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const GAMEMODE_BUTTON_RESTART_URL = `${ASSETS_BASE_URL}/buttonsalir.png`;
   const TEMPORIZADOR_URL = `${ASSETS_BASE_URL}/temporizador.png`;
   const RESTARTICON_URL = `${ASSETS_BASE_URL}/restartIcon.png`;
+  const PIKACHUBTN_URL = `${ASSETS_BASE_URL}/btnnaranjaclaroestandar.png`;
+  const CHARMANDERBTN_URL = `${ASSETS_BASE_URL}/btnnaranjaestandar.png`;
+  const BULBASAURBTN_URL = `${ASSETS_BASE_URL}/btnverdeestandar.png`;
+  const SNORLAXBTN_URL = `${ASSETS_BASE_URL}/btncelesteestandar.png`;
 
   const assets = [
     MENU_SCREEN_BACKGROUND_URL,
@@ -53,6 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
     GAMEMODE_BUTTON_RESTART_URL,
     TEMPORIZADOR_URL,
     RESTARTICON_URL,
+    PIKACHUBTN_URL,
+    CHARMANDERBTN_URL,
+    BULBASAURBTN_URL,
+    SNORLAXBTN_URL,
     
   ];
 

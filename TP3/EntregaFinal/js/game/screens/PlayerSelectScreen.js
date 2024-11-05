@@ -124,29 +124,29 @@ class PlayerSelectScreen extends BaseScreen {
     this.pikachuToken = new Button({
       x: 170,
       y: 800,
-      width: 120,
-      height: 120,
+      width: 200,
+      height: 200,
       backgroundImage: Game.assets[5],
     });
     this.charmanderToken = new Button({
       x: 650,
       y: 750,
-      width: 120,
-      height: 120,
+      width: 200,
+      height: 200,
       backgroundImage: Game.assets[6],
     });
     this.bulbasaurToken = new Button({
       x: 1150,
       y: 750,
-      width: 120,
-      height: 120,
+      width: 200,
+      height: 200,
       backgroundImage: Game.assets[7],
     });
     this.snorlaxToken = new Button({
       x: 1620,
       y: 800,
-      width: 140,
-      height: 140,
+      width: 200,
+      height: 200,
       backgroundImage: Game.assets[8],
     });
 

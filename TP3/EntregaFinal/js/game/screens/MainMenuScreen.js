@@ -60,7 +60,7 @@ class MainMenuScreen extends BaseScreen {
 
     this.add(title);
     this.add(playButton);
-    this.add(exitButton);
+    //this.add(exitButton);
   }
 
   draw() {
