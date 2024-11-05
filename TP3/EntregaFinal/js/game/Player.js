@@ -151,7 +151,6 @@ class Player {
   }
 
   dibujarPersonaje(ctx, x, y, width, height) {
-    console.log(this.characterSelected.image + " dibujado");
     if (this.hasCharacterSelected() && this.characterSelected.image) {
       ctx.drawImage(this.characterSelected.image, x, y, width, height);
     }

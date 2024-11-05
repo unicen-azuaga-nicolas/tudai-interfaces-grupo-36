@@ -189,6 +189,7 @@ class Game {
     this.currentScreen = new GameScreen({
       game: this,
       onExitGame: () => {
+        this.currentScreen.destroy();
         this.resetGame();
         this.showMenu();
       },
@@ -216,7 +217,7 @@ class Game {
     this.currentGameState = this.states.GAMEMODE;
     console.log("Game mode screen");
     const gamemode = new GameModeScreen({
-      onExitGame: () => console.log("Exit Game Clicked"),
+      onExitGame: () => this.showMenu(),
       onSelectMode: (boardSize) => {
         this.boardSize = boardSize; // Asignamos boardSize
         this.characterSelect();

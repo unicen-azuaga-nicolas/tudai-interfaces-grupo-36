@@ -124,7 +124,7 @@ class GameModeScreen extends BaseScreen {
       fontSize: 32,
       fontFamily: "Arial Black, Gadget, sans-serif",
       background: "transparent",
-      onClick: () => this.onSelectMode(2),
+      onClick: () => this.onSelectMode(3),
       backgroundImage: Game.assets[11], // TODO: Agregar imagen de botón}
     });
     this.add(title0);

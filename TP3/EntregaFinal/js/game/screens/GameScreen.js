@@ -3,6 +3,7 @@ import Button from "../components/Button.js";
 import Title from "../components/Title.js";
 import Game from "../Game.js";
 import CanvasUtils from "../utils/CanvasUtils.js";
+import Temporizador from "../components/Temporizador.js";
 
 class GameScreen extends BaseScreen {
   /**
@@ -24,6 +25,9 @@ class GameScreen extends BaseScreen {
      * @type {function}
      */
     this.onExitGame = onExitGame;
+
+    this.temporizador = new Temporizador(300, Game.ctx, Game.assets[19]);
+    this.temporizador.iniciar();
 
     /**
      * @type {function}
@@ -118,9 +122,70 @@ class GameScreen extends BaseScreen {
       onClick: () => this.onRestartGame(),
     });
 
+    const modeexitButton = new Button({
+      x: 1764,
+      y: 59,
+      width: 80,
+      height: 80,
+     // text: "fa-solid fa-right-to-bracket",
+      textColor: "white",
+      fontSize: 40,
+      //fontFamily:"Font Awesome",
+      background: "transparent",
+      onClick: () => this.onExitGame(),
+      backgroundImage: Game.assets[10],
+      
+    });
+
+    const modeexitButtonIcon = new Button({
+      x: 1784,
+      y: 82,
+      width: 40,
+      height: 30.48,
+     // text: "fa-solid fa-right-to-bracket",
+     //fontFamily:"Font Awesome",
+      color:"white",
+      background: "transparent",
+      onClick: () => this.onExitGame(),
+      backgroundImage: Game.assets[13],
+      
+    });
+
+    const modeRestartButton = new Button({
+      x: 1664,
+      y: 59,
+      width: 80,
+      height: 80,
+     // text: "fa-solid fa-right-to-bracket",
+      textColor: "white",
+      fontSize: 40,
+      //fontFamily:"Font Awesome",
+      background: "transparent",
+      onClick: () =>  this.onRestartGame(),
+      backgroundImage: Game.assets[18],
+      
+    });
+
+    const modeRestartButtonIcon = new Button({
+      x: 1684 ,
+      y: 82,
+      width: 40,
+      height: 30.48,
+     // text: "fa-solid fa-right-to-bracket",
+     //fontFamily:"Font Awesome",
+      color:"white",
+      background: "transparent",
+      onClick: () => this.onRestartGame(),
+      backgroundImage: Game.assets[13],
+      
+    });
+
     this.add(titleTurn);
     this.add(exitButton);
-    this.add(restartButton);
+    this.add(modeexitButton);
+    this.add(modeexitButtonIcon);
+    this.add(modeRestartButton);
+    this.add(modeRestartButtonIcon);
   }
 
   draw() {
@@ -129,8 +194,24 @@ class GameScreen extends BaseScreen {
     this.currentTurnTitle.draw();
     this.game.player1.dibujarPersonaje(Game.ctx, CanvasUtils.setRelativeX(5), CanvasUtils.setRelativeY(70), 300, 300); 
     this.game.player2.dibujarPersonaje(Game.ctx, CanvasUtils.setRelativeX(83), CanvasUtils.setRelativeY(70), 300, 300);
+    if (this.temporizador) { 
+        this.temporizador.dibujar(); // Dibujar el temporizador 
+      }
     super.draw();
   }
+  
+  destroy() {
+    if (this.temporizador) {
+        this.temporizador.pausar(); // Detener el temporizador
+        this.temporizador.borrar(); // Limpiar el área del temporizador
+        this.temporizador = null; // Limpiar referencia
+    }
+
+    this.children = []; // Limpiar todos los hijos de la pantalla
+
+    super.destroy(); // Llama al método destroy de BaseScreen
+}
+
 
   update(deltaTime) {
     this.currentTurnTitle.setText(

@@ -69,6 +69,9 @@ class BaseScreen extends GameObject {
     return this.children.some((child) => child.isMouseOver(x, y));
   }
 
+  destroy() { 
+    this.children = []; 
+  }
   /**
    * Método para crear los elementos de la pantalla
    * @abstract

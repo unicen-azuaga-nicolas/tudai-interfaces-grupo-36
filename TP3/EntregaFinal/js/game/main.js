@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const GAMEMODE_POKEBOLA_URL = `${ASSETS_BASE_URL}/pokebola.png`;
   const GAMEMODE_CONTAINER_TEXT = `${ASSETS_BASE_URL}/marcotituloniveles.png`;
   const GAMEMODE_ICONO = `${ASSETS_BASE_URL}/iconoSalir.png`;
+  const GAMEMODE_BUTTON_RESTART_URL = `${ASSETS_BASE_URL}/buttonsalir.png`;
+  const TEMPORIZADOR_URL = `${ASSETS_BASE_URL}/temporizador.png`;
 
   const assets = [
     MENU_SCREEN_BACKGROUND_URL,
@@ -47,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
     CHARACTER_CHARMANDER_URL,
     CHARACTER_BULBASAUR_URL,
     CHARACTER_SNORLAX_URL,
+    GAMEMODE_BUTTON_RESTART_URL,
+    TEMPORIZADOR_URL,
     
   ];
 
