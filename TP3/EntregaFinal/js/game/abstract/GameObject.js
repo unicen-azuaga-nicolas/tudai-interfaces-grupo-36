@@ -1,12 +1,25 @@
 import Game from "../Game.js";
 
 class GameObject {
-  constructor(x, y, width, height) {
+  constructor(
+    x,
+    y,
+    width,
+    height,
+    background,
+    backgroundWidth,
+    backgroundHeight,
+    backgroundPosition,
+    backgroundImage
+  ) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
-    this.background = "transparent";
+    this.background = background || "transparent";
+    this.backgroundWidth = backgroundWidth || this.width;
+    this.backgroundHeight = backgroundHeight || this.height;
+    this.backgroundPosition = backgroundPosition || { x: this.x, y: this.y };
     this.backgroundImage = null;
     if (new.target === GameObject) {
       throw new Error("No puedes instanciar GameObject directamente");
@@ -34,9 +47,14 @@ class GameObject {
     return value * (percent / 100);
   }
 
-  fillBackground() {
+  fillBackground({
+    x = this.backgroundPosition.x,
+    y = this.backgroundPosition.y,
+    width = this.backgroundWidth,
+    height = this.backgroundHeight,
+  } = {}) {
     Game.ctx.fillStyle = this.background;
-    Game.ctx.fillRect(this.x, this.y, this.width, this.height);
+    Game.ctx.fillRect(x, y, width, height);
   }
 
   fillBackgroundImage(image) {

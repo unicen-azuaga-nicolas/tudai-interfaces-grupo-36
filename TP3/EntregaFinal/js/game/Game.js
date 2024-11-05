@@ -237,7 +237,7 @@ class Game {
     const playerselect = new CharacterSelectScreen({
       player1: this.player1,
       player2: this.player2,
-      onExitGame: () => console.log("Exit Game Clicked"),
+      onExitGame: () => this.showMenu(),
       onConfirmSelection: () => {
         console.log("Confirm Selection Clicked");
 
@@ -255,32 +255,6 @@ class Game {
     this.currentScreen = playerselect;
     this.render();
   }
-
-  // placeToken(column) {
-  //   if (this.currentGameState !== this.states.PLAYING) return;
-
-  //   let currentPlayer = this.turnoActual;
-  //   let board = this.currentScreen.tablero;
-
-  //   // Intentar colocar la ficha del jugador actual en la columna seleccionada
-  //   if (currentPlayer.placeToken(column, board)) {
-  //     // Cambiar turno si la ficha se coloca correctamente
-  //     this.cambiarTurno();
-  //   }
-  // }
-
-  // cambiarTurno() {
-  //   if (this.turnoActual === this.player1) {
-  //     this.player1.lockAllTokens();
-  //     this.turnoActual = this.player2;
-  //     this.player2.unlockLastToken();
-  //   } else {
-  //     this.player2.lockAllTokens();
-  //     this.turnoActual = this.player1;
-  //     this.player1.unlockLastToken();
-  //   }
-  //   console.log(`Turno de: ${this.turnoActual.name}`);
-  // }
 
   gameLoop(timestamp) {
     if (this.currentGameState !== this.states.PLAYING) return;
