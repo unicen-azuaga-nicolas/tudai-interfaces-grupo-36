@@ -20,7 +20,7 @@ class GameObject {
     this.backgroundWidth = backgroundWidth || this.width;
     this.backgroundHeight = backgroundHeight || this.height;
     this.backgroundPosition = backgroundPosition || { x: this.x, y: this.y };
-    this.backgroundImage = null;
+    this.backgroundImage = backgroundImage;
     if (new.target === GameObject) {
       throw new Error("No puedes instanciar GameObject directamente");
     }
