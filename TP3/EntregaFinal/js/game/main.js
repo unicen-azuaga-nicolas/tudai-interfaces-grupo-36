@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const GAMEMODE_ICONO = `${ASSETS_BASE_URL}/iconoSalir.png`;
   const GAMEMODE_BUTTON_RESTART_URL = `${ASSETS_BASE_URL}/buttonsalir.png`;
   const TEMPORIZADOR_URL = `${ASSETS_BASE_URL}/temporizador.png`;
+  const RESTARTICON_URL = `${ASSETS_BASE_URL}/restartIcon.png`;
 
   const assets = [
     MENU_SCREEN_BACKGROUND_URL,
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     CHARACTER_SNORLAX_URL,
     GAMEMODE_BUTTON_RESTART_URL,
     TEMPORIZADOR_URL,
+    RESTARTICON_URL,
     
   ];
 

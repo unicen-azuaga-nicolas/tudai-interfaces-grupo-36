@@ -193,7 +193,10 @@ class Game {
         this.resetGame();
         this.showMenu();
       },
-      onRestartGame: () => this.startGame(),
+      onRestartGame: () => {
+        this.currentScreen.destroy(),
+        this.startGame();
+      },
     });
 
     this.lastTime = 0;

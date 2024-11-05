@@ -176,7 +176,7 @@ class GameScreen extends BaseScreen {
       color:"white",
       background: "transparent",
       onClick: () => this.onRestartGame(),
-      backgroundImage: Game.assets[13],
+      backgroundImage: Game.assets[20],
       
     });
 
