@@ -12,8 +12,23 @@ class Title extends GameObject {
     fontFamily,
     color,
     bold,
+    background,
+    backgroundWidth,
+    backgroundHeight,
+    backgroundPosition,
+    backgroundImage,
   }) {
-    super(x, y, width, height);
+    super(
+      x,
+      y,
+      width,
+      height,
+      background,
+      backgroundWidth,
+      backgroundHeight,
+      backgroundPosition,
+      backgroundImage
+    );
     this.text = text;
     this.fontSize = fontSize || 24;
     this.fontFamily = fontFamily || "Arial";
@@ -22,6 +37,8 @@ class Title extends GameObject {
       this.fontFamily
     }`;
     this.color = color || "black";
+    this.background = background || "transparent";
+    this.backgroundImage = backgroundImage || null;
   }
 
   clearTextArea(x, y, width, height) {
@@ -42,6 +59,10 @@ class Title extends GameObject {
   }
 
   draw() {
+    this.fillBackground({});
+    if (this.backgroundImage) {
+      this.fillBackgroundImage(this.backgroundImage);
+    }
     Game.ctx.fillStyle = this.color;
     Game.ctx.font = this.font;
     Game.ctx.textAlign = "center";

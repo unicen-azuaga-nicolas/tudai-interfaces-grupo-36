@@ -13,20 +13,19 @@ class GameModeScreen extends BaseScreen {
   }
   create() {
     this.setBackgroundColor("black");
-    
+
     const modeexitButton = new Button({
       x: 1764,
       y: 59,
       width: 80,
       height: 80,
-     // text: "fa-solid fa-right-to-bracket",
+      // text: "fa-solid fa-right-to-bracket",
       textColor: "white",
       fontSize: 40,
       //fontFamily:"Font Awesome",
       background: "transparent",
       onClick: () => this.onExitGame(),
       backgroundImage: Game.assets[10],
-      
     });
 
     const modeexitButtonIcon = new Button({
@@ -34,43 +33,30 @@ class GameModeScreen extends BaseScreen {
       y: 82,
       width: 40,
       height: 30.48,
-     // text: "fa-solid fa-right-to-bracket",
-     //fontFamily:"Font Awesome",
-      color:"white",
+      // text: "fa-solid fa-right-to-bracket",
+      //fontFamily:"Font Awesome",
+      color: "white",
       background: "transparent",
-      onClick: () => this.onSelectMode(0),
+      onClick: () => this.onExitGame(),
       backgroundImage: Game.assets[13],
-      
     });
     console.log("Button Salir:", Game.assets[10]);
-    /*
-    const title = new Title({
-      x: 832,
-      y: 277,
-      width: 200,
-      height: 50,
-      text: "Elige tu modo de juego",
-      fontSize: 32,
-      color: "black",
-      fontFamily: "Arial Black, Gadget, sans-serif",
 
-    });*/
-
-    const title0 = new Button({
+    const title0 = new Title({
       x: 650,
       y: 232,
       width: 619,
       height: 129,
       text: "Elige tu modo de juego",
-      textColor: "black",
       fontSize: 32,
+      color: "black",
       fontFamily: "Arial Black, Gadget, sans-serif",
-      background: "transparent",
-      onClick: () => this.onSelectMode(0),
+      background: "lightgray",
+      backgroundHeight: 100,
+      backgroundWidth: 610,
+      backgroundPosition: { x: 655, y: 250 },
       backgroundImage: Game.assets[12],
-    })
-   
-    console.log("Contenedortitulo:", Game.assets[12]);
+    });
 
     const mode4 = new Button({
       x: 178,
@@ -85,8 +71,7 @@ class GameModeScreen extends BaseScreen {
       onClick: () => this.onSelectMode(0),
       backgroundImage: Game.assets[11],
     });
-    
-    console.log("Imagen de fondo de mode4:", Game.assets[10]);
+
     const mode5 = new Button({
       x: 595,
       y: 368,
@@ -119,7 +104,7 @@ class GameModeScreen extends BaseScreen {
       width: 291,
       height: 298,
       text: "7",
-      textOffsetX:130,
+      textOffsetX: 130,
       textColor: "black",
       fontSize: 32,
       fontFamily: "Arial Black, Gadget, sans-serif",
