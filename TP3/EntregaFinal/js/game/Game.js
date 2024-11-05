@@ -158,6 +158,7 @@ class Game {
         // alert("Ganó el jugador: " + player.name);
         this.currentGameState = this.states.PAUSED;
         console.log("Ganó el jugador: ", player.name);
+        alert("Ganó el jugador: " + player.name);
       },
     });
 
@@ -197,6 +198,7 @@ class Game {
         this.currentScreen.destroy(),
         this.startGame();
       },
+      board: this.board,
     });
 
     this.lastTime = 0;

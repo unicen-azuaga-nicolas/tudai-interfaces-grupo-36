@@ -1,9 +1,10 @@
 export default class Temporizador {
-    constructor(tiempo, ctx, fondo) {
+    constructor(tiempo, ctx, fondo, onTimeUp) {
         this.tiempo = tiempo;
         this.ctx = ctx;
         this.pausado = true;
         this.fondo = fondo;
+        this.onTimeUp = onTimeUp; // Callback cuando el tiempo se acabe
         this.intervalo = null; // Guardar el ID del intervalo
     }
 
@@ -41,6 +42,17 @@ export default class Temporizador {
     empate() {
         console.log("Tiempo terminado: Empate");
         this.pausar(); // Detener el temporizador
+    
+        // Crear un objeto de empate
+        const empate = {
+            name: "Empate",
+            // Puedes agregar más propiedades si es necesario
+        };
+    
+        // Llamar a la función onTimeUp con el objeto de empate
+        if (this.onTimeUp) {
+            this.onTimeUp(empate);
+        }
     }
 
     dibujar() {

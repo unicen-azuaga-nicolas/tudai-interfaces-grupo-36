@@ -13,7 +13,7 @@ class GameScreen extends BaseScreen {
    * @param {function} onExitGame
    * @param {function} onRestartGame
    */
-  constructor({ game, onExitGame, onRestartGame }) {
+  constructor({ game, onExitGame, onRestartGame, board }) {
     super(); // --> se ejecuta el create()
 
     /**
@@ -25,8 +25,9 @@ class GameScreen extends BaseScreen {
      * @type {function}
      */
     this.onExitGame = onExitGame;
+    this.board = board;
 
-    this.temporizador = new Temporizador(300, Game.ctx, Game.assets[19]);
+    this.temporizador = new Temporizador(300, Game.ctx, Game.assets[19], this.board.onWin);
     this.temporizador.iniciar();
 
     /**
@@ -34,7 +35,7 @@ class GameScreen extends BaseScreen {
      * */
     this.onRestartGame = onRestartGame;
     this.currentTurnTitle = new Title({
-      x: CanvasUtils.setRelativeX(54.2),
+      x: CanvasUtils.setRelativeX(50),
       y: CanvasUtils.setRelativeY(5),
       width: CanvasUtils.setRelativeWidth(10),
       height: CanvasUtils.setRelativeHeight(5),
@@ -107,7 +108,7 @@ class GameScreen extends BaseScreen {
   create() {
     this.setBackgroundColor("lightgray");
     const titleTurn = new Title({
-      x: CanvasUtils.setRelativeX(45),
+      x: CanvasUtils.setRelativeX(40),
       y: CanvasUtils.setRelativeY(5),
       width: CanvasUtils.setRelativeWidth(10),
       height: CanvasUtils.setRelativeHeight(5),
