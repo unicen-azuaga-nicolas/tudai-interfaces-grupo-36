@@ -69,8 +69,8 @@ class CharacterSelectScreen extends BaseScreen {
         name: "Pikachu",
         image: Game.assets[14],
         token: new Token({
-          x: 170,
-          y: 800,
+          x: 190,
+          y: 860,
           width: 120,
           height: 120,
           radius: 60,
@@ -81,8 +81,8 @@ class CharacterSelectScreen extends BaseScreen {
         name: "Charmander",
         image: Game.assets[15],
         token: new Token({
-          x: 650,
-          y: 750,
+          x: 720,
+          y: 800,
           width: 120,
           height: 120,
           radius: 60,
@@ -93,8 +93,8 @@ class CharacterSelectScreen extends BaseScreen {
         name: "Bulbasaur",
         image: Game.assets[16],
         token: new Token({
-          x: 1150,
-          y: 750,
+          x: 1200,
+          y: 800,
           width: 120,
           height: 120,
           radius: 60,
@@ -105,8 +105,8 @@ class CharacterSelectScreen extends BaseScreen {
         name: "Snorlax",
         image: Game.assets[17],
         token: new Token({
-          x: 1650,
-          y: 800,
+          x: 1680,
+          y: 850,
           width: 140,
           height: 140,
           radius: 60,
@@ -128,7 +128,7 @@ class CharacterSelectScreen extends BaseScreen {
     // Configuración de cada botón de personaje
     const pikachuBtn = new Button({
       x: 0,
-      y: 260,
+      y: 250,
       width: 480,
       height: 700,
       textColor: "black",
@@ -151,7 +151,7 @@ class CharacterSelectScreen extends BaseScreen {
 
     const charmanderBtn = new Button({
       x: 485,
-      y: 290,
+      y: 280,
       width: 470,
       height: 600,
       textColor: "black",
@@ -176,7 +176,7 @@ class CharacterSelectScreen extends BaseScreen {
 
     const bulbasaurBtn = new Button({
       x: 960,
-      y: 290,
+      y: 280,
       width: 470,
       height: 600,
       textColor: "black",
@@ -200,7 +200,7 @@ class CharacterSelectScreen extends BaseScreen {
 
     const snorlaxBtn = new Button({
       x: 1440,
-      y: 250,
+      y: 240,
       width: 480,
       height: 700,
       textColor: "black",
