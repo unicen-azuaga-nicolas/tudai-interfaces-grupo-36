@@ -90,7 +90,7 @@ class GameScreen extends BaseScreen {
     });
 
     const player2Title = new Title({
-      x: CanvasUtils.setRelativeX(85),
+      x: CanvasUtils.setRelativeX(75),
       y: CanvasUtils.setRelativeY(25),
       width: CanvasUtils.setRelativeWidth(20),
       height: CanvasUtils.setRelativeHeight(10),
@@ -193,7 +193,6 @@ class GameScreen extends BaseScreen {
     });
 
     this.add(titleTurn);
-    this.add(exitButton);
     this.add(modeexitButton);
     this.add(modeexitButtonIcon);
     this.add(modeRestartButton);
