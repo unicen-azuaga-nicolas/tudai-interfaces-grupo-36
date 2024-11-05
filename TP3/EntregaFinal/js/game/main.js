@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const BULBASAUR_URL = `${ASSETS_BASE_URL}/ficha23.png`;
   const SNORLAX_URL = `${ASSETS_BASE_URL}/fichav22.png`;
   const CASILLERO_URL = `${ASSETS_BASE_URL}/casillero.png`;
+  const CHARACTER_PIKACHU_URL = `${ASSETS_BASE_URL}/pikachu.webp`;
+  const CHARACTER_CHARMANDER_URL = `${ASSETS_BASE_URL}/charmanderc.png`;
+  const CHARACTER_BULBASAUR_URL = `${ASSETS_BASE_URL}/pokemonverde.png`;
+  const CHARACTER_SNORLAX_URL = `${ASSETS_BASE_URL}/snorlax.webp`;
   const GAMEMODE_BUTTON_URL = `${ASSETS_BASE_URL}/buttonreiniciar.png`;
   const GAMEMODE_POKEBOLA_URL = `${ASSETS_BASE_URL}/pokebola.png`;
   const GAMEMODE_CONTAINER_TEXT = `${ASSETS_BASE_URL}/marcotituloniveles.png`;
@@ -38,7 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
     GAMEMODE_BUTTON_URL,
     GAMEMODE_POKEBOLA_URL,
     GAMEMODE_CONTAINER_TEXT,
-    GAMEMODE_ICONO
+    GAMEMODE_ICONO,
+    CHARACTER_PIKACHU_URL,
+    CHARACTER_CHARMANDER_URL,
+    CHARACTER_BULBASAUR_URL,
+    CHARACTER_SNORLAX_URL,
     
   ];
 

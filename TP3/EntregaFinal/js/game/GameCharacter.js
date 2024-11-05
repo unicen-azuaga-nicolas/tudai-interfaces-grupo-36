@@ -6,10 +6,11 @@ class GameCharacter extends GameObject {
    *
    * @param {Token} token
    */
-  constructor({ name, token }) {
+  constructor({ name, token, image }) {
     super(0, 0, token.width, token.height);
     this.name = name;
     this.token = token;
+    this.image = image
   }
 
   /**

@@ -59,7 +59,6 @@ class Player {
       console.error("No se seleccionó un personaje para el jugador");
       return;
     }
-
     const token = this.getTokenSelected();
     const tokenWidth = 65;
     const tokenHeight = 65;
@@ -150,6 +149,12 @@ class Player {
       this.tokenStack[this.tokenStack.length - 1].unlock();
     }
   }
-}
 
+  dibujarPersonaje(ctx, x, y, width, height) {
+    console.log(this.characterSelected.image + " dibujado");
+    if (this.hasCharacterSelected() && this.characterSelected.image) {
+      ctx.drawImage(this.characterSelected.image, x, y, width, height);
+    }
+  }
+}
 export default Player;

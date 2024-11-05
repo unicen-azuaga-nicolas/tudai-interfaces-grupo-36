@@ -125,7 +125,10 @@ class GameScreen extends BaseScreen {
 
   draw() {
     this.fillBackground();
+    this.fillBackgroundImage(Game.assets[0]);
     this.currentTurnTitle.draw();
+    this.game.player1.dibujarPersonaje(Game.ctx, CanvasUtils.setRelativeX(5), CanvasUtils.setRelativeY(70), 300, 300); 
+    this.game.player2.dibujarPersonaje(Game.ctx, CanvasUtils.setRelativeX(83), CanvasUtils.setRelativeY(70), 300, 300);
     super.draw();
   }
 
