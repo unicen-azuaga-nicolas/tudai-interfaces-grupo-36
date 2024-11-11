@@ -39,6 +39,7 @@
   --spacing-0: 4px;
   --spacing-1: 8px;
   --spacing-2: 14px;
+  --spacing-2-15: 15px;
   --spacing-3: 20px;
   --spacing-4: 22px;
   --spacing-5: 41px;
@@ -46,10 +47,13 @@
   --spacing-7: 55x;
   --spacing-8: 62px;
   --spacing-8-1: 65px;
+  --spacing-8-2: 68px;
   --spacing-9: 80px;
   --spacing-10: 100px;
   --spacing-10-165: 165px;
   --spacing-11: 175px;
+  --spacing-12: 243px;
+  --spacing-13: 267px;
   
 
 }
@@ -297,6 +301,64 @@ button.buy{
     border-radius: 111px;
     box-shadow: 4px 4px   var(--color--box--shadow);/* desplazamiento horizontal desplazamiento vertical color */
 }
+.container-section-3{
+    position: absolute;
+    background-color: white;
+    width: 1280px;
+    height: 5421px;
+    transform: translateY(300px) ;
+    
+}
+.container-img-p{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* Una columna completa */
+    grid-template-rows: 1; /* Ajusta la altura de las filas */
+    margin-bottom: var(--spacing-13);
+    align-items: center;
+}
+.container-img-p img{
+    margin-left: var(--spacing-12);
+    grid-column: 1;
+    grid-row: 1; /* Cada imagen ocupa una fila por separado */
+    
+}
+.container-section-3 h2{
+    margin-left: var(--spacing-10);
+    margin-top: var(--spacing-11);
+    margin-bottom: var(--spacing-8-2);
+    grid-column: 1;
+    
+}
+
+.container-img-p h4{
+    margin-bottom: var(--spacing-2-15);
+ }
+.container-img-p p, .container-img-p h4{
+    display: block;
+    grid-column: 2;
+}
+.container-p-h4{
+    grid-row: 1;
+}
+.img-3-1, 
+.img-3-2, 
+.img-3-3, 
+.img-3-4, 
+.img-3-5, 
+.img-3-6, 
+.img-3-7, 
+.img-3-8, 
+.img-3-9, 
+.img-3-10  {
+    display: none;
+
+}
+.container-img-p .img-visible{
+    width: 291px;  /* Asegura que la imagen ocupe el 100% del espacio de su celda */
+    height: 436px;
+}
+
 .title-and-p{
     display: flex;
     flex-direction: column;
