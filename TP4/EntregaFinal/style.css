@@ -34,7 +34,10 @@
   --color--background-gradiente-ligthgreen: #88DE7F;
   --color--background-gradiente-ligthblue: #A8EBEC;
   --color--box--shadow: #02187E;
-
+  --color--gradient-violet: #a80ea1;
+  --color--gradient-pink: #e04eb2;
+  --color--gradient-greey: #3d363b;
+  --color-gradiente-yelow:#ffda73;
   /* spacing */
   --spacing-0: 4px;
   --spacing-1: 8px;
@@ -427,12 +430,55 @@ h2.h2-section4 {
     transform: translateY(40px);
     margin-left: var(--spacing-10);
     width: 597px;
+    margin-bottom: var(--spacing-14);
 } 
 .container-section-5 img.per-4{
     width: 567px;
     position: relative;
     transform: translate(789px, -840px);    
 }
+.containergnral-img-gradient{
+    transform: translateY(-790px);
+}
+.container-img-gradient{
+    background: linear-gradient(to right, 
+                                         var(--color--title--board),
+                                         var(--color--background--orange),
+                                         var(--color-gradiente-yelow),
+                                         var(--color--btn),
+                                         var(--color--background-gradiente-ligthblue)
+                                         ) ;
+   
+    width: 1280px;
+    height: 364px;
+    position: relative;
+    display: grid; /* Activamos el grid */
+    place-items: center; /* Centra el contenido dentro del contenedor */
+   
+}
+.container-img-gradient2{
+    background: linear-gradient(to right, 
+                                         var(--color--gradient-violet),
+                                         var(--color--background--orange),
+                                         var(--color--gradient-pink),
+                                         var(--color--gradient-greey),
+                                         var(--color--background-gradiente-ligthblue)
+                                         ) ;
+   
+    width: 1280px;
+    height: 364px;
+    position: relative;
+    display: grid; /* Activamos el grid */
+    place-items: center; /* Centra el contenido dentro del contenedor */
+   
+}
+.container-img-x5{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Crea 5 columnas */
+    gap: 20px;
+}
+
+
 .title-and-p{
     display: flex;
     flex-direction: column;
