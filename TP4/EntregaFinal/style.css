@@ -39,6 +39,8 @@
   --color--gradient-greey: #3d363b;
   --color-gradiente-yelow:#ffda73;
   --color-input:#ECECEC;
+  --color--background-footer: #5E5E5D;
+  --color--background-logos: #242424;
   /* spacing */
   --spacing-0: 4px;
   --spacing-1: 8px;
@@ -48,6 +50,7 @@
   --spacing-4: 22px;
   --spacing-4-28: 28px;
   --spacing-4-32: 32px;
+  --spacing-4-35: 35px;
   --spacing-4-36: 36px;
   --spacing-5: 41px;
   --spacing-5-43: 43px;
@@ -82,7 +85,15 @@
 body{
     width: 1280px;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    
 }
+main{
+    flex:1;
+}
+
+/*h varios*/
 h1{
     font-size: var(--font-size-61-14);
     font-weight: var(--font-weight-bold);
@@ -123,6 +134,7 @@ h1.h1-section2{
 h2.h2-section5{
     color: var(--color--title--board);
 }
+/*section1*/
 .container-section1{
     width: 1280px;
     height: 959px;
@@ -177,6 +189,7 @@ button.buy{
 .btn-fondo-bar.central, .btn-fondo-bar.primero {
     box-shadow:  4px 0 var(--color--box--shadow);
 }
+
 .buy{
     padding-top: var(--spacing-2);
     padding-bottom: var(--spacing-2);
@@ -208,6 +221,25 @@ button.buy{
 }
 .img-3{
     transform:translateX(170px) translateY(-60px);
+}
+
+/*section2*/
+.title-and-p{
+    display: flex;
+    flex-direction: column;
+    margin-left:var(--spacing-10);
+    margin-top: var(--spacing-7);
+}
+.title-section-2 {
+    display: inline-block;            /* Permite que el ancho se ajuste al contenido */
+    width: 508px;                   /* Ajusta el ancho máximo (ajústalo según tus necesidades) */
+    word-wrap: break-word;            /* Permite que el texto se ajuste en líneas múltiples */
+    margin-bottom: var(--spacing-4);
+}
+.p-section2{
+    display: inline-block;            /* Permite que el ancho se ajuste al contenido */
+    width: 704px;                   /* Ajusta el ancho máximo (ajústalo según tus necesidades) */
+    word-wrap: break-word;
 }
 
 .container-degrade{
@@ -316,6 +348,7 @@ button.buy{
     border-radius: 111px;
     box-shadow: 4px 4px   var(--color--box--shadow);/* desplazamiento horizontal desplazamiento vertical color */
 }
+/*section3*/
 .container-section-3{
     position: absolute;
     background-color: white;
@@ -377,6 +410,7 @@ button.buy{
 .p-ultimo{
     margin-bottom: var(--spacing-10-165);
 }
+/*section4*/
 .container-section-4 {
     background-color: var(--color--background--orange);
     width: 1280px;
@@ -405,6 +439,7 @@ h2.h2-section4 {
     position: relative;
     margin-left: var(--spacing-19);
 }
+/*section5*/
 .container-section-5{
     background-color: white;
     width: 1280px;
@@ -484,7 +519,7 @@ h2.h2-section4 {
     grid-template-columns: repeat(5, 1fr); /* Crea 5 columnas */
     gap: 20px;
 }
-
+/*section6*/
 .container-section-6{
     background-color: white;
     background-image: url(svg/fondo-sec-6.svg);
@@ -578,26 +613,11 @@ button.subscription {
     width: 770px;
 
 }
-.title-and-p{
-    display: flex;
-    flex-direction: column;
-    margin-left:var(--spacing-10);
-    margin-top: var(--spacing-7);
-}
-.title-section-2 {
-    display: inline-block;            /* Permite que el ancho se ajuste al contenido */
-    width: 508px;                   /* Ajusta el ancho máximo (ajústalo según tus necesidades) */
-    word-wrap: break-word;            /* Permite que el texto se ajuste en líneas múltiples */
-    margin-bottom: var(--spacing-4);
-}
-.p-section2{
-    display: inline-block;            /* Permite que el ancho se ajuste al contenido */
-    width: 704px;                   /* Ajusta el ancho máximo (ajústalo según tus necesidades) */
-    word-wrap: break-word;
-}
+/* */
 
-footer.p{
-    letter-spacing: var(--font--interletraje);
+input.subscription{
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-regular);
 }
 
 button.buy, button.subscription{
@@ -606,7 +626,34 @@ button.buy, button.subscription{
     letter-spacing: var(--font--interletraje);
 }
 
-input.subscription{
-    font-size: var(--font-size-20);
-    font-weight: var(--font-weight-regular);
+
+
+/* footer*/
+footer{
+    background-color: var(--color--background-footer);
+    width: 1280px;
+    height: 734px;
+    position: relative;
+    transform: translateY(5710px);
+    
+}
+footer p, h5{
+    width: 820px;
+    letter-spacing: var(--font--interletraje);
+    margin-left: var(--spacing-10);
+    margin-top: var(--spacing-4-35);
+    margin-bottom: var(--spacing-4-35);
+    color: white;
+}
+
+.container-logos{
+    background-color: var(--color--background-logos);
+    width: 1280px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.redes {
+    margin-left: var(--spacing-10);
 }
