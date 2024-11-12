@@ -43,6 +43,7 @@
   --spacing-3: 20px;
   --spacing-4: 22px;
   --spacing-5: 41px;
+  --spacing-5-43: 43px;
   --spacing-6: 50px;
   --spacing-7: 55x;
   --spacing-8: 62px;
@@ -50,10 +51,14 @@
   --spacing-8-2: 68px;
   --spacing-9: 80px;
   --spacing-10: 100px;
+  --spacing-10-102: 102px;
   --spacing-10-165: 165px;
   --spacing-11: 175px;
   --spacing-12: 243px;
   --spacing-13: 267px;
+  --spacing-14: 298px;
+  --spacing-19: 731px;
+  
   
 
 }
@@ -305,7 +310,7 @@ button.buy{
     position: absolute;
     background-color: white;
     width: 1280px;
-    height: 5421px;
+    height: 5521px;
     transform: translateY(300px) ;
     
 }
@@ -359,7 +364,75 @@ button.buy{
     width: 291px;  /* Asegura que la imagen ocupe el 100% del espacio de su celda */
     height: 436px;
 }
-
+.p-ultimo{
+    margin-bottom: var(--spacing-10-165);
+}
+.container-section-4 {
+    background-color: var(--color--background--orange);
+    width: 1280px;
+    height: 1443px;
+    position:relative;
+    transform: translateY(6055px);
+}
+.container-section-4::after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white; /* Color blanco para el área definida por clip-path */
+    clip-path: path('M 0,0 L 1280,0 L 1280,50 Q 960,100 640,50 T 0,50 Z'); /* Forma onda */
+    pointer-events: none; /* Asegúrate de que el pseudo-elemento no interfiera con la interacción */
+    transform: translateY(-1px);
+}
+h2.h2-section4 {
+   transform: translateY(354px);
+   margin-left: var(--spacing-10);
+   margin-top: var(--spacing-14);
+}
+.img3-section4{
+    position: relative;
+    margin-left: var(--spacing-19);
+}
+.container-section-5{
+    background-color: white;
+    width: 1280px;
+    height: 1760px;
+    transform: translateY(5950px);
+    margin-top: var(--spacing-14);
+}
+.container-section-5::after{
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white; /* Color blanco para el área definida por clip-path */
+    clip-path: ellipse(80% 6% at 50% 100%); /* Forma elíptica */
+    pointer-events: none; /* Asegúrate de que el pseudo-elemento no interfiera con la interacción */
+    transform: translateY(-1900px);
+   
+}
+.h2-section5 {
+    position: relative;
+    width: 896px;
+    height: 345px;
+    z-index: 1;
+    margin-left: var(--spacing-10-102);
+    margin-bottom: var(--spacing-5-43);
+}
+.p-section5 {
+    transform: translateY(40px);
+    margin-left: var(--spacing-10);
+    width: 597px;
+} 
+.container-section-5 img.per-4{
+    width: 567px;
+    position: relative;
+    transform: translate(789px, -840px);    
+}
 .title-and-p{
     display: flex;
     flex-direction: column;
