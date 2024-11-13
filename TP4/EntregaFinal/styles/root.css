@@ -16,7 +16,7 @@
   --font-weight-thin: 100;
   --font-weight-ligth: 300;
   --font-weight-regular: 400;
-  --font-weight-semibold: 600;
+  --font-weight-semibold: 450;
   --font-weight-bold: 700;
   --font-weight-black: 900;
 
@@ -73,6 +73,7 @@
   --spacing-14: 298px;
   --spacing-15: 309px;
   --spacing-17: 431px;
+  --spacing-18: 585px;
   --spacing-19: 731px;
 }
 
