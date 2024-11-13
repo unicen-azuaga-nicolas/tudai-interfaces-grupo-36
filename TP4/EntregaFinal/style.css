@@ -83,7 +83,7 @@
     line-height: var(--font-line--spacing);
 }
 body{
-    width: 1280px;
+    width: 1080px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -136,7 +136,7 @@ h2.h2-section5{
 }
 /*section1*/
 .container-section1{
-    width: 1280px;
+    width: 1080px;
     height: 959px;
     position: relative;
     background-size: cover;   /* Asegura que la imagen cubra todo el contenedor */
@@ -245,7 +245,7 @@ button.buy{
 .container-degrade{
     position: relative;
     margin-top: 0;
-    width: 1280px;
+    width: 1080px;
     height: 3024px;
     background: linear-gradient(to bottom, var(--color--background-gradiente-ligthgreen),var(--color--background-gradiente-ligthblue),var(--color--background-gradiente-ligthblue)) ;
     z-index:1;
@@ -265,7 +265,7 @@ button.buy{
 .cards-app{
     position: relative;
     background-color: white;
-    width: 1280px;
+    width: 1080px;
     height: 1090px;
     z-index:2;
     transform: translateY(-1350px);
@@ -656,4 +656,14 @@ footer p, h5{
 }
 .redes {
     margin-left: var(--spacing-10);
+}
+
+/*loader*/
+.section-loader{
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
 }

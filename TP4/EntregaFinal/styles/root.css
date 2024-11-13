@@ -16,6 +16,7 @@
   --font-weight-thin: 100;
   --font-weight-ligth: 300;
   --font-weight-regular: 400;
+  --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-black: 900;
 
@@ -70,6 +71,8 @@
   --spacing-13: 267px;
   --spacing-13-274: 274px;
   --spacing-14: 298px;
+  --spacing-15: 309px;
+  --spacing-17: 431px;
   --spacing-19: 731px;
 }
 
@@ -82,7 +85,7 @@
 
 html,
 body {
-  height: 100%;
+  height: 1280px;
   margin: 0;
 }
 
@@ -96,17 +99,17 @@ body {
 
 h1 {
   font-size: var(--font-size-61-14);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
 }
 
 h2 {
   font-size: var(--font-size-60);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
 }
 
 h3 {
   font-size: var(--font-size-47);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
 }
 
 h4 {
