@@ -13,7 +13,7 @@
    position: relative;
 }
 .section3-content-containter::after{
-   content: ' ';
+    content: ' ';
     position: absolute;
     top: 0;
     left: 0%;

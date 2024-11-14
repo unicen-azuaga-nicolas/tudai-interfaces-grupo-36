@@ -68,6 +68,7 @@
   --spacing-11: 175px;
   --spacing-11-186: 186px;
   --spacing-12: 243px;
+  --spacing-12-220: 220px;
   --spacing-13: 267px;
   --spacing-13-274: 274px;
   --spacing-14: 298px;
@@ -86,8 +87,9 @@
 
 html,
 body {
-  height: 1280px;
-  margin: 0;
+  width: 1280px;
+  height: auto;
+  margin: auto;
 }
 
 body {
@@ -99,12 +101,12 @@ body {
 /* HEADINGS */
 
 h1 {
-  font-size: var(--font-size-61-14);
+  font-size: var(--font-size-47);
   font-weight: var(--font-weight-semibold);
 }
 
 h2 {
-  font-size: var(--font-size-60);
+  font-size: var(--font-size-47);
   font-weight: var(--font-weight-semibold);
 }
 
@@ -133,7 +135,7 @@ p.p-section2 {
   color: var(--color-contour-blue);
 }
 h1.h1-section2,
-h2.h2-section4 {
+h2.h2-section3 {
   color: white;
 }
 h1.h1-section2 {
@@ -145,7 +147,7 @@ h1.h1-section2 {
   margin-left: var(--spacing-10-165);
   margin-right: var(--spacing-10-165);
 }
-h2.h2-section5 {
+h2.h2-section4 {
   color: var(--color--title--board);
 }
 
