@@ -1,3 +1,99 @@
 .section5 {
     /* estilos */
-  }
+    background-color: white;
+    background-image: url(../svg/fondo-section-5.svg);
+    width: 100%;
+    height: 1572px;
+    margin-top: var(--spacing-11-186);
+    position: relative;
+}
+.section5-content-containter {
+  margin: auto;
+  width: 1080px;
+  height: 100%;
+  position: relative;
+  
+}
+.section5-content-containter h2{
+  width: 862px;
+  margin-bottom: var(--spacing-4-36) ;
+}
+.input-subscription{
+  width: 526px;
+  height: 100px;
+  padding-left: var(--spacing-4-28);
+  background-color: var(--color-input);
+  border: 8px solid white;
+  border-top-left-radius: 111px;
+  border-bottom-left-radius: 111px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 4px 4px   var(--color--box--shadow);
+}
+.input-subscription::placeholder{
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-regular);
+
+}
+.subscription {
+  width: 218px;
+  height: 116px;
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-black);
+  text-align: center;
+  letter-spacing: var(--font--interletraje);
+  color: white;
+  background-color: var(--color--btn);
+  border: 8px solid white;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 111px;
+  border-bottom-right-radius: 111px;
+  box-shadow: 4px 4px   var(--color--box--shadow);
+  margin-left: -10px;
+  
+}
+.container-input{
+  display: flex;
+  align-items: center;
+}
+
+.TEEN-ERSB{
+  margin-top: var(--spacing-1);
+}
+.nube-left{
+  transform: translateX(-50px) translateY(-870px) rotate(180deg);
+  
+}
+.nube-right{
+  transform: translateX(550px) translateY(-1160px);
+  width: 387px;
+  height: 181px;
+}
+.nube-1-right{
+  width: 265px;
+  height: 124px;
+  transform: translateX(50px) translateY(-1260px);
+}
+
+.per-1sec-7{
+  transform: translateX(780px) translateY(-1920px);
+  position: relative;
+  z-index: 2;
+  
+}
+.per-2sec-7{
+  transform: translateX(-340px) translateY(-1000px);
+  position: relative;
+  z-index: 3;
+}
+.per-3sec-7{
+  transform: translateX(460px) translateY(-1000px);
+  position: relative;
+  z-index: 6;
+}
+.section5-content-containter p{
+  margin-top: var(--spacing-5-46);
+  width: 578px;
+
+}
