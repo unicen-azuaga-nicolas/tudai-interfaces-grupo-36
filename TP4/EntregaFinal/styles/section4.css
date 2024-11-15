@@ -88,3 +88,15 @@
   grid-template-columns: repeat(5, 1fr); /* Crea 5 columnas */
   gap: 20px;
 }
+
+.container-img-x5 img{
+  transition: all 300ms;
+  position: relative;
+  z-index: 1;
+}
+.container-img-x5 img:hover{
+  transform: scale(1.15);
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.6);
+  filter: brightness(1.3);
+
+}
