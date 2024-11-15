@@ -350,7 +350,19 @@
                     una experiencia inolvidable llena de color y
                     diversión!
                 </p>
-                <img class="per-4" src="svg/1section4.svg" alt="">
+                <!--<img class="per-4" src="svg/1section4.svg" alt="">-->
+                <model-viewer id="reveal" 
+                        loading="eager"
+                        camera-controls 
+                        touch-action="pan-y"
+                        auto-rotate poster="svg/1section4.svg"
+                        tone-mapping="aces" src="one.glb"
+                        shadow-intensity="1" alt="A 3D model of a shishkebab"
+                        camera-orbit="0deg 180eg 1m">
+                </model-viewer>
+                <!-- camara-controls: permite ver al elemento en diferentes perspectivas y acercarnos a el
+                     auto-rotate el elemento rota
+                     camera-orbit perspeciva y distancia-->
     
             </div>
             <div class="containergnral-img-gradient">
@@ -454,6 +466,8 @@
         </div>
     </footer>
 <script src="js/loader.js"></script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 </body>
 
 </html>

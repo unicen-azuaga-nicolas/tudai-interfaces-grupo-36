@@ -43,7 +43,7 @@
   background: white; /* Color blanco para el área definida por clip-path */
   clip-path: path('M 1280,100 Q 960,0 640,100 T 0,100 L 0,200 L 1280,200 Z'); /* Forma onda */
   pointer-events: none; /* Asegúrate de que el pseudo-elemento no interfiera con la interacción */
-  transform: translateY(734px);
+  
 }
 .cards-app{
   position: relative;

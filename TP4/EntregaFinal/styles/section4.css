@@ -38,11 +38,13 @@
   width: 597px;
   margin-bottom: var(--spacing-14);
 }
-.section4-content-containter img.per-4{
-  width: 567px;
+#reveal{
+  width: 667px;
+  height: 973px;
   position: absolute;
   top: 0;
-  margin-left: var( --spacing-18-599);
+  margin-left: var(--spacing-18-599);
+  margin-bottom: var(--spacing-7);
   
 }
 .containergnral-img-gradient{
