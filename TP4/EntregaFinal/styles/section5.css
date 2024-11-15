@@ -78,23 +78,28 @@
 .per-1sec-7{
   width: 561px;
   height: 997px;
-  transform: translateX(700px) translateY(-1480px);
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   z-index: 2;
   
 }
 .per-2sec-7{
   width: 480px;
   height: 480px;
-  transform: translateX(-400px) translateY(-540px);
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: var(--spacing-8-1);
+  margin-bottom: var(--spacing-6);
   z-index: 3;
 }
 .per-3sec-7{
   width: 509px;
   height: 509px;
-  transform: translateX(400px) translateY(-540px);
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: var(--spacing-6);
+  margin-left: var(--spacing-17-407);
   z-index: 6;
 }
 .loma, .fondo{
