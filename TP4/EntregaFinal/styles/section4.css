@@ -40,8 +40,10 @@
 }
 .section4-content-containter img.per-4{
   width: 567px;
-  position: relative;
-  transform: translate(592px, -1100px);
+  position: absolute;
+  top: 0;
+  margin-left: var( --spacing-18-599);
+  
 }
 .containergnral-img-gradient{
   width: 100%;
