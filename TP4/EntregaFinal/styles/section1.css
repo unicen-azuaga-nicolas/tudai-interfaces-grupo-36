@@ -29,7 +29,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 3024px;
+  height: 100%;
   background: linear-gradient(to bottom, var(--color--background-gradiente-ligthgreen),var(--color--background-gradiente-ligthblue),var(--color--background-gradiente-ligthblue)) ;
   z-index:1;
 }
