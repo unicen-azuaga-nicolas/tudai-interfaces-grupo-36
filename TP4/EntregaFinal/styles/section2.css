@@ -24,11 +24,32 @@
     width: 291px;
     height: 436px;
     margin-left: 243px;
+    overflow: hidden;
 }
 
-.img-hidden {
-    display: none;
+.sticky-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute; /* Superpone las imágenes dentro del contenedor */
+  top: 0;
+  left: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease; /* Transiciones suaves */
 }
+
+.img-visible {
+  opacity: 1; /* Se muestra */
+  transform: scale(1); /* Escala normal */
+  z-index: 1; /* Asegura que esté en frente */
+}
+
+/* Imagen que se oculta */
+.img-hidden {
+  opacity: 0; /* Se desvanece */
+  transform: scale(0.8); /* Se reduce ligeramente */
+  z-index: 0; /* En el fondo */
+}
+
 
 .column-text {
   position: relative;
