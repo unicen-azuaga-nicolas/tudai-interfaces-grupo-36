@@ -1,3 +1,64 @@
 .section2 {
-    /* estilos */
-  }
+  margin-top: 464px;
+}
+.section2 h2 {
+  margin-left: 100px;
+  font-size: 60px;
+  font-weight: 600;
+}
+
+.columns-container {
+    display: flex;
+    justify-content: space-between;
+}
+.column-image {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-top: 68px;
+}
+
+.sticky-container {
+    position: sticky;
+    top: 12%;
+    width: 291px;
+    height: 436px;
+    margin-left: 243px;
+}
+
+.img-hidden {
+    display: none;
+}
+
+.column-text {
+  position: relative;
+  margin-top: 159px;
+}
+
+.container-p-h4 {
+  margin-bottom: 267px;
+  margin-right: 100px;
+  width: 467px;
+  height: 167px;
+}
+.container-p-h4 h4 {
+  font-family: Lato;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 37.8px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-bottom: 15px;
+  
+}
+.container-p-h4 p {
+  font-family: Lato;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 18.9px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  
+}
