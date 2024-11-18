@@ -9,7 +9,7 @@ window.addEventListener("scroll", () => {
     const windowHeight = window.innerHeight;
 
     // Verifica si el contenedor de texto está visible en la ventana
-    if (rect.top >= 0 && rect.top < windowHeight / 1.8) {
+    if (rect.top >= 0 && rect.top < windowHeight / 2) {
       // Oculta todas las imágenes
       images.forEach((img) => {
         img.classList.add("img-hidden");
