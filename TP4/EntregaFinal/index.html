@@ -22,41 +22,61 @@
     <link rel="stylesheet" href="styles/section4.css">
     <link rel="stylesheet" href="styles/section5.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/loader.css">
+    <link rel="stylesheet" href="styles/sprite.css">
     <title>Number Blocks</title>
 </head>
 
 <body>
+    <!--
+    <div id="loaderpage" class="section-loader">
+        <div class="loader">
+            <div class="loader-1"></div>
+            <div class="loader-2"></div>
+        </div>
+    </div>-->
+    <div id="loaderpage" class="section-loader">
+        <div id="percent" class="loading">100%</div>
+        <div class="loader">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </div>
     <main>
-        <!-- Banner Hero Section -->
-        <header class="hero">
-            <!-- Navbar -->
-            <nav class="navbar">
-                <div class="navbar-container">
-                    <div class="container-bar">
-                        <div class="fondo-bar">
-                            <button class="btn-fondo-bar primero"></button>
-                            <button class="btn-fondo-bar central"></button>
-                            <button class="btn-fondo-bar ultimo"></button>
-                        </div>
-                        <i class="fa-solid fa-bars"></i>
+        <!-- Navbar -->
+        <nav id="navbar">
+            <div class="navbar-container">
+                <div class="menu-toggle" id="menu-toggle">
+                    <div class="bar">
+                        <div class="bar--content"></div>
                     </div>
-                    <div class="container-logo">
-                        <img class="logo" src="svg/logo.svg" alt="logo">
+                    <div class="bar">
+                        <div class="bar--content"></div>
                     </div>
-                    <button class="buy">COMPRAR</button>
+                    <div class="bar">
+                        <div class="bar--content"></div>
+                    </div>
                 </div>
-            </nav>
-
+                <img class="logo" id="logo" src="img/navbar/logo.png" alt="logo">
+                <button class="buy">COMPRAR</button>
+            </div>
+        </nav>
+        <!-- Banner Hero Section -->
+        <header class="section hero">
             <div class="hero-content-containter">
-
-
-                <img class="img-1" src="svg/1section1.svg" alt="Personaje color rojo numero 1">
-                <img class="img-2" src="svg/2section1.svg" alt="Pesonaje color naranaja numero 2">
-                <img class="img-3" src="svg/3section1.svg" alt="Personaje color amarillo y rojo numero 3">
+                <img class="arbol arbol-1" src="img/hero/arbol 1.png" alt="arbol">
+                <img class="arbol arbol-2" src="img/hero/arbol 3.png" alt="arbol">
+                <img class="arbol arbol-3" src="img/hero/arbol 2.png" alt="arbol">
+                <img class="personaje pj1" src="img/hero/11.png" alt="Personaje color rojo numero 1">
+                <img class="personaje pj2" src="img/hero/22.png" alt="Pesonaje color naranaja numero 2">
+                <img class="personaje pj3" src="img/hero/33.png" alt="Personaje color amarillo y rojo numero 3">
             </div>
         </header>
 
-        <section class="section1">
+        <section class="section section1">
             <div class="container-degrade">
                 <div class="title-and-p">
                     <h3 class="title-section-2">
@@ -131,7 +151,7 @@
             </div>
         </section>
 
-        <section class="section2">
+        <section class="section section2">
             <h2>Más amigos, más diversión!</h2>
             <div class="columns-container">
                 <div class="column-image">
@@ -265,7 +285,7 @@
             </div>
         </section>
 
-        <section class="section3">
+        <section class="section section3">
             <div class="section3-content-containter">
                 <h2 class="h2-section3">
                     Mira el video y descubre el
@@ -275,10 +295,10 @@
                 <video src="https://www.youtube.com/watch?app=desktop&v=0YKa9DQYdRg"></video>
                 <img class="img3-section3" src="svg/3section4.svg" alt="Personaje de color amarillo con el numero 3">
             </div>
-            
+
         </section>
 
-        <section class="section4">
+        <section class="section section4">
             <div class="section4-content-containter">
                 <h2 class="h2-section4">
                     ¡Experimenta Efectos 3D
@@ -300,8 +320,15 @@
                     una experiencia inolvidable llena de color y
                     diversión!
                 </p>
-                <img class="per-4" src="svg/1section4.svg" alt="">
-    
+                <!--<img class="per-4" src="svg/1section4.svg" alt="">-->
+                <model-viewer id="reveal" loading="eager" camera-controls touch-action="pan-y" auto-rotate
+                    poster="svg/1section4.svg" tone-mapping="aces" src="one.glb" shadow-intensity="1"
+                    alt="A 3D model of a shishkebab" camera-orbit="0deg 180eg 0.5m">
+                </model-viewer>
+                <!-- camara-controls: permite ver al elemento en diferentes perspectivas y acercarnos a el
+                     auto-rotate el elemento rota
+                     camera-orbit perspeciva y distancia-->
+
             </div>
             <div class="containergnral-img-gradient">
                 <div class="container-img-gradient">
@@ -329,22 +356,24 @@
 
                 </div>
             </div>
-            
+
 
 
         </section>
 
-        <section class="section5">
+        <section class="section section5">
             <div class="section5-content-containter">
                 <h2>
                     ¿Quieres ser el primero en
                     enterarse de todas las
                     novedades?
                 </h2>
-                <div class="container-input">
-                    <input class="input-subscription" type="text" placeholder="Ingrese aqui tu correo">
-                    <button class="subscription">SUSCRIBIRSE</button>
-                </div>
+                <form action="">
+                    <div class="container-input">
+                        <input class="input-subscription" type="text" placeholder="Ingrese aqui tu correo" required>
+                        <button class="subscription">SUSCRIBIRSE</button>
+                    </div>
+                </form>
                 <p>
                     Al inscribirse en nuestra lista de correo, nos autoriza a ponernos
                     en contacto con usted para enviarle ofertas y actualizaciones de
@@ -353,20 +382,34 @@
                 </p>
                 <img class="TEEN-ERSB" src="svg/TEENsection7.svg"
                     alt="Mild Languaje Suggestive Themes use of Tabacco Violence">
-                
-                
+
+
             </div>
-            <img class="nube-left" src="svg/nube.svg" alt="Nube">
-            <img class="nube-right" src="svg/nube.svg" alt="Nube">
-            <img class="nube-1-right" src="svg/nube.svg" alt="Nube">
-            <img class="per-3sec-7" src="svg/3section7.svg" alt="Personaje naranja con el numero 2">
-            <img class="per-2sec-7" src="svg/2section7.svg" alt="Personaje amarillo con el numero 3">
-            <img class="per-1sec-7" src="svg/1section7.svg" alt="Personaje multicolor con el numero 1">
-            <img class="loma"  src="svg/fondo-lomas.svg" alt="Loma">
+            <div class="layer layer-1"></div>
+            <div class="layer layer-2"></div>
+            <div class="layer layer-3"></div>
+
+            <img class="per-3sec-7"
+                src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3J5cG15aGhtemJudmY0Mnd5cjQxMDMyOGRnZHJ2bnNnajlyMTNnOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/HuocoB7MEUeLMifGFN/giphy.webp"
+                alt="Personaje amarillo con el numero 3 haciendo malavares en su lugar">
+            <img class="per-2sec-7"
+                src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaThxdmdlYTRnNzhyY2diemUxeTl2M3N3dzg4enVrdnZlOHV2MTl5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/5ddqGqO8x5rrJ7v5tf/giphy.webp"
+                alt="Personaje naranja con el numero 2 bailando">
+            <img class="per-1sec-7"
+                src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXlsdTMyb3hxb3NvaTQ0b2NvdnduM2NobnRoZDNhc3FmbTVoNjcweCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fuTByMqFxstXjmDSYm/giphy.webp"
+                alt="Personaje multicolor con el numero 1 saltando y girando">
+
+            <img class="loma" src="svg/fondo-lomas.svg" alt="Loma">
             <img class="fondo" src="svg/fondo-sec-6.svg" alt="Fondo">
 
-        </section>
+            <div class="sprite-content-container">
 
+                <div class="sprite-container sprite-2"></div>
+                <div class="sprite-container sprite-3"></div>
+                <div class="sprite-container sprite-7"></div>
+
+            </div>
+        </section>
     </main>
     <footer>
         <div class="container-logos">
@@ -399,7 +442,10 @@
             <img src="svg/redes.svg" alt="redes sociales">
         </div>
     </footer>
-
+    <script src="js/loader.js"></script>
+    <script src="js/navbar.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 </body>
 
 </html>

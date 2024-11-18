@@ -1,0 +1,60 @@
+.sprite-content-container{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background: linear-gradient(to bottom,  #88de7f, white);
+    bottom:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.sprite-2{
+    background: url("../png/sprite2nar.png");
+    animation: kick2 1.2s steps(7) infinite;
+    margin-right: var( --spacing-14);
+}
+.sprite-3{
+    background: url("../png/sprite3ama.png");
+    animation: kick3 1.2s steps(9) infinite;
+    margin-right: var( --spacing-14);
+}
+
+.sprite-7{
+    background: url("../png/sprite7.png");
+    animation: kick7 1.2s steps(8) infinite;
+}
+
+.sprite-container{
+    width: 85px;
+    height: 100px;
+    margin-bottom: var(--spacing-6);
+    
+}
+
+
+@keyframes kick2 {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 -1080px;
+    }
+}
+@keyframes kick3 {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 -1080px;
+    }
+}
+@keyframes kick7 {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 -1080px;
+    }
+}
+

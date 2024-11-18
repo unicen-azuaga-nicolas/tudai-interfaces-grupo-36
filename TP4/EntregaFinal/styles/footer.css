@@ -3,12 +3,13 @@ footer {
   width: 100%;
   background-color: var(--color--background-footer);
   height: 734px;
+  position: relative;
+  top: 150px;
 }
 
 .footer-container {
   width: 1080px;
   margin: auto;
-  border: 2px solid red;
 }
 
 .container-logos {
@@ -17,7 +18,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid red;
 }
 
 footer p,
