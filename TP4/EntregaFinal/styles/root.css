@@ -166,3 +166,9 @@ h2.h2-section4 {
   align-items: center; /* Centra los botones horizontalmente */
   gap: 0px;
 }
+
+.section {
+  position: relative;
+  /* se corre 100px por el navbar */
+  top: -100px;
+}

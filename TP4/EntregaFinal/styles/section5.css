@@ -2,8 +2,7 @@
     /* estilos */
     width: 100%;
     height: 1569px;
-    margin-top: var(--spacing-11-186);
-    position: relative;
+    /* margin-top: var(--spacing-11-186); */
 }
 .section5-content-containter {
   margin: auto;
