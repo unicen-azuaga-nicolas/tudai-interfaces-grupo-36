@@ -1,4 +1,4 @@
-nav {
+#navbar {
   height: 60px;
   color: white;
   padding: 10px;
@@ -8,7 +8,14 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(0deg, #00d1d5 100%, #00d1d51f 12%, #01d0d500 0%);
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+}
+
+#navbar.solid {
+  background-color: #00d1d5;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .navbar-container {
@@ -17,7 +24,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
-  position: absolute;
+  position: relative;
+  top: 0;
 }
 
 .menu-toggle {
@@ -43,25 +51,28 @@ nav {
 }
 
 .buy {
+  width: 200px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 18.9px;
   padding-top: var(--spacing-2);
   padding-bottom: var(--spacing-2);
-  padding-left: var(--spacing-4);
-  padding-right: var(--spacing-4);
   color: white;
   background-color: var(--color--btn);
   border: 8px solid white;
-  border-radius: 111px;
-  box-shadow: 4px 4px var(--color--box--shadow); /* desplazamiento horizontal desplazamiento vertical color */
+  border-radius: 50px;
+  box-shadow: 4px 4px var(--color--box--shadow);
+  box-sizing: border-box;
 }
 
 .logo {
   display: block;
   position: absolute;
-  top: 200px;
-  left: 25%;
+  top: 100px;
+  left: 260px;
   transition: all 0.5s ease;
 }
 
 .shrink {
-  transform: translateY(-330px) scale(0.3);
+  transform: translateY(-230px) scale(0.3);
 }
