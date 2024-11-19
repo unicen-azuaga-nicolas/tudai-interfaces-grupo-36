@@ -2,7 +2,7 @@ window.addEventListener("scroll", () => {
   const logo = document.getElementById("logo");
   const navbar = document.getElementById("navbar");
   console.log(window.scrollY);
-  if (window.scrollY > 100) {
+  if (window.scrollY > 50) {
     logo.classList.add("shrink");
   } else {
     logo.classList.remove("shrink");

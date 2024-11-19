@@ -6,6 +6,10 @@ header {
   overflow: hidden;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .hero-content-containter {
   width: 1080px;
   margin: auto;
@@ -13,43 +17,78 @@ header {
   position: relative;
 }
 
-.personaje {
+.hero-content-containter img {
   position: absolute;
+  will-change: transform;
 }
 
 .arbol {
-  position: absolute;
+  z-index: 5;
+  transition: all 2s ease-in-out;
+}
+
+.arbol-1-anim {
+  transform: translateX(-50%);
+  transition: all 1s linear;
+}
+
+.arbol-2-anim {
+  transform: translateX(90%);
+  transition: all 2s linear;
+}
+
+.arbol-3-anim {
+  transform: translateX(80%);
+  transition: all 2.5s linear;
 }
 
 .arbol-1 {
   top: 30px;
-  left: -27%;
+  left: 10%;
+  z-index: 5;
 }
 
 .arbol-2 {
   top: 35%;
-  left: 93%;
+  left: 70%;
+  z-index: 6;
 }
 
 .arbol-3 {
   top: 15%;
-  left: 75%;
-  z-index: 2;
+  left: 45%;
+  z-index: 7;
 }
 
 .pj1 {
   top: 50%;
-  left: 25%;
+  left: -100%;
   z-index: 2;
+  transition: left 1.5s ease-in-out;
+}
+
+.pj1-anim {
+  left: 25%;
 }
 
 .pj2 {
-  top: 40%;
+  top: -100%;
   left: 37%;
   z-index: 1;
+  transition: top 1s ease-in-out;
+}
+
+.pj2-anim {
+  top: 40%;
 }
 
 .pj3 {
   top: 34%;
+  left: 110%;
+  z-index: 2;
+  transition: left 1.5s ease-in-out;
+}
+
+.pj3-anim {
   left: 52%;
 }
