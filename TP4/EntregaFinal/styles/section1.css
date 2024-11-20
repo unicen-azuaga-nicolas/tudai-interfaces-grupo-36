@@ -71,7 +71,7 @@
   z-index: 1;
 }
 .img-per-4 {
-  transform: translateX(48px) translateY(-1050px);
+  transform: translateX(48px) translateY(-1010px);
   position: relative;
   z-index: 3;
 }
@@ -154,14 +154,12 @@
   box-shadow: 4px 4px var(--color--box--shadow); /* desplazamiento horizontal desplazamiento vertical color */
 }
 .position {
-  width: 300px; 
+  width: 300px; /* Ajusta el ancho máximo (ajústalo según tus necesidades) */
 }
 .slides{
-  width:576.38px;
-  height: 324.35px;
+  width:518.38px;
+  height: 266.35px;
   margin-bottom: var(--spacing-4);
-  border: 20px solid var(--color-cardproncipal);
-  border-radius: 50px;
   background-size: cover; /* Escala la imagen para cubrir el contenedor */
   background-position: center; /* Centra la imagen en el contenedor */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -170,9 +168,8 @@
   transform: translateX(236px) translateY(-1210px);
   position: absolute;
   z-index: 1;
-  border: 10px solid var(--color-contour-blue--ligth);
+  border: 29px solid #1B5F99;
   border-radius: 50px;
-  box-shadow: 4px 4px   var(--color--box--shadow);
 }
 
 @keyframes slideAnimation {
