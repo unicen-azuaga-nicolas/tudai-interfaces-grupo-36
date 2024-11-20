@@ -153,3 +153,39 @@
   border-radius: 111px;
   box-shadow: 4px 4px var(--color--box--shadow); /* desplazamiento horizontal desplazamiento vertical color */
 }
+.position {
+  width: 300px; 
+}
+.slides{
+  width:576.38px;
+  height: 324.35px;
+  margin-bottom: var(--spacing-4);
+  border: 20px solid var(--color-cardproncipal);
+  border-radius: 50px;
+  background-size: cover; /* Escala la imagen para cubrir el contenedor */
+  background-position: center; /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-image: url("../svg/cardprincipalsection2.svg");
+  animation: slideAnimation 5s infinite;
+  transform: translateX(236px) translateY(-1210px);
+  position: absolute;
+  z-index: 1;
+  border: 10px solid var(--color-contour-blue--ligth);
+  border-radius: 50px;
+  box-shadow: 4px 4px   var(--color--box--shadow);
+}
+
+@keyframes slideAnimation {
+  0%, 25% {
+    background-image: url("../svg/img0-cambiar-section1.png");
+  }
+  26%, 50% {
+    background-image: url("../svg/img1-cambiar-section1.svg");
+  }
+  51%, 75% {
+    background-image: url("../svg/img2-cambiar-section1.svg");
+  }
+  76%, 100% {
+    background-image: url("../svg/img3-cambiar-section1.svg");
+  }
+}
