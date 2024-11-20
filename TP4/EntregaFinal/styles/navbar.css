@@ -41,6 +41,20 @@
   box-shadow: 4px 4px var(--color--box--shadow);
   position: relative;
   background-color: white;
+  transition: all 1s ease;
+}
+
+.bar-display-none {
+  display: none;
+}
+
+.bar.bar-rotate-left {
+  transform: rotate(45deg);
+  box-shadow: none;
+}
+.bar.bar-rotate-rigth {
+  transform: rotate(-45deg) translateY(-10px) translateX(8px);
+  box-shadow: none;
 }
 
 .bar--content {

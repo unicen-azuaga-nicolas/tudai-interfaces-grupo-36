@@ -92,7 +92,7 @@
 }
 @keyframes slideAnimation {
   0%, 25% {
-    background-image: url("svg/cardprincipalsection2.svg");
+    background-image: url("../svg/cardprincipalsection2.svg");
   }
   26%, 50% {
     background-image: url("../svg/img1-cambiar-section1.svg");
