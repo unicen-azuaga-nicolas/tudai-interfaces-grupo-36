@@ -39,7 +39,7 @@
 .container-degrade::after {
   content: " ";
   position: absolute;
-  top: 25%;
+  bottom: -37%;
   left: 0;
   width: 100%;
   height: 100%;
@@ -65,11 +65,7 @@
   position: relative;
   z-index: 3;
 }
-.card-1 {
-  transform: translateX(-236px) translateY(-910px);
-  position: relative;
-  z-index: 1;
-}
+
 .img-per-4 {
   transform: translateX(48px) translateY(-1050px);
   position: relative;
@@ -79,14 +75,75 @@
 .container-card-app {
   transform: translateY(380px);
 }
-.container-card-app img {
+.slides{
+  width:576.38px;
+  height: 324.35px;
   margin-bottom: var(--spacing-4);
-  padding-left: var(--spacing-5);
+  border: 20px solid var(--color-cardproncipal);
+  border-radius: 50px;
+  background-size: cover; /* Escala la imagen para cubrir el contenedor */
+  background-position: center; /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-image: url("../svg/cardprincipalsection2.svg");
+  animation: slideAnimation 3s infinite;
+  transform: translateX(236px) translateY(-1210px);
+  position: relative;
+  z-index: 1;
 }
+@keyframes slideAnimation {
+  0%, 25% {
+    background-image: url("svg/cardprincipalsection2.svg");
+  }
+  26%, 50% {
+    background-image: url("../svg/img1-cambiar-section1.svg");
+  }
+  51%, 75% {
+    background-image: url("../svg/img2-cambiar-section1.svg");
+  }
+  76%, 100% {
+    background-image: url("../svg/img3-cambiar-section1.svg");
+  }
+  
+ 
+}
+.cards {
+  width:332.96px;
+  height: 302.69px;
+  margin-bottom: var(--spacing-4);
+  border: 10px solid var(--color-contour-blue--ligth);
+  border-radius: 50px;
+  box-shadow: 4px 4px   var(--color--box--shadow);
+  background-size: cover; /* Escala la imagen para cubrir el contenedor */
+  background-position: center; /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  
+}
+
+.uno {
+  margin-left: var(--spacing-10);
+  margin-right: 41px;
+  background-image: url("../svg/card1section2.svg");
+ 
+}
+.dos {
+  background-image: url("../svg/card2section2.svg");
+ 
+}
+
+.tres {
+  background-image: url("../svg/card3section2.svg");
+ 
+}
+
+
+.p-one{
+  margin-left: var(--spacing-10);
+}
+
 .container-card-app p {
+  width: 333px;
   margin-bottom: var(--spacing-10);
-  padding-right: var(--spacing-5);
-  padding-left: var(--spacing-5);
+  
 }
 
 .container-blue {

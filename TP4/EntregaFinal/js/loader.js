@@ -24,7 +24,7 @@ window.addEventListener("load", ()  => {
     
     setTimeout(() => {//retrasa el tiempo de ejecucion
         hideLoader();
-    }, 5000);
+    }, 3000);
 })
 const loader = document.getElementById("loaderpage");
     
@@ -37,5 +37,5 @@ const hideLoader = () => {
     loader.style.visibility = "hidden";
     setTimeout(() => {
         loader.classList.remove("show_loader"); // Quita display:flex después de la transición
-    },  5000); // Coincide con el tiempo de transición
+    },  3000); // Coincide con el tiempo de transición
 }
