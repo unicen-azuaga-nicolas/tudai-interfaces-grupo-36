@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="styles/sprite.css">
     <title>Number Blocks</title>
 </head>
+
 <body>
     <div id="loaderpage" class="section-loader">
         <div id="percent" class="loading">100%</div>
@@ -314,10 +315,19 @@
                     diversión!
                 </p>
                 <!--<img class="per-4" src="svg/1section4.svg" alt="">-->
-                <model-viewer id="reveal" loading="eager" camera-controls touch-action="pan-y" auto-rotate
-                    poster="svg/1section4.svg" tone-mapping="aces" src="one.glb" shadow-intensity="1"
-                    alt="A 3D model of a shishkebab" camera-orbit="0deg 180eg 0.5m">
+                <model-viewer id="reveal" loading="eager" poster="svg/1section4.svg" tone-mapping="aces" src="one.glb"
+                    auto-rotate exposure="0.5" shadow-intensity="1" shadow-intensity="1"
+                    alt="A 3D model of a shishkebab">
                 </model-viewer>
+
+                <!-- <script>
+                    const modelViewer = document.querySelector('model-viewer');
+                    window.addEventListener('scroll', () => {
+                        // girar el mode-viewer cuando se haga scroll
+                        modelViewer.cameraOrbit = `${window.scrollY / 2}deg 90deg 100m`;
+                    });
+                </script> -->
+
                 <!-- camara-controls: permite ver al elemento en diferentes perspectivas y acercarnos a el
                      auto-rotate el elemento rota
                      camera-orbit perspeciva y distancia-->
