@@ -171,5 +171,5 @@ h2.h2-section4 {
 .section {
   position: relative;
   /* se corre 100px por el navbar */
-  top: -100px;
+  top: -125px;
 }

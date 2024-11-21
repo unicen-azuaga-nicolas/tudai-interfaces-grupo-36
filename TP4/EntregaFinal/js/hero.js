@@ -12,8 +12,6 @@ document.addEventListener("scroll", function () {
   const tree2 = heroContainer.querySelector(".arbol-2");
   const tree3 = heroContainer.querySelector(".arbol-3");
 
-  console.log(scrollPosition);
-
   if (scrollPosition > limit) {
     //animacion de personajes
     pj1.classList.add("pj1-anim");
