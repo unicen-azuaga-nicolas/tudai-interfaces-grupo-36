@@ -11,6 +11,7 @@
   --font-size-47: 3.92rem;
   --font-size-60: 5rem;
   --font-size-61-14: 5.1rem;
+  --font-size-101:7.3rem;
 
   /* Font Weight */
   --font-weight-thin: 100;
@@ -70,6 +71,8 @@
   --spacing-11: 175px;
   --spacing-11-186: 186px;
   --spacing-11-193: 193px;
+  
+  --spacing-11-200: 200px;
   --spacing-12: 243px;
   --spacing-12-220: 220px;
   --spacing-13: 267px;

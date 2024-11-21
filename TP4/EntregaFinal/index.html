@@ -291,15 +291,28 @@
             </div>
         </section>
 
-        <section class="section section3">
+        <section id="section3" class="section section3">
             <div class="section3-content-containter">
                 <h2 class="h2-section3">
                     Mira el video y descubre el
                     sorprendente mundo de los
                     NumberBlocks!
                 </h2>
-                <video src="https://www.youtube.com/watch?app=desktop&v=0YKa9DQYdRg"></video>
-                <img class="img3-section3" src="svg/3section4.svg" alt="Personaje de color amarillo con el numero 3">
+                <div id="video-animate" class="content-container-iframe">
+                    <iframe id="youtube-video" width="804" height="452" src="https://www.youtube.com/embed/0YKa9DQYdRg?&autoplay=0" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;" 
+                    referrerpolicy="strict-origin-when-cross-origin"  allowfullscreen ></iframe>
+                    <div class="play"><i class="fa-solid fa-play"></i></div>
+                    <div class="content-conatiner-icons">
+                        <div class="revert"><i class="fa-solid fa-rotate-right"></i></div>
+                        <div class="play-background"><i class="fa-solid fa-play"></i></div>
+                        <div class="book"><i class="fa-solid fa-book"></i></div>
+                    </div>
+                </div>
+                <div id="per-animate">
+
+                </div>
+                
             </div>
 
         </section>
@@ -460,10 +473,11 @@
     <script src="js/loader.js"></script>
     <script src="js/hero.js"></script>
     <script src="js/navbar.js"></script>
-    <script src="js/section1.js"></script>
+    <!--<script src="js/section1.js"></script>-->
     <script src="js/section2.js"></script>
+    <script src="js/section3.js"></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <!--<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>-->
 </body>
 
 </html>
