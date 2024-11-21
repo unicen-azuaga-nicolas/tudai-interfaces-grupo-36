@@ -1,6 +1,7 @@
 document.addEventListener("scroll", function () {
   const scrollPosition = window.scrollY;
   const heroContainer = document.querySelector(".hero-content-containter");
+  const cardsContainer = document.querySelector(".cards-app");
   const limit = 0; // Establece el límite de desplazamiento para activar la animación
   //personajes
   const pj1 = heroContainer.querySelector(".pj1");
@@ -33,5 +34,14 @@ document.addEventListener("scroll", function () {
     tree1.classList.remove("arbol-1-anim");
     tree2.classList.remove("arbol-2-anim");
     tree3.classList.remove("arbol-3-anim");
+  }
+
+  if (scrollPosition > 1250) {
+    let tarjetas = cardsContainer.querySelectorAll('div .container-card-app');
+        tarjetas.forEach(tarjeta => tarjeta.classList.add('card-app-anim'));
+  }
+  else{
+    let tarjetas = cardsContainer.querySelectorAll('div .container-card-app');
+        tarjetas.forEach(tarjeta => tarjeta.classList.remove('card-app-anim'));
   }
 });
