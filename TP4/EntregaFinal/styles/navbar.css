@@ -1,5 +1,5 @@
 #navbar {
-  height: 60px;
+  height: 103px;
   color: white;
   padding: 10px;
   display: flex;
@@ -9,13 +9,11 @@
   top: 0;
   z-index: 1000;
   background-color: transparent;
-  transition: background-color 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 #navbar.solid {
-  background-color: #00d1d5;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, #00d1d5 70%, rgba(0, 209, 213, 0) 100%);
 }
 
 .navbar-container {
@@ -25,7 +23,7 @@
   align-items: center;
   background-color: transparent;
   position: relative;
-  top: 0;
+  top: -10px;
 }
 
 .menu-toggle {
@@ -41,7 +39,7 @@
   box-shadow: 4px 4px var(--color--box--shadow);
   position: relative;
   background-color: white;
-  transition: all 1s ease;
+  transition: all 0.2s linear;
 }
 
 .bar-display-none {
@@ -49,7 +47,7 @@
 }
 
 .bar.bar-rotate-left {
-  transform: rotate(45deg);
+  transform: rotate(45deg) translateX(-1.5px);
   box-shadow: none;
 }
 .bar.bar-rotate-rigth {
@@ -85,8 +83,4 @@
   top: 100px;
   left: 260px;
   transition: all 0.5s ease;
-}
-
-.shrink {
-  transform: translateY(-230px) scale(0.3);
 }

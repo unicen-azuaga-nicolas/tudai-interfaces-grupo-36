@@ -1,11 +1,17 @@
-window.addEventListener("scroll", () => {
-  const logo = document.getElementById("logo");
-  const navbar = document.getElementById("navbar");
+const logo = document.getElementById("logo");
+const navbar = document.getElementById("navbar");
 
-  if (window.scrollY > 50) {
-    logo.classList.add("shrink");
+window.addEventListener("scroll", () => {
+  const logo = document.querySelector(".logo");
+  const maxScroll = 600; // Máximo desplazamiento en Y para la transformación completa
+  const scrollY = window.scrollY;
+
+  if (scrollY <= maxScroll) {
+    const scale = 1 - (scrollY / maxScroll) * 0.7; // Reducir el tamaño hasta el 30%
+    const translateY = -scrollY * (230 / maxScroll); // Subir hasta 230px
+    logo.style.transform = `translateY(${translateY}px) scale(${scale})`;
   } else {
-    logo.classList.remove("shrink");
+    logo.style.transform = "translateY(-230px) scale(0.3)";
   }
 
   if (window.scrollY > 959) {
@@ -30,6 +36,5 @@ menuButton.addEventListener("click", () => {
     bars.item(0).classList.remove("bar-rotate-left");
     bars.item(1).classList.remove("bar-display-none");
     bars.item(2).classList.remove("bar-rotate-rigth");
-
   }
 });
