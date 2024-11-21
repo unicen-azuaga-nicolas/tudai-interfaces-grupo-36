@@ -27,7 +27,6 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   box-shadow: 4px 4px   var(--color--box--shadow);
-  z-index: 10;
 }
 .input-subscription::placeholder{
   font-size: var(--font-size-20);
@@ -50,7 +49,7 @@
   border-bottom-right-radius: 111px;
   box-shadow: 4px 4px   var(--color--box--shadow);
   margin-left: -10px;
-  z-index: 12;
+  
 }
 .container-input{
   display: flex;
@@ -58,10 +57,7 @@
 }
 
 .TEEN-ERSB{
-  position: absolute;
-  background-color: white;
   margin-top: var(--spacing-1);margin-bottom: var(--spacing-4-25);
-  z-index: 14;
 }
 .nube-left{
   transform: translateX(-50px) translateY(-864px) rotate(180deg);
@@ -103,7 +99,7 @@
   bottom: 0;
   margin-bottom: var(--spacing-6);
   margin-left: var(--spacing-17-407);
-  z-index: 4;
+  z-index: 6;
 }
 .loma, .fondo{
   position: absolute;
@@ -139,15 +135,14 @@
   background-size: cover;
 }
 
-.layer-1{
+.layer-4{
   background-image: url("../png/layer4.png");
   animation: scroll 4s infinite linear;
-  
+  z-index: 1;
 }
 .layer-3{
   background-image: url("../png/layer3.png");
   animation: scroll 7s infinite linear;
- 
  
 }
 .layer-2{
