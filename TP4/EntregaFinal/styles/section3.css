@@ -1,12 +1,13 @@
 #section3 {
-    /* estilos */
+  /* estilos */
   background-color: var(--color--background--orange);
   background-position: center;
   width: 100%;
   height: 1443px;
+  overflow: hidden;
 }
-.section3::after{
-  content: ' ';
+.section3::after {
+  content: " ";
   position: absolute;
   top: -10px;
   left: 0;
@@ -14,12 +15,13 @@
   width: 1290px;
   height: 100%;
   background: white; /* Color blanco para el área definida por clip-path */
-  clip-path: path('M 0,0 L 1290,0 L 1280,50 Q 960,100 640,50 T 0,50 Z'); /* Forma onda */
+  clip-path: path(
+    "M 0,0 L 1290,0 L 1280,50 Q 960,100 640,50 T 0,50 Z"
+  ); /* Forma onda */
   pointer-events: none; /* Asegúrate de que el pseudo-elemento no interfiera con la interacción */
-  
 }
 
-.section3-content-containter{
+.section3-content-containter {
   margin: auto;
   width: 1080px;
   height: 100%;
@@ -32,44 +34,43 @@ h2.h2-section3 {
   padding-top: var(--spacing-15);
   padding-bottom: var(--spacing-5-46);
 }
-#per-animate{
+#per-animate {
   background-image: url("../svg/3section4.svg");
-  position: absolute;
   width: 638px;
   height: 989px;
-  margin-left: var(--spacing-18);
-  top:25%;
-  transform: translateY(50);
- 
- 
+  /* margin-left: var(--spacing-18); */
+  position: absolute;
+  top: 250px;
+  right: -250px;
 }
-.content-container-iframe{
+.content-container-iframe {
   position: relative;
-  width:862px;
-  height:510px;
+  width: 862px;
+  height: 510px;
 }
-#video-animate iframe{
+#video-animate iframe {
   border: 29px solid white;
   border-radius: 45px;
   position: absolute;
-  
 }
-.play i, .revert i, .play-background i, .book i{
+.play i,
+.revert i,
+.play-background i,
+.book i {
   color: white;
 }
-.play i{
+.play i {
   font-size: var(--font-size-101);
   font-weight: var(--font-weight-black);
   margin-left: var(--spacing-1);
-  
 }
-.play{
+.play {
   position: absolute;
   top: 0;
   left: 45%;
   margin-top: var(--spacing-11-200);
 }
-.content-conatiner-icons{
+.content-conatiner-icons {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +81,7 @@ h2.h2-section3 {
   bottom: 0;
   left: 32%;
 }
-.play-background i{
+.play-background i {
   font-size: var(--font-size-40);
   background-color: var(--color-contour-blue--ligth);
   width: 100px;
@@ -91,7 +92,8 @@ h2.h2-section3 {
   align-items: center;
   justify-content: center;
 }
-.revert i, .book i{
+.revert i,
+.book i {
   font-size: var(--font-size-31);
   background-color: var(--color-contour-blue--ligth);
   width: 70px;
@@ -103,9 +105,9 @@ h2.h2-section3 {
   justify-content: center;
 }
 
-.revert i{
+.revert i {
   transform: rotate(135deg);
 }
-.play-background i{
+.play-background i {
   font-size: var(--font-size-60);
 }
