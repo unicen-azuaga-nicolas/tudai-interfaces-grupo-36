@@ -1,0 +1,25 @@
+.buy{
+    background: transparent;
+    background-image: url("../png/btnhover.png");
+    width: 200px;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 -100%;
+    transition: 1.5s ease;
+}
+.content-btn-buy{
+    width: 200px;
+    border-radius: 50px;
+    background-color: transparent;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+   
+}
+.buy:hover{
+    background-position: 500% 100%;
+   
+}
