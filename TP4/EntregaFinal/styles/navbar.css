@@ -9,7 +9,6 @@
   top: 0;
   z-index: 1000;
   background-color: transparent;
-  transition: all 0.5s ease;
 }
 
 #navbar.solid {
@@ -82,5 +81,4 @@
   position: absolute;
   top: 100px;
   left: 260px;
-  transition: all 0.5s ease;
 }

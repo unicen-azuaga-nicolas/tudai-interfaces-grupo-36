@@ -13,6 +13,8 @@
     background: url("../png/sprite2nar.png");
     animation: kick2 1.2s steps(7) infinite;
     margin-right: var( --spacing-14);
+    margin-left:var(--spacing-0);
+    
 }
 .sprite-3{
     background: url("../png/sprite3ama.png");
@@ -28,7 +30,7 @@
 .sprite-container{
     width: 85px;
     height: 100px;
-    margin-bottom: var(--spacing-6);
+    margin-bottom: var(--spacing-11);
     
 }
 
@@ -57,4 +59,3 @@
         background-position: 0 -1080px;
     }
 }
-

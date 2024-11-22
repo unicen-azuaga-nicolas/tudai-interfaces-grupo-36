@@ -1,105 +1,109 @@
 .section4 {
-    /* estilos */
-  background-color: white;
-  background-position: center;
-  width: 100%;
-  height: 1760px;
-  display: flex;
-  flex-direction: column;
+  /* estilos */
+background-color: white;
+background-position: center;
+width: 100%;
+height: 1760px;
+display: flex;
+flex-direction: column;
 }
 .section4-content-containter{
-  margin: auto;
-  width: 1080px;
-  height: 100%;
-  position: relative;
-  
+margin: auto;
+width: 1080px;
+height: 100%;
+position: relative;
+
 }
 .section4-content-containter::after{
-  content: ' ';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white; /* Color blanco para el área definida por clip-path */
-  clip-path: ellipse(80% 6% at 50% 100%); /* Forma elíptica */
-  pointer-events: none; /* Asegúrate de que el pseudo-elemento no interfiera con la interacción */
+content: ' ';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: white; /* Color blanco para el área definida por clip-path */
+clip-path: ellipse(80% 6% at 50% 100%); /* Forma elíptica */
+pointer-events: none; /* Asegúrate de que el pseudo-elemento no interfiera con la interacción */
 }
 .h2-section4 {
-  position: relative;
-  width: 746px;
-  height: auto;
-  z-index: 1;
-  padding-top:var(--spacing-12-220);
-  padding-bottom: var(--spacing-5-43);
+position: relative;
+width: 746px;
+height: auto;
+z-index: 1;
+padding-top:var(--spacing-12-220);
+padding-bottom: var(--spacing-5-43);
 }
 .p-section4{
-  width: 597px;
-  margin-bottom: var(--spacing-14);
+width: 597px;
+margin-bottom: var(--spacing-14);
 }
 #reveal{
-  width: 667px;
-  height: 973px;
-  position: absolute;
-  top: 0;
-  margin-left: var(--spacing-18-599);
-  margin-bottom: var(--spacing-7);
-  
+width: 667px;
+height: 973px;
+position: absolute;
+top: 0;
+margin-left: var(--spacing-18-599);
+margin-bottom: var(--spacing-7);
+
 }
 .containergnral-img-gradient{
-  width: 100%;
-  height: auto;
-  position: absolute; /* Posiciona este contenedor al final */
-  bottom: 0;
-  left: 0;
+width: 100%;
+height: auto;
+position: absolute; /* Posiciona este contenedor al final */
+bottom: 0;
+left: 0;
 }
 .container-img-gradient{
-  
-  background: linear-gradient(to right, 
-                                       var(--color--title--board),
-                                       var(--color--background--orange),
-                                       var(--color-gradiente-yelow),
-                                       var(--color--btn),
-                                       var(--color--background-gradiente-ligthblue)
-                                       ) ;
- 
-  width: 100%;
-  height: 364px;
-  position: relative;
-  display: grid; /* Activamos el grid */
-  place-items: center; /* Centra el contenido dentro del contenedor */
- 
+
+background: linear-gradient(to right, 
+                                     var(--color--title--board),
+                                     var(--color--background--orange),
+                                     var(--color-gradiente-yelow),
+                                     var(--color--btn),
+                                     var(--color--background-gradiente-ligthblue)
+                                     ) ;
+
+width: 100%;
+height: 374px;
+position: relative;
+display: grid; /* Activamos el grid */
+
+
 }
 .container-img-gradient2{
- 
-  background: linear-gradient(to right, 
-                                       var(--color--gradient-violet),
-                                       var(--color--background--orange),
-                                       var(--color--gradient-pink),
-                                       var(--color--gradient-greey),
-                                       var(--color--background-gradiente-ligthblue)
-                                       ) ;
- 
-  width: 100%;
-  height: 364px;
-  position: relative;
-  display: grid; /* Activamos el grid */
-  place-items: end center; /* Centra el contenido dentro del contenedor */
+
+background: linear-gradient(to right, 
+                                     var(--color--gradient-violet),
+                                     var(--color--background--orange),
+                                     var(--color--gradient-pink),
+                                     var(--color--gradient-greey),
+                                     var(--color--background-gradiente-ligthblue)
+                                     ) ;
+
+width: 100%;
+height: 364px;
+position: relative;
+display: grid; /* Activamos el grid */
+place-items: end center; /* Centra el contenido dentro del contenedor */
+
 }
+
 .container-img-x5{
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Crea 5 columnas */
-  gap: 20px;
+display: grid;
+grid-template-columns: repeat(5, 1fr); /* Crea 5 columnas */
+gap: 20px;
+overflow: hidden; /* Oculta la parte escalada fuera de los límites */
+position: relative;
 }
 
 .container-img-x5 img{
-  transition: all 300ms;
-  position: relative;
-  z-index: 1;
+transition: all 300ms;
+position: relative;
+z-index: 1;
 }
 .container-img-x5 img:hover{
-  transform: scale(1.15);
-  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.6);
-  filter: brightness(1.3);
+transform: scale(1.15);
+box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.6);
+filter: brightness(1.3);
 
 }
