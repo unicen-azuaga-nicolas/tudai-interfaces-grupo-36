@@ -1,0 +1,137 @@
+header {
+  width: 100%;
+  height: 959px;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.hero-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+header img {
+  position: absolute;
+}
+
+.arbol {
+  z-index: 5;
+}
+
+.arbol-1 {
+  top: 30px;
+  left: 0;
+  z-index: 5;
+}
+
+.arbol-2 {
+  top: 35%;
+  left: 80%;
+  z-index: 6;
+}
+
+.arbol-3 {
+  top: 15%;
+  left: 60%;
+  z-index: 8;
+}
+
+.pj1 {
+  top: 50%;
+  left: 25%;
+  z-index: 2;
+}
+
+.sombra-1 {
+  position: absolute;
+  top: 75%;
+  left: 30%;
+  z-index: 3;
+}
+
+.pj2 {
+  top: 40%;
+  left: 37%;
+  z-index: 1;
+}
+.sombra-2 {
+  position: absolute;
+  top: 70%;
+  left: 40%;
+  z-index: 2;
+}
+
+.pj3 {
+  top: 34%;
+  left: 50%;
+  z-index: 2;
+}
+
+.sombra-3 {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  z-index: 3;
+}
+
+.roca-1 {
+  position: absolute;
+  top: 79%;
+  left: 75%;
+  z-index: 10;
+}
+
+.roca-2 {
+  position: absolute;
+  top: 85%;
+  left: 20%;
+  z-index: 7;
+}
+
+.roca-3 {
+  position: absolute;
+  top: 80%;
+  left: 72%;
+  z-index: 8;
+}
+
+.roca-4 {
+  position: absolute;
+  top: 83%;
+  left: 73%;
+  z-index: 11;
+}
+
+.arbusto-1 {
+  position: absolute;
+  top: 80%;
+  left: 20%;
+  z-index: 4;
+}
+
+.arbusto-2 {
+  position: absolute;
+  top: 82%;
+  left: 10%;
+  z-index: 6;
+}
+
+.arbusto-3 {
+  position: absolute;
+  top: 70%;
+  left: 77%;
+  z-index: 7;
+}
+
+.arbusto-4 {
+  position: absolute;
+  top: 67%;
+  left: 85%;
+  z-index: 5;
+}

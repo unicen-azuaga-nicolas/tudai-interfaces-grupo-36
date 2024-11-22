@@ -1,0 +1,30 @@
+/* footer*/
+footer {
+  width: 100%;
+  background-color: var(--color--background-footer);
+  height: 734px;
+  position: relative;
+  top: 150px;
+}
+
+.footer-container {
+  width: 1080px;
+  margin: auto;
+}
+
+.container-logos {
+  background-color: var(--color--background-logos);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p,
+h5 {
+  width: 820px;
+  letter-spacing: var(--font--interletraje);
+  margin-top: var(--spacing-4-35);
+  margin-bottom: var(--spacing-4-35);
+  color: white;
+}
