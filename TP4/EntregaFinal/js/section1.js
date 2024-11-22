@@ -22,3 +22,17 @@ window.addEventListener("scroll", () => {
     -1010 - scrollValue * 0.25
   }px)`;
 });
+
+document.querySelector(".container-blue").addEventListener("mousemove", (e) => {
+  const { clientX, clientY } = e; // Coordenadas del mouse
+  const { innerWidth, innerHeight } = window; // Dimensiones de la ventana
+
+  // Calcular diferencia desde el centro
+  const deltaX = clientX - innerWidth / 2;
+  const deltaY = clientY - innerHeight / 2;
+
+  // Aplicar transformación
+  document.querySelector("#characters-section2").style.transform = 
+      `scale(1.2) translate(${ -deltaX * 0.1 }px, ${ -deltaY * 0.1 }px)`;
+});
+

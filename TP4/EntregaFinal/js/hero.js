@@ -77,7 +77,7 @@ document.addEventListener("scroll", function () {
     roca4.style.transform = `translateY(${limit}px)`;
   }
 
-  if (scrollPosition > 1250) {
+  if (scrollPosition > 900) {
     let tarjetas = cardsContainer.querySelectorAll("div .container-card-app");
     tarjetas.forEach((tarjeta) => tarjeta.classList.add("card-app-anim"));
   } else {
