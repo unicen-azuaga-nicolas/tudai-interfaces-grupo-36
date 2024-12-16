@@ -7,6 +7,7 @@ import CharacterSelectScreen from "./screens/CharacterSelectScreen.js";
 import GameModeScreen from "./screens/GameModeScreen.js";
 import GameScreen from "./screens/GameScreen.js";
 import MainMenuScreen from "./screens/MainMenuScreen.js";
+import PlayersNameScreen from "./screens/PlayersNameScreen.js";
 import TurnManager from "./TurnManager.js";
 import CanvasUtils from "./utils/CanvasUtils.js";
 import EventHandler from "./utils/EventHandler.js";
@@ -52,6 +53,7 @@ class Game {
       PLAYERSELECT: "playerselect",
       PLAYING: "playing",
       PAUSED: "paused",
+      PLAYERSELECT: "playerselect",
       // Agregar más estados si es necesario
     };
     /**
@@ -195,8 +197,7 @@ class Game {
         this.showMenu();
       },
       onRestartGame: () => {
-        this.currentScreen.destroy(),
-        this.startGame();
+        this.currentScreen.destroy(), this.startGame();
       },
       board: this.board,
     });
@@ -209,7 +210,7 @@ class Game {
     this.currentGameState = this.states.MENU;
     console.log("Show Menu");
     const onExitGame = () => console.log("Exit Game Clicked");
-    const onStartGame = () => this.gameMode();
+    const onStartGame = () => this.showPlayerSetNameScreen();
 
     const menu = new MainMenuScreen({
       onExitGame,
@@ -230,6 +231,21 @@ class Game {
       },
     });
     this.currentScreen = gamemode;
+    this.render();
+  }
+
+  showPlayerSetNameScreen() {
+    this.currentGameState = this.states.PLAYERSELECT;
+    console.log("Player Name Screen");
+    const playersNameScreen = new PlayersNameScreen({
+      onExitGame: () => console.log("Exit Game Clicked"),
+      onPressContinue: (playerOneName, playerTwoName) => {
+        this.player1.setName(playerOneName);
+        this.player2.setName(playerTwoName);
+        this.gameMode();
+      },
+    });
+    this.currentScreen = playersNameScreen;
     this.render();
   }
 

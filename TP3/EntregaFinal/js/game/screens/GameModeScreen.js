@@ -1,6 +1,6 @@
 import BaseScreen from "../abstract/BaseScreen.js";
-import GameObject from "../abstract/GameObject.js";
 import Button from "../components/Button.js";
+import ExitButtonComposite from "../components/ExitButtonComposite.js";
 import Title from "../components/Title.js";
 import Game from "../Game.js";
 import CanvasUtils from "../utils/CanvasUtils.js";
@@ -15,54 +15,56 @@ class GameModeScreen extends BaseScreen {
     this.setBackgroundColor("black");
 
     const modeexitButton = new Button({
-      x: 1764,
-      y: 59,
+      x: CanvasUtils.setRelativeX(90),
+      y: CanvasUtils.setRelativeY(10),
       width: 80,
       height: 80,
       // text: "fa-solid fa-right-to-bracket",
       textColor: "white",
       fontSize: 40,
-      //fontFamily:"Font Awesome",
+      fontFamily: "Font Awesome",
       background: "transparent",
       onClick: () => this.onExitGame(),
       backgroundImage: Game.assets[10],
     });
 
     const modeexitButtonIcon = new Button({
-      x: 1784,
-      y: 82,
+      x: CanvasUtils.setRelativeX(93),
+      y: CanvasUtils.setRelativeY(15),
       width: 40,
       height: 30.48,
-      // text: "fa-solid fa-right-to-bracket",
-      //fontFamily:"Font Awesome",
       color: "white",
       background: "transparent",
       onClick: () => this.onExitGame(),
       backgroundImage: Game.assets[13],
     });
-    console.log("Button Salir:", Game.assets[10]);
+
+  
 
     const title0 = new Title({
-      x: 650,
-      y: 232,
-      width: 619,
-      height: 129,
+      x: CanvasUtils.setRelativeX(10),
+      y: CanvasUtils.setRelativeY(10),
+      width: CanvasUtils.setRelativeWidth(80),
+      height: CanvasUtils.setRelativeHeight(20),
       text: "Elige tu modo de juego",
       fontSize: 32,
       color: "black",
       fontFamily: "Arial Black, Gadget, sans-serif",
       background: "lightgray",
-      backgroundHeight: 100,
-      backgroundWidth: 610,
-      backgroundPosition: { x: 655, y: 250 },
+      backgroundWidth: CanvasUtils.setRelativeWidth(78),
+      backgroundHeight: CanvasUtils.setRelativeHeight(15),
+      backgroundPosition: {
+        x: CanvasUtils.setRelativeX(10),
+        y: CanvasUtils.setRelativeY(12),
+      },
       backgroundImage: Game.assets[12],
     });
 
     const mode4 = new Button({
-      x: 178,
-      y: 373,
-      width: 291,
-      height: 298,
+      x: CanvasUtils.setRelativeX(10),
+      y: CanvasUtils.setRelativeY(50),
+      width: CanvasUtils.setRelativeWidth(40),
+      height: CanvasUtils.setRelativeHeight(50),
       text: "4",
       textColor: "black",
       fontSize: 32,
@@ -119,6 +121,7 @@ class GameModeScreen extends BaseScreen {
     this.add(mode7);
     this.add(modeexitButton);
     this.add(modeexitButtonIcon);
+    
   }
   draw() {
     this.fillBackgroundImage(Game.assets[2]);

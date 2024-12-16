@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const ASSETS_BASE_URL = "../js/game/assets/";
 
-  const MENU_SCREEN_BACKGROUND_URL = `${ASSETS_BASE_URL}menu/fondo.jpg`;
+  const MENU_SCREEN_BACKGROUND_URL = `${ASSETS_BASE_URL}welcome.jpg`;
   const BUTTON_NORMAL_URL = `${ASSETS_BASE_URL}menu/btn-normal.png`;
   const BUTTON_DESACTIVADO_URL = `${ASSETS_BASE_URL}menu/btn-desactivado.png`;
-  const GAMEMODE_BACKGROUND_URL = `${ASSETS_BASE_URL}/FondoNiveles2.png`;
+  const GAMEMODE_BACKGROUND_URL = `${ASSETS_BASE_URL}/fondo.jpg`;
   const PLAYERSELECT_URL = `${ASSETS_BASE_URL}/eligepersonaje3.png`;
   const PIKACHU_URL = `${ASSETS_BASE_URL}/fichav21.png`;
   const CHARMANDER_URL = `${ASSETS_BASE_URL}/fichav24.png`;
@@ -34,34 +34,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const CHARMANDERBTN_URL = `${ASSETS_BASE_URL}/btnnaranjaestandar.png`;
   const BULBASAURBTN_URL = `${ASSETS_BASE_URL}/btnverdeestandar.png`;
   const SNORLAXBTN_URL = `${ASSETS_BASE_URL}/btncelesteestandar.png`;
+  const PLAYERS_NAME_SCREEN_BG = `${ASSETS_BASE_URL}/player-name-background.jpg`;
+  const RIBBON_FOR_TITLES = `${ASSETS_BASE_URL}/ribbon-for-titles.png`;
+  const NAVBAR_GAME = `${ASSETS_BASE_URL}/menu/navbar-game.png`;
 
   const assets = [
-    MENU_SCREEN_BACKGROUND_URL,
-    BUTTON_NORMAL_URL,
-    GAMEMODE_BACKGROUND_URL,
-    PLAYERSELECT_URL,
-    BUTTON_DESACTIVADO_URL,
-    PIKACHU_URL,
-    CHARMANDER_URL,
-    BULBASAUR_URL,
-    SNORLAX_URL,
-    CASILLERO_URL,
-    GAMEMODE_BUTTON_URL,
-    GAMEMODE_POKEBOLA_URL,
-    GAMEMODE_CONTAINER_TEXT,
-    GAMEMODE_ICONO,
-    CHARACTER_PIKACHU_URL,
-    CHARACTER_CHARMANDER_URL,
-    CHARACTER_BULBASAUR_URL,
-    CHARACTER_SNORLAX_URL,
-    GAMEMODE_BUTTON_RESTART_URL,
-    TEMPORIZADOR_URL,
-    RESTARTICON_URL,
-    PIKACHUBTN_URL,
-    CHARMANDERBTN_URL,
-    BULBASAURBTN_URL,
-    SNORLAXBTN_URL,
-    
+    MENU_SCREEN_BACKGROUND_URL, // 0
+    BUTTON_NORMAL_URL, // 1
+    GAMEMODE_BACKGROUND_URL, // 2
+    PLAYERSELECT_URL, // 3
+    BUTTON_DESACTIVADO_URL, // 4
+    PIKACHU_URL, // 5
+    CHARMANDER_URL, // 6
+    BULBASAUR_URL, // 7
+    SNORLAX_URL, // 8
+    CASILLERO_URL, // 9
+    GAMEMODE_BUTTON_URL, // 10
+    GAMEMODE_POKEBOLA_URL, // 11
+    GAMEMODE_CONTAINER_TEXT, // 12
+    GAMEMODE_ICONO, // 13
+    CHARACTER_PIKACHU_URL, // 14
+    CHARACTER_CHARMANDER_URL, // 15
+    CHARACTER_BULBASAUR_URL, // 16
+    CHARACTER_SNORLAX_URL, // 17
+    GAMEMODE_BUTTON_RESTART_URL, // 18
+    TEMPORIZADOR_URL, // 19
+    RESTARTICON_URL, // 20
+    PIKACHUBTN_URL, // 21
+    CHARMANDERBTN_URL, // 22
+    BULBASAURBTN_URL, // 23
+    SNORLAXBTN_URL, // 24
+    PLAYERS_NAME_SCREEN_BG, // 25
+    RIBBON_FOR_TITLES, // 26
+    NAVBAR_GAME, // 27
   ];
 
   function loadImage(src) {
@@ -83,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
     gamePortrait.style.display = "none";
     enterToTheGameBtn.style.display = "none";
     canvas.style.display = "block";
-    // game.showMenu();
 
     loadAssets(assets).then((assets) => {
       const game = new Game("gameCanvas", assets);

@@ -29,6 +29,10 @@ class Player {
     this.color = color;
   }
 
+  setName(name) {
+    this.name = name;
+  }
+
   /**
    * Selecciona un personaje para el jugador.
    * @param {GameCharacter} character
@@ -86,8 +90,6 @@ class Player {
       player: this,
     });
 
-    
-
     // Crear las fichas y apilarlas
     for (let i = 0; i < maxTokens; i++) {
       const x = startX;
@@ -104,7 +106,6 @@ class Player {
    * @returns {number} - Índice de la columna seleccionada.
    */
   getColumnFromClick(mouseX, board) {
-
     const cellSize = board.getSlotSize();
     console.log(`Cell size: ${cellSize}`);
     const boardWidth = board.width;

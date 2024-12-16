@@ -37,6 +37,10 @@ body {
   color: var(--color-white);
 }
 
+.canvasContainer {
+  position: relative;
+}
+
 .title--container--game {
   /* titulo 4 en linea: POKEMON */
   margin-left: 165px;
