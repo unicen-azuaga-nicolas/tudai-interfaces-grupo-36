@@ -6,7 +6,7 @@ import Player from "./Player.js";
 import CharacterSelectScreen from "./screens/CharacterSelectScreen.js";
 import GameModeScreen from "./screens/GameModeScreen.js";
 import GameScreen from "./screens/GameScreen.js";
-import MainMenuScreen from "./screens/MainMenuScreen.js";
+import StartScreen from "./screens/StartScreen.js";
 import PlayersNameScreen from "./screens/PlayersNameScreen.js";
 import TurnManager from "./TurnManager.js";
 import CanvasUtils from "./utils/CanvasUtils.js";
@@ -48,6 +48,7 @@ class Game {
      * @type {GameStates}
      */
     this.states = {
+      START: "start",
       MENU: "menu",
       GAAMEMODE: "gamemode",
       PLAYERSELECT: "playerselect",
@@ -194,7 +195,7 @@ class Game {
       onExitGame: () => {
         this.currentScreen.destroy();
         this.resetGame();
-        this.showMenu();
+        this.showStartScreen();
       },
       onRestartGame: () => {
         this.currentScreen.destroy(), this.startGame();
@@ -206,24 +207,25 @@ class Game {
     this.gameLoop(0);
   }
 
-  showMenu() {
-    this.currentGameState = this.states.MENU;
-    console.log("Show Menu");
+  showStartScreen() {
+    this.currentGameState = this.states.START;
+    console.log("Show Start");
     const onExitGame = () => console.log("Exit Game Clicked");
-    const onStartGame = () => this.showPlayerSetNameScreen();
+    const onNextScreen = () => this.showPlayerSetNameScreen();
 
-    const menu = new MainMenuScreen({
+    const menu = new StartScreen({
       onExitGame,
-      onStartGame,
+      onNextScreen,
     });
     this.currentScreen = menu;
     this.render();
   }
+
   gameMode() {
     this.currentGameState = this.states.GAMEMODE;
     console.log("Game mode screen");
     const gamemode = new GameModeScreen({
-      onExitGame: () => this.showMenu(),
+      onExitGame: () => this.showStartScreen(),
       onSelectMode: (boardSize) => {
         this.boardSize = boardSize; // Asignamos boardSize
         this.characterSelect();
@@ -304,7 +306,7 @@ class Game {
     if (this.currentGameState !== this.states.PLAYING) return;
     const deltaTime = (timestamp - this.lastTime) / 1000; // Convertir a segundos
     this.lastTime = timestamp;
-
+    console.log("Game Loop");
     this.update(deltaTime);
     this.render();
 
@@ -319,6 +321,11 @@ class Game {
     this.clearCanvas();
     this.drawScreen();
   }
+
+
+  
+
+
 }
 
 export default Game;

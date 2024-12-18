@@ -74,7 +74,8 @@ class PlayersNameScreen extends BaseScreen {
       text: "",
       fontSize: 24,
       color: "white",
-      fontFamily: "Arial Black, Gadget, sans-serif",
+      fontFamily: "Poppins, serif",
+      bold: true,
       backgroundImage: Game.assets[27],
     });
     const title1 = new Title({
@@ -94,6 +95,8 @@ class PlayersNameScreen extends BaseScreen {
       width: 200,
       height: 80,
       text: "Continuar",
+      fontFamily: "Poppins, black, serif",
+      fontSize: 24,
       onClick: () => {
         // remover inputs creados
         const inputs = document.querySelectorAll("input");

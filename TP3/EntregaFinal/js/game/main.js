@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const PLAYERS_NAME_SCREEN_BG = `${ASSETS_BASE_URL}/player-name-background.jpg`;
   const RIBBON_FOR_TITLES = `${ASSETS_BASE_URL}/ribbon-for-titles.png`;
   const NAVBAR_GAME = `${ASSETS_BASE_URL}/menu/navbar-game.png`;
+  const PRIMARY_BTN = `${ASSETS_BASE_URL}/ui/buttons/primary-btn.png`;
+  const GAME_MODE_BG = `${ASSETS_BASE_URL}/menu/game-mode-bg.jpg`;
 
   const assets = [
     MENU_SCREEN_BACKGROUND_URL, // 0
@@ -66,7 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
     SNORLAXBTN_URL, // 24
     PLAYERS_NAME_SCREEN_BG, // 25
     RIBBON_FOR_TITLES, // 26
-    NAVBAR_GAME, // 27
+    NAVBAR_GAME, // 27,
+    PRIMARY_BTN, // 28
+    GAME_MODE_BG, // 29
   ];
 
   function loadImage(src) {
@@ -91,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadAssets(assets).then((assets) => {
       const game = new Game("gameCanvas", assets);
-      game.showMenu();
+      game.characterSelect();
     });
   });
 });

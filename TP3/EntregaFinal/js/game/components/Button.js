@@ -24,7 +24,8 @@ class Button extends GameObject {
     this.textColor = textColor || "white";
     this.fontSize = fontSize || 20;
     this.fontFamily = fontFamily || "Arial";
-    this.font = `${this.fontSize}px ${this.fontFamily}`;
+    this.fontWeight = "bold";
+    this.font = `${this.fontWeight} ${this.fontSize}px ${this.fontFamily}`;
     this.drawCustomShape = drawCustomShape;
     this.background = background || "blue";
     this.backgroundImage = backgroundImage || null;
@@ -61,6 +62,11 @@ class Button extends GameObject {
     console.log("Button clicked");
     this.onClick();
   }
+
+  onMouseOver() {
+    console.log("Mouse over button");
+  }
+
 }
 
 export default Button;

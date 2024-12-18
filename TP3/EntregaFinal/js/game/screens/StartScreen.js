@@ -9,19 +9,19 @@ import CanvasUtils from "../utils/CanvasUtils.js";
 /**
  * Tipo de dato para las props de MainMenuScreen
  * @typedef {Object} ScreenProps
- * @property {function} onStartGame
+ * @property {function} onNextScreen
  * @property {function} onExitGame
  */
-class MainMenuScreen extends BaseScreen {
+class StartScreen extends BaseScreen {
   /**
    * @param {ScreenProps} param1
    */
-  constructor({ onStartGame, onExitGame }) {
+  constructor({ onNextScreen, onExitGame }) {
     super();
     /**
      * @type {function}
      */
-    this.onStartGame = onStartGame;
+    this.onNextScreen = onNextScreen;
     /**
      * @type {function}
      */
@@ -37,7 +37,7 @@ class MainMenuScreen extends BaseScreen {
       width: 200,
       height: 80,
       text: "Empezar",
-      onClick: () => this.onStartGame(),
+      onClick: () => this.onNextScreen(),
       backgroundImage: Game.assets[1],
     });
 
@@ -50,4 +50,4 @@ class MainMenuScreen extends BaseScreen {
   }
 }
 
-export default MainMenuScreen;
+export default StartScreen;
